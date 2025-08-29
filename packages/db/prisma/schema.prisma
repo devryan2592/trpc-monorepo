@@ -97,3 +97,202 @@ model ImageGalleryFile {
 
     @@map("media_files")
 }
+
+// Tour Management
+model Destination {
+    id      String  @id @default(uuid())
+    name    String  @unique
+    slug    String  @unique
+    content String? @db.Text
+
+    featured Boolean @default(false)
+
+    currency        String?
+    bestSeasonStart String?
+    bestSeasonEnd   String?
+    languages       String[]
+
+    cities City[]
+    tours  TourDestination[]
+
+    // Simple file data storage
+    thumbnailId String? @unique
+
+    thumbnail Image?  @relation("DestinationThumbnail", fields: [thumbnailId], references: [id])
+    images    Image[] @relation("DestinationImages")
+
+    faqs      FAQ[]
+    createdAt DateTime @default(now()) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
+
+    @@map("destinations")
+}
+
+model City {
+    id   String @id @default(uuid())
+    name String
+    slug String
+
+    destination   Destination? @relation(fields: [destinationId], references: [id], onDelete: Cascade)
+    destinationId String?
+
+    tours TourCity[]
+
+    @@unique([destinationId, name], map: "city_destination_name_unique")
+    @@unique([destinationId, slug], map: "city_destination_slug_unique")
+    @@map("cities")
+}
+
+enum TourType {
+    BUDGET
+    STANDARD
+    PREMIUM
+    LUXURY
+}
+
+model Tour {
+    id       String  @id @default(uuid())
+    name     String  @unique
+    slug     String  @unique
+    content  String? @db.Text
+    featured Boolean @default(false)
+    duration Int?
+
+    tourType TourType? @map("tour_type")
+
+    price      Decimal  @db.Decimal(10, 2)
+    offerPrice Decimal? @db.Decimal(10, 2)
+    currency   String?
+
+    cities TourCity[]
+
+    thumbnailId String? @unique
+    thumbnail   Image?  @relation("TourThumbnail", fields: [thumbnailId], references: [id])
+    images      Image[] @relation("TourImages")
+
+    highlights String[]
+    inclusions String[]
+    exclusions String[]
+    terms      String[]
+
+    faqs FAQ[]
+
+    destinations TourDestination[]
+
+    createdAt DateTime @default(now()) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
+
+    itinerary DayItineraryItem[]
+
+    @@map("tours")
+}
+
+model TourCity {
+    id     String @id @default(uuid())
+    tourId String
+    tour   Tour   @relation(fields: [tourId], references: [id], onDelete: Cascade)
+    cityId String
+    city   City   @relation(fields: [cityId], references: [id], onDelete: Cascade)
+
+    @@unique([tourId, cityId], map: "tour_city_unique")
+    @@index([tourId, cityId])
+    @@map("tour_cities")
+}
+
+model TourDestination {
+    id            String      @id @default(uuid())
+    tourId        String
+    tour          Tour        @relation(fields: [tourId], references: [id], onDelete: Cascade)
+    destinationId String
+    destination   Destination @relation(fields: [destinationId], references: [id], onDelete: Cascade)
+
+    @@unique([tourId, destinationId], map: "tour_destination_unique")
+    @@index([tourId, destinationId])
+    @@map("tour_destinations")
+}
+
+model Attraction {
+    id         String   @id @default(uuid())
+    name       String   @unique
+    slug       String   @unique
+    content    String?  @db.Text
+    duration   Int?
+    price      Decimal  @db.Decimal(10, 2)
+    offerPrice Decimal? @db.Decimal(10, 2)
+
+    thumbnailId String? @unique
+    thumbnail   Image?  @relation("AttractionThumbnail", fields: [thumbnailId], references: [id])
+    images      Image[] @relation("AttractionImages")
+
+    inclusions String[]
+    exclusions String[]
+    terms      String[]
+    faqs       FAQ[]
+    cityId     String
+
+    @@index([id])
+    @@map("attractions")
+}
+
+model FAQ {
+    id            String       @id @default(uuid())
+    question      String
+    answer        String
+    attraction    Attraction?  @relation(fields: [attractionId], references: [id])
+    attractionId  String?
+    tour          Tour?        @relation(fields: [tourId], references: [id])
+    tourId        String?
+    destination   Destination? @relation(fields: [destinationId], references: [id])
+    destinationId String?
+}
+
+enum Meals {
+    BREAKFAST
+    LUNCH
+    DINNER
+}
+
+model DayItineraryItem {
+    id        String  @id @default(uuid())
+    tourId    String
+    tour      Tour    @relation(fields: [tourId], references: [id], onDelete: Cascade)
+    dayNumber Int
+    title     String
+    content   String? @db.Text
+
+    images   Image[] @relation("DayItineraryImages")
+    meals    Meals[]
+    duration Int?
+
+    @@unique([tourId, dayNumber])
+    @@index([tourId])
+    @@map("day_itinerary_items")
+}
+
+model Image {
+    id         String   @id @default(uuid())
+    bucketName String   @map("bucket_name")
+    fileName   String   @map("file_name")
+    altText    String?  @map("alt_text")
+    keywords   String[] @map("keywords")
+
+    createdAt DateTime @default(now()) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
+
+    // Thumbnail relationships (one-to-one)
+    tourThumbnail        Tour?        @relation("TourThumbnail")
+    attractionThumbnail  Attraction?  @relation("AttractionThumbnail")
+    destinationThumbnail Destination? @relation("DestinationThumbnail")
+
+    // Image gallery relationships (one-to-many)
+    tourImages         Tour?             @relation("TourImages", fields: [tourId], references: [id])
+    tourId             String?
+    attractionImages   Attraction?       @relation("AttractionImages", fields: [attractionId], references: [id])
+    attractionId       String?
+    dayItineraryImages DayItineraryItem? @relation("DayItineraryImages", fields: [dayItineraryItemId], references: [id])
+    dayItineraryItemId String?
+    destinationImages  Destination?      @relation("DestinationImages", fields: [destinationId], references: [id])
+    destinationId      String?
+
+    @@map("images")
+}

@@ -43,6 +43,83 @@ export type ImageGalleryFolder = $Result.DefaultSelection<Prisma.$ImageGalleryFo
  * 
  */
 export type ImageGalleryFile = $Result.DefaultSelection<Prisma.$ImageGalleryFilePayload>
+/**
+ * Model Destination
+ * 
+ */
+export type Destination = $Result.DefaultSelection<Prisma.$DestinationPayload>
+/**
+ * Model City
+ * 
+ */
+export type City = $Result.DefaultSelection<Prisma.$CityPayload>
+/**
+ * Model Tour
+ * 
+ */
+export type Tour = $Result.DefaultSelection<Prisma.$TourPayload>
+/**
+ * Model TourCity
+ * 
+ */
+export type TourCity = $Result.DefaultSelection<Prisma.$TourCityPayload>
+/**
+ * Model TourDestination
+ * 
+ */
+export type TourDestination = $Result.DefaultSelection<Prisma.$TourDestinationPayload>
+/**
+ * Model Attraction
+ * 
+ */
+export type Attraction = $Result.DefaultSelection<Prisma.$AttractionPayload>
+/**
+ * Model FAQ
+ * 
+ */
+export type FAQ = $Result.DefaultSelection<Prisma.$FAQPayload>
+/**
+ * Model DayItineraryItem
+ * 
+ */
+export type DayItineraryItem = $Result.DefaultSelection<Prisma.$DayItineraryItemPayload>
+/**
+ * Model Image
+ * 
+ */
+export type Image = $Result.DefaultSelection<Prisma.$ImagePayload>
+
+/**
+ * Enums
+ */
+export namespace $Enums {
+  export const TourType: {
+  BUDGET: 'BUDGET',
+  STANDARD: 'STANDARD',
+  PREMIUM: 'PREMIUM',
+  LUXURY: 'LUXURY'
+};
+
+export type TourType = (typeof TourType)[keyof typeof TourType]
+
+
+export const Meals: {
+  BREAKFAST: 'BREAKFAST',
+  LUNCH: 'LUNCH',
+  DINNER: 'DINNER'
+};
+
+export type Meals = (typeof Meals)[keyof typeof Meals]
+
+}
+
+export type TourType = $Enums.TourType
+
+export const TourType: typeof $Enums.TourType
+
+export type Meals = $Enums.Meals
+
+export const Meals: typeof $Enums.Meals
 
 /**
  * ##  Prisma Client ʲˢ
@@ -221,6 +298,96 @@ export class PrismaClient<
     * ```
     */
   get imageGalleryFile(): Prisma.ImageGalleryFileDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.destination`: Exposes CRUD operations for the **Destination** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Destinations
+    * const destinations = await prisma.destination.findMany()
+    * ```
+    */
+  get destination(): Prisma.DestinationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.city`: Exposes CRUD operations for the **City** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Cities
+    * const cities = await prisma.city.findMany()
+    * ```
+    */
+  get city(): Prisma.CityDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.tour`: Exposes CRUD operations for the **Tour** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Tours
+    * const tours = await prisma.tour.findMany()
+    * ```
+    */
+  get tour(): Prisma.TourDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.tourCity`: Exposes CRUD operations for the **TourCity** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TourCities
+    * const tourCities = await prisma.tourCity.findMany()
+    * ```
+    */
+  get tourCity(): Prisma.TourCityDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.tourDestination`: Exposes CRUD operations for the **TourDestination** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TourDestinations
+    * const tourDestinations = await prisma.tourDestination.findMany()
+    * ```
+    */
+  get tourDestination(): Prisma.TourDestinationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.attraction`: Exposes CRUD operations for the **Attraction** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Attractions
+    * const attractions = await prisma.attraction.findMany()
+    * ```
+    */
+  get attraction(): Prisma.AttractionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.fAQ`: Exposes CRUD operations for the **FAQ** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more FAQS
+    * const fAQS = await prisma.fAQ.findMany()
+    * ```
+    */
+  get fAQ(): Prisma.FAQDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.dayItineraryItem`: Exposes CRUD operations for the **DayItineraryItem** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more DayItineraryItems
+    * const dayItineraryItems = await prisma.dayItineraryItem.findMany()
+    * ```
+    */
+  get dayItineraryItem(): Prisma.DayItineraryItemDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.image`: Exposes CRUD operations for the **Image** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Images
+    * const images = await prisma.image.findMany()
+    * ```
+    */
+  get image(): Prisma.ImageDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -666,7 +833,16 @@ export namespace Prisma {
     Account: 'Account',
     Verification: 'Verification',
     ImageGalleryFolder: 'ImageGalleryFolder',
-    ImageGalleryFile: 'ImageGalleryFile'
+    ImageGalleryFile: 'ImageGalleryFile',
+    Destination: 'Destination',
+    City: 'City',
+    Tour: 'Tour',
+    TourCity: 'TourCity',
+    TourDestination: 'TourDestination',
+    Attraction: 'Attraction',
+    FAQ: 'FAQ',
+    DayItineraryItem: 'DayItineraryItem',
+    Image: 'Image'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -685,7 +861,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "session" | "account" | "verification" | "imageGalleryFolder" | "imageGalleryFile"
+      modelProps: "user" | "session" | "account" | "verification" | "imageGalleryFolder" | "imageGalleryFile" | "destination" | "city" | "tour" | "tourCity" | "tourDestination" | "attraction" | "fAQ" | "dayItineraryItem" | "image"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1133,6 +1309,672 @@ export namespace Prisma {
           }
         }
       }
+      Destination: {
+        payload: Prisma.$DestinationPayload<ExtArgs>
+        fields: Prisma.DestinationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DestinationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DestinationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DestinationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DestinationPayload>
+          }
+          findFirst: {
+            args: Prisma.DestinationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DestinationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DestinationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DestinationPayload>
+          }
+          findMany: {
+            args: Prisma.DestinationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DestinationPayload>[]
+          }
+          create: {
+            args: Prisma.DestinationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DestinationPayload>
+          }
+          createMany: {
+            args: Prisma.DestinationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DestinationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DestinationPayload>[]
+          }
+          delete: {
+            args: Prisma.DestinationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DestinationPayload>
+          }
+          update: {
+            args: Prisma.DestinationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DestinationPayload>
+          }
+          deleteMany: {
+            args: Prisma.DestinationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DestinationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.DestinationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DestinationPayload>[]
+          }
+          upsert: {
+            args: Prisma.DestinationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DestinationPayload>
+          }
+          aggregate: {
+            args: Prisma.DestinationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDestination>
+          }
+          groupBy: {
+            args: Prisma.DestinationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DestinationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DestinationCountArgs<ExtArgs>
+            result: $Utils.Optional<DestinationCountAggregateOutputType> | number
+          }
+        }
+      }
+      City: {
+        payload: Prisma.$CityPayload<ExtArgs>
+        fields: Prisma.CityFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CityFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CityPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CityFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CityPayload>
+          }
+          findFirst: {
+            args: Prisma.CityFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CityPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CityFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CityPayload>
+          }
+          findMany: {
+            args: Prisma.CityFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CityPayload>[]
+          }
+          create: {
+            args: Prisma.CityCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CityPayload>
+          }
+          createMany: {
+            args: Prisma.CityCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CityCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CityPayload>[]
+          }
+          delete: {
+            args: Prisma.CityDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CityPayload>
+          }
+          update: {
+            args: Prisma.CityUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CityPayload>
+          }
+          deleteMany: {
+            args: Prisma.CityDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CityUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CityUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CityPayload>[]
+          }
+          upsert: {
+            args: Prisma.CityUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CityPayload>
+          }
+          aggregate: {
+            args: Prisma.CityAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCity>
+          }
+          groupBy: {
+            args: Prisma.CityGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CityGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CityCountArgs<ExtArgs>
+            result: $Utils.Optional<CityCountAggregateOutputType> | number
+          }
+        }
+      }
+      Tour: {
+        payload: Prisma.$TourPayload<ExtArgs>
+        fields: Prisma.TourFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TourFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TourFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourPayload>
+          }
+          findFirst: {
+            args: Prisma.TourFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TourFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourPayload>
+          }
+          findMany: {
+            args: Prisma.TourFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourPayload>[]
+          }
+          create: {
+            args: Prisma.TourCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourPayload>
+          }
+          createMany: {
+            args: Prisma.TourCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TourCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourPayload>[]
+          }
+          delete: {
+            args: Prisma.TourDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourPayload>
+          }
+          update: {
+            args: Prisma.TourUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourPayload>
+          }
+          deleteMany: {
+            args: Prisma.TourDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TourUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.TourUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourPayload>[]
+          }
+          upsert: {
+            args: Prisma.TourUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourPayload>
+          }
+          aggregate: {
+            args: Prisma.TourAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTour>
+          }
+          groupBy: {
+            args: Prisma.TourGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TourGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TourCountArgs<ExtArgs>
+            result: $Utils.Optional<TourCountAggregateOutputType> | number
+          }
+        }
+      }
+      TourCity: {
+        payload: Prisma.$TourCityPayload<ExtArgs>
+        fields: Prisma.TourCityFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TourCityFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourCityPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TourCityFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourCityPayload>
+          }
+          findFirst: {
+            args: Prisma.TourCityFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourCityPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TourCityFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourCityPayload>
+          }
+          findMany: {
+            args: Prisma.TourCityFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourCityPayload>[]
+          }
+          create: {
+            args: Prisma.TourCityCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourCityPayload>
+          }
+          createMany: {
+            args: Prisma.TourCityCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TourCityCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourCityPayload>[]
+          }
+          delete: {
+            args: Prisma.TourCityDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourCityPayload>
+          }
+          update: {
+            args: Prisma.TourCityUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourCityPayload>
+          }
+          deleteMany: {
+            args: Prisma.TourCityDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TourCityUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.TourCityUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourCityPayload>[]
+          }
+          upsert: {
+            args: Prisma.TourCityUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourCityPayload>
+          }
+          aggregate: {
+            args: Prisma.TourCityAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTourCity>
+          }
+          groupBy: {
+            args: Prisma.TourCityGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TourCityGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TourCityCountArgs<ExtArgs>
+            result: $Utils.Optional<TourCityCountAggregateOutputType> | number
+          }
+        }
+      }
+      TourDestination: {
+        payload: Prisma.$TourDestinationPayload<ExtArgs>
+        fields: Prisma.TourDestinationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TourDestinationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourDestinationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TourDestinationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourDestinationPayload>
+          }
+          findFirst: {
+            args: Prisma.TourDestinationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourDestinationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TourDestinationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourDestinationPayload>
+          }
+          findMany: {
+            args: Prisma.TourDestinationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourDestinationPayload>[]
+          }
+          create: {
+            args: Prisma.TourDestinationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourDestinationPayload>
+          }
+          createMany: {
+            args: Prisma.TourDestinationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TourDestinationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourDestinationPayload>[]
+          }
+          delete: {
+            args: Prisma.TourDestinationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourDestinationPayload>
+          }
+          update: {
+            args: Prisma.TourDestinationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourDestinationPayload>
+          }
+          deleteMany: {
+            args: Prisma.TourDestinationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TourDestinationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.TourDestinationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourDestinationPayload>[]
+          }
+          upsert: {
+            args: Prisma.TourDestinationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TourDestinationPayload>
+          }
+          aggregate: {
+            args: Prisma.TourDestinationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTourDestination>
+          }
+          groupBy: {
+            args: Prisma.TourDestinationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TourDestinationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TourDestinationCountArgs<ExtArgs>
+            result: $Utils.Optional<TourDestinationCountAggregateOutputType> | number
+          }
+        }
+      }
+      Attraction: {
+        payload: Prisma.$AttractionPayload<ExtArgs>
+        fields: Prisma.AttractionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AttractionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AttractionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AttractionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AttractionPayload>
+          }
+          findFirst: {
+            args: Prisma.AttractionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AttractionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AttractionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AttractionPayload>
+          }
+          findMany: {
+            args: Prisma.AttractionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AttractionPayload>[]
+          }
+          create: {
+            args: Prisma.AttractionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AttractionPayload>
+          }
+          createMany: {
+            args: Prisma.AttractionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AttractionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AttractionPayload>[]
+          }
+          delete: {
+            args: Prisma.AttractionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AttractionPayload>
+          }
+          update: {
+            args: Prisma.AttractionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AttractionPayload>
+          }
+          deleteMany: {
+            args: Prisma.AttractionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AttractionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.AttractionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AttractionPayload>[]
+          }
+          upsert: {
+            args: Prisma.AttractionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AttractionPayload>
+          }
+          aggregate: {
+            args: Prisma.AttractionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAttraction>
+          }
+          groupBy: {
+            args: Prisma.AttractionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AttractionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AttractionCountArgs<ExtArgs>
+            result: $Utils.Optional<AttractionCountAggregateOutputType> | number
+          }
+        }
+      }
+      FAQ: {
+        payload: Prisma.$FAQPayload<ExtArgs>
+        fields: Prisma.FAQFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FAQFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FAQPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FAQFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FAQPayload>
+          }
+          findFirst: {
+            args: Prisma.FAQFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FAQPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FAQFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FAQPayload>
+          }
+          findMany: {
+            args: Prisma.FAQFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FAQPayload>[]
+          }
+          create: {
+            args: Prisma.FAQCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FAQPayload>
+          }
+          createMany: {
+            args: Prisma.FAQCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FAQCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FAQPayload>[]
+          }
+          delete: {
+            args: Prisma.FAQDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FAQPayload>
+          }
+          update: {
+            args: Prisma.FAQUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FAQPayload>
+          }
+          deleteMany: {
+            args: Prisma.FAQDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FAQUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.FAQUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FAQPayload>[]
+          }
+          upsert: {
+            args: Prisma.FAQUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FAQPayload>
+          }
+          aggregate: {
+            args: Prisma.FAQAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFAQ>
+          }
+          groupBy: {
+            args: Prisma.FAQGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FAQGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FAQCountArgs<ExtArgs>
+            result: $Utils.Optional<FAQCountAggregateOutputType> | number
+          }
+        }
+      }
+      DayItineraryItem: {
+        payload: Prisma.$DayItineraryItemPayload<ExtArgs>
+        fields: Prisma.DayItineraryItemFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DayItineraryItemFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayItineraryItemPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DayItineraryItemFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayItineraryItemPayload>
+          }
+          findFirst: {
+            args: Prisma.DayItineraryItemFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayItineraryItemPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DayItineraryItemFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayItineraryItemPayload>
+          }
+          findMany: {
+            args: Prisma.DayItineraryItemFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayItineraryItemPayload>[]
+          }
+          create: {
+            args: Prisma.DayItineraryItemCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayItineraryItemPayload>
+          }
+          createMany: {
+            args: Prisma.DayItineraryItemCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DayItineraryItemCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayItineraryItemPayload>[]
+          }
+          delete: {
+            args: Prisma.DayItineraryItemDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayItineraryItemPayload>
+          }
+          update: {
+            args: Prisma.DayItineraryItemUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayItineraryItemPayload>
+          }
+          deleteMany: {
+            args: Prisma.DayItineraryItemDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DayItineraryItemUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.DayItineraryItemUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayItineraryItemPayload>[]
+          }
+          upsert: {
+            args: Prisma.DayItineraryItemUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayItineraryItemPayload>
+          }
+          aggregate: {
+            args: Prisma.DayItineraryItemAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDayItineraryItem>
+          }
+          groupBy: {
+            args: Prisma.DayItineraryItemGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DayItineraryItemGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DayItineraryItemCountArgs<ExtArgs>
+            result: $Utils.Optional<DayItineraryItemCountAggregateOutputType> | number
+          }
+        }
+      }
+      Image: {
+        payload: Prisma.$ImagePayload<ExtArgs>
+        fields: Prisma.ImageFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ImageFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ImageFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagePayload>
+          }
+          findFirst: {
+            args: Prisma.ImageFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ImageFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagePayload>
+          }
+          findMany: {
+            args: Prisma.ImageFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagePayload>[]
+          }
+          create: {
+            args: Prisma.ImageCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagePayload>
+          }
+          createMany: {
+            args: Prisma.ImageCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ImageCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagePayload>[]
+          }
+          delete: {
+            args: Prisma.ImageDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagePayload>
+          }
+          update: {
+            args: Prisma.ImageUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagePayload>
+          }
+          deleteMany: {
+            args: Prisma.ImageDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ImageUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ImageUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagePayload>[]
+          }
+          upsert: {
+            args: Prisma.ImageUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagePayload>
+          }
+          aggregate: {
+            args: Prisma.ImageAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateImage>
+          }
+          groupBy: {
+            args: Prisma.ImageGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ImageGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ImageCountArgs<ExtArgs>
+            result: $Utils.Optional<ImageCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1231,6 +2073,15 @@ export namespace Prisma {
     verification?: VerificationOmit
     imageGalleryFolder?: ImageGalleryFolderOmit
     imageGalleryFile?: ImageGalleryFileOmit
+    destination?: DestinationOmit
+    city?: CityOmit
+    tour?: TourOmit
+    tourCity?: TourCityOmit
+    tourDestination?: TourDestinationOmit
+    attraction?: AttractionOmit
+    fAQ?: FAQOmit
+    dayItineraryItem?: DayItineraryItemOmit
+    image?: ImageOmit
   }
 
   /* Types for Logging */
@@ -1374,6 +2225,233 @@ export namespace Prisma {
    */
   export type ImageGalleryFolderCountOutputTypeCountImageFilesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ImageGalleryFileWhereInput
+  }
+
+
+  /**
+   * Count Type DestinationCountOutputType
+   */
+
+  export type DestinationCountOutputType = {
+    cities: number
+    tours: number
+    images: number
+    faqs: number
+  }
+
+  export type DestinationCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    cities?: boolean | DestinationCountOutputTypeCountCitiesArgs
+    tours?: boolean | DestinationCountOutputTypeCountToursArgs
+    images?: boolean | DestinationCountOutputTypeCountImagesArgs
+    faqs?: boolean | DestinationCountOutputTypeCountFaqsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * DestinationCountOutputType without action
+   */
+  export type DestinationCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DestinationCountOutputType
+     */
+    select?: DestinationCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * DestinationCountOutputType without action
+   */
+  export type DestinationCountOutputTypeCountCitiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CityWhereInput
+  }
+
+  /**
+   * DestinationCountOutputType without action
+   */
+  export type DestinationCountOutputTypeCountToursArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TourDestinationWhereInput
+  }
+
+  /**
+   * DestinationCountOutputType without action
+   */
+  export type DestinationCountOutputTypeCountImagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ImageWhereInput
+  }
+
+  /**
+   * DestinationCountOutputType without action
+   */
+  export type DestinationCountOutputTypeCountFaqsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FAQWhereInput
+  }
+
+
+  /**
+   * Count Type CityCountOutputType
+   */
+
+  export type CityCountOutputType = {
+    tours: number
+  }
+
+  export type CityCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tours?: boolean | CityCountOutputTypeCountToursArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CityCountOutputType without action
+   */
+  export type CityCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CityCountOutputType
+     */
+    select?: CityCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CityCountOutputType without action
+   */
+  export type CityCountOutputTypeCountToursArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TourCityWhereInput
+  }
+
+
+  /**
+   * Count Type TourCountOutputType
+   */
+
+  export type TourCountOutputType = {
+    cities: number
+    images: number
+    faqs: number
+    destinations: number
+    itinerary: number
+  }
+
+  export type TourCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    cities?: boolean | TourCountOutputTypeCountCitiesArgs
+    images?: boolean | TourCountOutputTypeCountImagesArgs
+    faqs?: boolean | TourCountOutputTypeCountFaqsArgs
+    destinations?: boolean | TourCountOutputTypeCountDestinationsArgs
+    itinerary?: boolean | TourCountOutputTypeCountItineraryArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TourCountOutputType without action
+   */
+  export type TourCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourCountOutputType
+     */
+    select?: TourCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TourCountOutputType without action
+   */
+  export type TourCountOutputTypeCountCitiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TourCityWhereInput
+  }
+
+  /**
+   * TourCountOutputType without action
+   */
+  export type TourCountOutputTypeCountImagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ImageWhereInput
+  }
+
+  /**
+   * TourCountOutputType without action
+   */
+  export type TourCountOutputTypeCountFaqsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FAQWhereInput
+  }
+
+  /**
+   * TourCountOutputType without action
+   */
+  export type TourCountOutputTypeCountDestinationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TourDestinationWhereInput
+  }
+
+  /**
+   * TourCountOutputType without action
+   */
+  export type TourCountOutputTypeCountItineraryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DayItineraryItemWhereInput
+  }
+
+
+  /**
+   * Count Type AttractionCountOutputType
+   */
+
+  export type AttractionCountOutputType = {
+    images: number
+    faqs: number
+  }
+
+  export type AttractionCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    images?: boolean | AttractionCountOutputTypeCountImagesArgs
+    faqs?: boolean | AttractionCountOutputTypeCountFaqsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * AttractionCountOutputType without action
+   */
+  export type AttractionCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AttractionCountOutputType
+     */
+    select?: AttractionCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * AttractionCountOutputType without action
+   */
+  export type AttractionCountOutputTypeCountImagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ImageWhereInput
+  }
+
+  /**
+   * AttractionCountOutputType without action
+   */
+  export type AttractionCountOutputTypeCountFaqsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FAQWhereInput
+  }
+
+
+  /**
+   * Count Type DayItineraryItemCountOutputType
+   */
+
+  export type DayItineraryItemCountOutputType = {
+    images: number
+  }
+
+  export type DayItineraryItemCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    images?: boolean | DayItineraryItemCountOutputTypeCountImagesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * DayItineraryItemCountOutputType without action
+   */
+  export type DayItineraryItemCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayItineraryItemCountOutputType
+     */
+    select?: DayItineraryItemCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * DayItineraryItemCountOutputType without action
+   */
+  export type DayItineraryItemCountOutputTypeCountImagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ImageWhereInput
   }
 
 
@@ -7987,6 +9065,10708 @@ export namespace Prisma {
 
 
   /**
+   * Model Destination
+   */
+
+  export type AggregateDestination = {
+    _count: DestinationCountAggregateOutputType | null
+    _min: DestinationMinAggregateOutputType | null
+    _max: DestinationMaxAggregateOutputType | null
+  }
+
+  export type DestinationMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    slug: string | null
+    content: string | null
+    featured: boolean | null
+    currency: string | null
+    bestSeasonStart: string | null
+    bestSeasonEnd: string | null
+    thumbnailId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DestinationMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    slug: string | null
+    content: string | null
+    featured: boolean | null
+    currency: string | null
+    bestSeasonStart: string | null
+    bestSeasonEnd: string | null
+    thumbnailId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DestinationCountAggregateOutputType = {
+    id: number
+    name: number
+    slug: number
+    content: number
+    featured: number
+    currency: number
+    bestSeasonStart: number
+    bestSeasonEnd: number
+    languages: number
+    thumbnailId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type DestinationMinAggregateInputType = {
+    id?: true
+    name?: true
+    slug?: true
+    content?: true
+    featured?: true
+    currency?: true
+    bestSeasonStart?: true
+    bestSeasonEnd?: true
+    thumbnailId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DestinationMaxAggregateInputType = {
+    id?: true
+    name?: true
+    slug?: true
+    content?: true
+    featured?: true
+    currency?: true
+    bestSeasonStart?: true
+    bestSeasonEnd?: true
+    thumbnailId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DestinationCountAggregateInputType = {
+    id?: true
+    name?: true
+    slug?: true
+    content?: true
+    featured?: true
+    currency?: true
+    bestSeasonStart?: true
+    bestSeasonEnd?: true
+    languages?: true
+    thumbnailId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type DestinationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Destination to aggregate.
+     */
+    where?: DestinationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Destinations to fetch.
+     */
+    orderBy?: DestinationOrderByWithRelationInput | DestinationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DestinationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Destinations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Destinations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Destinations
+    **/
+    _count?: true | DestinationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DestinationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DestinationMaxAggregateInputType
+  }
+
+  export type GetDestinationAggregateType<T extends DestinationAggregateArgs> = {
+        [P in keyof T & keyof AggregateDestination]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDestination[P]>
+      : GetScalarType<T[P], AggregateDestination[P]>
+  }
+
+
+
+
+  export type DestinationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DestinationWhereInput
+    orderBy?: DestinationOrderByWithAggregationInput | DestinationOrderByWithAggregationInput[]
+    by: DestinationScalarFieldEnum[] | DestinationScalarFieldEnum
+    having?: DestinationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DestinationCountAggregateInputType | true
+    _min?: DestinationMinAggregateInputType
+    _max?: DestinationMaxAggregateInputType
+  }
+
+  export type DestinationGroupByOutputType = {
+    id: string
+    name: string
+    slug: string
+    content: string | null
+    featured: boolean
+    currency: string | null
+    bestSeasonStart: string | null
+    bestSeasonEnd: string | null
+    languages: string[]
+    thumbnailId: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: DestinationCountAggregateOutputType | null
+    _min: DestinationMinAggregateOutputType | null
+    _max: DestinationMaxAggregateOutputType | null
+  }
+
+  type GetDestinationGroupByPayload<T extends DestinationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DestinationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DestinationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DestinationGroupByOutputType[P]>
+            : GetScalarType<T[P], DestinationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DestinationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    content?: boolean
+    featured?: boolean
+    currency?: boolean
+    bestSeasonStart?: boolean
+    bestSeasonEnd?: boolean
+    languages?: boolean
+    thumbnailId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    cities?: boolean | Destination$citiesArgs<ExtArgs>
+    tours?: boolean | Destination$toursArgs<ExtArgs>
+    thumbnail?: boolean | Destination$thumbnailArgs<ExtArgs>
+    images?: boolean | Destination$imagesArgs<ExtArgs>
+    faqs?: boolean | Destination$faqsArgs<ExtArgs>
+    _count?: boolean | DestinationCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["destination"]>
+
+  export type DestinationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    content?: boolean
+    featured?: boolean
+    currency?: boolean
+    bestSeasonStart?: boolean
+    bestSeasonEnd?: boolean
+    languages?: boolean
+    thumbnailId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    thumbnail?: boolean | Destination$thumbnailArgs<ExtArgs>
+  }, ExtArgs["result"]["destination"]>
+
+  export type DestinationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    content?: boolean
+    featured?: boolean
+    currency?: boolean
+    bestSeasonStart?: boolean
+    bestSeasonEnd?: boolean
+    languages?: boolean
+    thumbnailId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    thumbnail?: boolean | Destination$thumbnailArgs<ExtArgs>
+  }, ExtArgs["result"]["destination"]>
+
+  export type DestinationSelectScalar = {
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    content?: boolean
+    featured?: boolean
+    currency?: boolean
+    bestSeasonStart?: boolean
+    bestSeasonEnd?: boolean
+    languages?: boolean
+    thumbnailId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type DestinationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "slug" | "content" | "featured" | "currency" | "bestSeasonStart" | "bestSeasonEnd" | "languages" | "thumbnailId" | "createdAt" | "updatedAt", ExtArgs["result"]["destination"]>
+  export type DestinationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    cities?: boolean | Destination$citiesArgs<ExtArgs>
+    tours?: boolean | Destination$toursArgs<ExtArgs>
+    thumbnail?: boolean | Destination$thumbnailArgs<ExtArgs>
+    images?: boolean | Destination$imagesArgs<ExtArgs>
+    faqs?: boolean | Destination$faqsArgs<ExtArgs>
+    _count?: boolean | DestinationCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type DestinationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    thumbnail?: boolean | Destination$thumbnailArgs<ExtArgs>
+  }
+  export type DestinationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    thumbnail?: boolean | Destination$thumbnailArgs<ExtArgs>
+  }
+
+  export type $DestinationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Destination"
+    objects: {
+      cities: Prisma.$CityPayload<ExtArgs>[]
+      tours: Prisma.$TourDestinationPayload<ExtArgs>[]
+      thumbnail: Prisma.$ImagePayload<ExtArgs> | null
+      images: Prisma.$ImagePayload<ExtArgs>[]
+      faqs: Prisma.$FAQPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      slug: string
+      content: string | null
+      featured: boolean
+      currency: string | null
+      bestSeasonStart: string | null
+      bestSeasonEnd: string | null
+      languages: string[]
+      thumbnailId: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["destination"]>
+    composites: {}
+  }
+
+  type DestinationGetPayload<S extends boolean | null | undefined | DestinationDefaultArgs> = $Result.GetResult<Prisma.$DestinationPayload, S>
+
+  type DestinationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DestinationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DestinationCountAggregateInputType | true
+    }
+
+  export interface DestinationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Destination'], meta: { name: 'Destination' } }
+    /**
+     * Find zero or one Destination that matches the filter.
+     * @param {DestinationFindUniqueArgs} args - Arguments to find a Destination
+     * @example
+     * // Get one Destination
+     * const destination = await prisma.destination.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DestinationFindUniqueArgs>(args: SelectSubset<T, DestinationFindUniqueArgs<ExtArgs>>): Prisma__DestinationClient<$Result.GetResult<Prisma.$DestinationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Destination that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DestinationFindUniqueOrThrowArgs} args - Arguments to find a Destination
+     * @example
+     * // Get one Destination
+     * const destination = await prisma.destination.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DestinationFindUniqueOrThrowArgs>(args: SelectSubset<T, DestinationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DestinationClient<$Result.GetResult<Prisma.$DestinationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Destination that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DestinationFindFirstArgs} args - Arguments to find a Destination
+     * @example
+     * // Get one Destination
+     * const destination = await prisma.destination.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DestinationFindFirstArgs>(args?: SelectSubset<T, DestinationFindFirstArgs<ExtArgs>>): Prisma__DestinationClient<$Result.GetResult<Prisma.$DestinationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Destination that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DestinationFindFirstOrThrowArgs} args - Arguments to find a Destination
+     * @example
+     * // Get one Destination
+     * const destination = await prisma.destination.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DestinationFindFirstOrThrowArgs>(args?: SelectSubset<T, DestinationFindFirstOrThrowArgs<ExtArgs>>): Prisma__DestinationClient<$Result.GetResult<Prisma.$DestinationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Destinations that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DestinationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Destinations
+     * const destinations = await prisma.destination.findMany()
+     * 
+     * // Get first 10 Destinations
+     * const destinations = await prisma.destination.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const destinationWithIdOnly = await prisma.destination.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DestinationFindManyArgs>(args?: SelectSubset<T, DestinationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DestinationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Destination.
+     * @param {DestinationCreateArgs} args - Arguments to create a Destination.
+     * @example
+     * // Create one Destination
+     * const Destination = await prisma.destination.create({
+     *   data: {
+     *     // ... data to create a Destination
+     *   }
+     * })
+     * 
+     */
+    create<T extends DestinationCreateArgs>(args: SelectSubset<T, DestinationCreateArgs<ExtArgs>>): Prisma__DestinationClient<$Result.GetResult<Prisma.$DestinationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Destinations.
+     * @param {DestinationCreateManyArgs} args - Arguments to create many Destinations.
+     * @example
+     * // Create many Destinations
+     * const destination = await prisma.destination.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DestinationCreateManyArgs>(args?: SelectSubset<T, DestinationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Destinations and returns the data saved in the database.
+     * @param {DestinationCreateManyAndReturnArgs} args - Arguments to create many Destinations.
+     * @example
+     * // Create many Destinations
+     * const destination = await prisma.destination.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Destinations and only return the `id`
+     * const destinationWithIdOnly = await prisma.destination.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DestinationCreateManyAndReturnArgs>(args?: SelectSubset<T, DestinationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DestinationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Destination.
+     * @param {DestinationDeleteArgs} args - Arguments to delete one Destination.
+     * @example
+     * // Delete one Destination
+     * const Destination = await prisma.destination.delete({
+     *   where: {
+     *     // ... filter to delete one Destination
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DestinationDeleteArgs>(args: SelectSubset<T, DestinationDeleteArgs<ExtArgs>>): Prisma__DestinationClient<$Result.GetResult<Prisma.$DestinationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Destination.
+     * @param {DestinationUpdateArgs} args - Arguments to update one Destination.
+     * @example
+     * // Update one Destination
+     * const destination = await prisma.destination.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DestinationUpdateArgs>(args: SelectSubset<T, DestinationUpdateArgs<ExtArgs>>): Prisma__DestinationClient<$Result.GetResult<Prisma.$DestinationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Destinations.
+     * @param {DestinationDeleteManyArgs} args - Arguments to filter Destinations to delete.
+     * @example
+     * // Delete a few Destinations
+     * const { count } = await prisma.destination.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DestinationDeleteManyArgs>(args?: SelectSubset<T, DestinationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Destinations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DestinationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Destinations
+     * const destination = await prisma.destination.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DestinationUpdateManyArgs>(args: SelectSubset<T, DestinationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Destinations and returns the data updated in the database.
+     * @param {DestinationUpdateManyAndReturnArgs} args - Arguments to update many Destinations.
+     * @example
+     * // Update many Destinations
+     * const destination = await prisma.destination.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Destinations and only return the `id`
+     * const destinationWithIdOnly = await prisma.destination.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends DestinationUpdateManyAndReturnArgs>(args: SelectSubset<T, DestinationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DestinationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Destination.
+     * @param {DestinationUpsertArgs} args - Arguments to update or create a Destination.
+     * @example
+     * // Update or create a Destination
+     * const destination = await prisma.destination.upsert({
+     *   create: {
+     *     // ... data to create a Destination
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Destination we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DestinationUpsertArgs>(args: SelectSubset<T, DestinationUpsertArgs<ExtArgs>>): Prisma__DestinationClient<$Result.GetResult<Prisma.$DestinationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Destinations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DestinationCountArgs} args - Arguments to filter Destinations to count.
+     * @example
+     * // Count the number of Destinations
+     * const count = await prisma.destination.count({
+     *   where: {
+     *     // ... the filter for the Destinations we want to count
+     *   }
+     * })
+    **/
+    count<T extends DestinationCountArgs>(
+      args?: Subset<T, DestinationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DestinationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Destination.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DestinationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DestinationAggregateArgs>(args: Subset<T, DestinationAggregateArgs>): Prisma.PrismaPromise<GetDestinationAggregateType<T>>
+
+    /**
+     * Group by Destination.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DestinationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DestinationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DestinationGroupByArgs['orderBy'] }
+        : { orderBy?: DestinationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DestinationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDestinationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Destination model
+   */
+  readonly fields: DestinationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Destination.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DestinationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    cities<T extends Destination$citiesArgs<ExtArgs> = {}>(args?: Subset<T, Destination$citiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    tours<T extends Destination$toursArgs<ExtArgs> = {}>(args?: Subset<T, Destination$toursArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TourDestinationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    thumbnail<T extends Destination$thumbnailArgs<ExtArgs> = {}>(args?: Subset<T, Destination$thumbnailArgs<ExtArgs>>): Prisma__ImageClient<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    images<T extends Destination$imagesArgs<ExtArgs> = {}>(args?: Subset<T, Destination$imagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    faqs<T extends Destination$faqsArgs<ExtArgs> = {}>(args?: Subset<T, Destination$faqsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Destination model
+   */
+  interface DestinationFieldRefs {
+    readonly id: FieldRef<"Destination", 'String'>
+    readonly name: FieldRef<"Destination", 'String'>
+    readonly slug: FieldRef<"Destination", 'String'>
+    readonly content: FieldRef<"Destination", 'String'>
+    readonly featured: FieldRef<"Destination", 'Boolean'>
+    readonly currency: FieldRef<"Destination", 'String'>
+    readonly bestSeasonStart: FieldRef<"Destination", 'String'>
+    readonly bestSeasonEnd: FieldRef<"Destination", 'String'>
+    readonly languages: FieldRef<"Destination", 'String[]'>
+    readonly thumbnailId: FieldRef<"Destination", 'String'>
+    readonly createdAt: FieldRef<"Destination", 'DateTime'>
+    readonly updatedAt: FieldRef<"Destination", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Destination findUnique
+   */
+  export type DestinationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Destination
+     */
+    select?: DestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Destination
+     */
+    omit?: DestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DestinationInclude<ExtArgs> | null
+    /**
+     * Filter, which Destination to fetch.
+     */
+    where: DestinationWhereUniqueInput
+  }
+
+  /**
+   * Destination findUniqueOrThrow
+   */
+  export type DestinationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Destination
+     */
+    select?: DestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Destination
+     */
+    omit?: DestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DestinationInclude<ExtArgs> | null
+    /**
+     * Filter, which Destination to fetch.
+     */
+    where: DestinationWhereUniqueInput
+  }
+
+  /**
+   * Destination findFirst
+   */
+  export type DestinationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Destination
+     */
+    select?: DestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Destination
+     */
+    omit?: DestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DestinationInclude<ExtArgs> | null
+    /**
+     * Filter, which Destination to fetch.
+     */
+    where?: DestinationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Destinations to fetch.
+     */
+    orderBy?: DestinationOrderByWithRelationInput | DestinationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Destinations.
+     */
+    cursor?: DestinationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Destinations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Destinations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Destinations.
+     */
+    distinct?: DestinationScalarFieldEnum | DestinationScalarFieldEnum[]
+  }
+
+  /**
+   * Destination findFirstOrThrow
+   */
+  export type DestinationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Destination
+     */
+    select?: DestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Destination
+     */
+    omit?: DestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DestinationInclude<ExtArgs> | null
+    /**
+     * Filter, which Destination to fetch.
+     */
+    where?: DestinationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Destinations to fetch.
+     */
+    orderBy?: DestinationOrderByWithRelationInput | DestinationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Destinations.
+     */
+    cursor?: DestinationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Destinations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Destinations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Destinations.
+     */
+    distinct?: DestinationScalarFieldEnum | DestinationScalarFieldEnum[]
+  }
+
+  /**
+   * Destination findMany
+   */
+  export type DestinationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Destination
+     */
+    select?: DestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Destination
+     */
+    omit?: DestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DestinationInclude<ExtArgs> | null
+    /**
+     * Filter, which Destinations to fetch.
+     */
+    where?: DestinationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Destinations to fetch.
+     */
+    orderBy?: DestinationOrderByWithRelationInput | DestinationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Destinations.
+     */
+    cursor?: DestinationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Destinations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Destinations.
+     */
+    skip?: number
+    distinct?: DestinationScalarFieldEnum | DestinationScalarFieldEnum[]
+  }
+
+  /**
+   * Destination create
+   */
+  export type DestinationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Destination
+     */
+    select?: DestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Destination
+     */
+    omit?: DestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DestinationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Destination.
+     */
+    data: XOR<DestinationCreateInput, DestinationUncheckedCreateInput>
+  }
+
+  /**
+   * Destination createMany
+   */
+  export type DestinationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Destinations.
+     */
+    data: DestinationCreateManyInput | DestinationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Destination createManyAndReturn
+   */
+  export type DestinationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Destination
+     */
+    select?: DestinationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Destination
+     */
+    omit?: DestinationOmit<ExtArgs> | null
+    /**
+     * The data used to create many Destinations.
+     */
+    data: DestinationCreateManyInput | DestinationCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DestinationIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Destination update
+   */
+  export type DestinationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Destination
+     */
+    select?: DestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Destination
+     */
+    omit?: DestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DestinationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Destination.
+     */
+    data: XOR<DestinationUpdateInput, DestinationUncheckedUpdateInput>
+    /**
+     * Choose, which Destination to update.
+     */
+    where: DestinationWhereUniqueInput
+  }
+
+  /**
+   * Destination updateMany
+   */
+  export type DestinationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Destinations.
+     */
+    data: XOR<DestinationUpdateManyMutationInput, DestinationUncheckedUpdateManyInput>
+    /**
+     * Filter which Destinations to update
+     */
+    where?: DestinationWhereInput
+    /**
+     * Limit how many Destinations to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Destination updateManyAndReturn
+   */
+  export type DestinationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Destination
+     */
+    select?: DestinationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Destination
+     */
+    omit?: DestinationOmit<ExtArgs> | null
+    /**
+     * The data used to update Destinations.
+     */
+    data: XOR<DestinationUpdateManyMutationInput, DestinationUncheckedUpdateManyInput>
+    /**
+     * Filter which Destinations to update
+     */
+    where?: DestinationWhereInput
+    /**
+     * Limit how many Destinations to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DestinationIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Destination upsert
+   */
+  export type DestinationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Destination
+     */
+    select?: DestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Destination
+     */
+    omit?: DestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DestinationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Destination to update in case it exists.
+     */
+    where: DestinationWhereUniqueInput
+    /**
+     * In case the Destination found by the `where` argument doesn't exist, create a new Destination with this data.
+     */
+    create: XOR<DestinationCreateInput, DestinationUncheckedCreateInput>
+    /**
+     * In case the Destination was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DestinationUpdateInput, DestinationUncheckedUpdateInput>
+  }
+
+  /**
+   * Destination delete
+   */
+  export type DestinationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Destination
+     */
+    select?: DestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Destination
+     */
+    omit?: DestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DestinationInclude<ExtArgs> | null
+    /**
+     * Filter which Destination to delete.
+     */
+    where: DestinationWhereUniqueInput
+  }
+
+  /**
+   * Destination deleteMany
+   */
+  export type DestinationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Destinations to delete
+     */
+    where?: DestinationWhereInput
+    /**
+     * Limit how many Destinations to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Destination.cities
+   */
+  export type Destination$citiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the City
+     */
+    select?: CitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the City
+     */
+    omit?: CityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CityInclude<ExtArgs> | null
+    where?: CityWhereInput
+    orderBy?: CityOrderByWithRelationInput | CityOrderByWithRelationInput[]
+    cursor?: CityWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CityScalarFieldEnum | CityScalarFieldEnum[]
+  }
+
+  /**
+   * Destination.tours
+   */
+  export type Destination$toursArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourDestination
+     */
+    select?: TourDestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourDestination
+     */
+    omit?: TourDestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourDestinationInclude<ExtArgs> | null
+    where?: TourDestinationWhereInput
+    orderBy?: TourDestinationOrderByWithRelationInput | TourDestinationOrderByWithRelationInput[]
+    cursor?: TourDestinationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TourDestinationScalarFieldEnum | TourDestinationScalarFieldEnum[]
+  }
+
+  /**
+   * Destination.thumbnail
+   */
+  export type Destination$thumbnailArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Image
+     */
+    select?: ImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Image
+     */
+    omit?: ImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImageInclude<ExtArgs> | null
+    where?: ImageWhereInput
+  }
+
+  /**
+   * Destination.images
+   */
+  export type Destination$imagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Image
+     */
+    select?: ImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Image
+     */
+    omit?: ImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImageInclude<ExtArgs> | null
+    where?: ImageWhereInput
+    orderBy?: ImageOrderByWithRelationInput | ImageOrderByWithRelationInput[]
+    cursor?: ImageWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ImageScalarFieldEnum | ImageScalarFieldEnum[]
+  }
+
+  /**
+   * Destination.faqs
+   */
+  export type Destination$faqsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FAQ
+     */
+    select?: FAQSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FAQ
+     */
+    omit?: FAQOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FAQInclude<ExtArgs> | null
+    where?: FAQWhereInput
+    orderBy?: FAQOrderByWithRelationInput | FAQOrderByWithRelationInput[]
+    cursor?: FAQWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FAQScalarFieldEnum | FAQScalarFieldEnum[]
+  }
+
+  /**
+   * Destination without action
+   */
+  export type DestinationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Destination
+     */
+    select?: DestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Destination
+     */
+    omit?: DestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DestinationInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model City
+   */
+
+  export type AggregateCity = {
+    _count: CityCountAggregateOutputType | null
+    _min: CityMinAggregateOutputType | null
+    _max: CityMaxAggregateOutputType | null
+  }
+
+  export type CityMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    slug: string | null
+    destinationId: string | null
+  }
+
+  export type CityMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    slug: string | null
+    destinationId: string | null
+  }
+
+  export type CityCountAggregateOutputType = {
+    id: number
+    name: number
+    slug: number
+    destinationId: number
+    _all: number
+  }
+
+
+  export type CityMinAggregateInputType = {
+    id?: true
+    name?: true
+    slug?: true
+    destinationId?: true
+  }
+
+  export type CityMaxAggregateInputType = {
+    id?: true
+    name?: true
+    slug?: true
+    destinationId?: true
+  }
+
+  export type CityCountAggregateInputType = {
+    id?: true
+    name?: true
+    slug?: true
+    destinationId?: true
+    _all?: true
+  }
+
+  export type CityAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which City to aggregate.
+     */
+    where?: CityWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Cities to fetch.
+     */
+    orderBy?: CityOrderByWithRelationInput | CityOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CityWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Cities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Cities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Cities
+    **/
+    _count?: true | CityCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CityMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CityMaxAggregateInputType
+  }
+
+  export type GetCityAggregateType<T extends CityAggregateArgs> = {
+        [P in keyof T & keyof AggregateCity]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCity[P]>
+      : GetScalarType<T[P], AggregateCity[P]>
+  }
+
+
+
+
+  export type CityGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CityWhereInput
+    orderBy?: CityOrderByWithAggregationInput | CityOrderByWithAggregationInput[]
+    by: CityScalarFieldEnum[] | CityScalarFieldEnum
+    having?: CityScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CityCountAggregateInputType | true
+    _min?: CityMinAggregateInputType
+    _max?: CityMaxAggregateInputType
+  }
+
+  export type CityGroupByOutputType = {
+    id: string
+    name: string
+    slug: string
+    destinationId: string | null
+    _count: CityCountAggregateOutputType | null
+    _min: CityMinAggregateOutputType | null
+    _max: CityMaxAggregateOutputType | null
+  }
+
+  type GetCityGroupByPayload<T extends CityGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CityGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CityGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CityGroupByOutputType[P]>
+            : GetScalarType<T[P], CityGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CitySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    destinationId?: boolean
+    destination?: boolean | City$destinationArgs<ExtArgs>
+    tours?: boolean | City$toursArgs<ExtArgs>
+    _count?: boolean | CityCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["city"]>
+
+  export type CitySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    destinationId?: boolean
+    destination?: boolean | City$destinationArgs<ExtArgs>
+  }, ExtArgs["result"]["city"]>
+
+  export type CitySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    destinationId?: boolean
+    destination?: boolean | City$destinationArgs<ExtArgs>
+  }, ExtArgs["result"]["city"]>
+
+  export type CitySelectScalar = {
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    destinationId?: boolean
+  }
+
+  export type CityOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "slug" | "destinationId", ExtArgs["result"]["city"]>
+  export type CityInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    destination?: boolean | City$destinationArgs<ExtArgs>
+    tours?: boolean | City$toursArgs<ExtArgs>
+    _count?: boolean | CityCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type CityIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    destination?: boolean | City$destinationArgs<ExtArgs>
+  }
+  export type CityIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    destination?: boolean | City$destinationArgs<ExtArgs>
+  }
+
+  export type $CityPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "City"
+    objects: {
+      destination: Prisma.$DestinationPayload<ExtArgs> | null
+      tours: Prisma.$TourCityPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      slug: string
+      destinationId: string | null
+    }, ExtArgs["result"]["city"]>
+    composites: {}
+  }
+
+  type CityGetPayload<S extends boolean | null | undefined | CityDefaultArgs> = $Result.GetResult<Prisma.$CityPayload, S>
+
+  type CityCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CityFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CityCountAggregateInputType | true
+    }
+
+  export interface CityDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['City'], meta: { name: 'City' } }
+    /**
+     * Find zero or one City that matches the filter.
+     * @param {CityFindUniqueArgs} args - Arguments to find a City
+     * @example
+     * // Get one City
+     * const city = await prisma.city.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CityFindUniqueArgs>(args: SelectSubset<T, CityFindUniqueArgs<ExtArgs>>): Prisma__CityClient<$Result.GetResult<Prisma.$CityPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one City that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CityFindUniqueOrThrowArgs} args - Arguments to find a City
+     * @example
+     * // Get one City
+     * const city = await prisma.city.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CityFindUniqueOrThrowArgs>(args: SelectSubset<T, CityFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CityClient<$Result.GetResult<Prisma.$CityPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first City that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CityFindFirstArgs} args - Arguments to find a City
+     * @example
+     * // Get one City
+     * const city = await prisma.city.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CityFindFirstArgs>(args?: SelectSubset<T, CityFindFirstArgs<ExtArgs>>): Prisma__CityClient<$Result.GetResult<Prisma.$CityPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first City that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CityFindFirstOrThrowArgs} args - Arguments to find a City
+     * @example
+     * // Get one City
+     * const city = await prisma.city.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CityFindFirstOrThrowArgs>(args?: SelectSubset<T, CityFindFirstOrThrowArgs<ExtArgs>>): Prisma__CityClient<$Result.GetResult<Prisma.$CityPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Cities that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CityFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Cities
+     * const cities = await prisma.city.findMany()
+     * 
+     * // Get first 10 Cities
+     * const cities = await prisma.city.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const cityWithIdOnly = await prisma.city.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CityFindManyArgs>(args?: SelectSubset<T, CityFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a City.
+     * @param {CityCreateArgs} args - Arguments to create a City.
+     * @example
+     * // Create one City
+     * const City = await prisma.city.create({
+     *   data: {
+     *     // ... data to create a City
+     *   }
+     * })
+     * 
+     */
+    create<T extends CityCreateArgs>(args: SelectSubset<T, CityCreateArgs<ExtArgs>>): Prisma__CityClient<$Result.GetResult<Prisma.$CityPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Cities.
+     * @param {CityCreateManyArgs} args - Arguments to create many Cities.
+     * @example
+     * // Create many Cities
+     * const city = await prisma.city.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CityCreateManyArgs>(args?: SelectSubset<T, CityCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Cities and returns the data saved in the database.
+     * @param {CityCreateManyAndReturnArgs} args - Arguments to create many Cities.
+     * @example
+     * // Create many Cities
+     * const city = await prisma.city.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Cities and only return the `id`
+     * const cityWithIdOnly = await prisma.city.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CityCreateManyAndReturnArgs>(args?: SelectSubset<T, CityCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CityPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a City.
+     * @param {CityDeleteArgs} args - Arguments to delete one City.
+     * @example
+     * // Delete one City
+     * const City = await prisma.city.delete({
+     *   where: {
+     *     // ... filter to delete one City
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CityDeleteArgs>(args: SelectSubset<T, CityDeleteArgs<ExtArgs>>): Prisma__CityClient<$Result.GetResult<Prisma.$CityPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one City.
+     * @param {CityUpdateArgs} args - Arguments to update one City.
+     * @example
+     * // Update one City
+     * const city = await prisma.city.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CityUpdateArgs>(args: SelectSubset<T, CityUpdateArgs<ExtArgs>>): Prisma__CityClient<$Result.GetResult<Prisma.$CityPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Cities.
+     * @param {CityDeleteManyArgs} args - Arguments to filter Cities to delete.
+     * @example
+     * // Delete a few Cities
+     * const { count } = await prisma.city.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CityDeleteManyArgs>(args?: SelectSubset<T, CityDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Cities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CityUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Cities
+     * const city = await prisma.city.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CityUpdateManyArgs>(args: SelectSubset<T, CityUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Cities and returns the data updated in the database.
+     * @param {CityUpdateManyAndReturnArgs} args - Arguments to update many Cities.
+     * @example
+     * // Update many Cities
+     * const city = await prisma.city.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Cities and only return the `id`
+     * const cityWithIdOnly = await prisma.city.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CityUpdateManyAndReturnArgs>(args: SelectSubset<T, CityUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CityPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one City.
+     * @param {CityUpsertArgs} args - Arguments to update or create a City.
+     * @example
+     * // Update or create a City
+     * const city = await prisma.city.upsert({
+     *   create: {
+     *     // ... data to create a City
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the City we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CityUpsertArgs>(args: SelectSubset<T, CityUpsertArgs<ExtArgs>>): Prisma__CityClient<$Result.GetResult<Prisma.$CityPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Cities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CityCountArgs} args - Arguments to filter Cities to count.
+     * @example
+     * // Count the number of Cities
+     * const count = await prisma.city.count({
+     *   where: {
+     *     // ... the filter for the Cities we want to count
+     *   }
+     * })
+    **/
+    count<T extends CityCountArgs>(
+      args?: Subset<T, CityCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CityCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a City.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CityAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CityAggregateArgs>(args: Subset<T, CityAggregateArgs>): Prisma.PrismaPromise<GetCityAggregateType<T>>
+
+    /**
+     * Group by City.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CityGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CityGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CityGroupByArgs['orderBy'] }
+        : { orderBy?: CityGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CityGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCityGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the City model
+   */
+  readonly fields: CityFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for City.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CityClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    destination<T extends City$destinationArgs<ExtArgs> = {}>(args?: Subset<T, City$destinationArgs<ExtArgs>>): Prisma__DestinationClient<$Result.GetResult<Prisma.$DestinationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    tours<T extends City$toursArgs<ExtArgs> = {}>(args?: Subset<T, City$toursArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TourCityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the City model
+   */
+  interface CityFieldRefs {
+    readonly id: FieldRef<"City", 'String'>
+    readonly name: FieldRef<"City", 'String'>
+    readonly slug: FieldRef<"City", 'String'>
+    readonly destinationId: FieldRef<"City", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * City findUnique
+   */
+  export type CityFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the City
+     */
+    select?: CitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the City
+     */
+    omit?: CityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CityInclude<ExtArgs> | null
+    /**
+     * Filter, which City to fetch.
+     */
+    where: CityWhereUniqueInput
+  }
+
+  /**
+   * City findUniqueOrThrow
+   */
+  export type CityFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the City
+     */
+    select?: CitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the City
+     */
+    omit?: CityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CityInclude<ExtArgs> | null
+    /**
+     * Filter, which City to fetch.
+     */
+    where: CityWhereUniqueInput
+  }
+
+  /**
+   * City findFirst
+   */
+  export type CityFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the City
+     */
+    select?: CitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the City
+     */
+    omit?: CityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CityInclude<ExtArgs> | null
+    /**
+     * Filter, which City to fetch.
+     */
+    where?: CityWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Cities to fetch.
+     */
+    orderBy?: CityOrderByWithRelationInput | CityOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Cities.
+     */
+    cursor?: CityWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Cities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Cities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Cities.
+     */
+    distinct?: CityScalarFieldEnum | CityScalarFieldEnum[]
+  }
+
+  /**
+   * City findFirstOrThrow
+   */
+  export type CityFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the City
+     */
+    select?: CitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the City
+     */
+    omit?: CityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CityInclude<ExtArgs> | null
+    /**
+     * Filter, which City to fetch.
+     */
+    where?: CityWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Cities to fetch.
+     */
+    orderBy?: CityOrderByWithRelationInput | CityOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Cities.
+     */
+    cursor?: CityWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Cities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Cities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Cities.
+     */
+    distinct?: CityScalarFieldEnum | CityScalarFieldEnum[]
+  }
+
+  /**
+   * City findMany
+   */
+  export type CityFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the City
+     */
+    select?: CitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the City
+     */
+    omit?: CityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CityInclude<ExtArgs> | null
+    /**
+     * Filter, which Cities to fetch.
+     */
+    where?: CityWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Cities to fetch.
+     */
+    orderBy?: CityOrderByWithRelationInput | CityOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Cities.
+     */
+    cursor?: CityWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Cities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Cities.
+     */
+    skip?: number
+    distinct?: CityScalarFieldEnum | CityScalarFieldEnum[]
+  }
+
+  /**
+   * City create
+   */
+  export type CityCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the City
+     */
+    select?: CitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the City
+     */
+    omit?: CityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CityInclude<ExtArgs> | null
+    /**
+     * The data needed to create a City.
+     */
+    data: XOR<CityCreateInput, CityUncheckedCreateInput>
+  }
+
+  /**
+   * City createMany
+   */
+  export type CityCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Cities.
+     */
+    data: CityCreateManyInput | CityCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * City createManyAndReturn
+   */
+  export type CityCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the City
+     */
+    select?: CitySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the City
+     */
+    omit?: CityOmit<ExtArgs> | null
+    /**
+     * The data used to create many Cities.
+     */
+    data: CityCreateManyInput | CityCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CityIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * City update
+   */
+  export type CityUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the City
+     */
+    select?: CitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the City
+     */
+    omit?: CityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CityInclude<ExtArgs> | null
+    /**
+     * The data needed to update a City.
+     */
+    data: XOR<CityUpdateInput, CityUncheckedUpdateInput>
+    /**
+     * Choose, which City to update.
+     */
+    where: CityWhereUniqueInput
+  }
+
+  /**
+   * City updateMany
+   */
+  export type CityUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Cities.
+     */
+    data: XOR<CityUpdateManyMutationInput, CityUncheckedUpdateManyInput>
+    /**
+     * Filter which Cities to update
+     */
+    where?: CityWhereInput
+    /**
+     * Limit how many Cities to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * City updateManyAndReturn
+   */
+  export type CityUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the City
+     */
+    select?: CitySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the City
+     */
+    omit?: CityOmit<ExtArgs> | null
+    /**
+     * The data used to update Cities.
+     */
+    data: XOR<CityUpdateManyMutationInput, CityUncheckedUpdateManyInput>
+    /**
+     * Filter which Cities to update
+     */
+    where?: CityWhereInput
+    /**
+     * Limit how many Cities to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CityIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * City upsert
+   */
+  export type CityUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the City
+     */
+    select?: CitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the City
+     */
+    omit?: CityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CityInclude<ExtArgs> | null
+    /**
+     * The filter to search for the City to update in case it exists.
+     */
+    where: CityWhereUniqueInput
+    /**
+     * In case the City found by the `where` argument doesn't exist, create a new City with this data.
+     */
+    create: XOR<CityCreateInput, CityUncheckedCreateInput>
+    /**
+     * In case the City was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CityUpdateInput, CityUncheckedUpdateInput>
+  }
+
+  /**
+   * City delete
+   */
+  export type CityDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the City
+     */
+    select?: CitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the City
+     */
+    omit?: CityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CityInclude<ExtArgs> | null
+    /**
+     * Filter which City to delete.
+     */
+    where: CityWhereUniqueInput
+  }
+
+  /**
+   * City deleteMany
+   */
+  export type CityDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Cities to delete
+     */
+    where?: CityWhereInput
+    /**
+     * Limit how many Cities to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * City.destination
+   */
+  export type City$destinationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Destination
+     */
+    select?: DestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Destination
+     */
+    omit?: DestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DestinationInclude<ExtArgs> | null
+    where?: DestinationWhereInput
+  }
+
+  /**
+   * City.tours
+   */
+  export type City$toursArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourCity
+     */
+    select?: TourCitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourCity
+     */
+    omit?: TourCityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourCityInclude<ExtArgs> | null
+    where?: TourCityWhereInput
+    orderBy?: TourCityOrderByWithRelationInput | TourCityOrderByWithRelationInput[]
+    cursor?: TourCityWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TourCityScalarFieldEnum | TourCityScalarFieldEnum[]
+  }
+
+  /**
+   * City without action
+   */
+  export type CityDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the City
+     */
+    select?: CitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the City
+     */
+    omit?: CityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CityInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Tour
+   */
+
+  export type AggregateTour = {
+    _count: TourCountAggregateOutputType | null
+    _avg: TourAvgAggregateOutputType | null
+    _sum: TourSumAggregateOutputType | null
+    _min: TourMinAggregateOutputType | null
+    _max: TourMaxAggregateOutputType | null
+  }
+
+  export type TourAvgAggregateOutputType = {
+    duration: number | null
+    price: Decimal | null
+    offerPrice: Decimal | null
+  }
+
+  export type TourSumAggregateOutputType = {
+    duration: number | null
+    price: Decimal | null
+    offerPrice: Decimal | null
+  }
+
+  export type TourMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    slug: string | null
+    content: string | null
+    featured: boolean | null
+    duration: number | null
+    tourType: $Enums.TourType | null
+    price: Decimal | null
+    offerPrice: Decimal | null
+    currency: string | null
+    thumbnailId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TourMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    slug: string | null
+    content: string | null
+    featured: boolean | null
+    duration: number | null
+    tourType: $Enums.TourType | null
+    price: Decimal | null
+    offerPrice: Decimal | null
+    currency: string | null
+    thumbnailId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TourCountAggregateOutputType = {
+    id: number
+    name: number
+    slug: number
+    content: number
+    featured: number
+    duration: number
+    tourType: number
+    price: number
+    offerPrice: number
+    currency: number
+    thumbnailId: number
+    highlights: number
+    inclusions: number
+    exclusions: number
+    terms: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type TourAvgAggregateInputType = {
+    duration?: true
+    price?: true
+    offerPrice?: true
+  }
+
+  export type TourSumAggregateInputType = {
+    duration?: true
+    price?: true
+    offerPrice?: true
+  }
+
+  export type TourMinAggregateInputType = {
+    id?: true
+    name?: true
+    slug?: true
+    content?: true
+    featured?: true
+    duration?: true
+    tourType?: true
+    price?: true
+    offerPrice?: true
+    currency?: true
+    thumbnailId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TourMaxAggregateInputType = {
+    id?: true
+    name?: true
+    slug?: true
+    content?: true
+    featured?: true
+    duration?: true
+    tourType?: true
+    price?: true
+    offerPrice?: true
+    currency?: true
+    thumbnailId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TourCountAggregateInputType = {
+    id?: true
+    name?: true
+    slug?: true
+    content?: true
+    featured?: true
+    duration?: true
+    tourType?: true
+    price?: true
+    offerPrice?: true
+    currency?: true
+    thumbnailId?: true
+    highlights?: true
+    inclusions?: true
+    exclusions?: true
+    terms?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type TourAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Tour to aggregate.
+     */
+    where?: TourWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Tours to fetch.
+     */
+    orderBy?: TourOrderByWithRelationInput | TourOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TourWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Tours from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Tours.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Tours
+    **/
+    _count?: true | TourCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TourAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TourSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TourMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TourMaxAggregateInputType
+  }
+
+  export type GetTourAggregateType<T extends TourAggregateArgs> = {
+        [P in keyof T & keyof AggregateTour]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTour[P]>
+      : GetScalarType<T[P], AggregateTour[P]>
+  }
+
+
+
+
+  export type TourGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TourWhereInput
+    orderBy?: TourOrderByWithAggregationInput | TourOrderByWithAggregationInput[]
+    by: TourScalarFieldEnum[] | TourScalarFieldEnum
+    having?: TourScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TourCountAggregateInputType | true
+    _avg?: TourAvgAggregateInputType
+    _sum?: TourSumAggregateInputType
+    _min?: TourMinAggregateInputType
+    _max?: TourMaxAggregateInputType
+  }
+
+  export type TourGroupByOutputType = {
+    id: string
+    name: string
+    slug: string
+    content: string | null
+    featured: boolean
+    duration: number | null
+    tourType: $Enums.TourType | null
+    price: Decimal
+    offerPrice: Decimal | null
+    currency: string | null
+    thumbnailId: string | null
+    highlights: string[]
+    inclusions: string[]
+    exclusions: string[]
+    terms: string[]
+    createdAt: Date
+    updatedAt: Date
+    _count: TourCountAggregateOutputType | null
+    _avg: TourAvgAggregateOutputType | null
+    _sum: TourSumAggregateOutputType | null
+    _min: TourMinAggregateOutputType | null
+    _max: TourMaxAggregateOutputType | null
+  }
+
+  type GetTourGroupByPayload<T extends TourGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TourGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TourGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TourGroupByOutputType[P]>
+            : GetScalarType<T[P], TourGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TourSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    content?: boolean
+    featured?: boolean
+    duration?: boolean
+    tourType?: boolean
+    price?: boolean
+    offerPrice?: boolean
+    currency?: boolean
+    thumbnailId?: boolean
+    highlights?: boolean
+    inclusions?: boolean
+    exclusions?: boolean
+    terms?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    cities?: boolean | Tour$citiesArgs<ExtArgs>
+    thumbnail?: boolean | Tour$thumbnailArgs<ExtArgs>
+    images?: boolean | Tour$imagesArgs<ExtArgs>
+    faqs?: boolean | Tour$faqsArgs<ExtArgs>
+    destinations?: boolean | Tour$destinationsArgs<ExtArgs>
+    itinerary?: boolean | Tour$itineraryArgs<ExtArgs>
+    _count?: boolean | TourCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tour"]>
+
+  export type TourSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    content?: boolean
+    featured?: boolean
+    duration?: boolean
+    tourType?: boolean
+    price?: boolean
+    offerPrice?: boolean
+    currency?: boolean
+    thumbnailId?: boolean
+    highlights?: boolean
+    inclusions?: boolean
+    exclusions?: boolean
+    terms?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    thumbnail?: boolean | Tour$thumbnailArgs<ExtArgs>
+  }, ExtArgs["result"]["tour"]>
+
+  export type TourSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    content?: boolean
+    featured?: boolean
+    duration?: boolean
+    tourType?: boolean
+    price?: boolean
+    offerPrice?: boolean
+    currency?: boolean
+    thumbnailId?: boolean
+    highlights?: boolean
+    inclusions?: boolean
+    exclusions?: boolean
+    terms?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    thumbnail?: boolean | Tour$thumbnailArgs<ExtArgs>
+  }, ExtArgs["result"]["tour"]>
+
+  export type TourSelectScalar = {
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    content?: boolean
+    featured?: boolean
+    duration?: boolean
+    tourType?: boolean
+    price?: boolean
+    offerPrice?: boolean
+    currency?: boolean
+    thumbnailId?: boolean
+    highlights?: boolean
+    inclusions?: boolean
+    exclusions?: boolean
+    terms?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type TourOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "slug" | "content" | "featured" | "duration" | "tourType" | "price" | "offerPrice" | "currency" | "thumbnailId" | "highlights" | "inclusions" | "exclusions" | "terms" | "createdAt" | "updatedAt", ExtArgs["result"]["tour"]>
+  export type TourInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    cities?: boolean | Tour$citiesArgs<ExtArgs>
+    thumbnail?: boolean | Tour$thumbnailArgs<ExtArgs>
+    images?: boolean | Tour$imagesArgs<ExtArgs>
+    faqs?: boolean | Tour$faqsArgs<ExtArgs>
+    destinations?: boolean | Tour$destinationsArgs<ExtArgs>
+    itinerary?: boolean | Tour$itineraryArgs<ExtArgs>
+    _count?: boolean | TourCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type TourIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    thumbnail?: boolean | Tour$thumbnailArgs<ExtArgs>
+  }
+  export type TourIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    thumbnail?: boolean | Tour$thumbnailArgs<ExtArgs>
+  }
+
+  export type $TourPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Tour"
+    objects: {
+      cities: Prisma.$TourCityPayload<ExtArgs>[]
+      thumbnail: Prisma.$ImagePayload<ExtArgs> | null
+      images: Prisma.$ImagePayload<ExtArgs>[]
+      faqs: Prisma.$FAQPayload<ExtArgs>[]
+      destinations: Prisma.$TourDestinationPayload<ExtArgs>[]
+      itinerary: Prisma.$DayItineraryItemPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      slug: string
+      content: string | null
+      featured: boolean
+      duration: number | null
+      tourType: $Enums.TourType | null
+      price: Prisma.Decimal
+      offerPrice: Prisma.Decimal | null
+      currency: string | null
+      thumbnailId: string | null
+      highlights: string[]
+      inclusions: string[]
+      exclusions: string[]
+      terms: string[]
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["tour"]>
+    composites: {}
+  }
+
+  type TourGetPayload<S extends boolean | null | undefined | TourDefaultArgs> = $Result.GetResult<Prisma.$TourPayload, S>
+
+  type TourCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TourFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TourCountAggregateInputType | true
+    }
+
+  export interface TourDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Tour'], meta: { name: 'Tour' } }
+    /**
+     * Find zero or one Tour that matches the filter.
+     * @param {TourFindUniqueArgs} args - Arguments to find a Tour
+     * @example
+     * // Get one Tour
+     * const tour = await prisma.tour.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TourFindUniqueArgs>(args: SelectSubset<T, TourFindUniqueArgs<ExtArgs>>): Prisma__TourClient<$Result.GetResult<Prisma.$TourPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Tour that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TourFindUniqueOrThrowArgs} args - Arguments to find a Tour
+     * @example
+     * // Get one Tour
+     * const tour = await prisma.tour.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TourFindUniqueOrThrowArgs>(args: SelectSubset<T, TourFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TourClient<$Result.GetResult<Prisma.$TourPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Tour that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TourFindFirstArgs} args - Arguments to find a Tour
+     * @example
+     * // Get one Tour
+     * const tour = await prisma.tour.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TourFindFirstArgs>(args?: SelectSubset<T, TourFindFirstArgs<ExtArgs>>): Prisma__TourClient<$Result.GetResult<Prisma.$TourPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Tour that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TourFindFirstOrThrowArgs} args - Arguments to find a Tour
+     * @example
+     * // Get one Tour
+     * const tour = await prisma.tour.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TourFindFirstOrThrowArgs>(args?: SelectSubset<T, TourFindFirstOrThrowArgs<ExtArgs>>): Prisma__TourClient<$Result.GetResult<Prisma.$TourPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Tours that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TourFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Tours
+     * const tours = await prisma.tour.findMany()
+     * 
+     * // Get first 10 Tours
+     * const tours = await prisma.tour.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const tourWithIdOnly = await prisma.tour.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TourFindManyArgs>(args?: SelectSubset<T, TourFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TourPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Tour.
+     * @param {TourCreateArgs} args - Arguments to create a Tour.
+     * @example
+     * // Create one Tour
+     * const Tour = await prisma.tour.create({
+     *   data: {
+     *     // ... data to create a Tour
+     *   }
+     * })
+     * 
+     */
+    create<T extends TourCreateArgs>(args: SelectSubset<T, TourCreateArgs<ExtArgs>>): Prisma__TourClient<$Result.GetResult<Prisma.$TourPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Tours.
+     * @param {TourCreateManyArgs} args - Arguments to create many Tours.
+     * @example
+     * // Create many Tours
+     * const tour = await prisma.tour.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TourCreateManyArgs>(args?: SelectSubset<T, TourCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Tours and returns the data saved in the database.
+     * @param {TourCreateManyAndReturnArgs} args - Arguments to create many Tours.
+     * @example
+     * // Create many Tours
+     * const tour = await prisma.tour.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Tours and only return the `id`
+     * const tourWithIdOnly = await prisma.tour.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TourCreateManyAndReturnArgs>(args?: SelectSubset<T, TourCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TourPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Tour.
+     * @param {TourDeleteArgs} args - Arguments to delete one Tour.
+     * @example
+     * // Delete one Tour
+     * const Tour = await prisma.tour.delete({
+     *   where: {
+     *     // ... filter to delete one Tour
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TourDeleteArgs>(args: SelectSubset<T, TourDeleteArgs<ExtArgs>>): Prisma__TourClient<$Result.GetResult<Prisma.$TourPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Tour.
+     * @param {TourUpdateArgs} args - Arguments to update one Tour.
+     * @example
+     * // Update one Tour
+     * const tour = await prisma.tour.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TourUpdateArgs>(args: SelectSubset<T, TourUpdateArgs<ExtArgs>>): Prisma__TourClient<$Result.GetResult<Prisma.$TourPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Tours.
+     * @param {TourDeleteManyArgs} args - Arguments to filter Tours to delete.
+     * @example
+     * // Delete a few Tours
+     * const { count } = await prisma.tour.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TourDeleteManyArgs>(args?: SelectSubset<T, TourDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Tours.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TourUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Tours
+     * const tour = await prisma.tour.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TourUpdateManyArgs>(args: SelectSubset<T, TourUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Tours and returns the data updated in the database.
+     * @param {TourUpdateManyAndReturnArgs} args - Arguments to update many Tours.
+     * @example
+     * // Update many Tours
+     * const tour = await prisma.tour.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Tours and only return the `id`
+     * const tourWithIdOnly = await prisma.tour.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends TourUpdateManyAndReturnArgs>(args: SelectSubset<T, TourUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TourPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Tour.
+     * @param {TourUpsertArgs} args - Arguments to update or create a Tour.
+     * @example
+     * // Update or create a Tour
+     * const tour = await prisma.tour.upsert({
+     *   create: {
+     *     // ... data to create a Tour
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Tour we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TourUpsertArgs>(args: SelectSubset<T, TourUpsertArgs<ExtArgs>>): Prisma__TourClient<$Result.GetResult<Prisma.$TourPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Tours.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TourCountArgs} args - Arguments to filter Tours to count.
+     * @example
+     * // Count the number of Tours
+     * const count = await prisma.tour.count({
+     *   where: {
+     *     // ... the filter for the Tours we want to count
+     *   }
+     * })
+    **/
+    count<T extends TourCountArgs>(
+      args?: Subset<T, TourCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TourCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Tour.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TourAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TourAggregateArgs>(args: Subset<T, TourAggregateArgs>): Prisma.PrismaPromise<GetTourAggregateType<T>>
+
+    /**
+     * Group by Tour.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TourGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TourGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TourGroupByArgs['orderBy'] }
+        : { orderBy?: TourGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TourGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTourGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Tour model
+   */
+  readonly fields: TourFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Tour.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TourClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    cities<T extends Tour$citiesArgs<ExtArgs> = {}>(args?: Subset<T, Tour$citiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TourCityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    thumbnail<T extends Tour$thumbnailArgs<ExtArgs> = {}>(args?: Subset<T, Tour$thumbnailArgs<ExtArgs>>): Prisma__ImageClient<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    images<T extends Tour$imagesArgs<ExtArgs> = {}>(args?: Subset<T, Tour$imagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    faqs<T extends Tour$faqsArgs<ExtArgs> = {}>(args?: Subset<T, Tour$faqsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    destinations<T extends Tour$destinationsArgs<ExtArgs> = {}>(args?: Subset<T, Tour$destinationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TourDestinationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    itinerary<T extends Tour$itineraryArgs<ExtArgs> = {}>(args?: Subset<T, Tour$itineraryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DayItineraryItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Tour model
+   */
+  interface TourFieldRefs {
+    readonly id: FieldRef<"Tour", 'String'>
+    readonly name: FieldRef<"Tour", 'String'>
+    readonly slug: FieldRef<"Tour", 'String'>
+    readonly content: FieldRef<"Tour", 'String'>
+    readonly featured: FieldRef<"Tour", 'Boolean'>
+    readonly duration: FieldRef<"Tour", 'Int'>
+    readonly tourType: FieldRef<"Tour", 'TourType'>
+    readonly price: FieldRef<"Tour", 'Decimal'>
+    readonly offerPrice: FieldRef<"Tour", 'Decimal'>
+    readonly currency: FieldRef<"Tour", 'String'>
+    readonly thumbnailId: FieldRef<"Tour", 'String'>
+    readonly highlights: FieldRef<"Tour", 'String[]'>
+    readonly inclusions: FieldRef<"Tour", 'String[]'>
+    readonly exclusions: FieldRef<"Tour", 'String[]'>
+    readonly terms: FieldRef<"Tour", 'String[]'>
+    readonly createdAt: FieldRef<"Tour", 'DateTime'>
+    readonly updatedAt: FieldRef<"Tour", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Tour findUnique
+   */
+  export type TourFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tour
+     */
+    select?: TourSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tour
+     */
+    omit?: TourOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourInclude<ExtArgs> | null
+    /**
+     * Filter, which Tour to fetch.
+     */
+    where: TourWhereUniqueInput
+  }
+
+  /**
+   * Tour findUniqueOrThrow
+   */
+  export type TourFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tour
+     */
+    select?: TourSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tour
+     */
+    omit?: TourOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourInclude<ExtArgs> | null
+    /**
+     * Filter, which Tour to fetch.
+     */
+    where: TourWhereUniqueInput
+  }
+
+  /**
+   * Tour findFirst
+   */
+  export type TourFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tour
+     */
+    select?: TourSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tour
+     */
+    omit?: TourOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourInclude<ExtArgs> | null
+    /**
+     * Filter, which Tour to fetch.
+     */
+    where?: TourWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Tours to fetch.
+     */
+    orderBy?: TourOrderByWithRelationInput | TourOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Tours.
+     */
+    cursor?: TourWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Tours from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Tours.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Tours.
+     */
+    distinct?: TourScalarFieldEnum | TourScalarFieldEnum[]
+  }
+
+  /**
+   * Tour findFirstOrThrow
+   */
+  export type TourFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tour
+     */
+    select?: TourSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tour
+     */
+    omit?: TourOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourInclude<ExtArgs> | null
+    /**
+     * Filter, which Tour to fetch.
+     */
+    where?: TourWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Tours to fetch.
+     */
+    orderBy?: TourOrderByWithRelationInput | TourOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Tours.
+     */
+    cursor?: TourWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Tours from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Tours.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Tours.
+     */
+    distinct?: TourScalarFieldEnum | TourScalarFieldEnum[]
+  }
+
+  /**
+   * Tour findMany
+   */
+  export type TourFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tour
+     */
+    select?: TourSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tour
+     */
+    omit?: TourOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourInclude<ExtArgs> | null
+    /**
+     * Filter, which Tours to fetch.
+     */
+    where?: TourWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Tours to fetch.
+     */
+    orderBy?: TourOrderByWithRelationInput | TourOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Tours.
+     */
+    cursor?: TourWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Tours from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Tours.
+     */
+    skip?: number
+    distinct?: TourScalarFieldEnum | TourScalarFieldEnum[]
+  }
+
+  /**
+   * Tour create
+   */
+  export type TourCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tour
+     */
+    select?: TourSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tour
+     */
+    omit?: TourOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Tour.
+     */
+    data: XOR<TourCreateInput, TourUncheckedCreateInput>
+  }
+
+  /**
+   * Tour createMany
+   */
+  export type TourCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Tours.
+     */
+    data: TourCreateManyInput | TourCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Tour createManyAndReturn
+   */
+  export type TourCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tour
+     */
+    select?: TourSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tour
+     */
+    omit?: TourOmit<ExtArgs> | null
+    /**
+     * The data used to create many Tours.
+     */
+    data: TourCreateManyInput | TourCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Tour update
+   */
+  export type TourUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tour
+     */
+    select?: TourSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tour
+     */
+    omit?: TourOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Tour.
+     */
+    data: XOR<TourUpdateInput, TourUncheckedUpdateInput>
+    /**
+     * Choose, which Tour to update.
+     */
+    where: TourWhereUniqueInput
+  }
+
+  /**
+   * Tour updateMany
+   */
+  export type TourUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Tours.
+     */
+    data: XOR<TourUpdateManyMutationInput, TourUncheckedUpdateManyInput>
+    /**
+     * Filter which Tours to update
+     */
+    where?: TourWhereInput
+    /**
+     * Limit how many Tours to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Tour updateManyAndReturn
+   */
+  export type TourUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tour
+     */
+    select?: TourSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tour
+     */
+    omit?: TourOmit<ExtArgs> | null
+    /**
+     * The data used to update Tours.
+     */
+    data: XOR<TourUpdateManyMutationInput, TourUncheckedUpdateManyInput>
+    /**
+     * Filter which Tours to update
+     */
+    where?: TourWhereInput
+    /**
+     * Limit how many Tours to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Tour upsert
+   */
+  export type TourUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tour
+     */
+    select?: TourSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tour
+     */
+    omit?: TourOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Tour to update in case it exists.
+     */
+    where: TourWhereUniqueInput
+    /**
+     * In case the Tour found by the `where` argument doesn't exist, create a new Tour with this data.
+     */
+    create: XOR<TourCreateInput, TourUncheckedCreateInput>
+    /**
+     * In case the Tour was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TourUpdateInput, TourUncheckedUpdateInput>
+  }
+
+  /**
+   * Tour delete
+   */
+  export type TourDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tour
+     */
+    select?: TourSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tour
+     */
+    omit?: TourOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourInclude<ExtArgs> | null
+    /**
+     * Filter which Tour to delete.
+     */
+    where: TourWhereUniqueInput
+  }
+
+  /**
+   * Tour deleteMany
+   */
+  export type TourDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Tours to delete
+     */
+    where?: TourWhereInput
+    /**
+     * Limit how many Tours to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Tour.cities
+   */
+  export type Tour$citiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourCity
+     */
+    select?: TourCitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourCity
+     */
+    omit?: TourCityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourCityInclude<ExtArgs> | null
+    where?: TourCityWhereInput
+    orderBy?: TourCityOrderByWithRelationInput | TourCityOrderByWithRelationInput[]
+    cursor?: TourCityWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TourCityScalarFieldEnum | TourCityScalarFieldEnum[]
+  }
+
+  /**
+   * Tour.thumbnail
+   */
+  export type Tour$thumbnailArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Image
+     */
+    select?: ImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Image
+     */
+    omit?: ImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImageInclude<ExtArgs> | null
+    where?: ImageWhereInput
+  }
+
+  /**
+   * Tour.images
+   */
+  export type Tour$imagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Image
+     */
+    select?: ImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Image
+     */
+    omit?: ImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImageInclude<ExtArgs> | null
+    where?: ImageWhereInput
+    orderBy?: ImageOrderByWithRelationInput | ImageOrderByWithRelationInput[]
+    cursor?: ImageWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ImageScalarFieldEnum | ImageScalarFieldEnum[]
+  }
+
+  /**
+   * Tour.faqs
+   */
+  export type Tour$faqsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FAQ
+     */
+    select?: FAQSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FAQ
+     */
+    omit?: FAQOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FAQInclude<ExtArgs> | null
+    where?: FAQWhereInput
+    orderBy?: FAQOrderByWithRelationInput | FAQOrderByWithRelationInput[]
+    cursor?: FAQWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FAQScalarFieldEnum | FAQScalarFieldEnum[]
+  }
+
+  /**
+   * Tour.destinations
+   */
+  export type Tour$destinationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourDestination
+     */
+    select?: TourDestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourDestination
+     */
+    omit?: TourDestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourDestinationInclude<ExtArgs> | null
+    where?: TourDestinationWhereInput
+    orderBy?: TourDestinationOrderByWithRelationInput | TourDestinationOrderByWithRelationInput[]
+    cursor?: TourDestinationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TourDestinationScalarFieldEnum | TourDestinationScalarFieldEnum[]
+  }
+
+  /**
+   * Tour.itinerary
+   */
+  export type Tour$itineraryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayItineraryItem
+     */
+    select?: DayItineraryItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayItineraryItem
+     */
+    omit?: DayItineraryItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayItineraryItemInclude<ExtArgs> | null
+    where?: DayItineraryItemWhereInput
+    orderBy?: DayItineraryItemOrderByWithRelationInput | DayItineraryItemOrderByWithRelationInput[]
+    cursor?: DayItineraryItemWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DayItineraryItemScalarFieldEnum | DayItineraryItemScalarFieldEnum[]
+  }
+
+  /**
+   * Tour without action
+   */
+  export type TourDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tour
+     */
+    select?: TourSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tour
+     */
+    omit?: TourOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model TourCity
+   */
+
+  export type AggregateTourCity = {
+    _count: TourCityCountAggregateOutputType | null
+    _min: TourCityMinAggregateOutputType | null
+    _max: TourCityMaxAggregateOutputType | null
+  }
+
+  export type TourCityMinAggregateOutputType = {
+    id: string | null
+    tourId: string | null
+    cityId: string | null
+  }
+
+  export type TourCityMaxAggregateOutputType = {
+    id: string | null
+    tourId: string | null
+    cityId: string | null
+  }
+
+  export type TourCityCountAggregateOutputType = {
+    id: number
+    tourId: number
+    cityId: number
+    _all: number
+  }
+
+
+  export type TourCityMinAggregateInputType = {
+    id?: true
+    tourId?: true
+    cityId?: true
+  }
+
+  export type TourCityMaxAggregateInputType = {
+    id?: true
+    tourId?: true
+    cityId?: true
+  }
+
+  export type TourCityCountAggregateInputType = {
+    id?: true
+    tourId?: true
+    cityId?: true
+    _all?: true
+  }
+
+  export type TourCityAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TourCity to aggregate.
+     */
+    where?: TourCityWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TourCities to fetch.
+     */
+    orderBy?: TourCityOrderByWithRelationInput | TourCityOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TourCityWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TourCities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TourCities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned TourCities
+    **/
+    _count?: true | TourCityCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TourCityMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TourCityMaxAggregateInputType
+  }
+
+  export type GetTourCityAggregateType<T extends TourCityAggregateArgs> = {
+        [P in keyof T & keyof AggregateTourCity]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTourCity[P]>
+      : GetScalarType<T[P], AggregateTourCity[P]>
+  }
+
+
+
+
+  export type TourCityGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TourCityWhereInput
+    orderBy?: TourCityOrderByWithAggregationInput | TourCityOrderByWithAggregationInput[]
+    by: TourCityScalarFieldEnum[] | TourCityScalarFieldEnum
+    having?: TourCityScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TourCityCountAggregateInputType | true
+    _min?: TourCityMinAggregateInputType
+    _max?: TourCityMaxAggregateInputType
+  }
+
+  export type TourCityGroupByOutputType = {
+    id: string
+    tourId: string
+    cityId: string
+    _count: TourCityCountAggregateOutputType | null
+    _min: TourCityMinAggregateOutputType | null
+    _max: TourCityMaxAggregateOutputType | null
+  }
+
+  type GetTourCityGroupByPayload<T extends TourCityGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TourCityGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TourCityGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TourCityGroupByOutputType[P]>
+            : GetScalarType<T[P], TourCityGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TourCitySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tourId?: boolean
+    cityId?: boolean
+    tour?: boolean | TourDefaultArgs<ExtArgs>
+    city?: boolean | CityDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tourCity"]>
+
+  export type TourCitySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tourId?: boolean
+    cityId?: boolean
+    tour?: boolean | TourDefaultArgs<ExtArgs>
+    city?: boolean | CityDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tourCity"]>
+
+  export type TourCitySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tourId?: boolean
+    cityId?: boolean
+    tour?: boolean | TourDefaultArgs<ExtArgs>
+    city?: boolean | CityDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tourCity"]>
+
+  export type TourCitySelectScalar = {
+    id?: boolean
+    tourId?: boolean
+    cityId?: boolean
+  }
+
+  export type TourCityOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tourId" | "cityId", ExtArgs["result"]["tourCity"]>
+  export type TourCityInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tour?: boolean | TourDefaultArgs<ExtArgs>
+    city?: boolean | CityDefaultArgs<ExtArgs>
+  }
+  export type TourCityIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tour?: boolean | TourDefaultArgs<ExtArgs>
+    city?: boolean | CityDefaultArgs<ExtArgs>
+  }
+  export type TourCityIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tour?: boolean | TourDefaultArgs<ExtArgs>
+    city?: boolean | CityDefaultArgs<ExtArgs>
+  }
+
+  export type $TourCityPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "TourCity"
+    objects: {
+      tour: Prisma.$TourPayload<ExtArgs>
+      city: Prisma.$CityPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      tourId: string
+      cityId: string
+    }, ExtArgs["result"]["tourCity"]>
+    composites: {}
+  }
+
+  type TourCityGetPayload<S extends boolean | null | undefined | TourCityDefaultArgs> = $Result.GetResult<Prisma.$TourCityPayload, S>
+
+  type TourCityCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TourCityFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TourCityCountAggregateInputType | true
+    }
+
+  export interface TourCityDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TourCity'], meta: { name: 'TourCity' } }
+    /**
+     * Find zero or one TourCity that matches the filter.
+     * @param {TourCityFindUniqueArgs} args - Arguments to find a TourCity
+     * @example
+     * // Get one TourCity
+     * const tourCity = await prisma.tourCity.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TourCityFindUniqueArgs>(args: SelectSubset<T, TourCityFindUniqueArgs<ExtArgs>>): Prisma__TourCityClient<$Result.GetResult<Prisma.$TourCityPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one TourCity that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TourCityFindUniqueOrThrowArgs} args - Arguments to find a TourCity
+     * @example
+     * // Get one TourCity
+     * const tourCity = await prisma.tourCity.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TourCityFindUniqueOrThrowArgs>(args: SelectSubset<T, TourCityFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TourCityClient<$Result.GetResult<Prisma.$TourCityPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TourCity that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TourCityFindFirstArgs} args - Arguments to find a TourCity
+     * @example
+     * // Get one TourCity
+     * const tourCity = await prisma.tourCity.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TourCityFindFirstArgs>(args?: SelectSubset<T, TourCityFindFirstArgs<ExtArgs>>): Prisma__TourCityClient<$Result.GetResult<Prisma.$TourCityPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TourCity that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TourCityFindFirstOrThrowArgs} args - Arguments to find a TourCity
+     * @example
+     * // Get one TourCity
+     * const tourCity = await prisma.tourCity.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TourCityFindFirstOrThrowArgs>(args?: SelectSubset<T, TourCityFindFirstOrThrowArgs<ExtArgs>>): Prisma__TourCityClient<$Result.GetResult<Prisma.$TourCityPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more TourCities that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TourCityFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all TourCities
+     * const tourCities = await prisma.tourCity.findMany()
+     * 
+     * // Get first 10 TourCities
+     * const tourCities = await prisma.tourCity.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const tourCityWithIdOnly = await prisma.tourCity.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TourCityFindManyArgs>(args?: SelectSubset<T, TourCityFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TourCityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a TourCity.
+     * @param {TourCityCreateArgs} args - Arguments to create a TourCity.
+     * @example
+     * // Create one TourCity
+     * const TourCity = await prisma.tourCity.create({
+     *   data: {
+     *     // ... data to create a TourCity
+     *   }
+     * })
+     * 
+     */
+    create<T extends TourCityCreateArgs>(args: SelectSubset<T, TourCityCreateArgs<ExtArgs>>): Prisma__TourCityClient<$Result.GetResult<Prisma.$TourCityPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many TourCities.
+     * @param {TourCityCreateManyArgs} args - Arguments to create many TourCities.
+     * @example
+     * // Create many TourCities
+     * const tourCity = await prisma.tourCity.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TourCityCreateManyArgs>(args?: SelectSubset<T, TourCityCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many TourCities and returns the data saved in the database.
+     * @param {TourCityCreateManyAndReturnArgs} args - Arguments to create many TourCities.
+     * @example
+     * // Create many TourCities
+     * const tourCity = await prisma.tourCity.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many TourCities and only return the `id`
+     * const tourCityWithIdOnly = await prisma.tourCity.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TourCityCreateManyAndReturnArgs>(args?: SelectSubset<T, TourCityCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TourCityPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a TourCity.
+     * @param {TourCityDeleteArgs} args - Arguments to delete one TourCity.
+     * @example
+     * // Delete one TourCity
+     * const TourCity = await prisma.tourCity.delete({
+     *   where: {
+     *     // ... filter to delete one TourCity
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TourCityDeleteArgs>(args: SelectSubset<T, TourCityDeleteArgs<ExtArgs>>): Prisma__TourCityClient<$Result.GetResult<Prisma.$TourCityPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one TourCity.
+     * @param {TourCityUpdateArgs} args - Arguments to update one TourCity.
+     * @example
+     * // Update one TourCity
+     * const tourCity = await prisma.tourCity.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TourCityUpdateArgs>(args: SelectSubset<T, TourCityUpdateArgs<ExtArgs>>): Prisma__TourCityClient<$Result.GetResult<Prisma.$TourCityPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more TourCities.
+     * @param {TourCityDeleteManyArgs} args - Arguments to filter TourCities to delete.
+     * @example
+     * // Delete a few TourCities
+     * const { count } = await prisma.tourCity.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TourCityDeleteManyArgs>(args?: SelectSubset<T, TourCityDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TourCities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TourCityUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many TourCities
+     * const tourCity = await prisma.tourCity.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TourCityUpdateManyArgs>(args: SelectSubset<T, TourCityUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TourCities and returns the data updated in the database.
+     * @param {TourCityUpdateManyAndReturnArgs} args - Arguments to update many TourCities.
+     * @example
+     * // Update many TourCities
+     * const tourCity = await prisma.tourCity.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more TourCities and only return the `id`
+     * const tourCityWithIdOnly = await prisma.tourCity.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends TourCityUpdateManyAndReturnArgs>(args: SelectSubset<T, TourCityUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TourCityPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one TourCity.
+     * @param {TourCityUpsertArgs} args - Arguments to update or create a TourCity.
+     * @example
+     * // Update or create a TourCity
+     * const tourCity = await prisma.tourCity.upsert({
+     *   create: {
+     *     // ... data to create a TourCity
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the TourCity we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TourCityUpsertArgs>(args: SelectSubset<T, TourCityUpsertArgs<ExtArgs>>): Prisma__TourCityClient<$Result.GetResult<Prisma.$TourCityPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of TourCities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TourCityCountArgs} args - Arguments to filter TourCities to count.
+     * @example
+     * // Count the number of TourCities
+     * const count = await prisma.tourCity.count({
+     *   where: {
+     *     // ... the filter for the TourCities we want to count
+     *   }
+     * })
+    **/
+    count<T extends TourCityCountArgs>(
+      args?: Subset<T, TourCityCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TourCityCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a TourCity.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TourCityAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TourCityAggregateArgs>(args: Subset<T, TourCityAggregateArgs>): Prisma.PrismaPromise<GetTourCityAggregateType<T>>
+
+    /**
+     * Group by TourCity.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TourCityGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TourCityGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TourCityGroupByArgs['orderBy'] }
+        : { orderBy?: TourCityGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TourCityGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTourCityGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the TourCity model
+   */
+  readonly fields: TourCityFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for TourCity.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TourCityClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    tour<T extends TourDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TourDefaultArgs<ExtArgs>>): Prisma__TourClient<$Result.GetResult<Prisma.$TourPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    city<T extends CityDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CityDefaultArgs<ExtArgs>>): Prisma__CityClient<$Result.GetResult<Prisma.$CityPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the TourCity model
+   */
+  interface TourCityFieldRefs {
+    readonly id: FieldRef<"TourCity", 'String'>
+    readonly tourId: FieldRef<"TourCity", 'String'>
+    readonly cityId: FieldRef<"TourCity", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * TourCity findUnique
+   */
+  export type TourCityFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourCity
+     */
+    select?: TourCitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourCity
+     */
+    omit?: TourCityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourCityInclude<ExtArgs> | null
+    /**
+     * Filter, which TourCity to fetch.
+     */
+    where: TourCityWhereUniqueInput
+  }
+
+  /**
+   * TourCity findUniqueOrThrow
+   */
+  export type TourCityFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourCity
+     */
+    select?: TourCitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourCity
+     */
+    omit?: TourCityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourCityInclude<ExtArgs> | null
+    /**
+     * Filter, which TourCity to fetch.
+     */
+    where: TourCityWhereUniqueInput
+  }
+
+  /**
+   * TourCity findFirst
+   */
+  export type TourCityFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourCity
+     */
+    select?: TourCitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourCity
+     */
+    omit?: TourCityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourCityInclude<ExtArgs> | null
+    /**
+     * Filter, which TourCity to fetch.
+     */
+    where?: TourCityWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TourCities to fetch.
+     */
+    orderBy?: TourCityOrderByWithRelationInput | TourCityOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TourCities.
+     */
+    cursor?: TourCityWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TourCities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TourCities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TourCities.
+     */
+    distinct?: TourCityScalarFieldEnum | TourCityScalarFieldEnum[]
+  }
+
+  /**
+   * TourCity findFirstOrThrow
+   */
+  export type TourCityFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourCity
+     */
+    select?: TourCitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourCity
+     */
+    omit?: TourCityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourCityInclude<ExtArgs> | null
+    /**
+     * Filter, which TourCity to fetch.
+     */
+    where?: TourCityWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TourCities to fetch.
+     */
+    orderBy?: TourCityOrderByWithRelationInput | TourCityOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TourCities.
+     */
+    cursor?: TourCityWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TourCities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TourCities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TourCities.
+     */
+    distinct?: TourCityScalarFieldEnum | TourCityScalarFieldEnum[]
+  }
+
+  /**
+   * TourCity findMany
+   */
+  export type TourCityFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourCity
+     */
+    select?: TourCitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourCity
+     */
+    omit?: TourCityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourCityInclude<ExtArgs> | null
+    /**
+     * Filter, which TourCities to fetch.
+     */
+    where?: TourCityWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TourCities to fetch.
+     */
+    orderBy?: TourCityOrderByWithRelationInput | TourCityOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing TourCities.
+     */
+    cursor?: TourCityWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TourCities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TourCities.
+     */
+    skip?: number
+    distinct?: TourCityScalarFieldEnum | TourCityScalarFieldEnum[]
+  }
+
+  /**
+   * TourCity create
+   */
+  export type TourCityCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourCity
+     */
+    select?: TourCitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourCity
+     */
+    omit?: TourCityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourCityInclude<ExtArgs> | null
+    /**
+     * The data needed to create a TourCity.
+     */
+    data: XOR<TourCityCreateInput, TourCityUncheckedCreateInput>
+  }
+
+  /**
+   * TourCity createMany
+   */
+  export type TourCityCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many TourCities.
+     */
+    data: TourCityCreateManyInput | TourCityCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * TourCity createManyAndReturn
+   */
+  export type TourCityCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourCity
+     */
+    select?: TourCitySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourCity
+     */
+    omit?: TourCityOmit<ExtArgs> | null
+    /**
+     * The data used to create many TourCities.
+     */
+    data: TourCityCreateManyInput | TourCityCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourCityIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * TourCity update
+   */
+  export type TourCityUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourCity
+     */
+    select?: TourCitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourCity
+     */
+    omit?: TourCityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourCityInclude<ExtArgs> | null
+    /**
+     * The data needed to update a TourCity.
+     */
+    data: XOR<TourCityUpdateInput, TourCityUncheckedUpdateInput>
+    /**
+     * Choose, which TourCity to update.
+     */
+    where: TourCityWhereUniqueInput
+  }
+
+  /**
+   * TourCity updateMany
+   */
+  export type TourCityUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update TourCities.
+     */
+    data: XOR<TourCityUpdateManyMutationInput, TourCityUncheckedUpdateManyInput>
+    /**
+     * Filter which TourCities to update
+     */
+    where?: TourCityWhereInput
+    /**
+     * Limit how many TourCities to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * TourCity updateManyAndReturn
+   */
+  export type TourCityUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourCity
+     */
+    select?: TourCitySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourCity
+     */
+    omit?: TourCityOmit<ExtArgs> | null
+    /**
+     * The data used to update TourCities.
+     */
+    data: XOR<TourCityUpdateManyMutationInput, TourCityUncheckedUpdateManyInput>
+    /**
+     * Filter which TourCities to update
+     */
+    where?: TourCityWhereInput
+    /**
+     * Limit how many TourCities to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourCityIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * TourCity upsert
+   */
+  export type TourCityUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourCity
+     */
+    select?: TourCitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourCity
+     */
+    omit?: TourCityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourCityInclude<ExtArgs> | null
+    /**
+     * The filter to search for the TourCity to update in case it exists.
+     */
+    where: TourCityWhereUniqueInput
+    /**
+     * In case the TourCity found by the `where` argument doesn't exist, create a new TourCity with this data.
+     */
+    create: XOR<TourCityCreateInput, TourCityUncheckedCreateInput>
+    /**
+     * In case the TourCity was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TourCityUpdateInput, TourCityUncheckedUpdateInput>
+  }
+
+  /**
+   * TourCity delete
+   */
+  export type TourCityDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourCity
+     */
+    select?: TourCitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourCity
+     */
+    omit?: TourCityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourCityInclude<ExtArgs> | null
+    /**
+     * Filter which TourCity to delete.
+     */
+    where: TourCityWhereUniqueInput
+  }
+
+  /**
+   * TourCity deleteMany
+   */
+  export type TourCityDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TourCities to delete
+     */
+    where?: TourCityWhereInput
+    /**
+     * Limit how many TourCities to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * TourCity without action
+   */
+  export type TourCityDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourCity
+     */
+    select?: TourCitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourCity
+     */
+    omit?: TourCityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourCityInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model TourDestination
+   */
+
+  export type AggregateTourDestination = {
+    _count: TourDestinationCountAggregateOutputType | null
+    _min: TourDestinationMinAggregateOutputType | null
+    _max: TourDestinationMaxAggregateOutputType | null
+  }
+
+  export type TourDestinationMinAggregateOutputType = {
+    id: string | null
+    tourId: string | null
+    destinationId: string | null
+  }
+
+  export type TourDestinationMaxAggregateOutputType = {
+    id: string | null
+    tourId: string | null
+    destinationId: string | null
+  }
+
+  export type TourDestinationCountAggregateOutputType = {
+    id: number
+    tourId: number
+    destinationId: number
+    _all: number
+  }
+
+
+  export type TourDestinationMinAggregateInputType = {
+    id?: true
+    tourId?: true
+    destinationId?: true
+  }
+
+  export type TourDestinationMaxAggregateInputType = {
+    id?: true
+    tourId?: true
+    destinationId?: true
+  }
+
+  export type TourDestinationCountAggregateInputType = {
+    id?: true
+    tourId?: true
+    destinationId?: true
+    _all?: true
+  }
+
+  export type TourDestinationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TourDestination to aggregate.
+     */
+    where?: TourDestinationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TourDestinations to fetch.
+     */
+    orderBy?: TourDestinationOrderByWithRelationInput | TourDestinationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TourDestinationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TourDestinations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TourDestinations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned TourDestinations
+    **/
+    _count?: true | TourDestinationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TourDestinationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TourDestinationMaxAggregateInputType
+  }
+
+  export type GetTourDestinationAggregateType<T extends TourDestinationAggregateArgs> = {
+        [P in keyof T & keyof AggregateTourDestination]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTourDestination[P]>
+      : GetScalarType<T[P], AggregateTourDestination[P]>
+  }
+
+
+
+
+  export type TourDestinationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TourDestinationWhereInput
+    orderBy?: TourDestinationOrderByWithAggregationInput | TourDestinationOrderByWithAggregationInput[]
+    by: TourDestinationScalarFieldEnum[] | TourDestinationScalarFieldEnum
+    having?: TourDestinationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TourDestinationCountAggregateInputType | true
+    _min?: TourDestinationMinAggregateInputType
+    _max?: TourDestinationMaxAggregateInputType
+  }
+
+  export type TourDestinationGroupByOutputType = {
+    id: string
+    tourId: string
+    destinationId: string
+    _count: TourDestinationCountAggregateOutputType | null
+    _min: TourDestinationMinAggregateOutputType | null
+    _max: TourDestinationMaxAggregateOutputType | null
+  }
+
+  type GetTourDestinationGroupByPayload<T extends TourDestinationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TourDestinationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TourDestinationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TourDestinationGroupByOutputType[P]>
+            : GetScalarType<T[P], TourDestinationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TourDestinationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tourId?: boolean
+    destinationId?: boolean
+    tour?: boolean | TourDefaultArgs<ExtArgs>
+    destination?: boolean | DestinationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tourDestination"]>
+
+  export type TourDestinationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tourId?: boolean
+    destinationId?: boolean
+    tour?: boolean | TourDefaultArgs<ExtArgs>
+    destination?: boolean | DestinationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tourDestination"]>
+
+  export type TourDestinationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tourId?: boolean
+    destinationId?: boolean
+    tour?: boolean | TourDefaultArgs<ExtArgs>
+    destination?: boolean | DestinationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tourDestination"]>
+
+  export type TourDestinationSelectScalar = {
+    id?: boolean
+    tourId?: boolean
+    destinationId?: boolean
+  }
+
+  export type TourDestinationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tourId" | "destinationId", ExtArgs["result"]["tourDestination"]>
+  export type TourDestinationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tour?: boolean | TourDefaultArgs<ExtArgs>
+    destination?: boolean | DestinationDefaultArgs<ExtArgs>
+  }
+  export type TourDestinationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tour?: boolean | TourDefaultArgs<ExtArgs>
+    destination?: boolean | DestinationDefaultArgs<ExtArgs>
+  }
+  export type TourDestinationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tour?: boolean | TourDefaultArgs<ExtArgs>
+    destination?: boolean | DestinationDefaultArgs<ExtArgs>
+  }
+
+  export type $TourDestinationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "TourDestination"
+    objects: {
+      tour: Prisma.$TourPayload<ExtArgs>
+      destination: Prisma.$DestinationPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      tourId: string
+      destinationId: string
+    }, ExtArgs["result"]["tourDestination"]>
+    composites: {}
+  }
+
+  type TourDestinationGetPayload<S extends boolean | null | undefined | TourDestinationDefaultArgs> = $Result.GetResult<Prisma.$TourDestinationPayload, S>
+
+  type TourDestinationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TourDestinationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TourDestinationCountAggregateInputType | true
+    }
+
+  export interface TourDestinationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TourDestination'], meta: { name: 'TourDestination' } }
+    /**
+     * Find zero or one TourDestination that matches the filter.
+     * @param {TourDestinationFindUniqueArgs} args - Arguments to find a TourDestination
+     * @example
+     * // Get one TourDestination
+     * const tourDestination = await prisma.tourDestination.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TourDestinationFindUniqueArgs>(args: SelectSubset<T, TourDestinationFindUniqueArgs<ExtArgs>>): Prisma__TourDestinationClient<$Result.GetResult<Prisma.$TourDestinationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one TourDestination that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TourDestinationFindUniqueOrThrowArgs} args - Arguments to find a TourDestination
+     * @example
+     * // Get one TourDestination
+     * const tourDestination = await prisma.tourDestination.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TourDestinationFindUniqueOrThrowArgs>(args: SelectSubset<T, TourDestinationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TourDestinationClient<$Result.GetResult<Prisma.$TourDestinationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TourDestination that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TourDestinationFindFirstArgs} args - Arguments to find a TourDestination
+     * @example
+     * // Get one TourDestination
+     * const tourDestination = await prisma.tourDestination.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TourDestinationFindFirstArgs>(args?: SelectSubset<T, TourDestinationFindFirstArgs<ExtArgs>>): Prisma__TourDestinationClient<$Result.GetResult<Prisma.$TourDestinationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TourDestination that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TourDestinationFindFirstOrThrowArgs} args - Arguments to find a TourDestination
+     * @example
+     * // Get one TourDestination
+     * const tourDestination = await prisma.tourDestination.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TourDestinationFindFirstOrThrowArgs>(args?: SelectSubset<T, TourDestinationFindFirstOrThrowArgs<ExtArgs>>): Prisma__TourDestinationClient<$Result.GetResult<Prisma.$TourDestinationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more TourDestinations that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TourDestinationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all TourDestinations
+     * const tourDestinations = await prisma.tourDestination.findMany()
+     * 
+     * // Get first 10 TourDestinations
+     * const tourDestinations = await prisma.tourDestination.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const tourDestinationWithIdOnly = await prisma.tourDestination.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TourDestinationFindManyArgs>(args?: SelectSubset<T, TourDestinationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TourDestinationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a TourDestination.
+     * @param {TourDestinationCreateArgs} args - Arguments to create a TourDestination.
+     * @example
+     * // Create one TourDestination
+     * const TourDestination = await prisma.tourDestination.create({
+     *   data: {
+     *     // ... data to create a TourDestination
+     *   }
+     * })
+     * 
+     */
+    create<T extends TourDestinationCreateArgs>(args: SelectSubset<T, TourDestinationCreateArgs<ExtArgs>>): Prisma__TourDestinationClient<$Result.GetResult<Prisma.$TourDestinationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many TourDestinations.
+     * @param {TourDestinationCreateManyArgs} args - Arguments to create many TourDestinations.
+     * @example
+     * // Create many TourDestinations
+     * const tourDestination = await prisma.tourDestination.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TourDestinationCreateManyArgs>(args?: SelectSubset<T, TourDestinationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many TourDestinations and returns the data saved in the database.
+     * @param {TourDestinationCreateManyAndReturnArgs} args - Arguments to create many TourDestinations.
+     * @example
+     * // Create many TourDestinations
+     * const tourDestination = await prisma.tourDestination.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many TourDestinations and only return the `id`
+     * const tourDestinationWithIdOnly = await prisma.tourDestination.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TourDestinationCreateManyAndReturnArgs>(args?: SelectSubset<T, TourDestinationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TourDestinationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a TourDestination.
+     * @param {TourDestinationDeleteArgs} args - Arguments to delete one TourDestination.
+     * @example
+     * // Delete one TourDestination
+     * const TourDestination = await prisma.tourDestination.delete({
+     *   where: {
+     *     // ... filter to delete one TourDestination
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TourDestinationDeleteArgs>(args: SelectSubset<T, TourDestinationDeleteArgs<ExtArgs>>): Prisma__TourDestinationClient<$Result.GetResult<Prisma.$TourDestinationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one TourDestination.
+     * @param {TourDestinationUpdateArgs} args - Arguments to update one TourDestination.
+     * @example
+     * // Update one TourDestination
+     * const tourDestination = await prisma.tourDestination.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TourDestinationUpdateArgs>(args: SelectSubset<T, TourDestinationUpdateArgs<ExtArgs>>): Prisma__TourDestinationClient<$Result.GetResult<Prisma.$TourDestinationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more TourDestinations.
+     * @param {TourDestinationDeleteManyArgs} args - Arguments to filter TourDestinations to delete.
+     * @example
+     * // Delete a few TourDestinations
+     * const { count } = await prisma.tourDestination.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TourDestinationDeleteManyArgs>(args?: SelectSubset<T, TourDestinationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TourDestinations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TourDestinationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many TourDestinations
+     * const tourDestination = await prisma.tourDestination.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TourDestinationUpdateManyArgs>(args: SelectSubset<T, TourDestinationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TourDestinations and returns the data updated in the database.
+     * @param {TourDestinationUpdateManyAndReturnArgs} args - Arguments to update many TourDestinations.
+     * @example
+     * // Update many TourDestinations
+     * const tourDestination = await prisma.tourDestination.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more TourDestinations and only return the `id`
+     * const tourDestinationWithIdOnly = await prisma.tourDestination.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends TourDestinationUpdateManyAndReturnArgs>(args: SelectSubset<T, TourDestinationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TourDestinationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one TourDestination.
+     * @param {TourDestinationUpsertArgs} args - Arguments to update or create a TourDestination.
+     * @example
+     * // Update or create a TourDestination
+     * const tourDestination = await prisma.tourDestination.upsert({
+     *   create: {
+     *     // ... data to create a TourDestination
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the TourDestination we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TourDestinationUpsertArgs>(args: SelectSubset<T, TourDestinationUpsertArgs<ExtArgs>>): Prisma__TourDestinationClient<$Result.GetResult<Prisma.$TourDestinationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of TourDestinations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TourDestinationCountArgs} args - Arguments to filter TourDestinations to count.
+     * @example
+     * // Count the number of TourDestinations
+     * const count = await prisma.tourDestination.count({
+     *   where: {
+     *     // ... the filter for the TourDestinations we want to count
+     *   }
+     * })
+    **/
+    count<T extends TourDestinationCountArgs>(
+      args?: Subset<T, TourDestinationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TourDestinationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a TourDestination.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TourDestinationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TourDestinationAggregateArgs>(args: Subset<T, TourDestinationAggregateArgs>): Prisma.PrismaPromise<GetTourDestinationAggregateType<T>>
+
+    /**
+     * Group by TourDestination.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TourDestinationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TourDestinationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TourDestinationGroupByArgs['orderBy'] }
+        : { orderBy?: TourDestinationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TourDestinationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTourDestinationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the TourDestination model
+   */
+  readonly fields: TourDestinationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for TourDestination.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TourDestinationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    tour<T extends TourDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TourDefaultArgs<ExtArgs>>): Prisma__TourClient<$Result.GetResult<Prisma.$TourPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    destination<T extends DestinationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DestinationDefaultArgs<ExtArgs>>): Prisma__DestinationClient<$Result.GetResult<Prisma.$DestinationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the TourDestination model
+   */
+  interface TourDestinationFieldRefs {
+    readonly id: FieldRef<"TourDestination", 'String'>
+    readonly tourId: FieldRef<"TourDestination", 'String'>
+    readonly destinationId: FieldRef<"TourDestination", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * TourDestination findUnique
+   */
+  export type TourDestinationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourDestination
+     */
+    select?: TourDestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourDestination
+     */
+    omit?: TourDestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourDestinationInclude<ExtArgs> | null
+    /**
+     * Filter, which TourDestination to fetch.
+     */
+    where: TourDestinationWhereUniqueInput
+  }
+
+  /**
+   * TourDestination findUniqueOrThrow
+   */
+  export type TourDestinationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourDestination
+     */
+    select?: TourDestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourDestination
+     */
+    omit?: TourDestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourDestinationInclude<ExtArgs> | null
+    /**
+     * Filter, which TourDestination to fetch.
+     */
+    where: TourDestinationWhereUniqueInput
+  }
+
+  /**
+   * TourDestination findFirst
+   */
+  export type TourDestinationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourDestination
+     */
+    select?: TourDestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourDestination
+     */
+    omit?: TourDestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourDestinationInclude<ExtArgs> | null
+    /**
+     * Filter, which TourDestination to fetch.
+     */
+    where?: TourDestinationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TourDestinations to fetch.
+     */
+    orderBy?: TourDestinationOrderByWithRelationInput | TourDestinationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TourDestinations.
+     */
+    cursor?: TourDestinationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TourDestinations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TourDestinations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TourDestinations.
+     */
+    distinct?: TourDestinationScalarFieldEnum | TourDestinationScalarFieldEnum[]
+  }
+
+  /**
+   * TourDestination findFirstOrThrow
+   */
+  export type TourDestinationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourDestination
+     */
+    select?: TourDestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourDestination
+     */
+    omit?: TourDestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourDestinationInclude<ExtArgs> | null
+    /**
+     * Filter, which TourDestination to fetch.
+     */
+    where?: TourDestinationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TourDestinations to fetch.
+     */
+    orderBy?: TourDestinationOrderByWithRelationInput | TourDestinationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TourDestinations.
+     */
+    cursor?: TourDestinationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TourDestinations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TourDestinations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TourDestinations.
+     */
+    distinct?: TourDestinationScalarFieldEnum | TourDestinationScalarFieldEnum[]
+  }
+
+  /**
+   * TourDestination findMany
+   */
+  export type TourDestinationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourDestination
+     */
+    select?: TourDestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourDestination
+     */
+    omit?: TourDestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourDestinationInclude<ExtArgs> | null
+    /**
+     * Filter, which TourDestinations to fetch.
+     */
+    where?: TourDestinationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TourDestinations to fetch.
+     */
+    orderBy?: TourDestinationOrderByWithRelationInput | TourDestinationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing TourDestinations.
+     */
+    cursor?: TourDestinationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TourDestinations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TourDestinations.
+     */
+    skip?: number
+    distinct?: TourDestinationScalarFieldEnum | TourDestinationScalarFieldEnum[]
+  }
+
+  /**
+   * TourDestination create
+   */
+  export type TourDestinationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourDestination
+     */
+    select?: TourDestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourDestination
+     */
+    omit?: TourDestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourDestinationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a TourDestination.
+     */
+    data: XOR<TourDestinationCreateInput, TourDestinationUncheckedCreateInput>
+  }
+
+  /**
+   * TourDestination createMany
+   */
+  export type TourDestinationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many TourDestinations.
+     */
+    data: TourDestinationCreateManyInput | TourDestinationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * TourDestination createManyAndReturn
+   */
+  export type TourDestinationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourDestination
+     */
+    select?: TourDestinationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourDestination
+     */
+    omit?: TourDestinationOmit<ExtArgs> | null
+    /**
+     * The data used to create many TourDestinations.
+     */
+    data: TourDestinationCreateManyInput | TourDestinationCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourDestinationIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * TourDestination update
+   */
+  export type TourDestinationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourDestination
+     */
+    select?: TourDestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourDestination
+     */
+    omit?: TourDestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourDestinationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a TourDestination.
+     */
+    data: XOR<TourDestinationUpdateInput, TourDestinationUncheckedUpdateInput>
+    /**
+     * Choose, which TourDestination to update.
+     */
+    where: TourDestinationWhereUniqueInput
+  }
+
+  /**
+   * TourDestination updateMany
+   */
+  export type TourDestinationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update TourDestinations.
+     */
+    data: XOR<TourDestinationUpdateManyMutationInput, TourDestinationUncheckedUpdateManyInput>
+    /**
+     * Filter which TourDestinations to update
+     */
+    where?: TourDestinationWhereInput
+    /**
+     * Limit how many TourDestinations to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * TourDestination updateManyAndReturn
+   */
+  export type TourDestinationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourDestination
+     */
+    select?: TourDestinationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourDestination
+     */
+    omit?: TourDestinationOmit<ExtArgs> | null
+    /**
+     * The data used to update TourDestinations.
+     */
+    data: XOR<TourDestinationUpdateManyMutationInput, TourDestinationUncheckedUpdateManyInput>
+    /**
+     * Filter which TourDestinations to update
+     */
+    where?: TourDestinationWhereInput
+    /**
+     * Limit how many TourDestinations to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourDestinationIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * TourDestination upsert
+   */
+  export type TourDestinationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourDestination
+     */
+    select?: TourDestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourDestination
+     */
+    omit?: TourDestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourDestinationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the TourDestination to update in case it exists.
+     */
+    where: TourDestinationWhereUniqueInput
+    /**
+     * In case the TourDestination found by the `where` argument doesn't exist, create a new TourDestination with this data.
+     */
+    create: XOR<TourDestinationCreateInput, TourDestinationUncheckedCreateInput>
+    /**
+     * In case the TourDestination was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TourDestinationUpdateInput, TourDestinationUncheckedUpdateInput>
+  }
+
+  /**
+   * TourDestination delete
+   */
+  export type TourDestinationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourDestination
+     */
+    select?: TourDestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourDestination
+     */
+    omit?: TourDestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourDestinationInclude<ExtArgs> | null
+    /**
+     * Filter which TourDestination to delete.
+     */
+    where: TourDestinationWhereUniqueInput
+  }
+
+  /**
+   * TourDestination deleteMany
+   */
+  export type TourDestinationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TourDestinations to delete
+     */
+    where?: TourDestinationWhereInput
+    /**
+     * Limit how many TourDestinations to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * TourDestination without action
+   */
+  export type TourDestinationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TourDestination
+     */
+    select?: TourDestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TourDestination
+     */
+    omit?: TourDestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourDestinationInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Attraction
+   */
+
+  export type AggregateAttraction = {
+    _count: AttractionCountAggregateOutputType | null
+    _avg: AttractionAvgAggregateOutputType | null
+    _sum: AttractionSumAggregateOutputType | null
+    _min: AttractionMinAggregateOutputType | null
+    _max: AttractionMaxAggregateOutputType | null
+  }
+
+  export type AttractionAvgAggregateOutputType = {
+    duration: number | null
+    price: Decimal | null
+    offerPrice: Decimal | null
+  }
+
+  export type AttractionSumAggregateOutputType = {
+    duration: number | null
+    price: Decimal | null
+    offerPrice: Decimal | null
+  }
+
+  export type AttractionMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    slug: string | null
+    content: string | null
+    duration: number | null
+    price: Decimal | null
+    offerPrice: Decimal | null
+    thumbnailId: string | null
+    cityId: string | null
+  }
+
+  export type AttractionMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    slug: string | null
+    content: string | null
+    duration: number | null
+    price: Decimal | null
+    offerPrice: Decimal | null
+    thumbnailId: string | null
+    cityId: string | null
+  }
+
+  export type AttractionCountAggregateOutputType = {
+    id: number
+    name: number
+    slug: number
+    content: number
+    duration: number
+    price: number
+    offerPrice: number
+    thumbnailId: number
+    inclusions: number
+    exclusions: number
+    terms: number
+    cityId: number
+    _all: number
+  }
+
+
+  export type AttractionAvgAggregateInputType = {
+    duration?: true
+    price?: true
+    offerPrice?: true
+  }
+
+  export type AttractionSumAggregateInputType = {
+    duration?: true
+    price?: true
+    offerPrice?: true
+  }
+
+  export type AttractionMinAggregateInputType = {
+    id?: true
+    name?: true
+    slug?: true
+    content?: true
+    duration?: true
+    price?: true
+    offerPrice?: true
+    thumbnailId?: true
+    cityId?: true
+  }
+
+  export type AttractionMaxAggregateInputType = {
+    id?: true
+    name?: true
+    slug?: true
+    content?: true
+    duration?: true
+    price?: true
+    offerPrice?: true
+    thumbnailId?: true
+    cityId?: true
+  }
+
+  export type AttractionCountAggregateInputType = {
+    id?: true
+    name?: true
+    slug?: true
+    content?: true
+    duration?: true
+    price?: true
+    offerPrice?: true
+    thumbnailId?: true
+    inclusions?: true
+    exclusions?: true
+    terms?: true
+    cityId?: true
+    _all?: true
+  }
+
+  export type AttractionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Attraction to aggregate.
+     */
+    where?: AttractionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Attractions to fetch.
+     */
+    orderBy?: AttractionOrderByWithRelationInput | AttractionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AttractionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Attractions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Attractions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Attractions
+    **/
+    _count?: true | AttractionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AttractionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AttractionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AttractionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AttractionMaxAggregateInputType
+  }
+
+  export type GetAttractionAggregateType<T extends AttractionAggregateArgs> = {
+        [P in keyof T & keyof AggregateAttraction]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAttraction[P]>
+      : GetScalarType<T[P], AggregateAttraction[P]>
+  }
+
+
+
+
+  export type AttractionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AttractionWhereInput
+    orderBy?: AttractionOrderByWithAggregationInput | AttractionOrderByWithAggregationInput[]
+    by: AttractionScalarFieldEnum[] | AttractionScalarFieldEnum
+    having?: AttractionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AttractionCountAggregateInputType | true
+    _avg?: AttractionAvgAggregateInputType
+    _sum?: AttractionSumAggregateInputType
+    _min?: AttractionMinAggregateInputType
+    _max?: AttractionMaxAggregateInputType
+  }
+
+  export type AttractionGroupByOutputType = {
+    id: string
+    name: string
+    slug: string
+    content: string | null
+    duration: number | null
+    price: Decimal
+    offerPrice: Decimal | null
+    thumbnailId: string | null
+    inclusions: string[]
+    exclusions: string[]
+    terms: string[]
+    cityId: string
+    _count: AttractionCountAggregateOutputType | null
+    _avg: AttractionAvgAggregateOutputType | null
+    _sum: AttractionSumAggregateOutputType | null
+    _min: AttractionMinAggregateOutputType | null
+    _max: AttractionMaxAggregateOutputType | null
+  }
+
+  type GetAttractionGroupByPayload<T extends AttractionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AttractionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AttractionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AttractionGroupByOutputType[P]>
+            : GetScalarType<T[P], AttractionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AttractionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    content?: boolean
+    duration?: boolean
+    price?: boolean
+    offerPrice?: boolean
+    thumbnailId?: boolean
+    inclusions?: boolean
+    exclusions?: boolean
+    terms?: boolean
+    cityId?: boolean
+    thumbnail?: boolean | Attraction$thumbnailArgs<ExtArgs>
+    images?: boolean | Attraction$imagesArgs<ExtArgs>
+    faqs?: boolean | Attraction$faqsArgs<ExtArgs>
+    _count?: boolean | AttractionCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["attraction"]>
+
+  export type AttractionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    content?: boolean
+    duration?: boolean
+    price?: boolean
+    offerPrice?: boolean
+    thumbnailId?: boolean
+    inclusions?: boolean
+    exclusions?: boolean
+    terms?: boolean
+    cityId?: boolean
+    thumbnail?: boolean | Attraction$thumbnailArgs<ExtArgs>
+  }, ExtArgs["result"]["attraction"]>
+
+  export type AttractionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    content?: boolean
+    duration?: boolean
+    price?: boolean
+    offerPrice?: boolean
+    thumbnailId?: boolean
+    inclusions?: boolean
+    exclusions?: boolean
+    terms?: boolean
+    cityId?: boolean
+    thumbnail?: boolean | Attraction$thumbnailArgs<ExtArgs>
+  }, ExtArgs["result"]["attraction"]>
+
+  export type AttractionSelectScalar = {
+    id?: boolean
+    name?: boolean
+    slug?: boolean
+    content?: boolean
+    duration?: boolean
+    price?: boolean
+    offerPrice?: boolean
+    thumbnailId?: boolean
+    inclusions?: boolean
+    exclusions?: boolean
+    terms?: boolean
+    cityId?: boolean
+  }
+
+  export type AttractionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "slug" | "content" | "duration" | "price" | "offerPrice" | "thumbnailId" | "inclusions" | "exclusions" | "terms" | "cityId", ExtArgs["result"]["attraction"]>
+  export type AttractionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    thumbnail?: boolean | Attraction$thumbnailArgs<ExtArgs>
+    images?: boolean | Attraction$imagesArgs<ExtArgs>
+    faqs?: boolean | Attraction$faqsArgs<ExtArgs>
+    _count?: boolean | AttractionCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type AttractionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    thumbnail?: boolean | Attraction$thumbnailArgs<ExtArgs>
+  }
+  export type AttractionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    thumbnail?: boolean | Attraction$thumbnailArgs<ExtArgs>
+  }
+
+  export type $AttractionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Attraction"
+    objects: {
+      thumbnail: Prisma.$ImagePayload<ExtArgs> | null
+      images: Prisma.$ImagePayload<ExtArgs>[]
+      faqs: Prisma.$FAQPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      slug: string
+      content: string | null
+      duration: number | null
+      price: Prisma.Decimal
+      offerPrice: Prisma.Decimal | null
+      thumbnailId: string | null
+      inclusions: string[]
+      exclusions: string[]
+      terms: string[]
+      cityId: string
+    }, ExtArgs["result"]["attraction"]>
+    composites: {}
+  }
+
+  type AttractionGetPayload<S extends boolean | null | undefined | AttractionDefaultArgs> = $Result.GetResult<Prisma.$AttractionPayload, S>
+
+  type AttractionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AttractionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AttractionCountAggregateInputType | true
+    }
+
+  export interface AttractionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Attraction'], meta: { name: 'Attraction' } }
+    /**
+     * Find zero or one Attraction that matches the filter.
+     * @param {AttractionFindUniqueArgs} args - Arguments to find a Attraction
+     * @example
+     * // Get one Attraction
+     * const attraction = await prisma.attraction.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AttractionFindUniqueArgs>(args: SelectSubset<T, AttractionFindUniqueArgs<ExtArgs>>): Prisma__AttractionClient<$Result.GetResult<Prisma.$AttractionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Attraction that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AttractionFindUniqueOrThrowArgs} args - Arguments to find a Attraction
+     * @example
+     * // Get one Attraction
+     * const attraction = await prisma.attraction.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AttractionFindUniqueOrThrowArgs>(args: SelectSubset<T, AttractionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AttractionClient<$Result.GetResult<Prisma.$AttractionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Attraction that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AttractionFindFirstArgs} args - Arguments to find a Attraction
+     * @example
+     * // Get one Attraction
+     * const attraction = await prisma.attraction.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AttractionFindFirstArgs>(args?: SelectSubset<T, AttractionFindFirstArgs<ExtArgs>>): Prisma__AttractionClient<$Result.GetResult<Prisma.$AttractionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Attraction that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AttractionFindFirstOrThrowArgs} args - Arguments to find a Attraction
+     * @example
+     * // Get one Attraction
+     * const attraction = await prisma.attraction.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AttractionFindFirstOrThrowArgs>(args?: SelectSubset<T, AttractionFindFirstOrThrowArgs<ExtArgs>>): Prisma__AttractionClient<$Result.GetResult<Prisma.$AttractionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Attractions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AttractionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Attractions
+     * const attractions = await prisma.attraction.findMany()
+     * 
+     * // Get first 10 Attractions
+     * const attractions = await prisma.attraction.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const attractionWithIdOnly = await prisma.attraction.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AttractionFindManyArgs>(args?: SelectSubset<T, AttractionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AttractionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Attraction.
+     * @param {AttractionCreateArgs} args - Arguments to create a Attraction.
+     * @example
+     * // Create one Attraction
+     * const Attraction = await prisma.attraction.create({
+     *   data: {
+     *     // ... data to create a Attraction
+     *   }
+     * })
+     * 
+     */
+    create<T extends AttractionCreateArgs>(args: SelectSubset<T, AttractionCreateArgs<ExtArgs>>): Prisma__AttractionClient<$Result.GetResult<Prisma.$AttractionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Attractions.
+     * @param {AttractionCreateManyArgs} args - Arguments to create many Attractions.
+     * @example
+     * // Create many Attractions
+     * const attraction = await prisma.attraction.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AttractionCreateManyArgs>(args?: SelectSubset<T, AttractionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Attractions and returns the data saved in the database.
+     * @param {AttractionCreateManyAndReturnArgs} args - Arguments to create many Attractions.
+     * @example
+     * // Create many Attractions
+     * const attraction = await prisma.attraction.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Attractions and only return the `id`
+     * const attractionWithIdOnly = await prisma.attraction.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AttractionCreateManyAndReturnArgs>(args?: SelectSubset<T, AttractionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AttractionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Attraction.
+     * @param {AttractionDeleteArgs} args - Arguments to delete one Attraction.
+     * @example
+     * // Delete one Attraction
+     * const Attraction = await prisma.attraction.delete({
+     *   where: {
+     *     // ... filter to delete one Attraction
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AttractionDeleteArgs>(args: SelectSubset<T, AttractionDeleteArgs<ExtArgs>>): Prisma__AttractionClient<$Result.GetResult<Prisma.$AttractionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Attraction.
+     * @param {AttractionUpdateArgs} args - Arguments to update one Attraction.
+     * @example
+     * // Update one Attraction
+     * const attraction = await prisma.attraction.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AttractionUpdateArgs>(args: SelectSubset<T, AttractionUpdateArgs<ExtArgs>>): Prisma__AttractionClient<$Result.GetResult<Prisma.$AttractionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Attractions.
+     * @param {AttractionDeleteManyArgs} args - Arguments to filter Attractions to delete.
+     * @example
+     * // Delete a few Attractions
+     * const { count } = await prisma.attraction.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AttractionDeleteManyArgs>(args?: SelectSubset<T, AttractionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Attractions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AttractionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Attractions
+     * const attraction = await prisma.attraction.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AttractionUpdateManyArgs>(args: SelectSubset<T, AttractionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Attractions and returns the data updated in the database.
+     * @param {AttractionUpdateManyAndReturnArgs} args - Arguments to update many Attractions.
+     * @example
+     * // Update many Attractions
+     * const attraction = await prisma.attraction.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Attractions and only return the `id`
+     * const attractionWithIdOnly = await prisma.attraction.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AttractionUpdateManyAndReturnArgs>(args: SelectSubset<T, AttractionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AttractionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Attraction.
+     * @param {AttractionUpsertArgs} args - Arguments to update or create a Attraction.
+     * @example
+     * // Update or create a Attraction
+     * const attraction = await prisma.attraction.upsert({
+     *   create: {
+     *     // ... data to create a Attraction
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Attraction we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AttractionUpsertArgs>(args: SelectSubset<T, AttractionUpsertArgs<ExtArgs>>): Prisma__AttractionClient<$Result.GetResult<Prisma.$AttractionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Attractions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AttractionCountArgs} args - Arguments to filter Attractions to count.
+     * @example
+     * // Count the number of Attractions
+     * const count = await prisma.attraction.count({
+     *   where: {
+     *     // ... the filter for the Attractions we want to count
+     *   }
+     * })
+    **/
+    count<T extends AttractionCountArgs>(
+      args?: Subset<T, AttractionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AttractionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Attraction.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AttractionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AttractionAggregateArgs>(args: Subset<T, AttractionAggregateArgs>): Prisma.PrismaPromise<GetAttractionAggregateType<T>>
+
+    /**
+     * Group by Attraction.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AttractionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AttractionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AttractionGroupByArgs['orderBy'] }
+        : { orderBy?: AttractionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AttractionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAttractionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Attraction model
+   */
+  readonly fields: AttractionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Attraction.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AttractionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    thumbnail<T extends Attraction$thumbnailArgs<ExtArgs> = {}>(args?: Subset<T, Attraction$thumbnailArgs<ExtArgs>>): Prisma__ImageClient<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    images<T extends Attraction$imagesArgs<ExtArgs> = {}>(args?: Subset<T, Attraction$imagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    faqs<T extends Attraction$faqsArgs<ExtArgs> = {}>(args?: Subset<T, Attraction$faqsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Attraction model
+   */
+  interface AttractionFieldRefs {
+    readonly id: FieldRef<"Attraction", 'String'>
+    readonly name: FieldRef<"Attraction", 'String'>
+    readonly slug: FieldRef<"Attraction", 'String'>
+    readonly content: FieldRef<"Attraction", 'String'>
+    readonly duration: FieldRef<"Attraction", 'Int'>
+    readonly price: FieldRef<"Attraction", 'Decimal'>
+    readonly offerPrice: FieldRef<"Attraction", 'Decimal'>
+    readonly thumbnailId: FieldRef<"Attraction", 'String'>
+    readonly inclusions: FieldRef<"Attraction", 'String[]'>
+    readonly exclusions: FieldRef<"Attraction", 'String[]'>
+    readonly terms: FieldRef<"Attraction", 'String[]'>
+    readonly cityId: FieldRef<"Attraction", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Attraction findUnique
+   */
+  export type AttractionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attraction
+     */
+    select?: AttractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Attraction
+     */
+    omit?: AttractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AttractionInclude<ExtArgs> | null
+    /**
+     * Filter, which Attraction to fetch.
+     */
+    where: AttractionWhereUniqueInput
+  }
+
+  /**
+   * Attraction findUniqueOrThrow
+   */
+  export type AttractionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attraction
+     */
+    select?: AttractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Attraction
+     */
+    omit?: AttractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AttractionInclude<ExtArgs> | null
+    /**
+     * Filter, which Attraction to fetch.
+     */
+    where: AttractionWhereUniqueInput
+  }
+
+  /**
+   * Attraction findFirst
+   */
+  export type AttractionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attraction
+     */
+    select?: AttractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Attraction
+     */
+    omit?: AttractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AttractionInclude<ExtArgs> | null
+    /**
+     * Filter, which Attraction to fetch.
+     */
+    where?: AttractionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Attractions to fetch.
+     */
+    orderBy?: AttractionOrderByWithRelationInput | AttractionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Attractions.
+     */
+    cursor?: AttractionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Attractions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Attractions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Attractions.
+     */
+    distinct?: AttractionScalarFieldEnum | AttractionScalarFieldEnum[]
+  }
+
+  /**
+   * Attraction findFirstOrThrow
+   */
+  export type AttractionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attraction
+     */
+    select?: AttractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Attraction
+     */
+    omit?: AttractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AttractionInclude<ExtArgs> | null
+    /**
+     * Filter, which Attraction to fetch.
+     */
+    where?: AttractionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Attractions to fetch.
+     */
+    orderBy?: AttractionOrderByWithRelationInput | AttractionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Attractions.
+     */
+    cursor?: AttractionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Attractions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Attractions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Attractions.
+     */
+    distinct?: AttractionScalarFieldEnum | AttractionScalarFieldEnum[]
+  }
+
+  /**
+   * Attraction findMany
+   */
+  export type AttractionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attraction
+     */
+    select?: AttractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Attraction
+     */
+    omit?: AttractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AttractionInclude<ExtArgs> | null
+    /**
+     * Filter, which Attractions to fetch.
+     */
+    where?: AttractionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Attractions to fetch.
+     */
+    orderBy?: AttractionOrderByWithRelationInput | AttractionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Attractions.
+     */
+    cursor?: AttractionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Attractions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Attractions.
+     */
+    skip?: number
+    distinct?: AttractionScalarFieldEnum | AttractionScalarFieldEnum[]
+  }
+
+  /**
+   * Attraction create
+   */
+  export type AttractionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attraction
+     */
+    select?: AttractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Attraction
+     */
+    omit?: AttractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AttractionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Attraction.
+     */
+    data: XOR<AttractionCreateInput, AttractionUncheckedCreateInput>
+  }
+
+  /**
+   * Attraction createMany
+   */
+  export type AttractionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Attractions.
+     */
+    data: AttractionCreateManyInput | AttractionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Attraction createManyAndReturn
+   */
+  export type AttractionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attraction
+     */
+    select?: AttractionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Attraction
+     */
+    omit?: AttractionOmit<ExtArgs> | null
+    /**
+     * The data used to create many Attractions.
+     */
+    data: AttractionCreateManyInput | AttractionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AttractionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Attraction update
+   */
+  export type AttractionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attraction
+     */
+    select?: AttractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Attraction
+     */
+    omit?: AttractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AttractionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Attraction.
+     */
+    data: XOR<AttractionUpdateInput, AttractionUncheckedUpdateInput>
+    /**
+     * Choose, which Attraction to update.
+     */
+    where: AttractionWhereUniqueInput
+  }
+
+  /**
+   * Attraction updateMany
+   */
+  export type AttractionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Attractions.
+     */
+    data: XOR<AttractionUpdateManyMutationInput, AttractionUncheckedUpdateManyInput>
+    /**
+     * Filter which Attractions to update
+     */
+    where?: AttractionWhereInput
+    /**
+     * Limit how many Attractions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Attraction updateManyAndReturn
+   */
+  export type AttractionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attraction
+     */
+    select?: AttractionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Attraction
+     */
+    omit?: AttractionOmit<ExtArgs> | null
+    /**
+     * The data used to update Attractions.
+     */
+    data: XOR<AttractionUpdateManyMutationInput, AttractionUncheckedUpdateManyInput>
+    /**
+     * Filter which Attractions to update
+     */
+    where?: AttractionWhereInput
+    /**
+     * Limit how many Attractions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AttractionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Attraction upsert
+   */
+  export type AttractionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attraction
+     */
+    select?: AttractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Attraction
+     */
+    omit?: AttractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AttractionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Attraction to update in case it exists.
+     */
+    where: AttractionWhereUniqueInput
+    /**
+     * In case the Attraction found by the `where` argument doesn't exist, create a new Attraction with this data.
+     */
+    create: XOR<AttractionCreateInput, AttractionUncheckedCreateInput>
+    /**
+     * In case the Attraction was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AttractionUpdateInput, AttractionUncheckedUpdateInput>
+  }
+
+  /**
+   * Attraction delete
+   */
+  export type AttractionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attraction
+     */
+    select?: AttractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Attraction
+     */
+    omit?: AttractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AttractionInclude<ExtArgs> | null
+    /**
+     * Filter which Attraction to delete.
+     */
+    where: AttractionWhereUniqueInput
+  }
+
+  /**
+   * Attraction deleteMany
+   */
+  export type AttractionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Attractions to delete
+     */
+    where?: AttractionWhereInput
+    /**
+     * Limit how many Attractions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Attraction.thumbnail
+   */
+  export type Attraction$thumbnailArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Image
+     */
+    select?: ImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Image
+     */
+    omit?: ImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImageInclude<ExtArgs> | null
+    where?: ImageWhereInput
+  }
+
+  /**
+   * Attraction.images
+   */
+  export type Attraction$imagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Image
+     */
+    select?: ImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Image
+     */
+    omit?: ImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImageInclude<ExtArgs> | null
+    where?: ImageWhereInput
+    orderBy?: ImageOrderByWithRelationInput | ImageOrderByWithRelationInput[]
+    cursor?: ImageWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ImageScalarFieldEnum | ImageScalarFieldEnum[]
+  }
+
+  /**
+   * Attraction.faqs
+   */
+  export type Attraction$faqsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FAQ
+     */
+    select?: FAQSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FAQ
+     */
+    omit?: FAQOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FAQInclude<ExtArgs> | null
+    where?: FAQWhereInput
+    orderBy?: FAQOrderByWithRelationInput | FAQOrderByWithRelationInput[]
+    cursor?: FAQWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FAQScalarFieldEnum | FAQScalarFieldEnum[]
+  }
+
+  /**
+   * Attraction without action
+   */
+  export type AttractionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attraction
+     */
+    select?: AttractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Attraction
+     */
+    omit?: AttractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AttractionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model FAQ
+   */
+
+  export type AggregateFAQ = {
+    _count: FAQCountAggregateOutputType | null
+    _min: FAQMinAggregateOutputType | null
+    _max: FAQMaxAggregateOutputType | null
+  }
+
+  export type FAQMinAggregateOutputType = {
+    id: string | null
+    question: string | null
+    answer: string | null
+    attractionId: string | null
+    tourId: string | null
+    destinationId: string | null
+  }
+
+  export type FAQMaxAggregateOutputType = {
+    id: string | null
+    question: string | null
+    answer: string | null
+    attractionId: string | null
+    tourId: string | null
+    destinationId: string | null
+  }
+
+  export type FAQCountAggregateOutputType = {
+    id: number
+    question: number
+    answer: number
+    attractionId: number
+    tourId: number
+    destinationId: number
+    _all: number
+  }
+
+
+  export type FAQMinAggregateInputType = {
+    id?: true
+    question?: true
+    answer?: true
+    attractionId?: true
+    tourId?: true
+    destinationId?: true
+  }
+
+  export type FAQMaxAggregateInputType = {
+    id?: true
+    question?: true
+    answer?: true
+    attractionId?: true
+    tourId?: true
+    destinationId?: true
+  }
+
+  export type FAQCountAggregateInputType = {
+    id?: true
+    question?: true
+    answer?: true
+    attractionId?: true
+    tourId?: true
+    destinationId?: true
+    _all?: true
+  }
+
+  export type FAQAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FAQ to aggregate.
+     */
+    where?: FAQWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FAQS to fetch.
+     */
+    orderBy?: FAQOrderByWithRelationInput | FAQOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FAQWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FAQS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FAQS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned FAQS
+    **/
+    _count?: true | FAQCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FAQMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FAQMaxAggregateInputType
+  }
+
+  export type GetFAQAggregateType<T extends FAQAggregateArgs> = {
+        [P in keyof T & keyof AggregateFAQ]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFAQ[P]>
+      : GetScalarType<T[P], AggregateFAQ[P]>
+  }
+
+
+
+
+  export type FAQGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FAQWhereInput
+    orderBy?: FAQOrderByWithAggregationInput | FAQOrderByWithAggregationInput[]
+    by: FAQScalarFieldEnum[] | FAQScalarFieldEnum
+    having?: FAQScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FAQCountAggregateInputType | true
+    _min?: FAQMinAggregateInputType
+    _max?: FAQMaxAggregateInputType
+  }
+
+  export type FAQGroupByOutputType = {
+    id: string
+    question: string
+    answer: string
+    attractionId: string | null
+    tourId: string | null
+    destinationId: string | null
+    _count: FAQCountAggregateOutputType | null
+    _min: FAQMinAggregateOutputType | null
+    _max: FAQMaxAggregateOutputType | null
+  }
+
+  type GetFAQGroupByPayload<T extends FAQGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FAQGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FAQGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FAQGroupByOutputType[P]>
+            : GetScalarType<T[P], FAQGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FAQSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    question?: boolean
+    answer?: boolean
+    attractionId?: boolean
+    tourId?: boolean
+    destinationId?: boolean
+    attraction?: boolean | FAQ$attractionArgs<ExtArgs>
+    tour?: boolean | FAQ$tourArgs<ExtArgs>
+    destination?: boolean | FAQ$destinationArgs<ExtArgs>
+  }, ExtArgs["result"]["fAQ"]>
+
+  export type FAQSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    question?: boolean
+    answer?: boolean
+    attractionId?: boolean
+    tourId?: boolean
+    destinationId?: boolean
+    attraction?: boolean | FAQ$attractionArgs<ExtArgs>
+    tour?: boolean | FAQ$tourArgs<ExtArgs>
+    destination?: boolean | FAQ$destinationArgs<ExtArgs>
+  }, ExtArgs["result"]["fAQ"]>
+
+  export type FAQSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    question?: boolean
+    answer?: boolean
+    attractionId?: boolean
+    tourId?: boolean
+    destinationId?: boolean
+    attraction?: boolean | FAQ$attractionArgs<ExtArgs>
+    tour?: boolean | FAQ$tourArgs<ExtArgs>
+    destination?: boolean | FAQ$destinationArgs<ExtArgs>
+  }, ExtArgs["result"]["fAQ"]>
+
+  export type FAQSelectScalar = {
+    id?: boolean
+    question?: boolean
+    answer?: boolean
+    attractionId?: boolean
+    tourId?: boolean
+    destinationId?: boolean
+  }
+
+  export type FAQOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "question" | "answer" | "attractionId" | "tourId" | "destinationId", ExtArgs["result"]["fAQ"]>
+  export type FAQInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    attraction?: boolean | FAQ$attractionArgs<ExtArgs>
+    tour?: boolean | FAQ$tourArgs<ExtArgs>
+    destination?: boolean | FAQ$destinationArgs<ExtArgs>
+  }
+  export type FAQIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    attraction?: boolean | FAQ$attractionArgs<ExtArgs>
+    tour?: boolean | FAQ$tourArgs<ExtArgs>
+    destination?: boolean | FAQ$destinationArgs<ExtArgs>
+  }
+  export type FAQIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    attraction?: boolean | FAQ$attractionArgs<ExtArgs>
+    tour?: boolean | FAQ$tourArgs<ExtArgs>
+    destination?: boolean | FAQ$destinationArgs<ExtArgs>
+  }
+
+  export type $FAQPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "FAQ"
+    objects: {
+      attraction: Prisma.$AttractionPayload<ExtArgs> | null
+      tour: Prisma.$TourPayload<ExtArgs> | null
+      destination: Prisma.$DestinationPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      question: string
+      answer: string
+      attractionId: string | null
+      tourId: string | null
+      destinationId: string | null
+    }, ExtArgs["result"]["fAQ"]>
+    composites: {}
+  }
+
+  type FAQGetPayload<S extends boolean | null | undefined | FAQDefaultArgs> = $Result.GetResult<Prisma.$FAQPayload, S>
+
+  type FAQCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FAQFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FAQCountAggregateInputType | true
+    }
+
+  export interface FAQDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FAQ'], meta: { name: 'FAQ' } }
+    /**
+     * Find zero or one FAQ that matches the filter.
+     * @param {FAQFindUniqueArgs} args - Arguments to find a FAQ
+     * @example
+     * // Get one FAQ
+     * const fAQ = await prisma.fAQ.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FAQFindUniqueArgs>(args: SelectSubset<T, FAQFindUniqueArgs<ExtArgs>>): Prisma__FAQClient<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one FAQ that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {FAQFindUniqueOrThrowArgs} args - Arguments to find a FAQ
+     * @example
+     * // Get one FAQ
+     * const fAQ = await prisma.fAQ.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FAQFindUniqueOrThrowArgs>(args: SelectSubset<T, FAQFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FAQClient<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FAQ that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FAQFindFirstArgs} args - Arguments to find a FAQ
+     * @example
+     * // Get one FAQ
+     * const fAQ = await prisma.fAQ.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FAQFindFirstArgs>(args?: SelectSubset<T, FAQFindFirstArgs<ExtArgs>>): Prisma__FAQClient<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FAQ that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FAQFindFirstOrThrowArgs} args - Arguments to find a FAQ
+     * @example
+     * // Get one FAQ
+     * const fAQ = await prisma.fAQ.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FAQFindFirstOrThrowArgs>(args?: SelectSubset<T, FAQFindFirstOrThrowArgs<ExtArgs>>): Prisma__FAQClient<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more FAQS that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FAQFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all FAQS
+     * const fAQS = await prisma.fAQ.findMany()
+     * 
+     * // Get first 10 FAQS
+     * const fAQS = await prisma.fAQ.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const fAQWithIdOnly = await prisma.fAQ.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FAQFindManyArgs>(args?: SelectSubset<T, FAQFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a FAQ.
+     * @param {FAQCreateArgs} args - Arguments to create a FAQ.
+     * @example
+     * // Create one FAQ
+     * const FAQ = await prisma.fAQ.create({
+     *   data: {
+     *     // ... data to create a FAQ
+     *   }
+     * })
+     * 
+     */
+    create<T extends FAQCreateArgs>(args: SelectSubset<T, FAQCreateArgs<ExtArgs>>): Prisma__FAQClient<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many FAQS.
+     * @param {FAQCreateManyArgs} args - Arguments to create many FAQS.
+     * @example
+     * // Create many FAQS
+     * const fAQ = await prisma.fAQ.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FAQCreateManyArgs>(args?: SelectSubset<T, FAQCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many FAQS and returns the data saved in the database.
+     * @param {FAQCreateManyAndReturnArgs} args - Arguments to create many FAQS.
+     * @example
+     * // Create many FAQS
+     * const fAQ = await prisma.fAQ.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many FAQS and only return the `id`
+     * const fAQWithIdOnly = await prisma.fAQ.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FAQCreateManyAndReturnArgs>(args?: SelectSubset<T, FAQCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a FAQ.
+     * @param {FAQDeleteArgs} args - Arguments to delete one FAQ.
+     * @example
+     * // Delete one FAQ
+     * const FAQ = await prisma.fAQ.delete({
+     *   where: {
+     *     // ... filter to delete one FAQ
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FAQDeleteArgs>(args: SelectSubset<T, FAQDeleteArgs<ExtArgs>>): Prisma__FAQClient<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one FAQ.
+     * @param {FAQUpdateArgs} args - Arguments to update one FAQ.
+     * @example
+     * // Update one FAQ
+     * const fAQ = await prisma.fAQ.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FAQUpdateArgs>(args: SelectSubset<T, FAQUpdateArgs<ExtArgs>>): Prisma__FAQClient<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more FAQS.
+     * @param {FAQDeleteManyArgs} args - Arguments to filter FAQS to delete.
+     * @example
+     * // Delete a few FAQS
+     * const { count } = await prisma.fAQ.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FAQDeleteManyArgs>(args?: SelectSubset<T, FAQDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FAQS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FAQUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many FAQS
+     * const fAQ = await prisma.fAQ.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FAQUpdateManyArgs>(args: SelectSubset<T, FAQUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FAQS and returns the data updated in the database.
+     * @param {FAQUpdateManyAndReturnArgs} args - Arguments to update many FAQS.
+     * @example
+     * // Update many FAQS
+     * const fAQ = await prisma.fAQ.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more FAQS and only return the `id`
+     * const fAQWithIdOnly = await prisma.fAQ.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends FAQUpdateManyAndReturnArgs>(args: SelectSubset<T, FAQUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one FAQ.
+     * @param {FAQUpsertArgs} args - Arguments to update or create a FAQ.
+     * @example
+     * // Update or create a FAQ
+     * const fAQ = await prisma.fAQ.upsert({
+     *   create: {
+     *     // ... data to create a FAQ
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the FAQ we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FAQUpsertArgs>(args: SelectSubset<T, FAQUpsertArgs<ExtArgs>>): Prisma__FAQClient<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of FAQS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FAQCountArgs} args - Arguments to filter FAQS to count.
+     * @example
+     * // Count the number of FAQS
+     * const count = await prisma.fAQ.count({
+     *   where: {
+     *     // ... the filter for the FAQS we want to count
+     *   }
+     * })
+    **/
+    count<T extends FAQCountArgs>(
+      args?: Subset<T, FAQCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FAQCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a FAQ.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FAQAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FAQAggregateArgs>(args: Subset<T, FAQAggregateArgs>): Prisma.PrismaPromise<GetFAQAggregateType<T>>
+
+    /**
+     * Group by FAQ.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FAQGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FAQGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FAQGroupByArgs['orderBy'] }
+        : { orderBy?: FAQGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FAQGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFAQGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the FAQ model
+   */
+  readonly fields: FAQFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for FAQ.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FAQClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    attraction<T extends FAQ$attractionArgs<ExtArgs> = {}>(args?: Subset<T, FAQ$attractionArgs<ExtArgs>>): Prisma__AttractionClient<$Result.GetResult<Prisma.$AttractionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    tour<T extends FAQ$tourArgs<ExtArgs> = {}>(args?: Subset<T, FAQ$tourArgs<ExtArgs>>): Prisma__TourClient<$Result.GetResult<Prisma.$TourPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    destination<T extends FAQ$destinationArgs<ExtArgs> = {}>(args?: Subset<T, FAQ$destinationArgs<ExtArgs>>): Prisma__DestinationClient<$Result.GetResult<Prisma.$DestinationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the FAQ model
+   */
+  interface FAQFieldRefs {
+    readonly id: FieldRef<"FAQ", 'String'>
+    readonly question: FieldRef<"FAQ", 'String'>
+    readonly answer: FieldRef<"FAQ", 'String'>
+    readonly attractionId: FieldRef<"FAQ", 'String'>
+    readonly tourId: FieldRef<"FAQ", 'String'>
+    readonly destinationId: FieldRef<"FAQ", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * FAQ findUnique
+   */
+  export type FAQFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FAQ
+     */
+    select?: FAQSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FAQ
+     */
+    omit?: FAQOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FAQInclude<ExtArgs> | null
+    /**
+     * Filter, which FAQ to fetch.
+     */
+    where: FAQWhereUniqueInput
+  }
+
+  /**
+   * FAQ findUniqueOrThrow
+   */
+  export type FAQFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FAQ
+     */
+    select?: FAQSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FAQ
+     */
+    omit?: FAQOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FAQInclude<ExtArgs> | null
+    /**
+     * Filter, which FAQ to fetch.
+     */
+    where: FAQWhereUniqueInput
+  }
+
+  /**
+   * FAQ findFirst
+   */
+  export type FAQFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FAQ
+     */
+    select?: FAQSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FAQ
+     */
+    omit?: FAQOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FAQInclude<ExtArgs> | null
+    /**
+     * Filter, which FAQ to fetch.
+     */
+    where?: FAQWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FAQS to fetch.
+     */
+    orderBy?: FAQOrderByWithRelationInput | FAQOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FAQS.
+     */
+    cursor?: FAQWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FAQS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FAQS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FAQS.
+     */
+    distinct?: FAQScalarFieldEnum | FAQScalarFieldEnum[]
+  }
+
+  /**
+   * FAQ findFirstOrThrow
+   */
+  export type FAQFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FAQ
+     */
+    select?: FAQSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FAQ
+     */
+    omit?: FAQOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FAQInclude<ExtArgs> | null
+    /**
+     * Filter, which FAQ to fetch.
+     */
+    where?: FAQWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FAQS to fetch.
+     */
+    orderBy?: FAQOrderByWithRelationInput | FAQOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FAQS.
+     */
+    cursor?: FAQWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FAQS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FAQS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FAQS.
+     */
+    distinct?: FAQScalarFieldEnum | FAQScalarFieldEnum[]
+  }
+
+  /**
+   * FAQ findMany
+   */
+  export type FAQFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FAQ
+     */
+    select?: FAQSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FAQ
+     */
+    omit?: FAQOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FAQInclude<ExtArgs> | null
+    /**
+     * Filter, which FAQS to fetch.
+     */
+    where?: FAQWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FAQS to fetch.
+     */
+    orderBy?: FAQOrderByWithRelationInput | FAQOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing FAQS.
+     */
+    cursor?: FAQWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FAQS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FAQS.
+     */
+    skip?: number
+    distinct?: FAQScalarFieldEnum | FAQScalarFieldEnum[]
+  }
+
+  /**
+   * FAQ create
+   */
+  export type FAQCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FAQ
+     */
+    select?: FAQSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FAQ
+     */
+    omit?: FAQOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FAQInclude<ExtArgs> | null
+    /**
+     * The data needed to create a FAQ.
+     */
+    data: XOR<FAQCreateInput, FAQUncheckedCreateInput>
+  }
+
+  /**
+   * FAQ createMany
+   */
+  export type FAQCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many FAQS.
+     */
+    data: FAQCreateManyInput | FAQCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * FAQ createManyAndReturn
+   */
+  export type FAQCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FAQ
+     */
+    select?: FAQSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FAQ
+     */
+    omit?: FAQOmit<ExtArgs> | null
+    /**
+     * The data used to create many FAQS.
+     */
+    data: FAQCreateManyInput | FAQCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FAQIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FAQ update
+   */
+  export type FAQUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FAQ
+     */
+    select?: FAQSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FAQ
+     */
+    omit?: FAQOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FAQInclude<ExtArgs> | null
+    /**
+     * The data needed to update a FAQ.
+     */
+    data: XOR<FAQUpdateInput, FAQUncheckedUpdateInput>
+    /**
+     * Choose, which FAQ to update.
+     */
+    where: FAQWhereUniqueInput
+  }
+
+  /**
+   * FAQ updateMany
+   */
+  export type FAQUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update FAQS.
+     */
+    data: XOR<FAQUpdateManyMutationInput, FAQUncheckedUpdateManyInput>
+    /**
+     * Filter which FAQS to update
+     */
+    where?: FAQWhereInput
+    /**
+     * Limit how many FAQS to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * FAQ updateManyAndReturn
+   */
+  export type FAQUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FAQ
+     */
+    select?: FAQSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FAQ
+     */
+    omit?: FAQOmit<ExtArgs> | null
+    /**
+     * The data used to update FAQS.
+     */
+    data: XOR<FAQUpdateManyMutationInput, FAQUncheckedUpdateManyInput>
+    /**
+     * Filter which FAQS to update
+     */
+    where?: FAQWhereInput
+    /**
+     * Limit how many FAQS to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FAQIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FAQ upsert
+   */
+  export type FAQUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FAQ
+     */
+    select?: FAQSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FAQ
+     */
+    omit?: FAQOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FAQInclude<ExtArgs> | null
+    /**
+     * The filter to search for the FAQ to update in case it exists.
+     */
+    where: FAQWhereUniqueInput
+    /**
+     * In case the FAQ found by the `where` argument doesn't exist, create a new FAQ with this data.
+     */
+    create: XOR<FAQCreateInput, FAQUncheckedCreateInput>
+    /**
+     * In case the FAQ was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FAQUpdateInput, FAQUncheckedUpdateInput>
+  }
+
+  /**
+   * FAQ delete
+   */
+  export type FAQDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FAQ
+     */
+    select?: FAQSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FAQ
+     */
+    omit?: FAQOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FAQInclude<ExtArgs> | null
+    /**
+     * Filter which FAQ to delete.
+     */
+    where: FAQWhereUniqueInput
+  }
+
+  /**
+   * FAQ deleteMany
+   */
+  export type FAQDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FAQS to delete
+     */
+    where?: FAQWhereInput
+    /**
+     * Limit how many FAQS to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * FAQ.attraction
+   */
+  export type FAQ$attractionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attraction
+     */
+    select?: AttractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Attraction
+     */
+    omit?: AttractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AttractionInclude<ExtArgs> | null
+    where?: AttractionWhereInput
+  }
+
+  /**
+   * FAQ.tour
+   */
+  export type FAQ$tourArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tour
+     */
+    select?: TourSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tour
+     */
+    omit?: TourOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourInclude<ExtArgs> | null
+    where?: TourWhereInput
+  }
+
+  /**
+   * FAQ.destination
+   */
+  export type FAQ$destinationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Destination
+     */
+    select?: DestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Destination
+     */
+    omit?: DestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DestinationInclude<ExtArgs> | null
+    where?: DestinationWhereInput
+  }
+
+  /**
+   * FAQ without action
+   */
+  export type FAQDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FAQ
+     */
+    select?: FAQSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FAQ
+     */
+    omit?: FAQOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FAQInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model DayItineraryItem
+   */
+
+  export type AggregateDayItineraryItem = {
+    _count: DayItineraryItemCountAggregateOutputType | null
+    _avg: DayItineraryItemAvgAggregateOutputType | null
+    _sum: DayItineraryItemSumAggregateOutputType | null
+    _min: DayItineraryItemMinAggregateOutputType | null
+    _max: DayItineraryItemMaxAggregateOutputType | null
+  }
+
+  export type DayItineraryItemAvgAggregateOutputType = {
+    dayNumber: number | null
+    duration: number | null
+  }
+
+  export type DayItineraryItemSumAggregateOutputType = {
+    dayNumber: number | null
+    duration: number | null
+  }
+
+  export type DayItineraryItemMinAggregateOutputType = {
+    id: string | null
+    tourId: string | null
+    dayNumber: number | null
+    title: string | null
+    content: string | null
+    duration: number | null
+  }
+
+  export type DayItineraryItemMaxAggregateOutputType = {
+    id: string | null
+    tourId: string | null
+    dayNumber: number | null
+    title: string | null
+    content: string | null
+    duration: number | null
+  }
+
+  export type DayItineraryItemCountAggregateOutputType = {
+    id: number
+    tourId: number
+    dayNumber: number
+    title: number
+    content: number
+    meals: number
+    duration: number
+    _all: number
+  }
+
+
+  export type DayItineraryItemAvgAggregateInputType = {
+    dayNumber?: true
+    duration?: true
+  }
+
+  export type DayItineraryItemSumAggregateInputType = {
+    dayNumber?: true
+    duration?: true
+  }
+
+  export type DayItineraryItemMinAggregateInputType = {
+    id?: true
+    tourId?: true
+    dayNumber?: true
+    title?: true
+    content?: true
+    duration?: true
+  }
+
+  export type DayItineraryItemMaxAggregateInputType = {
+    id?: true
+    tourId?: true
+    dayNumber?: true
+    title?: true
+    content?: true
+    duration?: true
+  }
+
+  export type DayItineraryItemCountAggregateInputType = {
+    id?: true
+    tourId?: true
+    dayNumber?: true
+    title?: true
+    content?: true
+    meals?: true
+    duration?: true
+    _all?: true
+  }
+
+  export type DayItineraryItemAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DayItineraryItem to aggregate.
+     */
+    where?: DayItineraryItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DayItineraryItems to fetch.
+     */
+    orderBy?: DayItineraryItemOrderByWithRelationInput | DayItineraryItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DayItineraryItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DayItineraryItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DayItineraryItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned DayItineraryItems
+    **/
+    _count?: true | DayItineraryItemCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DayItineraryItemAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DayItineraryItemSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DayItineraryItemMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DayItineraryItemMaxAggregateInputType
+  }
+
+  export type GetDayItineraryItemAggregateType<T extends DayItineraryItemAggregateArgs> = {
+        [P in keyof T & keyof AggregateDayItineraryItem]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDayItineraryItem[P]>
+      : GetScalarType<T[P], AggregateDayItineraryItem[P]>
+  }
+
+
+
+
+  export type DayItineraryItemGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DayItineraryItemWhereInput
+    orderBy?: DayItineraryItemOrderByWithAggregationInput | DayItineraryItemOrderByWithAggregationInput[]
+    by: DayItineraryItemScalarFieldEnum[] | DayItineraryItemScalarFieldEnum
+    having?: DayItineraryItemScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DayItineraryItemCountAggregateInputType | true
+    _avg?: DayItineraryItemAvgAggregateInputType
+    _sum?: DayItineraryItemSumAggregateInputType
+    _min?: DayItineraryItemMinAggregateInputType
+    _max?: DayItineraryItemMaxAggregateInputType
+  }
+
+  export type DayItineraryItemGroupByOutputType = {
+    id: string
+    tourId: string
+    dayNumber: number
+    title: string
+    content: string | null
+    meals: $Enums.Meals[]
+    duration: number | null
+    _count: DayItineraryItemCountAggregateOutputType | null
+    _avg: DayItineraryItemAvgAggregateOutputType | null
+    _sum: DayItineraryItemSumAggregateOutputType | null
+    _min: DayItineraryItemMinAggregateOutputType | null
+    _max: DayItineraryItemMaxAggregateOutputType | null
+  }
+
+  type GetDayItineraryItemGroupByPayload<T extends DayItineraryItemGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DayItineraryItemGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DayItineraryItemGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DayItineraryItemGroupByOutputType[P]>
+            : GetScalarType<T[P], DayItineraryItemGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DayItineraryItemSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tourId?: boolean
+    dayNumber?: boolean
+    title?: boolean
+    content?: boolean
+    meals?: boolean
+    duration?: boolean
+    tour?: boolean | TourDefaultArgs<ExtArgs>
+    images?: boolean | DayItineraryItem$imagesArgs<ExtArgs>
+    _count?: boolean | DayItineraryItemCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["dayItineraryItem"]>
+
+  export type DayItineraryItemSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tourId?: boolean
+    dayNumber?: boolean
+    title?: boolean
+    content?: boolean
+    meals?: boolean
+    duration?: boolean
+    tour?: boolean | TourDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["dayItineraryItem"]>
+
+  export type DayItineraryItemSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tourId?: boolean
+    dayNumber?: boolean
+    title?: boolean
+    content?: boolean
+    meals?: boolean
+    duration?: boolean
+    tour?: boolean | TourDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["dayItineraryItem"]>
+
+  export type DayItineraryItemSelectScalar = {
+    id?: boolean
+    tourId?: boolean
+    dayNumber?: boolean
+    title?: boolean
+    content?: boolean
+    meals?: boolean
+    duration?: boolean
+  }
+
+  export type DayItineraryItemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tourId" | "dayNumber" | "title" | "content" | "meals" | "duration", ExtArgs["result"]["dayItineraryItem"]>
+  export type DayItineraryItemInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tour?: boolean | TourDefaultArgs<ExtArgs>
+    images?: boolean | DayItineraryItem$imagesArgs<ExtArgs>
+    _count?: boolean | DayItineraryItemCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type DayItineraryItemIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tour?: boolean | TourDefaultArgs<ExtArgs>
+  }
+  export type DayItineraryItemIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tour?: boolean | TourDefaultArgs<ExtArgs>
+  }
+
+  export type $DayItineraryItemPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "DayItineraryItem"
+    objects: {
+      tour: Prisma.$TourPayload<ExtArgs>
+      images: Prisma.$ImagePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      tourId: string
+      dayNumber: number
+      title: string
+      content: string | null
+      meals: $Enums.Meals[]
+      duration: number | null
+    }, ExtArgs["result"]["dayItineraryItem"]>
+    composites: {}
+  }
+
+  type DayItineraryItemGetPayload<S extends boolean | null | undefined | DayItineraryItemDefaultArgs> = $Result.GetResult<Prisma.$DayItineraryItemPayload, S>
+
+  type DayItineraryItemCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DayItineraryItemFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DayItineraryItemCountAggregateInputType | true
+    }
+
+  export interface DayItineraryItemDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DayItineraryItem'], meta: { name: 'DayItineraryItem' } }
+    /**
+     * Find zero or one DayItineraryItem that matches the filter.
+     * @param {DayItineraryItemFindUniqueArgs} args - Arguments to find a DayItineraryItem
+     * @example
+     * // Get one DayItineraryItem
+     * const dayItineraryItem = await prisma.dayItineraryItem.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DayItineraryItemFindUniqueArgs>(args: SelectSubset<T, DayItineraryItemFindUniqueArgs<ExtArgs>>): Prisma__DayItineraryItemClient<$Result.GetResult<Prisma.$DayItineraryItemPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one DayItineraryItem that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DayItineraryItemFindUniqueOrThrowArgs} args - Arguments to find a DayItineraryItem
+     * @example
+     * // Get one DayItineraryItem
+     * const dayItineraryItem = await prisma.dayItineraryItem.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DayItineraryItemFindUniqueOrThrowArgs>(args: SelectSubset<T, DayItineraryItemFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DayItineraryItemClient<$Result.GetResult<Prisma.$DayItineraryItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first DayItineraryItem that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DayItineraryItemFindFirstArgs} args - Arguments to find a DayItineraryItem
+     * @example
+     * // Get one DayItineraryItem
+     * const dayItineraryItem = await prisma.dayItineraryItem.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DayItineraryItemFindFirstArgs>(args?: SelectSubset<T, DayItineraryItemFindFirstArgs<ExtArgs>>): Prisma__DayItineraryItemClient<$Result.GetResult<Prisma.$DayItineraryItemPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first DayItineraryItem that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DayItineraryItemFindFirstOrThrowArgs} args - Arguments to find a DayItineraryItem
+     * @example
+     * // Get one DayItineraryItem
+     * const dayItineraryItem = await prisma.dayItineraryItem.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DayItineraryItemFindFirstOrThrowArgs>(args?: SelectSubset<T, DayItineraryItemFindFirstOrThrowArgs<ExtArgs>>): Prisma__DayItineraryItemClient<$Result.GetResult<Prisma.$DayItineraryItemPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more DayItineraryItems that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DayItineraryItemFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all DayItineraryItems
+     * const dayItineraryItems = await prisma.dayItineraryItem.findMany()
+     * 
+     * // Get first 10 DayItineraryItems
+     * const dayItineraryItems = await prisma.dayItineraryItem.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const dayItineraryItemWithIdOnly = await prisma.dayItineraryItem.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DayItineraryItemFindManyArgs>(args?: SelectSubset<T, DayItineraryItemFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DayItineraryItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a DayItineraryItem.
+     * @param {DayItineraryItemCreateArgs} args - Arguments to create a DayItineraryItem.
+     * @example
+     * // Create one DayItineraryItem
+     * const DayItineraryItem = await prisma.dayItineraryItem.create({
+     *   data: {
+     *     // ... data to create a DayItineraryItem
+     *   }
+     * })
+     * 
+     */
+    create<T extends DayItineraryItemCreateArgs>(args: SelectSubset<T, DayItineraryItemCreateArgs<ExtArgs>>): Prisma__DayItineraryItemClient<$Result.GetResult<Prisma.$DayItineraryItemPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many DayItineraryItems.
+     * @param {DayItineraryItemCreateManyArgs} args - Arguments to create many DayItineraryItems.
+     * @example
+     * // Create many DayItineraryItems
+     * const dayItineraryItem = await prisma.dayItineraryItem.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DayItineraryItemCreateManyArgs>(args?: SelectSubset<T, DayItineraryItemCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many DayItineraryItems and returns the data saved in the database.
+     * @param {DayItineraryItemCreateManyAndReturnArgs} args - Arguments to create many DayItineraryItems.
+     * @example
+     * // Create many DayItineraryItems
+     * const dayItineraryItem = await prisma.dayItineraryItem.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many DayItineraryItems and only return the `id`
+     * const dayItineraryItemWithIdOnly = await prisma.dayItineraryItem.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DayItineraryItemCreateManyAndReturnArgs>(args?: SelectSubset<T, DayItineraryItemCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DayItineraryItemPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a DayItineraryItem.
+     * @param {DayItineraryItemDeleteArgs} args - Arguments to delete one DayItineraryItem.
+     * @example
+     * // Delete one DayItineraryItem
+     * const DayItineraryItem = await prisma.dayItineraryItem.delete({
+     *   where: {
+     *     // ... filter to delete one DayItineraryItem
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DayItineraryItemDeleteArgs>(args: SelectSubset<T, DayItineraryItemDeleteArgs<ExtArgs>>): Prisma__DayItineraryItemClient<$Result.GetResult<Prisma.$DayItineraryItemPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one DayItineraryItem.
+     * @param {DayItineraryItemUpdateArgs} args - Arguments to update one DayItineraryItem.
+     * @example
+     * // Update one DayItineraryItem
+     * const dayItineraryItem = await prisma.dayItineraryItem.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DayItineraryItemUpdateArgs>(args: SelectSubset<T, DayItineraryItemUpdateArgs<ExtArgs>>): Prisma__DayItineraryItemClient<$Result.GetResult<Prisma.$DayItineraryItemPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more DayItineraryItems.
+     * @param {DayItineraryItemDeleteManyArgs} args - Arguments to filter DayItineraryItems to delete.
+     * @example
+     * // Delete a few DayItineraryItems
+     * const { count } = await prisma.dayItineraryItem.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DayItineraryItemDeleteManyArgs>(args?: SelectSubset<T, DayItineraryItemDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DayItineraryItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DayItineraryItemUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many DayItineraryItems
+     * const dayItineraryItem = await prisma.dayItineraryItem.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DayItineraryItemUpdateManyArgs>(args: SelectSubset<T, DayItineraryItemUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DayItineraryItems and returns the data updated in the database.
+     * @param {DayItineraryItemUpdateManyAndReturnArgs} args - Arguments to update many DayItineraryItems.
+     * @example
+     * // Update many DayItineraryItems
+     * const dayItineraryItem = await prisma.dayItineraryItem.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more DayItineraryItems and only return the `id`
+     * const dayItineraryItemWithIdOnly = await prisma.dayItineraryItem.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends DayItineraryItemUpdateManyAndReturnArgs>(args: SelectSubset<T, DayItineraryItemUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DayItineraryItemPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one DayItineraryItem.
+     * @param {DayItineraryItemUpsertArgs} args - Arguments to update or create a DayItineraryItem.
+     * @example
+     * // Update or create a DayItineraryItem
+     * const dayItineraryItem = await prisma.dayItineraryItem.upsert({
+     *   create: {
+     *     // ... data to create a DayItineraryItem
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the DayItineraryItem we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DayItineraryItemUpsertArgs>(args: SelectSubset<T, DayItineraryItemUpsertArgs<ExtArgs>>): Prisma__DayItineraryItemClient<$Result.GetResult<Prisma.$DayItineraryItemPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of DayItineraryItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DayItineraryItemCountArgs} args - Arguments to filter DayItineraryItems to count.
+     * @example
+     * // Count the number of DayItineraryItems
+     * const count = await prisma.dayItineraryItem.count({
+     *   where: {
+     *     // ... the filter for the DayItineraryItems we want to count
+     *   }
+     * })
+    **/
+    count<T extends DayItineraryItemCountArgs>(
+      args?: Subset<T, DayItineraryItemCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DayItineraryItemCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a DayItineraryItem.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DayItineraryItemAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DayItineraryItemAggregateArgs>(args: Subset<T, DayItineraryItemAggregateArgs>): Prisma.PrismaPromise<GetDayItineraryItemAggregateType<T>>
+
+    /**
+     * Group by DayItineraryItem.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DayItineraryItemGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DayItineraryItemGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DayItineraryItemGroupByArgs['orderBy'] }
+        : { orderBy?: DayItineraryItemGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DayItineraryItemGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDayItineraryItemGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the DayItineraryItem model
+   */
+  readonly fields: DayItineraryItemFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for DayItineraryItem.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DayItineraryItemClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    tour<T extends TourDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TourDefaultArgs<ExtArgs>>): Prisma__TourClient<$Result.GetResult<Prisma.$TourPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    images<T extends DayItineraryItem$imagesArgs<ExtArgs> = {}>(args?: Subset<T, DayItineraryItem$imagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the DayItineraryItem model
+   */
+  interface DayItineraryItemFieldRefs {
+    readonly id: FieldRef<"DayItineraryItem", 'String'>
+    readonly tourId: FieldRef<"DayItineraryItem", 'String'>
+    readonly dayNumber: FieldRef<"DayItineraryItem", 'Int'>
+    readonly title: FieldRef<"DayItineraryItem", 'String'>
+    readonly content: FieldRef<"DayItineraryItem", 'String'>
+    readonly meals: FieldRef<"DayItineraryItem", 'Meals[]'>
+    readonly duration: FieldRef<"DayItineraryItem", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * DayItineraryItem findUnique
+   */
+  export type DayItineraryItemFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayItineraryItem
+     */
+    select?: DayItineraryItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayItineraryItem
+     */
+    omit?: DayItineraryItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayItineraryItemInclude<ExtArgs> | null
+    /**
+     * Filter, which DayItineraryItem to fetch.
+     */
+    where: DayItineraryItemWhereUniqueInput
+  }
+
+  /**
+   * DayItineraryItem findUniqueOrThrow
+   */
+  export type DayItineraryItemFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayItineraryItem
+     */
+    select?: DayItineraryItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayItineraryItem
+     */
+    omit?: DayItineraryItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayItineraryItemInclude<ExtArgs> | null
+    /**
+     * Filter, which DayItineraryItem to fetch.
+     */
+    where: DayItineraryItemWhereUniqueInput
+  }
+
+  /**
+   * DayItineraryItem findFirst
+   */
+  export type DayItineraryItemFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayItineraryItem
+     */
+    select?: DayItineraryItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayItineraryItem
+     */
+    omit?: DayItineraryItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayItineraryItemInclude<ExtArgs> | null
+    /**
+     * Filter, which DayItineraryItem to fetch.
+     */
+    where?: DayItineraryItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DayItineraryItems to fetch.
+     */
+    orderBy?: DayItineraryItemOrderByWithRelationInput | DayItineraryItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DayItineraryItems.
+     */
+    cursor?: DayItineraryItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DayItineraryItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DayItineraryItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DayItineraryItems.
+     */
+    distinct?: DayItineraryItemScalarFieldEnum | DayItineraryItemScalarFieldEnum[]
+  }
+
+  /**
+   * DayItineraryItem findFirstOrThrow
+   */
+  export type DayItineraryItemFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayItineraryItem
+     */
+    select?: DayItineraryItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayItineraryItem
+     */
+    omit?: DayItineraryItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayItineraryItemInclude<ExtArgs> | null
+    /**
+     * Filter, which DayItineraryItem to fetch.
+     */
+    where?: DayItineraryItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DayItineraryItems to fetch.
+     */
+    orderBy?: DayItineraryItemOrderByWithRelationInput | DayItineraryItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DayItineraryItems.
+     */
+    cursor?: DayItineraryItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DayItineraryItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DayItineraryItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DayItineraryItems.
+     */
+    distinct?: DayItineraryItemScalarFieldEnum | DayItineraryItemScalarFieldEnum[]
+  }
+
+  /**
+   * DayItineraryItem findMany
+   */
+  export type DayItineraryItemFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayItineraryItem
+     */
+    select?: DayItineraryItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayItineraryItem
+     */
+    omit?: DayItineraryItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayItineraryItemInclude<ExtArgs> | null
+    /**
+     * Filter, which DayItineraryItems to fetch.
+     */
+    where?: DayItineraryItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DayItineraryItems to fetch.
+     */
+    orderBy?: DayItineraryItemOrderByWithRelationInput | DayItineraryItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing DayItineraryItems.
+     */
+    cursor?: DayItineraryItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DayItineraryItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DayItineraryItems.
+     */
+    skip?: number
+    distinct?: DayItineraryItemScalarFieldEnum | DayItineraryItemScalarFieldEnum[]
+  }
+
+  /**
+   * DayItineraryItem create
+   */
+  export type DayItineraryItemCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayItineraryItem
+     */
+    select?: DayItineraryItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayItineraryItem
+     */
+    omit?: DayItineraryItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayItineraryItemInclude<ExtArgs> | null
+    /**
+     * The data needed to create a DayItineraryItem.
+     */
+    data: XOR<DayItineraryItemCreateInput, DayItineraryItemUncheckedCreateInput>
+  }
+
+  /**
+   * DayItineraryItem createMany
+   */
+  export type DayItineraryItemCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many DayItineraryItems.
+     */
+    data: DayItineraryItemCreateManyInput | DayItineraryItemCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * DayItineraryItem createManyAndReturn
+   */
+  export type DayItineraryItemCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayItineraryItem
+     */
+    select?: DayItineraryItemSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayItineraryItem
+     */
+    omit?: DayItineraryItemOmit<ExtArgs> | null
+    /**
+     * The data used to create many DayItineraryItems.
+     */
+    data: DayItineraryItemCreateManyInput | DayItineraryItemCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayItineraryItemIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * DayItineraryItem update
+   */
+  export type DayItineraryItemUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayItineraryItem
+     */
+    select?: DayItineraryItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayItineraryItem
+     */
+    omit?: DayItineraryItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayItineraryItemInclude<ExtArgs> | null
+    /**
+     * The data needed to update a DayItineraryItem.
+     */
+    data: XOR<DayItineraryItemUpdateInput, DayItineraryItemUncheckedUpdateInput>
+    /**
+     * Choose, which DayItineraryItem to update.
+     */
+    where: DayItineraryItemWhereUniqueInput
+  }
+
+  /**
+   * DayItineraryItem updateMany
+   */
+  export type DayItineraryItemUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update DayItineraryItems.
+     */
+    data: XOR<DayItineraryItemUpdateManyMutationInput, DayItineraryItemUncheckedUpdateManyInput>
+    /**
+     * Filter which DayItineraryItems to update
+     */
+    where?: DayItineraryItemWhereInput
+    /**
+     * Limit how many DayItineraryItems to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * DayItineraryItem updateManyAndReturn
+   */
+  export type DayItineraryItemUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayItineraryItem
+     */
+    select?: DayItineraryItemSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayItineraryItem
+     */
+    omit?: DayItineraryItemOmit<ExtArgs> | null
+    /**
+     * The data used to update DayItineraryItems.
+     */
+    data: XOR<DayItineraryItemUpdateManyMutationInput, DayItineraryItemUncheckedUpdateManyInput>
+    /**
+     * Filter which DayItineraryItems to update
+     */
+    where?: DayItineraryItemWhereInput
+    /**
+     * Limit how many DayItineraryItems to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayItineraryItemIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * DayItineraryItem upsert
+   */
+  export type DayItineraryItemUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayItineraryItem
+     */
+    select?: DayItineraryItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayItineraryItem
+     */
+    omit?: DayItineraryItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayItineraryItemInclude<ExtArgs> | null
+    /**
+     * The filter to search for the DayItineraryItem to update in case it exists.
+     */
+    where: DayItineraryItemWhereUniqueInput
+    /**
+     * In case the DayItineraryItem found by the `where` argument doesn't exist, create a new DayItineraryItem with this data.
+     */
+    create: XOR<DayItineraryItemCreateInput, DayItineraryItemUncheckedCreateInput>
+    /**
+     * In case the DayItineraryItem was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DayItineraryItemUpdateInput, DayItineraryItemUncheckedUpdateInput>
+  }
+
+  /**
+   * DayItineraryItem delete
+   */
+  export type DayItineraryItemDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayItineraryItem
+     */
+    select?: DayItineraryItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayItineraryItem
+     */
+    omit?: DayItineraryItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayItineraryItemInclude<ExtArgs> | null
+    /**
+     * Filter which DayItineraryItem to delete.
+     */
+    where: DayItineraryItemWhereUniqueInput
+  }
+
+  /**
+   * DayItineraryItem deleteMany
+   */
+  export type DayItineraryItemDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DayItineraryItems to delete
+     */
+    where?: DayItineraryItemWhereInput
+    /**
+     * Limit how many DayItineraryItems to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * DayItineraryItem.images
+   */
+  export type DayItineraryItem$imagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Image
+     */
+    select?: ImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Image
+     */
+    omit?: ImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImageInclude<ExtArgs> | null
+    where?: ImageWhereInput
+    orderBy?: ImageOrderByWithRelationInput | ImageOrderByWithRelationInput[]
+    cursor?: ImageWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ImageScalarFieldEnum | ImageScalarFieldEnum[]
+  }
+
+  /**
+   * DayItineraryItem without action
+   */
+  export type DayItineraryItemDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayItineraryItem
+     */
+    select?: DayItineraryItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayItineraryItem
+     */
+    omit?: DayItineraryItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayItineraryItemInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Image
+   */
+
+  export type AggregateImage = {
+    _count: ImageCountAggregateOutputType | null
+    _min: ImageMinAggregateOutputType | null
+    _max: ImageMaxAggregateOutputType | null
+  }
+
+  export type ImageMinAggregateOutputType = {
+    id: string | null
+    bucketName: string | null
+    fileName: string | null
+    altText: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    tourId: string | null
+    attractionId: string | null
+    dayItineraryItemId: string | null
+    destinationId: string | null
+  }
+
+  export type ImageMaxAggregateOutputType = {
+    id: string | null
+    bucketName: string | null
+    fileName: string | null
+    altText: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    tourId: string | null
+    attractionId: string | null
+    dayItineraryItemId: string | null
+    destinationId: string | null
+  }
+
+  export type ImageCountAggregateOutputType = {
+    id: number
+    bucketName: number
+    fileName: number
+    altText: number
+    keywords: number
+    createdAt: number
+    updatedAt: number
+    tourId: number
+    attractionId: number
+    dayItineraryItemId: number
+    destinationId: number
+    _all: number
+  }
+
+
+  export type ImageMinAggregateInputType = {
+    id?: true
+    bucketName?: true
+    fileName?: true
+    altText?: true
+    createdAt?: true
+    updatedAt?: true
+    tourId?: true
+    attractionId?: true
+    dayItineraryItemId?: true
+    destinationId?: true
+  }
+
+  export type ImageMaxAggregateInputType = {
+    id?: true
+    bucketName?: true
+    fileName?: true
+    altText?: true
+    createdAt?: true
+    updatedAt?: true
+    tourId?: true
+    attractionId?: true
+    dayItineraryItemId?: true
+    destinationId?: true
+  }
+
+  export type ImageCountAggregateInputType = {
+    id?: true
+    bucketName?: true
+    fileName?: true
+    altText?: true
+    keywords?: true
+    createdAt?: true
+    updatedAt?: true
+    tourId?: true
+    attractionId?: true
+    dayItineraryItemId?: true
+    destinationId?: true
+    _all?: true
+  }
+
+  export type ImageAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Image to aggregate.
+     */
+    where?: ImageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Images to fetch.
+     */
+    orderBy?: ImageOrderByWithRelationInput | ImageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ImageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Images from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Images.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Images
+    **/
+    _count?: true | ImageCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ImageMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ImageMaxAggregateInputType
+  }
+
+  export type GetImageAggregateType<T extends ImageAggregateArgs> = {
+        [P in keyof T & keyof AggregateImage]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateImage[P]>
+      : GetScalarType<T[P], AggregateImage[P]>
+  }
+
+
+
+
+  export type ImageGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ImageWhereInput
+    orderBy?: ImageOrderByWithAggregationInput | ImageOrderByWithAggregationInput[]
+    by: ImageScalarFieldEnum[] | ImageScalarFieldEnum
+    having?: ImageScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ImageCountAggregateInputType | true
+    _min?: ImageMinAggregateInputType
+    _max?: ImageMaxAggregateInputType
+  }
+
+  export type ImageGroupByOutputType = {
+    id: string
+    bucketName: string
+    fileName: string
+    altText: string | null
+    keywords: string[]
+    createdAt: Date
+    updatedAt: Date
+    tourId: string | null
+    attractionId: string | null
+    dayItineraryItemId: string | null
+    destinationId: string | null
+    _count: ImageCountAggregateOutputType | null
+    _min: ImageMinAggregateOutputType | null
+    _max: ImageMaxAggregateOutputType | null
+  }
+
+  type GetImageGroupByPayload<T extends ImageGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ImageGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ImageGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ImageGroupByOutputType[P]>
+            : GetScalarType<T[P], ImageGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ImageSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    bucketName?: boolean
+    fileName?: boolean
+    altText?: boolean
+    keywords?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    tourId?: boolean
+    attractionId?: boolean
+    dayItineraryItemId?: boolean
+    destinationId?: boolean
+    tourThumbnail?: boolean | Image$tourThumbnailArgs<ExtArgs>
+    attractionThumbnail?: boolean | Image$attractionThumbnailArgs<ExtArgs>
+    destinationThumbnail?: boolean | Image$destinationThumbnailArgs<ExtArgs>
+    tourImages?: boolean | Image$tourImagesArgs<ExtArgs>
+    attractionImages?: boolean | Image$attractionImagesArgs<ExtArgs>
+    dayItineraryImages?: boolean | Image$dayItineraryImagesArgs<ExtArgs>
+    destinationImages?: boolean | Image$destinationImagesArgs<ExtArgs>
+  }, ExtArgs["result"]["image"]>
+
+  export type ImageSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    bucketName?: boolean
+    fileName?: boolean
+    altText?: boolean
+    keywords?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    tourId?: boolean
+    attractionId?: boolean
+    dayItineraryItemId?: boolean
+    destinationId?: boolean
+    tourImages?: boolean | Image$tourImagesArgs<ExtArgs>
+    attractionImages?: boolean | Image$attractionImagesArgs<ExtArgs>
+    dayItineraryImages?: boolean | Image$dayItineraryImagesArgs<ExtArgs>
+    destinationImages?: boolean | Image$destinationImagesArgs<ExtArgs>
+  }, ExtArgs["result"]["image"]>
+
+  export type ImageSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    bucketName?: boolean
+    fileName?: boolean
+    altText?: boolean
+    keywords?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    tourId?: boolean
+    attractionId?: boolean
+    dayItineraryItemId?: boolean
+    destinationId?: boolean
+    tourImages?: boolean | Image$tourImagesArgs<ExtArgs>
+    attractionImages?: boolean | Image$attractionImagesArgs<ExtArgs>
+    dayItineraryImages?: boolean | Image$dayItineraryImagesArgs<ExtArgs>
+    destinationImages?: boolean | Image$destinationImagesArgs<ExtArgs>
+  }, ExtArgs["result"]["image"]>
+
+  export type ImageSelectScalar = {
+    id?: boolean
+    bucketName?: boolean
+    fileName?: boolean
+    altText?: boolean
+    keywords?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    tourId?: boolean
+    attractionId?: boolean
+    dayItineraryItemId?: boolean
+    destinationId?: boolean
+  }
+
+  export type ImageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "bucketName" | "fileName" | "altText" | "keywords" | "createdAt" | "updatedAt" | "tourId" | "attractionId" | "dayItineraryItemId" | "destinationId", ExtArgs["result"]["image"]>
+  export type ImageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tourThumbnail?: boolean | Image$tourThumbnailArgs<ExtArgs>
+    attractionThumbnail?: boolean | Image$attractionThumbnailArgs<ExtArgs>
+    destinationThumbnail?: boolean | Image$destinationThumbnailArgs<ExtArgs>
+    tourImages?: boolean | Image$tourImagesArgs<ExtArgs>
+    attractionImages?: boolean | Image$attractionImagesArgs<ExtArgs>
+    dayItineraryImages?: boolean | Image$dayItineraryImagesArgs<ExtArgs>
+    destinationImages?: boolean | Image$destinationImagesArgs<ExtArgs>
+  }
+  export type ImageIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tourImages?: boolean | Image$tourImagesArgs<ExtArgs>
+    attractionImages?: boolean | Image$attractionImagesArgs<ExtArgs>
+    dayItineraryImages?: boolean | Image$dayItineraryImagesArgs<ExtArgs>
+    destinationImages?: boolean | Image$destinationImagesArgs<ExtArgs>
+  }
+  export type ImageIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tourImages?: boolean | Image$tourImagesArgs<ExtArgs>
+    attractionImages?: boolean | Image$attractionImagesArgs<ExtArgs>
+    dayItineraryImages?: boolean | Image$dayItineraryImagesArgs<ExtArgs>
+    destinationImages?: boolean | Image$destinationImagesArgs<ExtArgs>
+  }
+
+  export type $ImagePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Image"
+    objects: {
+      tourThumbnail: Prisma.$TourPayload<ExtArgs> | null
+      attractionThumbnail: Prisma.$AttractionPayload<ExtArgs> | null
+      destinationThumbnail: Prisma.$DestinationPayload<ExtArgs> | null
+      tourImages: Prisma.$TourPayload<ExtArgs> | null
+      attractionImages: Prisma.$AttractionPayload<ExtArgs> | null
+      dayItineraryImages: Prisma.$DayItineraryItemPayload<ExtArgs> | null
+      destinationImages: Prisma.$DestinationPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      bucketName: string
+      fileName: string
+      altText: string | null
+      keywords: string[]
+      createdAt: Date
+      updatedAt: Date
+      tourId: string | null
+      attractionId: string | null
+      dayItineraryItemId: string | null
+      destinationId: string | null
+    }, ExtArgs["result"]["image"]>
+    composites: {}
+  }
+
+  type ImageGetPayload<S extends boolean | null | undefined | ImageDefaultArgs> = $Result.GetResult<Prisma.$ImagePayload, S>
+
+  type ImageCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ImageFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ImageCountAggregateInputType | true
+    }
+
+  export interface ImageDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Image'], meta: { name: 'Image' } }
+    /**
+     * Find zero or one Image that matches the filter.
+     * @param {ImageFindUniqueArgs} args - Arguments to find a Image
+     * @example
+     * // Get one Image
+     * const image = await prisma.image.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ImageFindUniqueArgs>(args: SelectSubset<T, ImageFindUniqueArgs<ExtArgs>>): Prisma__ImageClient<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Image that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ImageFindUniqueOrThrowArgs} args - Arguments to find a Image
+     * @example
+     * // Get one Image
+     * const image = await prisma.image.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ImageFindUniqueOrThrowArgs>(args: SelectSubset<T, ImageFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ImageClient<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Image that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ImageFindFirstArgs} args - Arguments to find a Image
+     * @example
+     * // Get one Image
+     * const image = await prisma.image.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ImageFindFirstArgs>(args?: SelectSubset<T, ImageFindFirstArgs<ExtArgs>>): Prisma__ImageClient<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Image that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ImageFindFirstOrThrowArgs} args - Arguments to find a Image
+     * @example
+     * // Get one Image
+     * const image = await prisma.image.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ImageFindFirstOrThrowArgs>(args?: SelectSubset<T, ImageFindFirstOrThrowArgs<ExtArgs>>): Prisma__ImageClient<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Images that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ImageFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Images
+     * const images = await prisma.image.findMany()
+     * 
+     * // Get first 10 Images
+     * const images = await prisma.image.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const imageWithIdOnly = await prisma.image.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ImageFindManyArgs>(args?: SelectSubset<T, ImageFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Image.
+     * @param {ImageCreateArgs} args - Arguments to create a Image.
+     * @example
+     * // Create one Image
+     * const Image = await prisma.image.create({
+     *   data: {
+     *     // ... data to create a Image
+     *   }
+     * })
+     * 
+     */
+    create<T extends ImageCreateArgs>(args: SelectSubset<T, ImageCreateArgs<ExtArgs>>): Prisma__ImageClient<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Images.
+     * @param {ImageCreateManyArgs} args - Arguments to create many Images.
+     * @example
+     * // Create many Images
+     * const image = await prisma.image.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ImageCreateManyArgs>(args?: SelectSubset<T, ImageCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Images and returns the data saved in the database.
+     * @param {ImageCreateManyAndReturnArgs} args - Arguments to create many Images.
+     * @example
+     * // Create many Images
+     * const image = await prisma.image.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Images and only return the `id`
+     * const imageWithIdOnly = await prisma.image.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ImageCreateManyAndReturnArgs>(args?: SelectSubset<T, ImageCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Image.
+     * @param {ImageDeleteArgs} args - Arguments to delete one Image.
+     * @example
+     * // Delete one Image
+     * const Image = await prisma.image.delete({
+     *   where: {
+     *     // ... filter to delete one Image
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ImageDeleteArgs>(args: SelectSubset<T, ImageDeleteArgs<ExtArgs>>): Prisma__ImageClient<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Image.
+     * @param {ImageUpdateArgs} args - Arguments to update one Image.
+     * @example
+     * // Update one Image
+     * const image = await prisma.image.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ImageUpdateArgs>(args: SelectSubset<T, ImageUpdateArgs<ExtArgs>>): Prisma__ImageClient<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Images.
+     * @param {ImageDeleteManyArgs} args - Arguments to filter Images to delete.
+     * @example
+     * // Delete a few Images
+     * const { count } = await prisma.image.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ImageDeleteManyArgs>(args?: SelectSubset<T, ImageDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Images.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ImageUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Images
+     * const image = await prisma.image.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ImageUpdateManyArgs>(args: SelectSubset<T, ImageUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Images and returns the data updated in the database.
+     * @param {ImageUpdateManyAndReturnArgs} args - Arguments to update many Images.
+     * @example
+     * // Update many Images
+     * const image = await prisma.image.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Images and only return the `id`
+     * const imageWithIdOnly = await prisma.image.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ImageUpdateManyAndReturnArgs>(args: SelectSubset<T, ImageUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Image.
+     * @param {ImageUpsertArgs} args - Arguments to update or create a Image.
+     * @example
+     * // Update or create a Image
+     * const image = await prisma.image.upsert({
+     *   create: {
+     *     // ... data to create a Image
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Image we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ImageUpsertArgs>(args: SelectSubset<T, ImageUpsertArgs<ExtArgs>>): Prisma__ImageClient<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Images.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ImageCountArgs} args - Arguments to filter Images to count.
+     * @example
+     * // Count the number of Images
+     * const count = await prisma.image.count({
+     *   where: {
+     *     // ... the filter for the Images we want to count
+     *   }
+     * })
+    **/
+    count<T extends ImageCountArgs>(
+      args?: Subset<T, ImageCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ImageCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Image.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ImageAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ImageAggregateArgs>(args: Subset<T, ImageAggregateArgs>): Prisma.PrismaPromise<GetImageAggregateType<T>>
+
+    /**
+     * Group by Image.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ImageGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ImageGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ImageGroupByArgs['orderBy'] }
+        : { orderBy?: ImageGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ImageGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetImageGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Image model
+   */
+  readonly fields: ImageFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Image.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ImageClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    tourThumbnail<T extends Image$tourThumbnailArgs<ExtArgs> = {}>(args?: Subset<T, Image$tourThumbnailArgs<ExtArgs>>): Prisma__TourClient<$Result.GetResult<Prisma.$TourPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    attractionThumbnail<T extends Image$attractionThumbnailArgs<ExtArgs> = {}>(args?: Subset<T, Image$attractionThumbnailArgs<ExtArgs>>): Prisma__AttractionClient<$Result.GetResult<Prisma.$AttractionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    destinationThumbnail<T extends Image$destinationThumbnailArgs<ExtArgs> = {}>(args?: Subset<T, Image$destinationThumbnailArgs<ExtArgs>>): Prisma__DestinationClient<$Result.GetResult<Prisma.$DestinationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    tourImages<T extends Image$tourImagesArgs<ExtArgs> = {}>(args?: Subset<T, Image$tourImagesArgs<ExtArgs>>): Prisma__TourClient<$Result.GetResult<Prisma.$TourPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    attractionImages<T extends Image$attractionImagesArgs<ExtArgs> = {}>(args?: Subset<T, Image$attractionImagesArgs<ExtArgs>>): Prisma__AttractionClient<$Result.GetResult<Prisma.$AttractionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    dayItineraryImages<T extends Image$dayItineraryImagesArgs<ExtArgs> = {}>(args?: Subset<T, Image$dayItineraryImagesArgs<ExtArgs>>): Prisma__DayItineraryItemClient<$Result.GetResult<Prisma.$DayItineraryItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    destinationImages<T extends Image$destinationImagesArgs<ExtArgs> = {}>(args?: Subset<T, Image$destinationImagesArgs<ExtArgs>>): Prisma__DestinationClient<$Result.GetResult<Prisma.$DestinationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Image model
+   */
+  interface ImageFieldRefs {
+    readonly id: FieldRef<"Image", 'String'>
+    readonly bucketName: FieldRef<"Image", 'String'>
+    readonly fileName: FieldRef<"Image", 'String'>
+    readonly altText: FieldRef<"Image", 'String'>
+    readonly keywords: FieldRef<"Image", 'String[]'>
+    readonly createdAt: FieldRef<"Image", 'DateTime'>
+    readonly updatedAt: FieldRef<"Image", 'DateTime'>
+    readonly tourId: FieldRef<"Image", 'String'>
+    readonly attractionId: FieldRef<"Image", 'String'>
+    readonly dayItineraryItemId: FieldRef<"Image", 'String'>
+    readonly destinationId: FieldRef<"Image", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Image findUnique
+   */
+  export type ImageFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Image
+     */
+    select?: ImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Image
+     */
+    omit?: ImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImageInclude<ExtArgs> | null
+    /**
+     * Filter, which Image to fetch.
+     */
+    where: ImageWhereUniqueInput
+  }
+
+  /**
+   * Image findUniqueOrThrow
+   */
+  export type ImageFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Image
+     */
+    select?: ImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Image
+     */
+    omit?: ImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImageInclude<ExtArgs> | null
+    /**
+     * Filter, which Image to fetch.
+     */
+    where: ImageWhereUniqueInput
+  }
+
+  /**
+   * Image findFirst
+   */
+  export type ImageFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Image
+     */
+    select?: ImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Image
+     */
+    omit?: ImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImageInclude<ExtArgs> | null
+    /**
+     * Filter, which Image to fetch.
+     */
+    where?: ImageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Images to fetch.
+     */
+    orderBy?: ImageOrderByWithRelationInput | ImageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Images.
+     */
+    cursor?: ImageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Images from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Images.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Images.
+     */
+    distinct?: ImageScalarFieldEnum | ImageScalarFieldEnum[]
+  }
+
+  /**
+   * Image findFirstOrThrow
+   */
+  export type ImageFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Image
+     */
+    select?: ImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Image
+     */
+    omit?: ImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImageInclude<ExtArgs> | null
+    /**
+     * Filter, which Image to fetch.
+     */
+    where?: ImageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Images to fetch.
+     */
+    orderBy?: ImageOrderByWithRelationInput | ImageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Images.
+     */
+    cursor?: ImageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Images from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Images.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Images.
+     */
+    distinct?: ImageScalarFieldEnum | ImageScalarFieldEnum[]
+  }
+
+  /**
+   * Image findMany
+   */
+  export type ImageFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Image
+     */
+    select?: ImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Image
+     */
+    omit?: ImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImageInclude<ExtArgs> | null
+    /**
+     * Filter, which Images to fetch.
+     */
+    where?: ImageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Images to fetch.
+     */
+    orderBy?: ImageOrderByWithRelationInput | ImageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Images.
+     */
+    cursor?: ImageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Images from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Images.
+     */
+    skip?: number
+    distinct?: ImageScalarFieldEnum | ImageScalarFieldEnum[]
+  }
+
+  /**
+   * Image create
+   */
+  export type ImageCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Image
+     */
+    select?: ImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Image
+     */
+    omit?: ImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImageInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Image.
+     */
+    data: XOR<ImageCreateInput, ImageUncheckedCreateInput>
+  }
+
+  /**
+   * Image createMany
+   */
+  export type ImageCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Images.
+     */
+    data: ImageCreateManyInput | ImageCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Image createManyAndReturn
+   */
+  export type ImageCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Image
+     */
+    select?: ImageSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Image
+     */
+    omit?: ImageOmit<ExtArgs> | null
+    /**
+     * The data used to create many Images.
+     */
+    data: ImageCreateManyInput | ImageCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImageIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Image update
+   */
+  export type ImageUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Image
+     */
+    select?: ImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Image
+     */
+    omit?: ImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImageInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Image.
+     */
+    data: XOR<ImageUpdateInput, ImageUncheckedUpdateInput>
+    /**
+     * Choose, which Image to update.
+     */
+    where: ImageWhereUniqueInput
+  }
+
+  /**
+   * Image updateMany
+   */
+  export type ImageUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Images.
+     */
+    data: XOR<ImageUpdateManyMutationInput, ImageUncheckedUpdateManyInput>
+    /**
+     * Filter which Images to update
+     */
+    where?: ImageWhereInput
+    /**
+     * Limit how many Images to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Image updateManyAndReturn
+   */
+  export type ImageUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Image
+     */
+    select?: ImageSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Image
+     */
+    omit?: ImageOmit<ExtArgs> | null
+    /**
+     * The data used to update Images.
+     */
+    data: XOR<ImageUpdateManyMutationInput, ImageUncheckedUpdateManyInput>
+    /**
+     * Filter which Images to update
+     */
+    where?: ImageWhereInput
+    /**
+     * Limit how many Images to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImageIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Image upsert
+   */
+  export type ImageUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Image
+     */
+    select?: ImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Image
+     */
+    omit?: ImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImageInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Image to update in case it exists.
+     */
+    where: ImageWhereUniqueInput
+    /**
+     * In case the Image found by the `where` argument doesn't exist, create a new Image with this data.
+     */
+    create: XOR<ImageCreateInput, ImageUncheckedCreateInput>
+    /**
+     * In case the Image was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ImageUpdateInput, ImageUncheckedUpdateInput>
+  }
+
+  /**
+   * Image delete
+   */
+  export type ImageDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Image
+     */
+    select?: ImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Image
+     */
+    omit?: ImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImageInclude<ExtArgs> | null
+    /**
+     * Filter which Image to delete.
+     */
+    where: ImageWhereUniqueInput
+  }
+
+  /**
+   * Image deleteMany
+   */
+  export type ImageDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Images to delete
+     */
+    where?: ImageWhereInput
+    /**
+     * Limit how many Images to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Image.tourThumbnail
+   */
+  export type Image$tourThumbnailArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tour
+     */
+    select?: TourSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tour
+     */
+    omit?: TourOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourInclude<ExtArgs> | null
+    where?: TourWhereInput
+  }
+
+  /**
+   * Image.attractionThumbnail
+   */
+  export type Image$attractionThumbnailArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attraction
+     */
+    select?: AttractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Attraction
+     */
+    omit?: AttractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AttractionInclude<ExtArgs> | null
+    where?: AttractionWhereInput
+  }
+
+  /**
+   * Image.destinationThumbnail
+   */
+  export type Image$destinationThumbnailArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Destination
+     */
+    select?: DestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Destination
+     */
+    omit?: DestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DestinationInclude<ExtArgs> | null
+    where?: DestinationWhereInput
+  }
+
+  /**
+   * Image.tourImages
+   */
+  export type Image$tourImagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tour
+     */
+    select?: TourSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tour
+     */
+    omit?: TourOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TourInclude<ExtArgs> | null
+    where?: TourWhereInput
+  }
+
+  /**
+   * Image.attractionImages
+   */
+  export type Image$attractionImagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Attraction
+     */
+    select?: AttractionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Attraction
+     */
+    omit?: AttractionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AttractionInclude<ExtArgs> | null
+    where?: AttractionWhereInput
+  }
+
+  /**
+   * Image.dayItineraryImages
+   */
+  export type Image$dayItineraryImagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayItineraryItem
+     */
+    select?: DayItineraryItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayItineraryItem
+     */
+    omit?: DayItineraryItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayItineraryItemInclude<ExtArgs> | null
+    where?: DayItineraryItemWhereInput
+  }
+
+  /**
+   * Image.destinationImages
+   */
+  export type Image$destinationImagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Destination
+     */
+    select?: DestinationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Destination
+     */
+    omit?: DestinationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DestinationInclude<ExtArgs> | null
+    where?: DestinationWhereInput
+  }
+
+  /**
+   * Image without action
+   */
+  export type ImageDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Image
+     */
+    select?: ImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Image
+     */
+    omit?: ImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImageInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -8084,6 +19864,135 @@ export namespace Prisma {
   export type ImageGalleryFileScalarFieldEnum = (typeof ImageGalleryFileScalarFieldEnum)[keyof typeof ImageGalleryFileScalarFieldEnum]
 
 
+  export const DestinationScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    slug: 'slug',
+    content: 'content',
+    featured: 'featured',
+    currency: 'currency',
+    bestSeasonStart: 'bestSeasonStart',
+    bestSeasonEnd: 'bestSeasonEnd',
+    languages: 'languages',
+    thumbnailId: 'thumbnailId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type DestinationScalarFieldEnum = (typeof DestinationScalarFieldEnum)[keyof typeof DestinationScalarFieldEnum]
+
+
+  export const CityScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    slug: 'slug',
+    destinationId: 'destinationId'
+  };
+
+  export type CityScalarFieldEnum = (typeof CityScalarFieldEnum)[keyof typeof CityScalarFieldEnum]
+
+
+  export const TourScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    slug: 'slug',
+    content: 'content',
+    featured: 'featured',
+    duration: 'duration',
+    tourType: 'tourType',
+    price: 'price',
+    offerPrice: 'offerPrice',
+    currency: 'currency',
+    thumbnailId: 'thumbnailId',
+    highlights: 'highlights',
+    inclusions: 'inclusions',
+    exclusions: 'exclusions',
+    terms: 'terms',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type TourScalarFieldEnum = (typeof TourScalarFieldEnum)[keyof typeof TourScalarFieldEnum]
+
+
+  export const TourCityScalarFieldEnum: {
+    id: 'id',
+    tourId: 'tourId',
+    cityId: 'cityId'
+  };
+
+  export type TourCityScalarFieldEnum = (typeof TourCityScalarFieldEnum)[keyof typeof TourCityScalarFieldEnum]
+
+
+  export const TourDestinationScalarFieldEnum: {
+    id: 'id',
+    tourId: 'tourId',
+    destinationId: 'destinationId'
+  };
+
+  export type TourDestinationScalarFieldEnum = (typeof TourDestinationScalarFieldEnum)[keyof typeof TourDestinationScalarFieldEnum]
+
+
+  export const AttractionScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    slug: 'slug',
+    content: 'content',
+    duration: 'duration',
+    price: 'price',
+    offerPrice: 'offerPrice',
+    thumbnailId: 'thumbnailId',
+    inclusions: 'inclusions',
+    exclusions: 'exclusions',
+    terms: 'terms',
+    cityId: 'cityId'
+  };
+
+  export type AttractionScalarFieldEnum = (typeof AttractionScalarFieldEnum)[keyof typeof AttractionScalarFieldEnum]
+
+
+  export const FAQScalarFieldEnum: {
+    id: 'id',
+    question: 'question',
+    answer: 'answer',
+    attractionId: 'attractionId',
+    tourId: 'tourId',
+    destinationId: 'destinationId'
+  };
+
+  export type FAQScalarFieldEnum = (typeof FAQScalarFieldEnum)[keyof typeof FAQScalarFieldEnum]
+
+
+  export const DayItineraryItemScalarFieldEnum: {
+    id: 'id',
+    tourId: 'tourId',
+    dayNumber: 'dayNumber',
+    title: 'title',
+    content: 'content',
+    meals: 'meals',
+    duration: 'duration'
+  };
+
+  export type DayItineraryItemScalarFieldEnum = (typeof DayItineraryItemScalarFieldEnum)[keyof typeof DayItineraryItemScalarFieldEnum]
+
+
+  export const ImageScalarFieldEnum: {
+    id: 'id',
+    bucketName: 'bucketName',
+    fileName: 'fileName',
+    altText: 'altText',
+    keywords: 'keywords',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    tourId: 'tourId',
+    attractionId: 'attractionId',
+    dayItineraryItemId: 'dayItineraryItemId',
+    destinationId: 'destinationId'
+  };
+
+  export type ImageScalarFieldEnum = (typeof ImageScalarFieldEnum)[keyof typeof ImageScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -8159,6 +20068,48 @@ export namespace Prisma {
    * Reference to a field of type 'Int[]'
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'TourType'
+   */
+  export type EnumTourTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TourType'>
+    
+
+
+  /**
+   * Reference to a field of type 'TourType[]'
+   */
+  export type ListEnumTourTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TourType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Decimal'
+   */
+  export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
+    
+
+
+  /**
+   * Reference to a field of type 'Decimal[]'
+   */
+  export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Meals[]'
+   */
+  export type ListEnumMealsFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Meals[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Meals'
+   */
+  export type EnumMealsFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Meals'>
     
 
 
@@ -8599,6 +20550,731 @@ export namespace Prisma {
     folderId?: StringWithAggregatesFilter<"ImageGalleryFile"> | string
     createdAt?: DateTimeWithAggregatesFilter<"ImageGalleryFile"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"ImageGalleryFile"> | Date | string
+  }
+
+  export type DestinationWhereInput = {
+    AND?: DestinationWhereInput | DestinationWhereInput[]
+    OR?: DestinationWhereInput[]
+    NOT?: DestinationWhereInput | DestinationWhereInput[]
+    id?: StringFilter<"Destination"> | string
+    name?: StringFilter<"Destination"> | string
+    slug?: StringFilter<"Destination"> | string
+    content?: StringNullableFilter<"Destination"> | string | null
+    featured?: BoolFilter<"Destination"> | boolean
+    currency?: StringNullableFilter<"Destination"> | string | null
+    bestSeasonStart?: StringNullableFilter<"Destination"> | string | null
+    bestSeasonEnd?: StringNullableFilter<"Destination"> | string | null
+    languages?: StringNullableListFilter<"Destination">
+    thumbnailId?: StringNullableFilter<"Destination"> | string | null
+    createdAt?: DateTimeFilter<"Destination"> | Date | string
+    updatedAt?: DateTimeFilter<"Destination"> | Date | string
+    cities?: CityListRelationFilter
+    tours?: TourDestinationListRelationFilter
+    thumbnail?: XOR<ImageNullableScalarRelationFilter, ImageWhereInput> | null
+    images?: ImageListRelationFilter
+    faqs?: FAQListRelationFilter
+  }
+
+  export type DestinationOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    content?: SortOrderInput | SortOrder
+    featured?: SortOrder
+    currency?: SortOrderInput | SortOrder
+    bestSeasonStart?: SortOrderInput | SortOrder
+    bestSeasonEnd?: SortOrderInput | SortOrder
+    languages?: SortOrder
+    thumbnailId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    cities?: CityOrderByRelationAggregateInput
+    tours?: TourDestinationOrderByRelationAggregateInput
+    thumbnail?: ImageOrderByWithRelationInput
+    images?: ImageOrderByRelationAggregateInput
+    faqs?: FAQOrderByRelationAggregateInput
+  }
+
+  export type DestinationWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    name?: string
+    slug?: string
+    thumbnailId?: string
+    AND?: DestinationWhereInput | DestinationWhereInput[]
+    OR?: DestinationWhereInput[]
+    NOT?: DestinationWhereInput | DestinationWhereInput[]
+    content?: StringNullableFilter<"Destination"> | string | null
+    featured?: BoolFilter<"Destination"> | boolean
+    currency?: StringNullableFilter<"Destination"> | string | null
+    bestSeasonStart?: StringNullableFilter<"Destination"> | string | null
+    bestSeasonEnd?: StringNullableFilter<"Destination"> | string | null
+    languages?: StringNullableListFilter<"Destination">
+    createdAt?: DateTimeFilter<"Destination"> | Date | string
+    updatedAt?: DateTimeFilter<"Destination"> | Date | string
+    cities?: CityListRelationFilter
+    tours?: TourDestinationListRelationFilter
+    thumbnail?: XOR<ImageNullableScalarRelationFilter, ImageWhereInput> | null
+    images?: ImageListRelationFilter
+    faqs?: FAQListRelationFilter
+  }, "id" | "name" | "slug" | "thumbnailId">
+
+  export type DestinationOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    content?: SortOrderInput | SortOrder
+    featured?: SortOrder
+    currency?: SortOrderInput | SortOrder
+    bestSeasonStart?: SortOrderInput | SortOrder
+    bestSeasonEnd?: SortOrderInput | SortOrder
+    languages?: SortOrder
+    thumbnailId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: DestinationCountOrderByAggregateInput
+    _max?: DestinationMaxOrderByAggregateInput
+    _min?: DestinationMinOrderByAggregateInput
+  }
+
+  export type DestinationScalarWhereWithAggregatesInput = {
+    AND?: DestinationScalarWhereWithAggregatesInput | DestinationScalarWhereWithAggregatesInput[]
+    OR?: DestinationScalarWhereWithAggregatesInput[]
+    NOT?: DestinationScalarWhereWithAggregatesInput | DestinationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Destination"> | string
+    name?: StringWithAggregatesFilter<"Destination"> | string
+    slug?: StringWithAggregatesFilter<"Destination"> | string
+    content?: StringNullableWithAggregatesFilter<"Destination"> | string | null
+    featured?: BoolWithAggregatesFilter<"Destination"> | boolean
+    currency?: StringNullableWithAggregatesFilter<"Destination"> | string | null
+    bestSeasonStart?: StringNullableWithAggregatesFilter<"Destination"> | string | null
+    bestSeasonEnd?: StringNullableWithAggregatesFilter<"Destination"> | string | null
+    languages?: StringNullableListFilter<"Destination">
+    thumbnailId?: StringNullableWithAggregatesFilter<"Destination"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Destination"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Destination"> | Date | string
+  }
+
+  export type CityWhereInput = {
+    AND?: CityWhereInput | CityWhereInput[]
+    OR?: CityWhereInput[]
+    NOT?: CityWhereInput | CityWhereInput[]
+    id?: StringFilter<"City"> | string
+    name?: StringFilter<"City"> | string
+    slug?: StringFilter<"City"> | string
+    destinationId?: StringNullableFilter<"City"> | string | null
+    destination?: XOR<DestinationNullableScalarRelationFilter, DestinationWhereInput> | null
+    tours?: TourCityListRelationFilter
+  }
+
+  export type CityOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    destinationId?: SortOrderInput | SortOrder
+    destination?: DestinationOrderByWithRelationInput
+    tours?: TourCityOrderByRelationAggregateInput
+  }
+
+  export type CityWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    destinationId_name?: CityDestinationIdNameCompoundUniqueInput
+    destinationId_slug?: CityDestinationIdSlugCompoundUniqueInput
+    AND?: CityWhereInput | CityWhereInput[]
+    OR?: CityWhereInput[]
+    NOT?: CityWhereInput | CityWhereInput[]
+    name?: StringFilter<"City"> | string
+    slug?: StringFilter<"City"> | string
+    destinationId?: StringNullableFilter<"City"> | string | null
+    destination?: XOR<DestinationNullableScalarRelationFilter, DestinationWhereInput> | null
+    tours?: TourCityListRelationFilter
+  }, "id" | "destinationId_name" | "destinationId_slug">
+
+  export type CityOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    destinationId?: SortOrderInput | SortOrder
+    _count?: CityCountOrderByAggregateInput
+    _max?: CityMaxOrderByAggregateInput
+    _min?: CityMinOrderByAggregateInput
+  }
+
+  export type CityScalarWhereWithAggregatesInput = {
+    AND?: CityScalarWhereWithAggregatesInput | CityScalarWhereWithAggregatesInput[]
+    OR?: CityScalarWhereWithAggregatesInput[]
+    NOT?: CityScalarWhereWithAggregatesInput | CityScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"City"> | string
+    name?: StringWithAggregatesFilter<"City"> | string
+    slug?: StringWithAggregatesFilter<"City"> | string
+    destinationId?: StringNullableWithAggregatesFilter<"City"> | string | null
+  }
+
+  export type TourWhereInput = {
+    AND?: TourWhereInput | TourWhereInput[]
+    OR?: TourWhereInput[]
+    NOT?: TourWhereInput | TourWhereInput[]
+    id?: StringFilter<"Tour"> | string
+    name?: StringFilter<"Tour"> | string
+    slug?: StringFilter<"Tour"> | string
+    content?: StringNullableFilter<"Tour"> | string | null
+    featured?: BoolFilter<"Tour"> | boolean
+    duration?: IntNullableFilter<"Tour"> | number | null
+    tourType?: EnumTourTypeNullableFilter<"Tour"> | $Enums.TourType | null
+    price?: DecimalFilter<"Tour"> | Decimal | DecimalJsLike | number | string
+    offerPrice?: DecimalNullableFilter<"Tour"> | Decimal | DecimalJsLike | number | string | null
+    currency?: StringNullableFilter<"Tour"> | string | null
+    thumbnailId?: StringNullableFilter<"Tour"> | string | null
+    highlights?: StringNullableListFilter<"Tour">
+    inclusions?: StringNullableListFilter<"Tour">
+    exclusions?: StringNullableListFilter<"Tour">
+    terms?: StringNullableListFilter<"Tour">
+    createdAt?: DateTimeFilter<"Tour"> | Date | string
+    updatedAt?: DateTimeFilter<"Tour"> | Date | string
+    cities?: TourCityListRelationFilter
+    thumbnail?: XOR<ImageNullableScalarRelationFilter, ImageWhereInput> | null
+    images?: ImageListRelationFilter
+    faqs?: FAQListRelationFilter
+    destinations?: TourDestinationListRelationFilter
+    itinerary?: DayItineraryItemListRelationFilter
+  }
+
+  export type TourOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    content?: SortOrderInput | SortOrder
+    featured?: SortOrder
+    duration?: SortOrderInput | SortOrder
+    tourType?: SortOrderInput | SortOrder
+    price?: SortOrder
+    offerPrice?: SortOrderInput | SortOrder
+    currency?: SortOrderInput | SortOrder
+    thumbnailId?: SortOrderInput | SortOrder
+    highlights?: SortOrder
+    inclusions?: SortOrder
+    exclusions?: SortOrder
+    terms?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    cities?: TourCityOrderByRelationAggregateInput
+    thumbnail?: ImageOrderByWithRelationInput
+    images?: ImageOrderByRelationAggregateInput
+    faqs?: FAQOrderByRelationAggregateInput
+    destinations?: TourDestinationOrderByRelationAggregateInput
+    itinerary?: DayItineraryItemOrderByRelationAggregateInput
+  }
+
+  export type TourWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    name?: string
+    slug?: string
+    thumbnailId?: string
+    AND?: TourWhereInput | TourWhereInput[]
+    OR?: TourWhereInput[]
+    NOT?: TourWhereInput | TourWhereInput[]
+    content?: StringNullableFilter<"Tour"> | string | null
+    featured?: BoolFilter<"Tour"> | boolean
+    duration?: IntNullableFilter<"Tour"> | number | null
+    tourType?: EnumTourTypeNullableFilter<"Tour"> | $Enums.TourType | null
+    price?: DecimalFilter<"Tour"> | Decimal | DecimalJsLike | number | string
+    offerPrice?: DecimalNullableFilter<"Tour"> | Decimal | DecimalJsLike | number | string | null
+    currency?: StringNullableFilter<"Tour"> | string | null
+    highlights?: StringNullableListFilter<"Tour">
+    inclusions?: StringNullableListFilter<"Tour">
+    exclusions?: StringNullableListFilter<"Tour">
+    terms?: StringNullableListFilter<"Tour">
+    createdAt?: DateTimeFilter<"Tour"> | Date | string
+    updatedAt?: DateTimeFilter<"Tour"> | Date | string
+    cities?: TourCityListRelationFilter
+    thumbnail?: XOR<ImageNullableScalarRelationFilter, ImageWhereInput> | null
+    images?: ImageListRelationFilter
+    faqs?: FAQListRelationFilter
+    destinations?: TourDestinationListRelationFilter
+    itinerary?: DayItineraryItemListRelationFilter
+  }, "id" | "name" | "slug" | "thumbnailId">
+
+  export type TourOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    content?: SortOrderInput | SortOrder
+    featured?: SortOrder
+    duration?: SortOrderInput | SortOrder
+    tourType?: SortOrderInput | SortOrder
+    price?: SortOrder
+    offerPrice?: SortOrderInput | SortOrder
+    currency?: SortOrderInput | SortOrder
+    thumbnailId?: SortOrderInput | SortOrder
+    highlights?: SortOrder
+    inclusions?: SortOrder
+    exclusions?: SortOrder
+    terms?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: TourCountOrderByAggregateInput
+    _avg?: TourAvgOrderByAggregateInput
+    _max?: TourMaxOrderByAggregateInput
+    _min?: TourMinOrderByAggregateInput
+    _sum?: TourSumOrderByAggregateInput
+  }
+
+  export type TourScalarWhereWithAggregatesInput = {
+    AND?: TourScalarWhereWithAggregatesInput | TourScalarWhereWithAggregatesInput[]
+    OR?: TourScalarWhereWithAggregatesInput[]
+    NOT?: TourScalarWhereWithAggregatesInput | TourScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Tour"> | string
+    name?: StringWithAggregatesFilter<"Tour"> | string
+    slug?: StringWithAggregatesFilter<"Tour"> | string
+    content?: StringNullableWithAggregatesFilter<"Tour"> | string | null
+    featured?: BoolWithAggregatesFilter<"Tour"> | boolean
+    duration?: IntNullableWithAggregatesFilter<"Tour"> | number | null
+    tourType?: EnumTourTypeNullableWithAggregatesFilter<"Tour"> | $Enums.TourType | null
+    price?: DecimalWithAggregatesFilter<"Tour"> | Decimal | DecimalJsLike | number | string
+    offerPrice?: DecimalNullableWithAggregatesFilter<"Tour"> | Decimal | DecimalJsLike | number | string | null
+    currency?: StringNullableWithAggregatesFilter<"Tour"> | string | null
+    thumbnailId?: StringNullableWithAggregatesFilter<"Tour"> | string | null
+    highlights?: StringNullableListFilter<"Tour">
+    inclusions?: StringNullableListFilter<"Tour">
+    exclusions?: StringNullableListFilter<"Tour">
+    terms?: StringNullableListFilter<"Tour">
+    createdAt?: DateTimeWithAggregatesFilter<"Tour"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Tour"> | Date | string
+  }
+
+  export type TourCityWhereInput = {
+    AND?: TourCityWhereInput | TourCityWhereInput[]
+    OR?: TourCityWhereInput[]
+    NOT?: TourCityWhereInput | TourCityWhereInput[]
+    id?: StringFilter<"TourCity"> | string
+    tourId?: StringFilter<"TourCity"> | string
+    cityId?: StringFilter<"TourCity"> | string
+    tour?: XOR<TourScalarRelationFilter, TourWhereInput>
+    city?: XOR<CityScalarRelationFilter, CityWhereInput>
+  }
+
+  export type TourCityOrderByWithRelationInput = {
+    id?: SortOrder
+    tourId?: SortOrder
+    cityId?: SortOrder
+    tour?: TourOrderByWithRelationInput
+    city?: CityOrderByWithRelationInput
+  }
+
+  export type TourCityWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    tourId_cityId?: TourCityTourIdCityIdCompoundUniqueInput
+    AND?: TourCityWhereInput | TourCityWhereInput[]
+    OR?: TourCityWhereInput[]
+    NOT?: TourCityWhereInput | TourCityWhereInput[]
+    tourId?: StringFilter<"TourCity"> | string
+    cityId?: StringFilter<"TourCity"> | string
+    tour?: XOR<TourScalarRelationFilter, TourWhereInput>
+    city?: XOR<CityScalarRelationFilter, CityWhereInput>
+  }, "id" | "tourId_cityId">
+
+  export type TourCityOrderByWithAggregationInput = {
+    id?: SortOrder
+    tourId?: SortOrder
+    cityId?: SortOrder
+    _count?: TourCityCountOrderByAggregateInput
+    _max?: TourCityMaxOrderByAggregateInput
+    _min?: TourCityMinOrderByAggregateInput
+  }
+
+  export type TourCityScalarWhereWithAggregatesInput = {
+    AND?: TourCityScalarWhereWithAggregatesInput | TourCityScalarWhereWithAggregatesInput[]
+    OR?: TourCityScalarWhereWithAggregatesInput[]
+    NOT?: TourCityScalarWhereWithAggregatesInput | TourCityScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"TourCity"> | string
+    tourId?: StringWithAggregatesFilter<"TourCity"> | string
+    cityId?: StringWithAggregatesFilter<"TourCity"> | string
+  }
+
+  export type TourDestinationWhereInput = {
+    AND?: TourDestinationWhereInput | TourDestinationWhereInput[]
+    OR?: TourDestinationWhereInput[]
+    NOT?: TourDestinationWhereInput | TourDestinationWhereInput[]
+    id?: StringFilter<"TourDestination"> | string
+    tourId?: StringFilter<"TourDestination"> | string
+    destinationId?: StringFilter<"TourDestination"> | string
+    tour?: XOR<TourScalarRelationFilter, TourWhereInput>
+    destination?: XOR<DestinationScalarRelationFilter, DestinationWhereInput>
+  }
+
+  export type TourDestinationOrderByWithRelationInput = {
+    id?: SortOrder
+    tourId?: SortOrder
+    destinationId?: SortOrder
+    tour?: TourOrderByWithRelationInput
+    destination?: DestinationOrderByWithRelationInput
+  }
+
+  export type TourDestinationWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    tourId_destinationId?: TourDestinationTourIdDestinationIdCompoundUniqueInput
+    AND?: TourDestinationWhereInput | TourDestinationWhereInput[]
+    OR?: TourDestinationWhereInput[]
+    NOT?: TourDestinationWhereInput | TourDestinationWhereInput[]
+    tourId?: StringFilter<"TourDestination"> | string
+    destinationId?: StringFilter<"TourDestination"> | string
+    tour?: XOR<TourScalarRelationFilter, TourWhereInput>
+    destination?: XOR<DestinationScalarRelationFilter, DestinationWhereInput>
+  }, "id" | "tourId_destinationId">
+
+  export type TourDestinationOrderByWithAggregationInput = {
+    id?: SortOrder
+    tourId?: SortOrder
+    destinationId?: SortOrder
+    _count?: TourDestinationCountOrderByAggregateInput
+    _max?: TourDestinationMaxOrderByAggregateInput
+    _min?: TourDestinationMinOrderByAggregateInput
+  }
+
+  export type TourDestinationScalarWhereWithAggregatesInput = {
+    AND?: TourDestinationScalarWhereWithAggregatesInput | TourDestinationScalarWhereWithAggregatesInput[]
+    OR?: TourDestinationScalarWhereWithAggregatesInput[]
+    NOT?: TourDestinationScalarWhereWithAggregatesInput | TourDestinationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"TourDestination"> | string
+    tourId?: StringWithAggregatesFilter<"TourDestination"> | string
+    destinationId?: StringWithAggregatesFilter<"TourDestination"> | string
+  }
+
+  export type AttractionWhereInput = {
+    AND?: AttractionWhereInput | AttractionWhereInput[]
+    OR?: AttractionWhereInput[]
+    NOT?: AttractionWhereInput | AttractionWhereInput[]
+    id?: StringFilter<"Attraction"> | string
+    name?: StringFilter<"Attraction"> | string
+    slug?: StringFilter<"Attraction"> | string
+    content?: StringNullableFilter<"Attraction"> | string | null
+    duration?: IntNullableFilter<"Attraction"> | number | null
+    price?: DecimalFilter<"Attraction"> | Decimal | DecimalJsLike | number | string
+    offerPrice?: DecimalNullableFilter<"Attraction"> | Decimal | DecimalJsLike | number | string | null
+    thumbnailId?: StringNullableFilter<"Attraction"> | string | null
+    inclusions?: StringNullableListFilter<"Attraction">
+    exclusions?: StringNullableListFilter<"Attraction">
+    terms?: StringNullableListFilter<"Attraction">
+    cityId?: StringFilter<"Attraction"> | string
+    thumbnail?: XOR<ImageNullableScalarRelationFilter, ImageWhereInput> | null
+    images?: ImageListRelationFilter
+    faqs?: FAQListRelationFilter
+  }
+
+  export type AttractionOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    content?: SortOrderInput | SortOrder
+    duration?: SortOrderInput | SortOrder
+    price?: SortOrder
+    offerPrice?: SortOrderInput | SortOrder
+    thumbnailId?: SortOrderInput | SortOrder
+    inclusions?: SortOrder
+    exclusions?: SortOrder
+    terms?: SortOrder
+    cityId?: SortOrder
+    thumbnail?: ImageOrderByWithRelationInput
+    images?: ImageOrderByRelationAggregateInput
+    faqs?: FAQOrderByRelationAggregateInput
+  }
+
+  export type AttractionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    name?: string
+    slug?: string
+    thumbnailId?: string
+    AND?: AttractionWhereInput | AttractionWhereInput[]
+    OR?: AttractionWhereInput[]
+    NOT?: AttractionWhereInput | AttractionWhereInput[]
+    content?: StringNullableFilter<"Attraction"> | string | null
+    duration?: IntNullableFilter<"Attraction"> | number | null
+    price?: DecimalFilter<"Attraction"> | Decimal | DecimalJsLike | number | string
+    offerPrice?: DecimalNullableFilter<"Attraction"> | Decimal | DecimalJsLike | number | string | null
+    inclusions?: StringNullableListFilter<"Attraction">
+    exclusions?: StringNullableListFilter<"Attraction">
+    terms?: StringNullableListFilter<"Attraction">
+    cityId?: StringFilter<"Attraction"> | string
+    thumbnail?: XOR<ImageNullableScalarRelationFilter, ImageWhereInput> | null
+    images?: ImageListRelationFilter
+    faqs?: FAQListRelationFilter
+  }, "id" | "name" | "slug" | "thumbnailId">
+
+  export type AttractionOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    content?: SortOrderInput | SortOrder
+    duration?: SortOrderInput | SortOrder
+    price?: SortOrder
+    offerPrice?: SortOrderInput | SortOrder
+    thumbnailId?: SortOrderInput | SortOrder
+    inclusions?: SortOrder
+    exclusions?: SortOrder
+    terms?: SortOrder
+    cityId?: SortOrder
+    _count?: AttractionCountOrderByAggregateInput
+    _avg?: AttractionAvgOrderByAggregateInput
+    _max?: AttractionMaxOrderByAggregateInput
+    _min?: AttractionMinOrderByAggregateInput
+    _sum?: AttractionSumOrderByAggregateInput
+  }
+
+  export type AttractionScalarWhereWithAggregatesInput = {
+    AND?: AttractionScalarWhereWithAggregatesInput | AttractionScalarWhereWithAggregatesInput[]
+    OR?: AttractionScalarWhereWithAggregatesInput[]
+    NOT?: AttractionScalarWhereWithAggregatesInput | AttractionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Attraction"> | string
+    name?: StringWithAggregatesFilter<"Attraction"> | string
+    slug?: StringWithAggregatesFilter<"Attraction"> | string
+    content?: StringNullableWithAggregatesFilter<"Attraction"> | string | null
+    duration?: IntNullableWithAggregatesFilter<"Attraction"> | number | null
+    price?: DecimalWithAggregatesFilter<"Attraction"> | Decimal | DecimalJsLike | number | string
+    offerPrice?: DecimalNullableWithAggregatesFilter<"Attraction"> | Decimal | DecimalJsLike | number | string | null
+    thumbnailId?: StringNullableWithAggregatesFilter<"Attraction"> | string | null
+    inclusions?: StringNullableListFilter<"Attraction">
+    exclusions?: StringNullableListFilter<"Attraction">
+    terms?: StringNullableListFilter<"Attraction">
+    cityId?: StringWithAggregatesFilter<"Attraction"> | string
+  }
+
+  export type FAQWhereInput = {
+    AND?: FAQWhereInput | FAQWhereInput[]
+    OR?: FAQWhereInput[]
+    NOT?: FAQWhereInput | FAQWhereInput[]
+    id?: StringFilter<"FAQ"> | string
+    question?: StringFilter<"FAQ"> | string
+    answer?: StringFilter<"FAQ"> | string
+    attractionId?: StringNullableFilter<"FAQ"> | string | null
+    tourId?: StringNullableFilter<"FAQ"> | string | null
+    destinationId?: StringNullableFilter<"FAQ"> | string | null
+    attraction?: XOR<AttractionNullableScalarRelationFilter, AttractionWhereInput> | null
+    tour?: XOR<TourNullableScalarRelationFilter, TourWhereInput> | null
+    destination?: XOR<DestinationNullableScalarRelationFilter, DestinationWhereInput> | null
+  }
+
+  export type FAQOrderByWithRelationInput = {
+    id?: SortOrder
+    question?: SortOrder
+    answer?: SortOrder
+    attractionId?: SortOrderInput | SortOrder
+    tourId?: SortOrderInput | SortOrder
+    destinationId?: SortOrderInput | SortOrder
+    attraction?: AttractionOrderByWithRelationInput
+    tour?: TourOrderByWithRelationInput
+    destination?: DestinationOrderByWithRelationInput
+  }
+
+  export type FAQWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: FAQWhereInput | FAQWhereInput[]
+    OR?: FAQWhereInput[]
+    NOT?: FAQWhereInput | FAQWhereInput[]
+    question?: StringFilter<"FAQ"> | string
+    answer?: StringFilter<"FAQ"> | string
+    attractionId?: StringNullableFilter<"FAQ"> | string | null
+    tourId?: StringNullableFilter<"FAQ"> | string | null
+    destinationId?: StringNullableFilter<"FAQ"> | string | null
+    attraction?: XOR<AttractionNullableScalarRelationFilter, AttractionWhereInput> | null
+    tour?: XOR<TourNullableScalarRelationFilter, TourWhereInput> | null
+    destination?: XOR<DestinationNullableScalarRelationFilter, DestinationWhereInput> | null
+  }, "id">
+
+  export type FAQOrderByWithAggregationInput = {
+    id?: SortOrder
+    question?: SortOrder
+    answer?: SortOrder
+    attractionId?: SortOrderInput | SortOrder
+    tourId?: SortOrderInput | SortOrder
+    destinationId?: SortOrderInput | SortOrder
+    _count?: FAQCountOrderByAggregateInput
+    _max?: FAQMaxOrderByAggregateInput
+    _min?: FAQMinOrderByAggregateInput
+  }
+
+  export type FAQScalarWhereWithAggregatesInput = {
+    AND?: FAQScalarWhereWithAggregatesInput | FAQScalarWhereWithAggregatesInput[]
+    OR?: FAQScalarWhereWithAggregatesInput[]
+    NOT?: FAQScalarWhereWithAggregatesInput | FAQScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"FAQ"> | string
+    question?: StringWithAggregatesFilter<"FAQ"> | string
+    answer?: StringWithAggregatesFilter<"FAQ"> | string
+    attractionId?: StringNullableWithAggregatesFilter<"FAQ"> | string | null
+    tourId?: StringNullableWithAggregatesFilter<"FAQ"> | string | null
+    destinationId?: StringNullableWithAggregatesFilter<"FAQ"> | string | null
+  }
+
+  export type DayItineraryItemWhereInput = {
+    AND?: DayItineraryItemWhereInput | DayItineraryItemWhereInput[]
+    OR?: DayItineraryItemWhereInput[]
+    NOT?: DayItineraryItemWhereInput | DayItineraryItemWhereInput[]
+    id?: StringFilter<"DayItineraryItem"> | string
+    tourId?: StringFilter<"DayItineraryItem"> | string
+    dayNumber?: IntFilter<"DayItineraryItem"> | number
+    title?: StringFilter<"DayItineraryItem"> | string
+    content?: StringNullableFilter<"DayItineraryItem"> | string | null
+    meals?: EnumMealsNullableListFilter<"DayItineraryItem">
+    duration?: IntNullableFilter<"DayItineraryItem"> | number | null
+    tour?: XOR<TourScalarRelationFilter, TourWhereInput>
+    images?: ImageListRelationFilter
+  }
+
+  export type DayItineraryItemOrderByWithRelationInput = {
+    id?: SortOrder
+    tourId?: SortOrder
+    dayNumber?: SortOrder
+    title?: SortOrder
+    content?: SortOrderInput | SortOrder
+    meals?: SortOrder
+    duration?: SortOrderInput | SortOrder
+    tour?: TourOrderByWithRelationInput
+    images?: ImageOrderByRelationAggregateInput
+  }
+
+  export type DayItineraryItemWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    tourId_dayNumber?: DayItineraryItemTourIdDayNumberCompoundUniqueInput
+    AND?: DayItineraryItemWhereInput | DayItineraryItemWhereInput[]
+    OR?: DayItineraryItemWhereInput[]
+    NOT?: DayItineraryItemWhereInput | DayItineraryItemWhereInput[]
+    tourId?: StringFilter<"DayItineraryItem"> | string
+    dayNumber?: IntFilter<"DayItineraryItem"> | number
+    title?: StringFilter<"DayItineraryItem"> | string
+    content?: StringNullableFilter<"DayItineraryItem"> | string | null
+    meals?: EnumMealsNullableListFilter<"DayItineraryItem">
+    duration?: IntNullableFilter<"DayItineraryItem"> | number | null
+    tour?: XOR<TourScalarRelationFilter, TourWhereInput>
+    images?: ImageListRelationFilter
+  }, "id" | "tourId_dayNumber">
+
+  export type DayItineraryItemOrderByWithAggregationInput = {
+    id?: SortOrder
+    tourId?: SortOrder
+    dayNumber?: SortOrder
+    title?: SortOrder
+    content?: SortOrderInput | SortOrder
+    meals?: SortOrder
+    duration?: SortOrderInput | SortOrder
+    _count?: DayItineraryItemCountOrderByAggregateInput
+    _avg?: DayItineraryItemAvgOrderByAggregateInput
+    _max?: DayItineraryItemMaxOrderByAggregateInput
+    _min?: DayItineraryItemMinOrderByAggregateInput
+    _sum?: DayItineraryItemSumOrderByAggregateInput
+  }
+
+  export type DayItineraryItemScalarWhereWithAggregatesInput = {
+    AND?: DayItineraryItemScalarWhereWithAggregatesInput | DayItineraryItemScalarWhereWithAggregatesInput[]
+    OR?: DayItineraryItemScalarWhereWithAggregatesInput[]
+    NOT?: DayItineraryItemScalarWhereWithAggregatesInput | DayItineraryItemScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"DayItineraryItem"> | string
+    tourId?: StringWithAggregatesFilter<"DayItineraryItem"> | string
+    dayNumber?: IntWithAggregatesFilter<"DayItineraryItem"> | number
+    title?: StringWithAggregatesFilter<"DayItineraryItem"> | string
+    content?: StringNullableWithAggregatesFilter<"DayItineraryItem"> | string | null
+    meals?: EnumMealsNullableListFilter<"DayItineraryItem">
+    duration?: IntNullableWithAggregatesFilter<"DayItineraryItem"> | number | null
+  }
+
+  export type ImageWhereInput = {
+    AND?: ImageWhereInput | ImageWhereInput[]
+    OR?: ImageWhereInput[]
+    NOT?: ImageWhereInput | ImageWhereInput[]
+    id?: StringFilter<"Image"> | string
+    bucketName?: StringFilter<"Image"> | string
+    fileName?: StringFilter<"Image"> | string
+    altText?: StringNullableFilter<"Image"> | string | null
+    keywords?: StringNullableListFilter<"Image">
+    createdAt?: DateTimeFilter<"Image"> | Date | string
+    updatedAt?: DateTimeFilter<"Image"> | Date | string
+    tourId?: StringNullableFilter<"Image"> | string | null
+    attractionId?: StringNullableFilter<"Image"> | string | null
+    dayItineraryItemId?: StringNullableFilter<"Image"> | string | null
+    destinationId?: StringNullableFilter<"Image"> | string | null
+    tourThumbnail?: XOR<TourNullableScalarRelationFilter, TourWhereInput> | null
+    attractionThumbnail?: XOR<AttractionNullableScalarRelationFilter, AttractionWhereInput> | null
+    destinationThumbnail?: XOR<DestinationNullableScalarRelationFilter, DestinationWhereInput> | null
+    tourImages?: XOR<TourNullableScalarRelationFilter, TourWhereInput> | null
+    attractionImages?: XOR<AttractionNullableScalarRelationFilter, AttractionWhereInput> | null
+    dayItineraryImages?: XOR<DayItineraryItemNullableScalarRelationFilter, DayItineraryItemWhereInput> | null
+    destinationImages?: XOR<DestinationNullableScalarRelationFilter, DestinationWhereInput> | null
+  }
+
+  export type ImageOrderByWithRelationInput = {
+    id?: SortOrder
+    bucketName?: SortOrder
+    fileName?: SortOrder
+    altText?: SortOrderInput | SortOrder
+    keywords?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    tourId?: SortOrderInput | SortOrder
+    attractionId?: SortOrderInput | SortOrder
+    dayItineraryItemId?: SortOrderInput | SortOrder
+    destinationId?: SortOrderInput | SortOrder
+    tourThumbnail?: TourOrderByWithRelationInput
+    attractionThumbnail?: AttractionOrderByWithRelationInput
+    destinationThumbnail?: DestinationOrderByWithRelationInput
+    tourImages?: TourOrderByWithRelationInput
+    attractionImages?: AttractionOrderByWithRelationInput
+    dayItineraryImages?: DayItineraryItemOrderByWithRelationInput
+    destinationImages?: DestinationOrderByWithRelationInput
+  }
+
+  export type ImageWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ImageWhereInput | ImageWhereInput[]
+    OR?: ImageWhereInput[]
+    NOT?: ImageWhereInput | ImageWhereInput[]
+    bucketName?: StringFilter<"Image"> | string
+    fileName?: StringFilter<"Image"> | string
+    altText?: StringNullableFilter<"Image"> | string | null
+    keywords?: StringNullableListFilter<"Image">
+    createdAt?: DateTimeFilter<"Image"> | Date | string
+    updatedAt?: DateTimeFilter<"Image"> | Date | string
+    tourId?: StringNullableFilter<"Image"> | string | null
+    attractionId?: StringNullableFilter<"Image"> | string | null
+    dayItineraryItemId?: StringNullableFilter<"Image"> | string | null
+    destinationId?: StringNullableFilter<"Image"> | string | null
+    tourThumbnail?: XOR<TourNullableScalarRelationFilter, TourWhereInput> | null
+    attractionThumbnail?: XOR<AttractionNullableScalarRelationFilter, AttractionWhereInput> | null
+    destinationThumbnail?: XOR<DestinationNullableScalarRelationFilter, DestinationWhereInput> | null
+    tourImages?: XOR<TourNullableScalarRelationFilter, TourWhereInput> | null
+    attractionImages?: XOR<AttractionNullableScalarRelationFilter, AttractionWhereInput> | null
+    dayItineraryImages?: XOR<DayItineraryItemNullableScalarRelationFilter, DayItineraryItemWhereInput> | null
+    destinationImages?: XOR<DestinationNullableScalarRelationFilter, DestinationWhereInput> | null
+  }, "id">
+
+  export type ImageOrderByWithAggregationInput = {
+    id?: SortOrder
+    bucketName?: SortOrder
+    fileName?: SortOrder
+    altText?: SortOrderInput | SortOrder
+    keywords?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    tourId?: SortOrderInput | SortOrder
+    attractionId?: SortOrderInput | SortOrder
+    dayItineraryItemId?: SortOrderInput | SortOrder
+    destinationId?: SortOrderInput | SortOrder
+    _count?: ImageCountOrderByAggregateInput
+    _max?: ImageMaxOrderByAggregateInput
+    _min?: ImageMinOrderByAggregateInput
+  }
+
+  export type ImageScalarWhereWithAggregatesInput = {
+    AND?: ImageScalarWhereWithAggregatesInput | ImageScalarWhereWithAggregatesInput[]
+    OR?: ImageScalarWhereWithAggregatesInput[]
+    NOT?: ImageScalarWhereWithAggregatesInput | ImageScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Image"> | string
+    bucketName?: StringWithAggregatesFilter<"Image"> | string
+    fileName?: StringWithAggregatesFilter<"Image"> | string
+    altText?: StringNullableWithAggregatesFilter<"Image"> | string | null
+    keywords?: StringNullableListFilter<"Image">
+    createdAt?: DateTimeWithAggregatesFilter<"Image"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Image"> | Date | string
+    tourId?: StringNullableWithAggregatesFilter<"Image"> | string | null
+    attractionId?: StringNullableWithAggregatesFilter<"Image"> | string | null
+    dayItineraryItemId?: StringNullableWithAggregatesFilter<"Image"> | string | null
+    destinationId?: StringNullableWithAggregatesFilter<"Image"> | string | null
   }
 
   export type UserCreateInput = {
@@ -9072,6 +21748,768 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type DestinationCreateInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    currency?: string | null
+    bestSeasonStart?: string | null
+    bestSeasonEnd?: string | null
+    languages?: DestinationCreatelanguagesInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: CityCreateNestedManyWithoutDestinationInput
+    tours?: TourDestinationCreateNestedManyWithoutDestinationInput
+    thumbnail?: ImageCreateNestedOneWithoutDestinationThumbnailInput
+    images?: ImageCreateNestedManyWithoutDestinationImagesInput
+    faqs?: FAQCreateNestedManyWithoutDestinationInput
+  }
+
+  export type DestinationUncheckedCreateInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    currency?: string | null
+    bestSeasonStart?: string | null
+    bestSeasonEnd?: string | null
+    languages?: DestinationCreatelanguagesInput | string[]
+    thumbnailId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: CityUncheckedCreateNestedManyWithoutDestinationInput
+    tours?: TourDestinationUncheckedCreateNestedManyWithoutDestinationInput
+    images?: ImageUncheckedCreateNestedManyWithoutDestinationImagesInput
+    faqs?: FAQUncheckedCreateNestedManyWithoutDestinationInput
+  }
+
+  export type DestinationUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonStart?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonEnd?: NullableStringFieldUpdateOperationsInput | string | null
+    languages?: DestinationUpdatelanguagesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: CityUpdateManyWithoutDestinationNestedInput
+    tours?: TourDestinationUpdateManyWithoutDestinationNestedInput
+    thumbnail?: ImageUpdateOneWithoutDestinationThumbnailNestedInput
+    images?: ImageUpdateManyWithoutDestinationImagesNestedInput
+    faqs?: FAQUpdateManyWithoutDestinationNestedInput
+  }
+
+  export type DestinationUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonStart?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonEnd?: NullableStringFieldUpdateOperationsInput | string | null
+    languages?: DestinationUpdatelanguagesInput | string[]
+    thumbnailId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: CityUncheckedUpdateManyWithoutDestinationNestedInput
+    tours?: TourDestinationUncheckedUpdateManyWithoutDestinationNestedInput
+    images?: ImageUncheckedUpdateManyWithoutDestinationImagesNestedInput
+    faqs?: FAQUncheckedUpdateManyWithoutDestinationNestedInput
+  }
+
+  export type DestinationCreateManyInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    currency?: string | null
+    bestSeasonStart?: string | null
+    bestSeasonEnd?: string | null
+    languages?: DestinationCreatelanguagesInput | string[]
+    thumbnailId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DestinationUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonStart?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonEnd?: NullableStringFieldUpdateOperationsInput | string | null
+    languages?: DestinationUpdatelanguagesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DestinationUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonStart?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonEnd?: NullableStringFieldUpdateOperationsInput | string | null
+    languages?: DestinationUpdatelanguagesInput | string[]
+    thumbnailId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CityCreateInput = {
+    id?: string
+    name: string
+    slug: string
+    destination?: DestinationCreateNestedOneWithoutCitiesInput
+    tours?: TourCityCreateNestedManyWithoutCityInput
+  }
+
+  export type CityUncheckedCreateInput = {
+    id?: string
+    name: string
+    slug: string
+    destinationId?: string | null
+    tours?: TourCityUncheckedCreateNestedManyWithoutCityInput
+  }
+
+  export type CityUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    destination?: DestinationUpdateOneWithoutCitiesNestedInput
+    tours?: TourCityUpdateManyWithoutCityNestedInput
+  }
+
+  export type CityUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    destinationId?: NullableStringFieldUpdateOperationsInput | string | null
+    tours?: TourCityUncheckedUpdateManyWithoutCityNestedInput
+  }
+
+  export type CityCreateManyInput = {
+    id?: string
+    name: string
+    slug: string
+    destinationId?: string | null
+  }
+
+  export type CityUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CityUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    destinationId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TourCreateInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    duration?: number | null
+    tourType?: $Enums.TourType | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    currency?: string | null
+    highlights?: TourCreatehighlightsInput | string[]
+    inclusions?: TourCreateinclusionsInput | string[]
+    exclusions?: TourCreateexclusionsInput | string[]
+    terms?: TourCreatetermsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: TourCityCreateNestedManyWithoutTourInput
+    thumbnail?: ImageCreateNestedOneWithoutTourThumbnailInput
+    images?: ImageCreateNestedManyWithoutTourImagesInput
+    faqs?: FAQCreateNestedManyWithoutTourInput
+    destinations?: TourDestinationCreateNestedManyWithoutTourInput
+    itinerary?: DayItineraryItemCreateNestedManyWithoutTourInput
+  }
+
+  export type TourUncheckedCreateInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    duration?: number | null
+    tourType?: $Enums.TourType | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    currency?: string | null
+    thumbnailId?: string | null
+    highlights?: TourCreatehighlightsInput | string[]
+    inclusions?: TourCreateinclusionsInput | string[]
+    exclusions?: TourCreateexclusionsInput | string[]
+    terms?: TourCreatetermsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: TourCityUncheckedCreateNestedManyWithoutTourInput
+    images?: ImageUncheckedCreateNestedManyWithoutTourImagesInput
+    faqs?: FAQUncheckedCreateNestedManyWithoutTourInput
+    destinations?: TourDestinationUncheckedCreateNestedManyWithoutTourInput
+    itinerary?: DayItineraryItemUncheckedCreateNestedManyWithoutTourInput
+  }
+
+  export type TourUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    tourType?: NullableEnumTourTypeFieldUpdateOperationsInput | $Enums.TourType | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    highlights?: TourUpdatehighlightsInput | string[]
+    inclusions?: TourUpdateinclusionsInput | string[]
+    exclusions?: TourUpdateexclusionsInput | string[]
+    terms?: TourUpdatetermsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: TourCityUpdateManyWithoutTourNestedInput
+    thumbnail?: ImageUpdateOneWithoutTourThumbnailNestedInput
+    images?: ImageUpdateManyWithoutTourImagesNestedInput
+    faqs?: FAQUpdateManyWithoutTourNestedInput
+    destinations?: TourDestinationUpdateManyWithoutTourNestedInput
+    itinerary?: DayItineraryItemUpdateManyWithoutTourNestedInput
+  }
+
+  export type TourUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    tourType?: NullableEnumTourTypeFieldUpdateOperationsInput | $Enums.TourType | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailId?: NullableStringFieldUpdateOperationsInput | string | null
+    highlights?: TourUpdatehighlightsInput | string[]
+    inclusions?: TourUpdateinclusionsInput | string[]
+    exclusions?: TourUpdateexclusionsInput | string[]
+    terms?: TourUpdatetermsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: TourCityUncheckedUpdateManyWithoutTourNestedInput
+    images?: ImageUncheckedUpdateManyWithoutTourImagesNestedInput
+    faqs?: FAQUncheckedUpdateManyWithoutTourNestedInput
+    destinations?: TourDestinationUncheckedUpdateManyWithoutTourNestedInput
+    itinerary?: DayItineraryItemUncheckedUpdateManyWithoutTourNestedInput
+  }
+
+  export type TourCreateManyInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    duration?: number | null
+    tourType?: $Enums.TourType | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    currency?: string | null
+    thumbnailId?: string | null
+    highlights?: TourCreatehighlightsInput | string[]
+    inclusions?: TourCreateinclusionsInput | string[]
+    exclusions?: TourCreateexclusionsInput | string[]
+    terms?: TourCreatetermsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TourUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    tourType?: NullableEnumTourTypeFieldUpdateOperationsInput | $Enums.TourType | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    highlights?: TourUpdatehighlightsInput | string[]
+    inclusions?: TourUpdateinclusionsInput | string[]
+    exclusions?: TourUpdateexclusionsInput | string[]
+    terms?: TourUpdatetermsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TourUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    tourType?: NullableEnumTourTypeFieldUpdateOperationsInput | $Enums.TourType | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailId?: NullableStringFieldUpdateOperationsInput | string | null
+    highlights?: TourUpdatehighlightsInput | string[]
+    inclusions?: TourUpdateinclusionsInput | string[]
+    exclusions?: TourUpdateexclusionsInput | string[]
+    terms?: TourUpdatetermsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TourCityCreateInput = {
+    id?: string
+    tour: TourCreateNestedOneWithoutCitiesInput
+    city: CityCreateNestedOneWithoutToursInput
+  }
+
+  export type TourCityUncheckedCreateInput = {
+    id?: string
+    tourId: string
+    cityId: string
+  }
+
+  export type TourCityUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tour?: TourUpdateOneRequiredWithoutCitiesNestedInput
+    city?: CityUpdateOneRequiredWithoutToursNestedInput
+  }
+
+  export type TourCityUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tourId?: StringFieldUpdateOperationsInput | string
+    cityId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TourCityCreateManyInput = {
+    id?: string
+    tourId: string
+    cityId: string
+  }
+
+  export type TourCityUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TourCityUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tourId?: StringFieldUpdateOperationsInput | string
+    cityId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TourDestinationCreateInput = {
+    id?: string
+    tour: TourCreateNestedOneWithoutDestinationsInput
+    destination: DestinationCreateNestedOneWithoutToursInput
+  }
+
+  export type TourDestinationUncheckedCreateInput = {
+    id?: string
+    tourId: string
+    destinationId: string
+  }
+
+  export type TourDestinationUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tour?: TourUpdateOneRequiredWithoutDestinationsNestedInput
+    destination?: DestinationUpdateOneRequiredWithoutToursNestedInput
+  }
+
+  export type TourDestinationUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tourId?: StringFieldUpdateOperationsInput | string
+    destinationId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TourDestinationCreateManyInput = {
+    id?: string
+    tourId: string
+    destinationId: string
+  }
+
+  export type TourDestinationUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TourDestinationUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tourId?: StringFieldUpdateOperationsInput | string
+    destinationId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type AttractionCreateInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    duration?: number | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    inclusions?: AttractionCreateinclusionsInput | string[]
+    exclusions?: AttractionCreateexclusionsInput | string[]
+    terms?: AttractionCreatetermsInput | string[]
+    cityId: string
+    thumbnail?: ImageCreateNestedOneWithoutAttractionThumbnailInput
+    images?: ImageCreateNestedManyWithoutAttractionImagesInput
+    faqs?: FAQCreateNestedManyWithoutAttractionInput
+  }
+
+  export type AttractionUncheckedCreateInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    duration?: number | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    thumbnailId?: string | null
+    inclusions?: AttractionCreateinclusionsInput | string[]
+    exclusions?: AttractionCreateexclusionsInput | string[]
+    terms?: AttractionCreatetermsInput | string[]
+    cityId: string
+    images?: ImageUncheckedCreateNestedManyWithoutAttractionImagesInput
+    faqs?: FAQUncheckedCreateNestedManyWithoutAttractionInput
+  }
+
+  export type AttractionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    inclusions?: AttractionUpdateinclusionsInput | string[]
+    exclusions?: AttractionUpdateexclusionsInput | string[]
+    terms?: AttractionUpdatetermsInput | string[]
+    cityId?: StringFieldUpdateOperationsInput | string
+    thumbnail?: ImageUpdateOneWithoutAttractionThumbnailNestedInput
+    images?: ImageUpdateManyWithoutAttractionImagesNestedInput
+    faqs?: FAQUpdateManyWithoutAttractionNestedInput
+  }
+
+  export type AttractionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    thumbnailId?: NullableStringFieldUpdateOperationsInput | string | null
+    inclusions?: AttractionUpdateinclusionsInput | string[]
+    exclusions?: AttractionUpdateexclusionsInput | string[]
+    terms?: AttractionUpdatetermsInput | string[]
+    cityId?: StringFieldUpdateOperationsInput | string
+    images?: ImageUncheckedUpdateManyWithoutAttractionImagesNestedInput
+    faqs?: FAQUncheckedUpdateManyWithoutAttractionNestedInput
+  }
+
+  export type AttractionCreateManyInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    duration?: number | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    thumbnailId?: string | null
+    inclusions?: AttractionCreateinclusionsInput | string[]
+    exclusions?: AttractionCreateexclusionsInput | string[]
+    terms?: AttractionCreatetermsInput | string[]
+    cityId: string
+  }
+
+  export type AttractionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    inclusions?: AttractionUpdateinclusionsInput | string[]
+    exclusions?: AttractionUpdateexclusionsInput | string[]
+    terms?: AttractionUpdatetermsInput | string[]
+    cityId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type AttractionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    thumbnailId?: NullableStringFieldUpdateOperationsInput | string | null
+    inclusions?: AttractionUpdateinclusionsInput | string[]
+    exclusions?: AttractionUpdateexclusionsInput | string[]
+    terms?: AttractionUpdatetermsInput | string[]
+    cityId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type FAQCreateInput = {
+    id?: string
+    question: string
+    answer: string
+    attraction?: AttractionCreateNestedOneWithoutFaqsInput
+    tour?: TourCreateNestedOneWithoutFaqsInput
+    destination?: DestinationCreateNestedOneWithoutFaqsInput
+  }
+
+  export type FAQUncheckedCreateInput = {
+    id?: string
+    question: string
+    answer: string
+    attractionId?: string | null
+    tourId?: string | null
+    destinationId?: string | null
+  }
+
+  export type FAQUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    answer?: StringFieldUpdateOperationsInput | string
+    attraction?: AttractionUpdateOneWithoutFaqsNestedInput
+    tour?: TourUpdateOneWithoutFaqsNestedInput
+    destination?: DestinationUpdateOneWithoutFaqsNestedInput
+  }
+
+  export type FAQUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    answer?: StringFieldUpdateOperationsInput | string
+    attractionId?: NullableStringFieldUpdateOperationsInput | string | null
+    tourId?: NullableStringFieldUpdateOperationsInput | string | null
+    destinationId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FAQCreateManyInput = {
+    id?: string
+    question: string
+    answer: string
+    attractionId?: string | null
+    tourId?: string | null
+    destinationId?: string | null
+  }
+
+  export type FAQUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    answer?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type FAQUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    answer?: StringFieldUpdateOperationsInput | string
+    attractionId?: NullableStringFieldUpdateOperationsInput | string | null
+    tourId?: NullableStringFieldUpdateOperationsInput | string | null
+    destinationId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type DayItineraryItemCreateInput = {
+    id?: string
+    dayNumber: number
+    title: string
+    content?: string | null
+    meals?: DayItineraryItemCreatemealsInput | $Enums.Meals[]
+    duration?: number | null
+    tour: TourCreateNestedOneWithoutItineraryInput
+    images?: ImageCreateNestedManyWithoutDayItineraryImagesInput
+  }
+
+  export type DayItineraryItemUncheckedCreateInput = {
+    id?: string
+    tourId: string
+    dayNumber: number
+    title: string
+    content?: string | null
+    meals?: DayItineraryItemCreatemealsInput | $Enums.Meals[]
+    duration?: number | null
+    images?: ImageUncheckedCreateNestedManyWithoutDayItineraryImagesInput
+  }
+
+  export type DayItineraryItemUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    dayNumber?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    meals?: DayItineraryItemUpdatemealsInput | $Enums.Meals[]
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    tour?: TourUpdateOneRequiredWithoutItineraryNestedInput
+    images?: ImageUpdateManyWithoutDayItineraryImagesNestedInput
+  }
+
+  export type DayItineraryItemUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tourId?: StringFieldUpdateOperationsInput | string
+    dayNumber?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    meals?: DayItineraryItemUpdatemealsInput | $Enums.Meals[]
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    images?: ImageUncheckedUpdateManyWithoutDayItineraryImagesNestedInput
+  }
+
+  export type DayItineraryItemCreateManyInput = {
+    id?: string
+    tourId: string
+    dayNumber: number
+    title: string
+    content?: string | null
+    meals?: DayItineraryItemCreatemealsInput | $Enums.Meals[]
+    duration?: number | null
+  }
+
+  export type DayItineraryItemUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    dayNumber?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    meals?: DayItineraryItemUpdatemealsInput | $Enums.Meals[]
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type DayItineraryItemUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tourId?: StringFieldUpdateOperationsInput | string
+    dayNumber?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    meals?: DayItineraryItemUpdatemealsInput | $Enums.Meals[]
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type ImageCreateInput = {
+    id?: string
+    bucketName: string
+    fileName: string
+    altText?: string | null
+    keywords?: ImageCreatekeywordsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tourThumbnail?: TourCreateNestedOneWithoutThumbnailInput
+    attractionThumbnail?: AttractionCreateNestedOneWithoutThumbnailInput
+    destinationThumbnail?: DestinationCreateNestedOneWithoutThumbnailInput
+    tourImages?: TourCreateNestedOneWithoutImagesInput
+    attractionImages?: AttractionCreateNestedOneWithoutImagesInput
+    dayItineraryImages?: DayItineraryItemCreateNestedOneWithoutImagesInput
+    destinationImages?: DestinationCreateNestedOneWithoutImagesInput
+  }
+
+  export type ImageUncheckedCreateInput = {
+    id?: string
+    bucketName: string
+    fileName: string
+    altText?: string | null
+    keywords?: ImageCreatekeywordsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tourId?: string | null
+    attractionId?: string | null
+    dayItineraryItemId?: string | null
+    destinationId?: string | null
+    tourThumbnail?: TourUncheckedCreateNestedOneWithoutThumbnailInput
+    attractionThumbnail?: AttractionUncheckedCreateNestedOneWithoutThumbnailInput
+    destinationThumbnail?: DestinationUncheckedCreateNestedOneWithoutThumbnailInput
+  }
+
+  export type ImageUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tourThumbnail?: TourUpdateOneWithoutThumbnailNestedInput
+    attractionThumbnail?: AttractionUpdateOneWithoutThumbnailNestedInput
+    destinationThumbnail?: DestinationUpdateOneWithoutThumbnailNestedInput
+    tourImages?: TourUpdateOneWithoutImagesNestedInput
+    attractionImages?: AttractionUpdateOneWithoutImagesNestedInput
+    dayItineraryImages?: DayItineraryItemUpdateOneWithoutImagesNestedInput
+    destinationImages?: DestinationUpdateOneWithoutImagesNestedInput
+  }
+
+  export type ImageUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tourId?: NullableStringFieldUpdateOperationsInput | string | null
+    attractionId?: NullableStringFieldUpdateOperationsInput | string | null
+    dayItineraryItemId?: NullableStringFieldUpdateOperationsInput | string | null
+    destinationId?: NullableStringFieldUpdateOperationsInput | string | null
+    tourThumbnail?: TourUncheckedUpdateOneWithoutThumbnailNestedInput
+    attractionThumbnail?: AttractionUncheckedUpdateOneWithoutThumbnailNestedInput
+    destinationThumbnail?: DestinationUncheckedUpdateOneWithoutThumbnailNestedInput
+  }
+
+  export type ImageCreateManyInput = {
+    id?: string
+    bucketName: string
+    fileName: string
+    altText?: string | null
+    keywords?: ImageCreatekeywordsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tourId?: string | null
+    attractionId?: string | null
+    dayItineraryItemId?: string | null
+    destinationId?: string | null
+  }
+
+  export type ImageUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ImageUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tourId?: NullableStringFieldUpdateOperationsInput | string | null
+    attractionId?: NullableStringFieldUpdateOperationsInput | string | null
+    dayItineraryItemId?: NullableStringFieldUpdateOperationsInput | string | null
+    destinationId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -9479,6 +22917,565 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
+  export type CityListRelationFilter = {
+    every?: CityWhereInput
+    some?: CityWhereInput
+    none?: CityWhereInput
+  }
+
+  export type TourDestinationListRelationFilter = {
+    every?: TourDestinationWhereInput
+    some?: TourDestinationWhereInput
+    none?: TourDestinationWhereInput
+  }
+
+  export type ImageNullableScalarRelationFilter = {
+    is?: ImageWhereInput | null
+    isNot?: ImageWhereInput | null
+  }
+
+  export type ImageListRelationFilter = {
+    every?: ImageWhereInput
+    some?: ImageWhereInput
+    none?: ImageWhereInput
+  }
+
+  export type FAQListRelationFilter = {
+    every?: FAQWhereInput
+    some?: FAQWhereInput
+    none?: FAQWhereInput
+  }
+
+  export type CityOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type TourDestinationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ImageOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type FAQOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DestinationCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    content?: SortOrder
+    featured?: SortOrder
+    currency?: SortOrder
+    bestSeasonStart?: SortOrder
+    bestSeasonEnd?: SortOrder
+    languages?: SortOrder
+    thumbnailId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DestinationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    content?: SortOrder
+    featured?: SortOrder
+    currency?: SortOrder
+    bestSeasonStart?: SortOrder
+    bestSeasonEnd?: SortOrder
+    thumbnailId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DestinationMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    content?: SortOrder
+    featured?: SortOrder
+    currency?: SortOrder
+    bestSeasonStart?: SortOrder
+    bestSeasonEnd?: SortOrder
+    thumbnailId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DestinationNullableScalarRelationFilter = {
+    is?: DestinationWhereInput | null
+    isNot?: DestinationWhereInput | null
+  }
+
+  export type TourCityListRelationFilter = {
+    every?: TourCityWhereInput
+    some?: TourCityWhereInput
+    none?: TourCityWhereInput
+  }
+
+  export type TourCityOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CityDestinationIdNameCompoundUniqueInput = {
+    destinationId: string
+    name: string
+  }
+
+  export type CityDestinationIdSlugCompoundUniqueInput = {
+    destinationId: string
+    slug: string
+  }
+
+  export type CityCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    destinationId?: SortOrder
+  }
+
+  export type CityMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    destinationId?: SortOrder
+  }
+
+  export type CityMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    destinationId?: SortOrder
+  }
+
+  export type EnumTourTypeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.TourType | EnumTourTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.TourType[] | ListEnumTourTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.TourType[] | ListEnumTourTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumTourTypeNullableFilter<$PrismaModel> | $Enums.TourType | null
+  }
+
+  export type DecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type DecimalNullableFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type DayItineraryItemListRelationFilter = {
+    every?: DayItineraryItemWhereInput
+    some?: DayItineraryItemWhereInput
+    none?: DayItineraryItemWhereInput
+  }
+
+  export type DayItineraryItemOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type TourCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    content?: SortOrder
+    featured?: SortOrder
+    duration?: SortOrder
+    tourType?: SortOrder
+    price?: SortOrder
+    offerPrice?: SortOrder
+    currency?: SortOrder
+    thumbnailId?: SortOrder
+    highlights?: SortOrder
+    inclusions?: SortOrder
+    exclusions?: SortOrder
+    terms?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TourAvgOrderByAggregateInput = {
+    duration?: SortOrder
+    price?: SortOrder
+    offerPrice?: SortOrder
+  }
+
+  export type TourMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    content?: SortOrder
+    featured?: SortOrder
+    duration?: SortOrder
+    tourType?: SortOrder
+    price?: SortOrder
+    offerPrice?: SortOrder
+    currency?: SortOrder
+    thumbnailId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TourMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    content?: SortOrder
+    featured?: SortOrder
+    duration?: SortOrder
+    tourType?: SortOrder
+    price?: SortOrder
+    offerPrice?: SortOrder
+    currency?: SortOrder
+    thumbnailId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TourSumOrderByAggregateInput = {
+    duration?: SortOrder
+    price?: SortOrder
+    offerPrice?: SortOrder
+  }
+
+  export type EnumTourTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.TourType | EnumTourTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.TourType[] | ListEnumTourTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.TourType[] | ListEnumTourTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumTourTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.TourType | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumTourTypeNullableFilter<$PrismaModel>
+    _max?: NestedEnumTourTypeNullableFilter<$PrismaModel>
+  }
+
+  export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
+  export type DecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedDecimalNullableFilter<$PrismaModel>
+    _sum?: NestedDecimalNullableFilter<$PrismaModel>
+    _min?: NestedDecimalNullableFilter<$PrismaModel>
+    _max?: NestedDecimalNullableFilter<$PrismaModel>
+  }
+
+  export type TourScalarRelationFilter = {
+    is?: TourWhereInput
+    isNot?: TourWhereInput
+  }
+
+  export type CityScalarRelationFilter = {
+    is?: CityWhereInput
+    isNot?: CityWhereInput
+  }
+
+  export type TourCityTourIdCityIdCompoundUniqueInput = {
+    tourId: string
+    cityId: string
+  }
+
+  export type TourCityCountOrderByAggregateInput = {
+    id?: SortOrder
+    tourId?: SortOrder
+    cityId?: SortOrder
+  }
+
+  export type TourCityMaxOrderByAggregateInput = {
+    id?: SortOrder
+    tourId?: SortOrder
+    cityId?: SortOrder
+  }
+
+  export type TourCityMinOrderByAggregateInput = {
+    id?: SortOrder
+    tourId?: SortOrder
+    cityId?: SortOrder
+  }
+
+  export type DestinationScalarRelationFilter = {
+    is?: DestinationWhereInput
+    isNot?: DestinationWhereInput
+  }
+
+  export type TourDestinationTourIdDestinationIdCompoundUniqueInput = {
+    tourId: string
+    destinationId: string
+  }
+
+  export type TourDestinationCountOrderByAggregateInput = {
+    id?: SortOrder
+    tourId?: SortOrder
+    destinationId?: SortOrder
+  }
+
+  export type TourDestinationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    tourId?: SortOrder
+    destinationId?: SortOrder
+  }
+
+  export type TourDestinationMinOrderByAggregateInput = {
+    id?: SortOrder
+    tourId?: SortOrder
+    destinationId?: SortOrder
+  }
+
+  export type AttractionCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    content?: SortOrder
+    duration?: SortOrder
+    price?: SortOrder
+    offerPrice?: SortOrder
+    thumbnailId?: SortOrder
+    inclusions?: SortOrder
+    exclusions?: SortOrder
+    terms?: SortOrder
+    cityId?: SortOrder
+  }
+
+  export type AttractionAvgOrderByAggregateInput = {
+    duration?: SortOrder
+    price?: SortOrder
+    offerPrice?: SortOrder
+  }
+
+  export type AttractionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    content?: SortOrder
+    duration?: SortOrder
+    price?: SortOrder
+    offerPrice?: SortOrder
+    thumbnailId?: SortOrder
+    cityId?: SortOrder
+  }
+
+  export type AttractionMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+    content?: SortOrder
+    duration?: SortOrder
+    price?: SortOrder
+    offerPrice?: SortOrder
+    thumbnailId?: SortOrder
+    cityId?: SortOrder
+  }
+
+  export type AttractionSumOrderByAggregateInput = {
+    duration?: SortOrder
+    price?: SortOrder
+    offerPrice?: SortOrder
+  }
+
+  export type AttractionNullableScalarRelationFilter = {
+    is?: AttractionWhereInput | null
+    isNot?: AttractionWhereInput | null
+  }
+
+  export type TourNullableScalarRelationFilter = {
+    is?: TourWhereInput | null
+    isNot?: TourWhereInput | null
+  }
+
+  export type FAQCountOrderByAggregateInput = {
+    id?: SortOrder
+    question?: SortOrder
+    answer?: SortOrder
+    attractionId?: SortOrder
+    tourId?: SortOrder
+    destinationId?: SortOrder
+  }
+
+  export type FAQMaxOrderByAggregateInput = {
+    id?: SortOrder
+    question?: SortOrder
+    answer?: SortOrder
+    attractionId?: SortOrder
+    tourId?: SortOrder
+    destinationId?: SortOrder
+  }
+
+  export type FAQMinOrderByAggregateInput = {
+    id?: SortOrder
+    question?: SortOrder
+    answer?: SortOrder
+    attractionId?: SortOrder
+    tourId?: SortOrder
+    destinationId?: SortOrder
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type EnumMealsNullableListFilter<$PrismaModel = never> = {
+    equals?: $Enums.Meals[] | ListEnumMealsFieldRefInput<$PrismaModel> | null
+    has?: $Enums.Meals | EnumMealsFieldRefInput<$PrismaModel> | null
+    hasEvery?: $Enums.Meals[] | ListEnumMealsFieldRefInput<$PrismaModel>
+    hasSome?: $Enums.Meals[] | ListEnumMealsFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
+  export type DayItineraryItemTourIdDayNumberCompoundUniqueInput = {
+    tourId: string
+    dayNumber: number
+  }
+
+  export type DayItineraryItemCountOrderByAggregateInput = {
+    id?: SortOrder
+    tourId?: SortOrder
+    dayNumber?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    meals?: SortOrder
+    duration?: SortOrder
+  }
+
+  export type DayItineraryItemAvgOrderByAggregateInput = {
+    dayNumber?: SortOrder
+    duration?: SortOrder
+  }
+
+  export type DayItineraryItemMaxOrderByAggregateInput = {
+    id?: SortOrder
+    tourId?: SortOrder
+    dayNumber?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    duration?: SortOrder
+  }
+
+  export type DayItineraryItemMinOrderByAggregateInput = {
+    id?: SortOrder
+    tourId?: SortOrder
+    dayNumber?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    duration?: SortOrder
+  }
+
+  export type DayItineraryItemSumOrderByAggregateInput = {
+    dayNumber?: SortOrder
+    duration?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type DayItineraryItemNullableScalarRelationFilter = {
+    is?: DayItineraryItemWhereInput | null
+    isNot?: DayItineraryItemWhereInput | null
+  }
+
+  export type ImageCountOrderByAggregateInput = {
+    id?: SortOrder
+    bucketName?: SortOrder
+    fileName?: SortOrder
+    altText?: SortOrder
+    keywords?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    tourId?: SortOrder
+    attractionId?: SortOrder
+    dayItineraryItemId?: SortOrder
+    destinationId?: SortOrder
+  }
+
+  export type ImageMaxOrderByAggregateInput = {
+    id?: SortOrder
+    bucketName?: SortOrder
+    fileName?: SortOrder
+    altText?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    tourId?: SortOrder
+    attractionId?: SortOrder
+    dayItineraryItemId?: SortOrder
+    destinationId?: SortOrder
+  }
+
+  export type ImageMinOrderByAggregateInput = {
+    id?: SortOrder
+    bucketName?: SortOrder
+    fileName?: SortOrder
+    altText?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    tourId?: SortOrder
+    attractionId?: SortOrder
+    dayItineraryItemId?: SortOrder
+    destinationId?: SortOrder
+  }
+
   export type SessionCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -9675,6 +23672,1012 @@ export namespace Prisma {
     update?: XOR<XOR<ImageGalleryFolderUpdateToOneWithWhereWithoutImageFilesInput, ImageGalleryFolderUpdateWithoutImageFilesInput>, ImageGalleryFolderUncheckedUpdateWithoutImageFilesInput>
   }
 
+  export type DestinationCreatelanguagesInput = {
+    set: string[]
+  }
+
+  export type CityCreateNestedManyWithoutDestinationInput = {
+    create?: XOR<CityCreateWithoutDestinationInput, CityUncheckedCreateWithoutDestinationInput> | CityCreateWithoutDestinationInput[] | CityUncheckedCreateWithoutDestinationInput[]
+    connectOrCreate?: CityCreateOrConnectWithoutDestinationInput | CityCreateOrConnectWithoutDestinationInput[]
+    createMany?: CityCreateManyDestinationInputEnvelope
+    connect?: CityWhereUniqueInput | CityWhereUniqueInput[]
+  }
+
+  export type TourDestinationCreateNestedManyWithoutDestinationInput = {
+    create?: XOR<TourDestinationCreateWithoutDestinationInput, TourDestinationUncheckedCreateWithoutDestinationInput> | TourDestinationCreateWithoutDestinationInput[] | TourDestinationUncheckedCreateWithoutDestinationInput[]
+    connectOrCreate?: TourDestinationCreateOrConnectWithoutDestinationInput | TourDestinationCreateOrConnectWithoutDestinationInput[]
+    createMany?: TourDestinationCreateManyDestinationInputEnvelope
+    connect?: TourDestinationWhereUniqueInput | TourDestinationWhereUniqueInput[]
+  }
+
+  export type ImageCreateNestedOneWithoutDestinationThumbnailInput = {
+    create?: XOR<ImageCreateWithoutDestinationThumbnailInput, ImageUncheckedCreateWithoutDestinationThumbnailInput>
+    connectOrCreate?: ImageCreateOrConnectWithoutDestinationThumbnailInput
+    connect?: ImageWhereUniqueInput
+  }
+
+  export type ImageCreateNestedManyWithoutDestinationImagesInput = {
+    create?: XOR<ImageCreateWithoutDestinationImagesInput, ImageUncheckedCreateWithoutDestinationImagesInput> | ImageCreateWithoutDestinationImagesInput[] | ImageUncheckedCreateWithoutDestinationImagesInput[]
+    connectOrCreate?: ImageCreateOrConnectWithoutDestinationImagesInput | ImageCreateOrConnectWithoutDestinationImagesInput[]
+    createMany?: ImageCreateManyDestinationImagesInputEnvelope
+    connect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+  }
+
+  export type FAQCreateNestedManyWithoutDestinationInput = {
+    create?: XOR<FAQCreateWithoutDestinationInput, FAQUncheckedCreateWithoutDestinationInput> | FAQCreateWithoutDestinationInput[] | FAQUncheckedCreateWithoutDestinationInput[]
+    connectOrCreate?: FAQCreateOrConnectWithoutDestinationInput | FAQCreateOrConnectWithoutDestinationInput[]
+    createMany?: FAQCreateManyDestinationInputEnvelope
+    connect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+  }
+
+  export type CityUncheckedCreateNestedManyWithoutDestinationInput = {
+    create?: XOR<CityCreateWithoutDestinationInput, CityUncheckedCreateWithoutDestinationInput> | CityCreateWithoutDestinationInput[] | CityUncheckedCreateWithoutDestinationInput[]
+    connectOrCreate?: CityCreateOrConnectWithoutDestinationInput | CityCreateOrConnectWithoutDestinationInput[]
+    createMany?: CityCreateManyDestinationInputEnvelope
+    connect?: CityWhereUniqueInput | CityWhereUniqueInput[]
+  }
+
+  export type TourDestinationUncheckedCreateNestedManyWithoutDestinationInput = {
+    create?: XOR<TourDestinationCreateWithoutDestinationInput, TourDestinationUncheckedCreateWithoutDestinationInput> | TourDestinationCreateWithoutDestinationInput[] | TourDestinationUncheckedCreateWithoutDestinationInput[]
+    connectOrCreate?: TourDestinationCreateOrConnectWithoutDestinationInput | TourDestinationCreateOrConnectWithoutDestinationInput[]
+    createMany?: TourDestinationCreateManyDestinationInputEnvelope
+    connect?: TourDestinationWhereUniqueInput | TourDestinationWhereUniqueInput[]
+  }
+
+  export type ImageUncheckedCreateNestedManyWithoutDestinationImagesInput = {
+    create?: XOR<ImageCreateWithoutDestinationImagesInput, ImageUncheckedCreateWithoutDestinationImagesInput> | ImageCreateWithoutDestinationImagesInput[] | ImageUncheckedCreateWithoutDestinationImagesInput[]
+    connectOrCreate?: ImageCreateOrConnectWithoutDestinationImagesInput | ImageCreateOrConnectWithoutDestinationImagesInput[]
+    createMany?: ImageCreateManyDestinationImagesInputEnvelope
+    connect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+  }
+
+  export type FAQUncheckedCreateNestedManyWithoutDestinationInput = {
+    create?: XOR<FAQCreateWithoutDestinationInput, FAQUncheckedCreateWithoutDestinationInput> | FAQCreateWithoutDestinationInput[] | FAQUncheckedCreateWithoutDestinationInput[]
+    connectOrCreate?: FAQCreateOrConnectWithoutDestinationInput | FAQCreateOrConnectWithoutDestinationInput[]
+    createMany?: FAQCreateManyDestinationInputEnvelope
+    connect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+  }
+
+  export type DestinationUpdatelanguagesInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type CityUpdateManyWithoutDestinationNestedInput = {
+    create?: XOR<CityCreateWithoutDestinationInput, CityUncheckedCreateWithoutDestinationInput> | CityCreateWithoutDestinationInput[] | CityUncheckedCreateWithoutDestinationInput[]
+    connectOrCreate?: CityCreateOrConnectWithoutDestinationInput | CityCreateOrConnectWithoutDestinationInput[]
+    upsert?: CityUpsertWithWhereUniqueWithoutDestinationInput | CityUpsertWithWhereUniqueWithoutDestinationInput[]
+    createMany?: CityCreateManyDestinationInputEnvelope
+    set?: CityWhereUniqueInput | CityWhereUniqueInput[]
+    disconnect?: CityWhereUniqueInput | CityWhereUniqueInput[]
+    delete?: CityWhereUniqueInput | CityWhereUniqueInput[]
+    connect?: CityWhereUniqueInput | CityWhereUniqueInput[]
+    update?: CityUpdateWithWhereUniqueWithoutDestinationInput | CityUpdateWithWhereUniqueWithoutDestinationInput[]
+    updateMany?: CityUpdateManyWithWhereWithoutDestinationInput | CityUpdateManyWithWhereWithoutDestinationInput[]
+    deleteMany?: CityScalarWhereInput | CityScalarWhereInput[]
+  }
+
+  export type TourDestinationUpdateManyWithoutDestinationNestedInput = {
+    create?: XOR<TourDestinationCreateWithoutDestinationInput, TourDestinationUncheckedCreateWithoutDestinationInput> | TourDestinationCreateWithoutDestinationInput[] | TourDestinationUncheckedCreateWithoutDestinationInput[]
+    connectOrCreate?: TourDestinationCreateOrConnectWithoutDestinationInput | TourDestinationCreateOrConnectWithoutDestinationInput[]
+    upsert?: TourDestinationUpsertWithWhereUniqueWithoutDestinationInput | TourDestinationUpsertWithWhereUniqueWithoutDestinationInput[]
+    createMany?: TourDestinationCreateManyDestinationInputEnvelope
+    set?: TourDestinationWhereUniqueInput | TourDestinationWhereUniqueInput[]
+    disconnect?: TourDestinationWhereUniqueInput | TourDestinationWhereUniqueInput[]
+    delete?: TourDestinationWhereUniqueInput | TourDestinationWhereUniqueInput[]
+    connect?: TourDestinationWhereUniqueInput | TourDestinationWhereUniqueInput[]
+    update?: TourDestinationUpdateWithWhereUniqueWithoutDestinationInput | TourDestinationUpdateWithWhereUniqueWithoutDestinationInput[]
+    updateMany?: TourDestinationUpdateManyWithWhereWithoutDestinationInput | TourDestinationUpdateManyWithWhereWithoutDestinationInput[]
+    deleteMany?: TourDestinationScalarWhereInput | TourDestinationScalarWhereInput[]
+  }
+
+  export type ImageUpdateOneWithoutDestinationThumbnailNestedInput = {
+    create?: XOR<ImageCreateWithoutDestinationThumbnailInput, ImageUncheckedCreateWithoutDestinationThumbnailInput>
+    connectOrCreate?: ImageCreateOrConnectWithoutDestinationThumbnailInput
+    upsert?: ImageUpsertWithoutDestinationThumbnailInput
+    disconnect?: ImageWhereInput | boolean
+    delete?: ImageWhereInput | boolean
+    connect?: ImageWhereUniqueInput
+    update?: XOR<XOR<ImageUpdateToOneWithWhereWithoutDestinationThumbnailInput, ImageUpdateWithoutDestinationThumbnailInput>, ImageUncheckedUpdateWithoutDestinationThumbnailInput>
+  }
+
+  export type ImageUpdateManyWithoutDestinationImagesNestedInput = {
+    create?: XOR<ImageCreateWithoutDestinationImagesInput, ImageUncheckedCreateWithoutDestinationImagesInput> | ImageCreateWithoutDestinationImagesInput[] | ImageUncheckedCreateWithoutDestinationImagesInput[]
+    connectOrCreate?: ImageCreateOrConnectWithoutDestinationImagesInput | ImageCreateOrConnectWithoutDestinationImagesInput[]
+    upsert?: ImageUpsertWithWhereUniqueWithoutDestinationImagesInput | ImageUpsertWithWhereUniqueWithoutDestinationImagesInput[]
+    createMany?: ImageCreateManyDestinationImagesInputEnvelope
+    set?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    disconnect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    delete?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    connect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    update?: ImageUpdateWithWhereUniqueWithoutDestinationImagesInput | ImageUpdateWithWhereUniqueWithoutDestinationImagesInput[]
+    updateMany?: ImageUpdateManyWithWhereWithoutDestinationImagesInput | ImageUpdateManyWithWhereWithoutDestinationImagesInput[]
+    deleteMany?: ImageScalarWhereInput | ImageScalarWhereInput[]
+  }
+
+  export type FAQUpdateManyWithoutDestinationNestedInput = {
+    create?: XOR<FAQCreateWithoutDestinationInput, FAQUncheckedCreateWithoutDestinationInput> | FAQCreateWithoutDestinationInput[] | FAQUncheckedCreateWithoutDestinationInput[]
+    connectOrCreate?: FAQCreateOrConnectWithoutDestinationInput | FAQCreateOrConnectWithoutDestinationInput[]
+    upsert?: FAQUpsertWithWhereUniqueWithoutDestinationInput | FAQUpsertWithWhereUniqueWithoutDestinationInput[]
+    createMany?: FAQCreateManyDestinationInputEnvelope
+    set?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    disconnect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    delete?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    connect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    update?: FAQUpdateWithWhereUniqueWithoutDestinationInput | FAQUpdateWithWhereUniqueWithoutDestinationInput[]
+    updateMany?: FAQUpdateManyWithWhereWithoutDestinationInput | FAQUpdateManyWithWhereWithoutDestinationInput[]
+    deleteMany?: FAQScalarWhereInput | FAQScalarWhereInput[]
+  }
+
+  export type CityUncheckedUpdateManyWithoutDestinationNestedInput = {
+    create?: XOR<CityCreateWithoutDestinationInput, CityUncheckedCreateWithoutDestinationInput> | CityCreateWithoutDestinationInput[] | CityUncheckedCreateWithoutDestinationInput[]
+    connectOrCreate?: CityCreateOrConnectWithoutDestinationInput | CityCreateOrConnectWithoutDestinationInput[]
+    upsert?: CityUpsertWithWhereUniqueWithoutDestinationInput | CityUpsertWithWhereUniqueWithoutDestinationInput[]
+    createMany?: CityCreateManyDestinationInputEnvelope
+    set?: CityWhereUniqueInput | CityWhereUniqueInput[]
+    disconnect?: CityWhereUniqueInput | CityWhereUniqueInput[]
+    delete?: CityWhereUniqueInput | CityWhereUniqueInput[]
+    connect?: CityWhereUniqueInput | CityWhereUniqueInput[]
+    update?: CityUpdateWithWhereUniqueWithoutDestinationInput | CityUpdateWithWhereUniqueWithoutDestinationInput[]
+    updateMany?: CityUpdateManyWithWhereWithoutDestinationInput | CityUpdateManyWithWhereWithoutDestinationInput[]
+    deleteMany?: CityScalarWhereInput | CityScalarWhereInput[]
+  }
+
+  export type TourDestinationUncheckedUpdateManyWithoutDestinationNestedInput = {
+    create?: XOR<TourDestinationCreateWithoutDestinationInput, TourDestinationUncheckedCreateWithoutDestinationInput> | TourDestinationCreateWithoutDestinationInput[] | TourDestinationUncheckedCreateWithoutDestinationInput[]
+    connectOrCreate?: TourDestinationCreateOrConnectWithoutDestinationInput | TourDestinationCreateOrConnectWithoutDestinationInput[]
+    upsert?: TourDestinationUpsertWithWhereUniqueWithoutDestinationInput | TourDestinationUpsertWithWhereUniqueWithoutDestinationInput[]
+    createMany?: TourDestinationCreateManyDestinationInputEnvelope
+    set?: TourDestinationWhereUniqueInput | TourDestinationWhereUniqueInput[]
+    disconnect?: TourDestinationWhereUniqueInput | TourDestinationWhereUniqueInput[]
+    delete?: TourDestinationWhereUniqueInput | TourDestinationWhereUniqueInput[]
+    connect?: TourDestinationWhereUniqueInput | TourDestinationWhereUniqueInput[]
+    update?: TourDestinationUpdateWithWhereUniqueWithoutDestinationInput | TourDestinationUpdateWithWhereUniqueWithoutDestinationInput[]
+    updateMany?: TourDestinationUpdateManyWithWhereWithoutDestinationInput | TourDestinationUpdateManyWithWhereWithoutDestinationInput[]
+    deleteMany?: TourDestinationScalarWhereInput | TourDestinationScalarWhereInput[]
+  }
+
+  export type ImageUncheckedUpdateManyWithoutDestinationImagesNestedInput = {
+    create?: XOR<ImageCreateWithoutDestinationImagesInput, ImageUncheckedCreateWithoutDestinationImagesInput> | ImageCreateWithoutDestinationImagesInput[] | ImageUncheckedCreateWithoutDestinationImagesInput[]
+    connectOrCreate?: ImageCreateOrConnectWithoutDestinationImagesInput | ImageCreateOrConnectWithoutDestinationImagesInput[]
+    upsert?: ImageUpsertWithWhereUniqueWithoutDestinationImagesInput | ImageUpsertWithWhereUniqueWithoutDestinationImagesInput[]
+    createMany?: ImageCreateManyDestinationImagesInputEnvelope
+    set?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    disconnect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    delete?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    connect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    update?: ImageUpdateWithWhereUniqueWithoutDestinationImagesInput | ImageUpdateWithWhereUniqueWithoutDestinationImagesInput[]
+    updateMany?: ImageUpdateManyWithWhereWithoutDestinationImagesInput | ImageUpdateManyWithWhereWithoutDestinationImagesInput[]
+    deleteMany?: ImageScalarWhereInput | ImageScalarWhereInput[]
+  }
+
+  export type FAQUncheckedUpdateManyWithoutDestinationNestedInput = {
+    create?: XOR<FAQCreateWithoutDestinationInput, FAQUncheckedCreateWithoutDestinationInput> | FAQCreateWithoutDestinationInput[] | FAQUncheckedCreateWithoutDestinationInput[]
+    connectOrCreate?: FAQCreateOrConnectWithoutDestinationInput | FAQCreateOrConnectWithoutDestinationInput[]
+    upsert?: FAQUpsertWithWhereUniqueWithoutDestinationInput | FAQUpsertWithWhereUniqueWithoutDestinationInput[]
+    createMany?: FAQCreateManyDestinationInputEnvelope
+    set?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    disconnect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    delete?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    connect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    update?: FAQUpdateWithWhereUniqueWithoutDestinationInput | FAQUpdateWithWhereUniqueWithoutDestinationInput[]
+    updateMany?: FAQUpdateManyWithWhereWithoutDestinationInput | FAQUpdateManyWithWhereWithoutDestinationInput[]
+    deleteMany?: FAQScalarWhereInput | FAQScalarWhereInput[]
+  }
+
+  export type DestinationCreateNestedOneWithoutCitiesInput = {
+    create?: XOR<DestinationCreateWithoutCitiesInput, DestinationUncheckedCreateWithoutCitiesInput>
+    connectOrCreate?: DestinationCreateOrConnectWithoutCitiesInput
+    connect?: DestinationWhereUniqueInput
+  }
+
+  export type TourCityCreateNestedManyWithoutCityInput = {
+    create?: XOR<TourCityCreateWithoutCityInput, TourCityUncheckedCreateWithoutCityInput> | TourCityCreateWithoutCityInput[] | TourCityUncheckedCreateWithoutCityInput[]
+    connectOrCreate?: TourCityCreateOrConnectWithoutCityInput | TourCityCreateOrConnectWithoutCityInput[]
+    createMany?: TourCityCreateManyCityInputEnvelope
+    connect?: TourCityWhereUniqueInput | TourCityWhereUniqueInput[]
+  }
+
+  export type TourCityUncheckedCreateNestedManyWithoutCityInput = {
+    create?: XOR<TourCityCreateWithoutCityInput, TourCityUncheckedCreateWithoutCityInput> | TourCityCreateWithoutCityInput[] | TourCityUncheckedCreateWithoutCityInput[]
+    connectOrCreate?: TourCityCreateOrConnectWithoutCityInput | TourCityCreateOrConnectWithoutCityInput[]
+    createMany?: TourCityCreateManyCityInputEnvelope
+    connect?: TourCityWhereUniqueInput | TourCityWhereUniqueInput[]
+  }
+
+  export type DestinationUpdateOneWithoutCitiesNestedInput = {
+    create?: XOR<DestinationCreateWithoutCitiesInput, DestinationUncheckedCreateWithoutCitiesInput>
+    connectOrCreate?: DestinationCreateOrConnectWithoutCitiesInput
+    upsert?: DestinationUpsertWithoutCitiesInput
+    disconnect?: DestinationWhereInput | boolean
+    delete?: DestinationWhereInput | boolean
+    connect?: DestinationWhereUniqueInput
+    update?: XOR<XOR<DestinationUpdateToOneWithWhereWithoutCitiesInput, DestinationUpdateWithoutCitiesInput>, DestinationUncheckedUpdateWithoutCitiesInput>
+  }
+
+  export type TourCityUpdateManyWithoutCityNestedInput = {
+    create?: XOR<TourCityCreateWithoutCityInput, TourCityUncheckedCreateWithoutCityInput> | TourCityCreateWithoutCityInput[] | TourCityUncheckedCreateWithoutCityInput[]
+    connectOrCreate?: TourCityCreateOrConnectWithoutCityInput | TourCityCreateOrConnectWithoutCityInput[]
+    upsert?: TourCityUpsertWithWhereUniqueWithoutCityInput | TourCityUpsertWithWhereUniqueWithoutCityInput[]
+    createMany?: TourCityCreateManyCityInputEnvelope
+    set?: TourCityWhereUniqueInput | TourCityWhereUniqueInput[]
+    disconnect?: TourCityWhereUniqueInput | TourCityWhereUniqueInput[]
+    delete?: TourCityWhereUniqueInput | TourCityWhereUniqueInput[]
+    connect?: TourCityWhereUniqueInput | TourCityWhereUniqueInput[]
+    update?: TourCityUpdateWithWhereUniqueWithoutCityInput | TourCityUpdateWithWhereUniqueWithoutCityInput[]
+    updateMany?: TourCityUpdateManyWithWhereWithoutCityInput | TourCityUpdateManyWithWhereWithoutCityInput[]
+    deleteMany?: TourCityScalarWhereInput | TourCityScalarWhereInput[]
+  }
+
+  export type TourCityUncheckedUpdateManyWithoutCityNestedInput = {
+    create?: XOR<TourCityCreateWithoutCityInput, TourCityUncheckedCreateWithoutCityInput> | TourCityCreateWithoutCityInput[] | TourCityUncheckedCreateWithoutCityInput[]
+    connectOrCreate?: TourCityCreateOrConnectWithoutCityInput | TourCityCreateOrConnectWithoutCityInput[]
+    upsert?: TourCityUpsertWithWhereUniqueWithoutCityInput | TourCityUpsertWithWhereUniqueWithoutCityInput[]
+    createMany?: TourCityCreateManyCityInputEnvelope
+    set?: TourCityWhereUniqueInput | TourCityWhereUniqueInput[]
+    disconnect?: TourCityWhereUniqueInput | TourCityWhereUniqueInput[]
+    delete?: TourCityWhereUniqueInput | TourCityWhereUniqueInput[]
+    connect?: TourCityWhereUniqueInput | TourCityWhereUniqueInput[]
+    update?: TourCityUpdateWithWhereUniqueWithoutCityInput | TourCityUpdateWithWhereUniqueWithoutCityInput[]
+    updateMany?: TourCityUpdateManyWithWhereWithoutCityInput | TourCityUpdateManyWithWhereWithoutCityInput[]
+    deleteMany?: TourCityScalarWhereInput | TourCityScalarWhereInput[]
+  }
+
+  export type TourCreatehighlightsInput = {
+    set: string[]
+  }
+
+  export type TourCreateinclusionsInput = {
+    set: string[]
+  }
+
+  export type TourCreateexclusionsInput = {
+    set: string[]
+  }
+
+  export type TourCreatetermsInput = {
+    set: string[]
+  }
+
+  export type TourCityCreateNestedManyWithoutTourInput = {
+    create?: XOR<TourCityCreateWithoutTourInput, TourCityUncheckedCreateWithoutTourInput> | TourCityCreateWithoutTourInput[] | TourCityUncheckedCreateWithoutTourInput[]
+    connectOrCreate?: TourCityCreateOrConnectWithoutTourInput | TourCityCreateOrConnectWithoutTourInput[]
+    createMany?: TourCityCreateManyTourInputEnvelope
+    connect?: TourCityWhereUniqueInput | TourCityWhereUniqueInput[]
+  }
+
+  export type ImageCreateNestedOneWithoutTourThumbnailInput = {
+    create?: XOR<ImageCreateWithoutTourThumbnailInput, ImageUncheckedCreateWithoutTourThumbnailInput>
+    connectOrCreate?: ImageCreateOrConnectWithoutTourThumbnailInput
+    connect?: ImageWhereUniqueInput
+  }
+
+  export type ImageCreateNestedManyWithoutTourImagesInput = {
+    create?: XOR<ImageCreateWithoutTourImagesInput, ImageUncheckedCreateWithoutTourImagesInput> | ImageCreateWithoutTourImagesInput[] | ImageUncheckedCreateWithoutTourImagesInput[]
+    connectOrCreate?: ImageCreateOrConnectWithoutTourImagesInput | ImageCreateOrConnectWithoutTourImagesInput[]
+    createMany?: ImageCreateManyTourImagesInputEnvelope
+    connect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+  }
+
+  export type FAQCreateNestedManyWithoutTourInput = {
+    create?: XOR<FAQCreateWithoutTourInput, FAQUncheckedCreateWithoutTourInput> | FAQCreateWithoutTourInput[] | FAQUncheckedCreateWithoutTourInput[]
+    connectOrCreate?: FAQCreateOrConnectWithoutTourInput | FAQCreateOrConnectWithoutTourInput[]
+    createMany?: FAQCreateManyTourInputEnvelope
+    connect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+  }
+
+  export type TourDestinationCreateNestedManyWithoutTourInput = {
+    create?: XOR<TourDestinationCreateWithoutTourInput, TourDestinationUncheckedCreateWithoutTourInput> | TourDestinationCreateWithoutTourInput[] | TourDestinationUncheckedCreateWithoutTourInput[]
+    connectOrCreate?: TourDestinationCreateOrConnectWithoutTourInput | TourDestinationCreateOrConnectWithoutTourInput[]
+    createMany?: TourDestinationCreateManyTourInputEnvelope
+    connect?: TourDestinationWhereUniqueInput | TourDestinationWhereUniqueInput[]
+  }
+
+  export type DayItineraryItemCreateNestedManyWithoutTourInput = {
+    create?: XOR<DayItineraryItemCreateWithoutTourInput, DayItineraryItemUncheckedCreateWithoutTourInput> | DayItineraryItemCreateWithoutTourInput[] | DayItineraryItemUncheckedCreateWithoutTourInput[]
+    connectOrCreate?: DayItineraryItemCreateOrConnectWithoutTourInput | DayItineraryItemCreateOrConnectWithoutTourInput[]
+    createMany?: DayItineraryItemCreateManyTourInputEnvelope
+    connect?: DayItineraryItemWhereUniqueInput | DayItineraryItemWhereUniqueInput[]
+  }
+
+  export type TourCityUncheckedCreateNestedManyWithoutTourInput = {
+    create?: XOR<TourCityCreateWithoutTourInput, TourCityUncheckedCreateWithoutTourInput> | TourCityCreateWithoutTourInput[] | TourCityUncheckedCreateWithoutTourInput[]
+    connectOrCreate?: TourCityCreateOrConnectWithoutTourInput | TourCityCreateOrConnectWithoutTourInput[]
+    createMany?: TourCityCreateManyTourInputEnvelope
+    connect?: TourCityWhereUniqueInput | TourCityWhereUniqueInput[]
+  }
+
+  export type ImageUncheckedCreateNestedManyWithoutTourImagesInput = {
+    create?: XOR<ImageCreateWithoutTourImagesInput, ImageUncheckedCreateWithoutTourImagesInput> | ImageCreateWithoutTourImagesInput[] | ImageUncheckedCreateWithoutTourImagesInput[]
+    connectOrCreate?: ImageCreateOrConnectWithoutTourImagesInput | ImageCreateOrConnectWithoutTourImagesInput[]
+    createMany?: ImageCreateManyTourImagesInputEnvelope
+    connect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+  }
+
+  export type FAQUncheckedCreateNestedManyWithoutTourInput = {
+    create?: XOR<FAQCreateWithoutTourInput, FAQUncheckedCreateWithoutTourInput> | FAQCreateWithoutTourInput[] | FAQUncheckedCreateWithoutTourInput[]
+    connectOrCreate?: FAQCreateOrConnectWithoutTourInput | FAQCreateOrConnectWithoutTourInput[]
+    createMany?: FAQCreateManyTourInputEnvelope
+    connect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+  }
+
+  export type TourDestinationUncheckedCreateNestedManyWithoutTourInput = {
+    create?: XOR<TourDestinationCreateWithoutTourInput, TourDestinationUncheckedCreateWithoutTourInput> | TourDestinationCreateWithoutTourInput[] | TourDestinationUncheckedCreateWithoutTourInput[]
+    connectOrCreate?: TourDestinationCreateOrConnectWithoutTourInput | TourDestinationCreateOrConnectWithoutTourInput[]
+    createMany?: TourDestinationCreateManyTourInputEnvelope
+    connect?: TourDestinationWhereUniqueInput | TourDestinationWhereUniqueInput[]
+  }
+
+  export type DayItineraryItemUncheckedCreateNestedManyWithoutTourInput = {
+    create?: XOR<DayItineraryItemCreateWithoutTourInput, DayItineraryItemUncheckedCreateWithoutTourInput> | DayItineraryItemCreateWithoutTourInput[] | DayItineraryItemUncheckedCreateWithoutTourInput[]
+    connectOrCreate?: DayItineraryItemCreateOrConnectWithoutTourInput | DayItineraryItemCreateOrConnectWithoutTourInput[]
+    createMany?: DayItineraryItemCreateManyTourInputEnvelope
+    connect?: DayItineraryItemWhereUniqueInput | DayItineraryItemWhereUniqueInput[]
+  }
+
+  export type NullableEnumTourTypeFieldUpdateOperationsInput = {
+    set?: $Enums.TourType | null
+  }
+
+  export type DecimalFieldUpdateOperationsInput = {
+    set?: Decimal | DecimalJsLike | number | string
+    increment?: Decimal | DecimalJsLike | number | string
+    decrement?: Decimal | DecimalJsLike | number | string
+    multiply?: Decimal | DecimalJsLike | number | string
+    divide?: Decimal | DecimalJsLike | number | string
+  }
+
+  export type NullableDecimalFieldUpdateOperationsInput = {
+    set?: Decimal | DecimalJsLike | number | string | null
+    increment?: Decimal | DecimalJsLike | number | string
+    decrement?: Decimal | DecimalJsLike | number | string
+    multiply?: Decimal | DecimalJsLike | number | string
+    divide?: Decimal | DecimalJsLike | number | string
+  }
+
+  export type TourUpdatehighlightsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type TourUpdateinclusionsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type TourUpdateexclusionsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type TourUpdatetermsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type TourCityUpdateManyWithoutTourNestedInput = {
+    create?: XOR<TourCityCreateWithoutTourInput, TourCityUncheckedCreateWithoutTourInput> | TourCityCreateWithoutTourInput[] | TourCityUncheckedCreateWithoutTourInput[]
+    connectOrCreate?: TourCityCreateOrConnectWithoutTourInput | TourCityCreateOrConnectWithoutTourInput[]
+    upsert?: TourCityUpsertWithWhereUniqueWithoutTourInput | TourCityUpsertWithWhereUniqueWithoutTourInput[]
+    createMany?: TourCityCreateManyTourInputEnvelope
+    set?: TourCityWhereUniqueInput | TourCityWhereUniqueInput[]
+    disconnect?: TourCityWhereUniqueInput | TourCityWhereUniqueInput[]
+    delete?: TourCityWhereUniqueInput | TourCityWhereUniqueInput[]
+    connect?: TourCityWhereUniqueInput | TourCityWhereUniqueInput[]
+    update?: TourCityUpdateWithWhereUniqueWithoutTourInput | TourCityUpdateWithWhereUniqueWithoutTourInput[]
+    updateMany?: TourCityUpdateManyWithWhereWithoutTourInput | TourCityUpdateManyWithWhereWithoutTourInput[]
+    deleteMany?: TourCityScalarWhereInput | TourCityScalarWhereInput[]
+  }
+
+  export type ImageUpdateOneWithoutTourThumbnailNestedInput = {
+    create?: XOR<ImageCreateWithoutTourThumbnailInput, ImageUncheckedCreateWithoutTourThumbnailInput>
+    connectOrCreate?: ImageCreateOrConnectWithoutTourThumbnailInput
+    upsert?: ImageUpsertWithoutTourThumbnailInput
+    disconnect?: ImageWhereInput | boolean
+    delete?: ImageWhereInput | boolean
+    connect?: ImageWhereUniqueInput
+    update?: XOR<XOR<ImageUpdateToOneWithWhereWithoutTourThumbnailInput, ImageUpdateWithoutTourThumbnailInput>, ImageUncheckedUpdateWithoutTourThumbnailInput>
+  }
+
+  export type ImageUpdateManyWithoutTourImagesNestedInput = {
+    create?: XOR<ImageCreateWithoutTourImagesInput, ImageUncheckedCreateWithoutTourImagesInput> | ImageCreateWithoutTourImagesInput[] | ImageUncheckedCreateWithoutTourImagesInput[]
+    connectOrCreate?: ImageCreateOrConnectWithoutTourImagesInput | ImageCreateOrConnectWithoutTourImagesInput[]
+    upsert?: ImageUpsertWithWhereUniqueWithoutTourImagesInput | ImageUpsertWithWhereUniqueWithoutTourImagesInput[]
+    createMany?: ImageCreateManyTourImagesInputEnvelope
+    set?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    disconnect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    delete?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    connect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    update?: ImageUpdateWithWhereUniqueWithoutTourImagesInput | ImageUpdateWithWhereUniqueWithoutTourImagesInput[]
+    updateMany?: ImageUpdateManyWithWhereWithoutTourImagesInput | ImageUpdateManyWithWhereWithoutTourImagesInput[]
+    deleteMany?: ImageScalarWhereInput | ImageScalarWhereInput[]
+  }
+
+  export type FAQUpdateManyWithoutTourNestedInput = {
+    create?: XOR<FAQCreateWithoutTourInput, FAQUncheckedCreateWithoutTourInput> | FAQCreateWithoutTourInput[] | FAQUncheckedCreateWithoutTourInput[]
+    connectOrCreate?: FAQCreateOrConnectWithoutTourInput | FAQCreateOrConnectWithoutTourInput[]
+    upsert?: FAQUpsertWithWhereUniqueWithoutTourInput | FAQUpsertWithWhereUniqueWithoutTourInput[]
+    createMany?: FAQCreateManyTourInputEnvelope
+    set?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    disconnect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    delete?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    connect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    update?: FAQUpdateWithWhereUniqueWithoutTourInput | FAQUpdateWithWhereUniqueWithoutTourInput[]
+    updateMany?: FAQUpdateManyWithWhereWithoutTourInput | FAQUpdateManyWithWhereWithoutTourInput[]
+    deleteMany?: FAQScalarWhereInput | FAQScalarWhereInput[]
+  }
+
+  export type TourDestinationUpdateManyWithoutTourNestedInput = {
+    create?: XOR<TourDestinationCreateWithoutTourInput, TourDestinationUncheckedCreateWithoutTourInput> | TourDestinationCreateWithoutTourInput[] | TourDestinationUncheckedCreateWithoutTourInput[]
+    connectOrCreate?: TourDestinationCreateOrConnectWithoutTourInput | TourDestinationCreateOrConnectWithoutTourInput[]
+    upsert?: TourDestinationUpsertWithWhereUniqueWithoutTourInput | TourDestinationUpsertWithWhereUniqueWithoutTourInput[]
+    createMany?: TourDestinationCreateManyTourInputEnvelope
+    set?: TourDestinationWhereUniqueInput | TourDestinationWhereUniqueInput[]
+    disconnect?: TourDestinationWhereUniqueInput | TourDestinationWhereUniqueInput[]
+    delete?: TourDestinationWhereUniqueInput | TourDestinationWhereUniqueInput[]
+    connect?: TourDestinationWhereUniqueInput | TourDestinationWhereUniqueInput[]
+    update?: TourDestinationUpdateWithWhereUniqueWithoutTourInput | TourDestinationUpdateWithWhereUniqueWithoutTourInput[]
+    updateMany?: TourDestinationUpdateManyWithWhereWithoutTourInput | TourDestinationUpdateManyWithWhereWithoutTourInput[]
+    deleteMany?: TourDestinationScalarWhereInput | TourDestinationScalarWhereInput[]
+  }
+
+  export type DayItineraryItemUpdateManyWithoutTourNestedInput = {
+    create?: XOR<DayItineraryItemCreateWithoutTourInput, DayItineraryItemUncheckedCreateWithoutTourInput> | DayItineraryItemCreateWithoutTourInput[] | DayItineraryItemUncheckedCreateWithoutTourInput[]
+    connectOrCreate?: DayItineraryItemCreateOrConnectWithoutTourInput | DayItineraryItemCreateOrConnectWithoutTourInput[]
+    upsert?: DayItineraryItemUpsertWithWhereUniqueWithoutTourInput | DayItineraryItemUpsertWithWhereUniqueWithoutTourInput[]
+    createMany?: DayItineraryItemCreateManyTourInputEnvelope
+    set?: DayItineraryItemWhereUniqueInput | DayItineraryItemWhereUniqueInput[]
+    disconnect?: DayItineraryItemWhereUniqueInput | DayItineraryItemWhereUniqueInput[]
+    delete?: DayItineraryItemWhereUniqueInput | DayItineraryItemWhereUniqueInput[]
+    connect?: DayItineraryItemWhereUniqueInput | DayItineraryItemWhereUniqueInput[]
+    update?: DayItineraryItemUpdateWithWhereUniqueWithoutTourInput | DayItineraryItemUpdateWithWhereUniqueWithoutTourInput[]
+    updateMany?: DayItineraryItemUpdateManyWithWhereWithoutTourInput | DayItineraryItemUpdateManyWithWhereWithoutTourInput[]
+    deleteMany?: DayItineraryItemScalarWhereInput | DayItineraryItemScalarWhereInput[]
+  }
+
+  export type TourCityUncheckedUpdateManyWithoutTourNestedInput = {
+    create?: XOR<TourCityCreateWithoutTourInput, TourCityUncheckedCreateWithoutTourInput> | TourCityCreateWithoutTourInput[] | TourCityUncheckedCreateWithoutTourInput[]
+    connectOrCreate?: TourCityCreateOrConnectWithoutTourInput | TourCityCreateOrConnectWithoutTourInput[]
+    upsert?: TourCityUpsertWithWhereUniqueWithoutTourInput | TourCityUpsertWithWhereUniqueWithoutTourInput[]
+    createMany?: TourCityCreateManyTourInputEnvelope
+    set?: TourCityWhereUniqueInput | TourCityWhereUniqueInput[]
+    disconnect?: TourCityWhereUniqueInput | TourCityWhereUniqueInput[]
+    delete?: TourCityWhereUniqueInput | TourCityWhereUniqueInput[]
+    connect?: TourCityWhereUniqueInput | TourCityWhereUniqueInput[]
+    update?: TourCityUpdateWithWhereUniqueWithoutTourInput | TourCityUpdateWithWhereUniqueWithoutTourInput[]
+    updateMany?: TourCityUpdateManyWithWhereWithoutTourInput | TourCityUpdateManyWithWhereWithoutTourInput[]
+    deleteMany?: TourCityScalarWhereInput | TourCityScalarWhereInput[]
+  }
+
+  export type ImageUncheckedUpdateManyWithoutTourImagesNestedInput = {
+    create?: XOR<ImageCreateWithoutTourImagesInput, ImageUncheckedCreateWithoutTourImagesInput> | ImageCreateWithoutTourImagesInput[] | ImageUncheckedCreateWithoutTourImagesInput[]
+    connectOrCreate?: ImageCreateOrConnectWithoutTourImagesInput | ImageCreateOrConnectWithoutTourImagesInput[]
+    upsert?: ImageUpsertWithWhereUniqueWithoutTourImagesInput | ImageUpsertWithWhereUniqueWithoutTourImagesInput[]
+    createMany?: ImageCreateManyTourImagesInputEnvelope
+    set?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    disconnect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    delete?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    connect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    update?: ImageUpdateWithWhereUniqueWithoutTourImagesInput | ImageUpdateWithWhereUniqueWithoutTourImagesInput[]
+    updateMany?: ImageUpdateManyWithWhereWithoutTourImagesInput | ImageUpdateManyWithWhereWithoutTourImagesInput[]
+    deleteMany?: ImageScalarWhereInput | ImageScalarWhereInput[]
+  }
+
+  export type FAQUncheckedUpdateManyWithoutTourNestedInput = {
+    create?: XOR<FAQCreateWithoutTourInput, FAQUncheckedCreateWithoutTourInput> | FAQCreateWithoutTourInput[] | FAQUncheckedCreateWithoutTourInput[]
+    connectOrCreate?: FAQCreateOrConnectWithoutTourInput | FAQCreateOrConnectWithoutTourInput[]
+    upsert?: FAQUpsertWithWhereUniqueWithoutTourInput | FAQUpsertWithWhereUniqueWithoutTourInput[]
+    createMany?: FAQCreateManyTourInputEnvelope
+    set?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    disconnect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    delete?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    connect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    update?: FAQUpdateWithWhereUniqueWithoutTourInput | FAQUpdateWithWhereUniqueWithoutTourInput[]
+    updateMany?: FAQUpdateManyWithWhereWithoutTourInput | FAQUpdateManyWithWhereWithoutTourInput[]
+    deleteMany?: FAQScalarWhereInput | FAQScalarWhereInput[]
+  }
+
+  export type TourDestinationUncheckedUpdateManyWithoutTourNestedInput = {
+    create?: XOR<TourDestinationCreateWithoutTourInput, TourDestinationUncheckedCreateWithoutTourInput> | TourDestinationCreateWithoutTourInput[] | TourDestinationUncheckedCreateWithoutTourInput[]
+    connectOrCreate?: TourDestinationCreateOrConnectWithoutTourInput | TourDestinationCreateOrConnectWithoutTourInput[]
+    upsert?: TourDestinationUpsertWithWhereUniqueWithoutTourInput | TourDestinationUpsertWithWhereUniqueWithoutTourInput[]
+    createMany?: TourDestinationCreateManyTourInputEnvelope
+    set?: TourDestinationWhereUniqueInput | TourDestinationWhereUniqueInput[]
+    disconnect?: TourDestinationWhereUniqueInput | TourDestinationWhereUniqueInput[]
+    delete?: TourDestinationWhereUniqueInput | TourDestinationWhereUniqueInput[]
+    connect?: TourDestinationWhereUniqueInput | TourDestinationWhereUniqueInput[]
+    update?: TourDestinationUpdateWithWhereUniqueWithoutTourInput | TourDestinationUpdateWithWhereUniqueWithoutTourInput[]
+    updateMany?: TourDestinationUpdateManyWithWhereWithoutTourInput | TourDestinationUpdateManyWithWhereWithoutTourInput[]
+    deleteMany?: TourDestinationScalarWhereInput | TourDestinationScalarWhereInput[]
+  }
+
+  export type DayItineraryItemUncheckedUpdateManyWithoutTourNestedInput = {
+    create?: XOR<DayItineraryItemCreateWithoutTourInput, DayItineraryItemUncheckedCreateWithoutTourInput> | DayItineraryItemCreateWithoutTourInput[] | DayItineraryItemUncheckedCreateWithoutTourInput[]
+    connectOrCreate?: DayItineraryItemCreateOrConnectWithoutTourInput | DayItineraryItemCreateOrConnectWithoutTourInput[]
+    upsert?: DayItineraryItemUpsertWithWhereUniqueWithoutTourInput | DayItineraryItemUpsertWithWhereUniqueWithoutTourInput[]
+    createMany?: DayItineraryItemCreateManyTourInputEnvelope
+    set?: DayItineraryItemWhereUniqueInput | DayItineraryItemWhereUniqueInput[]
+    disconnect?: DayItineraryItemWhereUniqueInput | DayItineraryItemWhereUniqueInput[]
+    delete?: DayItineraryItemWhereUniqueInput | DayItineraryItemWhereUniqueInput[]
+    connect?: DayItineraryItemWhereUniqueInput | DayItineraryItemWhereUniqueInput[]
+    update?: DayItineraryItemUpdateWithWhereUniqueWithoutTourInput | DayItineraryItemUpdateWithWhereUniqueWithoutTourInput[]
+    updateMany?: DayItineraryItemUpdateManyWithWhereWithoutTourInput | DayItineraryItemUpdateManyWithWhereWithoutTourInput[]
+    deleteMany?: DayItineraryItemScalarWhereInput | DayItineraryItemScalarWhereInput[]
+  }
+
+  export type TourCreateNestedOneWithoutCitiesInput = {
+    create?: XOR<TourCreateWithoutCitiesInput, TourUncheckedCreateWithoutCitiesInput>
+    connectOrCreate?: TourCreateOrConnectWithoutCitiesInput
+    connect?: TourWhereUniqueInput
+  }
+
+  export type CityCreateNestedOneWithoutToursInput = {
+    create?: XOR<CityCreateWithoutToursInput, CityUncheckedCreateWithoutToursInput>
+    connectOrCreate?: CityCreateOrConnectWithoutToursInput
+    connect?: CityWhereUniqueInput
+  }
+
+  export type TourUpdateOneRequiredWithoutCitiesNestedInput = {
+    create?: XOR<TourCreateWithoutCitiesInput, TourUncheckedCreateWithoutCitiesInput>
+    connectOrCreate?: TourCreateOrConnectWithoutCitiesInput
+    upsert?: TourUpsertWithoutCitiesInput
+    connect?: TourWhereUniqueInput
+    update?: XOR<XOR<TourUpdateToOneWithWhereWithoutCitiesInput, TourUpdateWithoutCitiesInput>, TourUncheckedUpdateWithoutCitiesInput>
+  }
+
+  export type CityUpdateOneRequiredWithoutToursNestedInput = {
+    create?: XOR<CityCreateWithoutToursInput, CityUncheckedCreateWithoutToursInput>
+    connectOrCreate?: CityCreateOrConnectWithoutToursInput
+    upsert?: CityUpsertWithoutToursInput
+    connect?: CityWhereUniqueInput
+    update?: XOR<XOR<CityUpdateToOneWithWhereWithoutToursInput, CityUpdateWithoutToursInput>, CityUncheckedUpdateWithoutToursInput>
+  }
+
+  export type TourCreateNestedOneWithoutDestinationsInput = {
+    create?: XOR<TourCreateWithoutDestinationsInput, TourUncheckedCreateWithoutDestinationsInput>
+    connectOrCreate?: TourCreateOrConnectWithoutDestinationsInput
+    connect?: TourWhereUniqueInput
+  }
+
+  export type DestinationCreateNestedOneWithoutToursInput = {
+    create?: XOR<DestinationCreateWithoutToursInput, DestinationUncheckedCreateWithoutToursInput>
+    connectOrCreate?: DestinationCreateOrConnectWithoutToursInput
+    connect?: DestinationWhereUniqueInput
+  }
+
+  export type TourUpdateOneRequiredWithoutDestinationsNestedInput = {
+    create?: XOR<TourCreateWithoutDestinationsInput, TourUncheckedCreateWithoutDestinationsInput>
+    connectOrCreate?: TourCreateOrConnectWithoutDestinationsInput
+    upsert?: TourUpsertWithoutDestinationsInput
+    connect?: TourWhereUniqueInput
+    update?: XOR<XOR<TourUpdateToOneWithWhereWithoutDestinationsInput, TourUpdateWithoutDestinationsInput>, TourUncheckedUpdateWithoutDestinationsInput>
+  }
+
+  export type DestinationUpdateOneRequiredWithoutToursNestedInput = {
+    create?: XOR<DestinationCreateWithoutToursInput, DestinationUncheckedCreateWithoutToursInput>
+    connectOrCreate?: DestinationCreateOrConnectWithoutToursInput
+    upsert?: DestinationUpsertWithoutToursInput
+    connect?: DestinationWhereUniqueInput
+    update?: XOR<XOR<DestinationUpdateToOneWithWhereWithoutToursInput, DestinationUpdateWithoutToursInput>, DestinationUncheckedUpdateWithoutToursInput>
+  }
+
+  export type AttractionCreateinclusionsInput = {
+    set: string[]
+  }
+
+  export type AttractionCreateexclusionsInput = {
+    set: string[]
+  }
+
+  export type AttractionCreatetermsInput = {
+    set: string[]
+  }
+
+  export type ImageCreateNestedOneWithoutAttractionThumbnailInput = {
+    create?: XOR<ImageCreateWithoutAttractionThumbnailInput, ImageUncheckedCreateWithoutAttractionThumbnailInput>
+    connectOrCreate?: ImageCreateOrConnectWithoutAttractionThumbnailInput
+    connect?: ImageWhereUniqueInput
+  }
+
+  export type ImageCreateNestedManyWithoutAttractionImagesInput = {
+    create?: XOR<ImageCreateWithoutAttractionImagesInput, ImageUncheckedCreateWithoutAttractionImagesInput> | ImageCreateWithoutAttractionImagesInput[] | ImageUncheckedCreateWithoutAttractionImagesInput[]
+    connectOrCreate?: ImageCreateOrConnectWithoutAttractionImagesInput | ImageCreateOrConnectWithoutAttractionImagesInput[]
+    createMany?: ImageCreateManyAttractionImagesInputEnvelope
+    connect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+  }
+
+  export type FAQCreateNestedManyWithoutAttractionInput = {
+    create?: XOR<FAQCreateWithoutAttractionInput, FAQUncheckedCreateWithoutAttractionInput> | FAQCreateWithoutAttractionInput[] | FAQUncheckedCreateWithoutAttractionInput[]
+    connectOrCreate?: FAQCreateOrConnectWithoutAttractionInput | FAQCreateOrConnectWithoutAttractionInput[]
+    createMany?: FAQCreateManyAttractionInputEnvelope
+    connect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+  }
+
+  export type ImageUncheckedCreateNestedManyWithoutAttractionImagesInput = {
+    create?: XOR<ImageCreateWithoutAttractionImagesInput, ImageUncheckedCreateWithoutAttractionImagesInput> | ImageCreateWithoutAttractionImagesInput[] | ImageUncheckedCreateWithoutAttractionImagesInput[]
+    connectOrCreate?: ImageCreateOrConnectWithoutAttractionImagesInput | ImageCreateOrConnectWithoutAttractionImagesInput[]
+    createMany?: ImageCreateManyAttractionImagesInputEnvelope
+    connect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+  }
+
+  export type FAQUncheckedCreateNestedManyWithoutAttractionInput = {
+    create?: XOR<FAQCreateWithoutAttractionInput, FAQUncheckedCreateWithoutAttractionInput> | FAQCreateWithoutAttractionInput[] | FAQUncheckedCreateWithoutAttractionInput[]
+    connectOrCreate?: FAQCreateOrConnectWithoutAttractionInput | FAQCreateOrConnectWithoutAttractionInput[]
+    createMany?: FAQCreateManyAttractionInputEnvelope
+    connect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+  }
+
+  export type AttractionUpdateinclusionsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type AttractionUpdateexclusionsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type AttractionUpdatetermsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type ImageUpdateOneWithoutAttractionThumbnailNestedInput = {
+    create?: XOR<ImageCreateWithoutAttractionThumbnailInput, ImageUncheckedCreateWithoutAttractionThumbnailInput>
+    connectOrCreate?: ImageCreateOrConnectWithoutAttractionThumbnailInput
+    upsert?: ImageUpsertWithoutAttractionThumbnailInput
+    disconnect?: ImageWhereInput | boolean
+    delete?: ImageWhereInput | boolean
+    connect?: ImageWhereUniqueInput
+    update?: XOR<XOR<ImageUpdateToOneWithWhereWithoutAttractionThumbnailInput, ImageUpdateWithoutAttractionThumbnailInput>, ImageUncheckedUpdateWithoutAttractionThumbnailInput>
+  }
+
+  export type ImageUpdateManyWithoutAttractionImagesNestedInput = {
+    create?: XOR<ImageCreateWithoutAttractionImagesInput, ImageUncheckedCreateWithoutAttractionImagesInput> | ImageCreateWithoutAttractionImagesInput[] | ImageUncheckedCreateWithoutAttractionImagesInput[]
+    connectOrCreate?: ImageCreateOrConnectWithoutAttractionImagesInput | ImageCreateOrConnectWithoutAttractionImagesInput[]
+    upsert?: ImageUpsertWithWhereUniqueWithoutAttractionImagesInput | ImageUpsertWithWhereUniqueWithoutAttractionImagesInput[]
+    createMany?: ImageCreateManyAttractionImagesInputEnvelope
+    set?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    disconnect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    delete?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    connect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    update?: ImageUpdateWithWhereUniqueWithoutAttractionImagesInput | ImageUpdateWithWhereUniqueWithoutAttractionImagesInput[]
+    updateMany?: ImageUpdateManyWithWhereWithoutAttractionImagesInput | ImageUpdateManyWithWhereWithoutAttractionImagesInput[]
+    deleteMany?: ImageScalarWhereInput | ImageScalarWhereInput[]
+  }
+
+  export type FAQUpdateManyWithoutAttractionNestedInput = {
+    create?: XOR<FAQCreateWithoutAttractionInput, FAQUncheckedCreateWithoutAttractionInput> | FAQCreateWithoutAttractionInput[] | FAQUncheckedCreateWithoutAttractionInput[]
+    connectOrCreate?: FAQCreateOrConnectWithoutAttractionInput | FAQCreateOrConnectWithoutAttractionInput[]
+    upsert?: FAQUpsertWithWhereUniqueWithoutAttractionInput | FAQUpsertWithWhereUniqueWithoutAttractionInput[]
+    createMany?: FAQCreateManyAttractionInputEnvelope
+    set?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    disconnect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    delete?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    connect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    update?: FAQUpdateWithWhereUniqueWithoutAttractionInput | FAQUpdateWithWhereUniqueWithoutAttractionInput[]
+    updateMany?: FAQUpdateManyWithWhereWithoutAttractionInput | FAQUpdateManyWithWhereWithoutAttractionInput[]
+    deleteMany?: FAQScalarWhereInput | FAQScalarWhereInput[]
+  }
+
+  export type ImageUncheckedUpdateManyWithoutAttractionImagesNestedInput = {
+    create?: XOR<ImageCreateWithoutAttractionImagesInput, ImageUncheckedCreateWithoutAttractionImagesInput> | ImageCreateWithoutAttractionImagesInput[] | ImageUncheckedCreateWithoutAttractionImagesInput[]
+    connectOrCreate?: ImageCreateOrConnectWithoutAttractionImagesInput | ImageCreateOrConnectWithoutAttractionImagesInput[]
+    upsert?: ImageUpsertWithWhereUniqueWithoutAttractionImagesInput | ImageUpsertWithWhereUniqueWithoutAttractionImagesInput[]
+    createMany?: ImageCreateManyAttractionImagesInputEnvelope
+    set?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    disconnect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    delete?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    connect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    update?: ImageUpdateWithWhereUniqueWithoutAttractionImagesInput | ImageUpdateWithWhereUniqueWithoutAttractionImagesInput[]
+    updateMany?: ImageUpdateManyWithWhereWithoutAttractionImagesInput | ImageUpdateManyWithWhereWithoutAttractionImagesInput[]
+    deleteMany?: ImageScalarWhereInput | ImageScalarWhereInput[]
+  }
+
+  export type FAQUncheckedUpdateManyWithoutAttractionNestedInput = {
+    create?: XOR<FAQCreateWithoutAttractionInput, FAQUncheckedCreateWithoutAttractionInput> | FAQCreateWithoutAttractionInput[] | FAQUncheckedCreateWithoutAttractionInput[]
+    connectOrCreate?: FAQCreateOrConnectWithoutAttractionInput | FAQCreateOrConnectWithoutAttractionInput[]
+    upsert?: FAQUpsertWithWhereUniqueWithoutAttractionInput | FAQUpsertWithWhereUniqueWithoutAttractionInput[]
+    createMany?: FAQCreateManyAttractionInputEnvelope
+    set?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    disconnect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    delete?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    connect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+    update?: FAQUpdateWithWhereUniqueWithoutAttractionInput | FAQUpdateWithWhereUniqueWithoutAttractionInput[]
+    updateMany?: FAQUpdateManyWithWhereWithoutAttractionInput | FAQUpdateManyWithWhereWithoutAttractionInput[]
+    deleteMany?: FAQScalarWhereInput | FAQScalarWhereInput[]
+  }
+
+  export type AttractionCreateNestedOneWithoutFaqsInput = {
+    create?: XOR<AttractionCreateWithoutFaqsInput, AttractionUncheckedCreateWithoutFaqsInput>
+    connectOrCreate?: AttractionCreateOrConnectWithoutFaqsInput
+    connect?: AttractionWhereUniqueInput
+  }
+
+  export type TourCreateNestedOneWithoutFaqsInput = {
+    create?: XOR<TourCreateWithoutFaqsInput, TourUncheckedCreateWithoutFaqsInput>
+    connectOrCreate?: TourCreateOrConnectWithoutFaqsInput
+    connect?: TourWhereUniqueInput
+  }
+
+  export type DestinationCreateNestedOneWithoutFaqsInput = {
+    create?: XOR<DestinationCreateWithoutFaqsInput, DestinationUncheckedCreateWithoutFaqsInput>
+    connectOrCreate?: DestinationCreateOrConnectWithoutFaqsInput
+    connect?: DestinationWhereUniqueInput
+  }
+
+  export type AttractionUpdateOneWithoutFaqsNestedInput = {
+    create?: XOR<AttractionCreateWithoutFaqsInput, AttractionUncheckedCreateWithoutFaqsInput>
+    connectOrCreate?: AttractionCreateOrConnectWithoutFaqsInput
+    upsert?: AttractionUpsertWithoutFaqsInput
+    disconnect?: AttractionWhereInput | boolean
+    delete?: AttractionWhereInput | boolean
+    connect?: AttractionWhereUniqueInput
+    update?: XOR<XOR<AttractionUpdateToOneWithWhereWithoutFaqsInput, AttractionUpdateWithoutFaqsInput>, AttractionUncheckedUpdateWithoutFaqsInput>
+  }
+
+  export type TourUpdateOneWithoutFaqsNestedInput = {
+    create?: XOR<TourCreateWithoutFaqsInput, TourUncheckedCreateWithoutFaqsInput>
+    connectOrCreate?: TourCreateOrConnectWithoutFaqsInput
+    upsert?: TourUpsertWithoutFaqsInput
+    disconnect?: TourWhereInput | boolean
+    delete?: TourWhereInput | boolean
+    connect?: TourWhereUniqueInput
+    update?: XOR<XOR<TourUpdateToOneWithWhereWithoutFaqsInput, TourUpdateWithoutFaqsInput>, TourUncheckedUpdateWithoutFaqsInput>
+  }
+
+  export type DestinationUpdateOneWithoutFaqsNestedInput = {
+    create?: XOR<DestinationCreateWithoutFaqsInput, DestinationUncheckedCreateWithoutFaqsInput>
+    connectOrCreate?: DestinationCreateOrConnectWithoutFaqsInput
+    upsert?: DestinationUpsertWithoutFaqsInput
+    disconnect?: DestinationWhereInput | boolean
+    delete?: DestinationWhereInput | boolean
+    connect?: DestinationWhereUniqueInput
+    update?: XOR<XOR<DestinationUpdateToOneWithWhereWithoutFaqsInput, DestinationUpdateWithoutFaqsInput>, DestinationUncheckedUpdateWithoutFaqsInput>
+  }
+
+  export type DayItineraryItemCreatemealsInput = {
+    set: $Enums.Meals[]
+  }
+
+  export type TourCreateNestedOneWithoutItineraryInput = {
+    create?: XOR<TourCreateWithoutItineraryInput, TourUncheckedCreateWithoutItineraryInput>
+    connectOrCreate?: TourCreateOrConnectWithoutItineraryInput
+    connect?: TourWhereUniqueInput
+  }
+
+  export type ImageCreateNestedManyWithoutDayItineraryImagesInput = {
+    create?: XOR<ImageCreateWithoutDayItineraryImagesInput, ImageUncheckedCreateWithoutDayItineraryImagesInput> | ImageCreateWithoutDayItineraryImagesInput[] | ImageUncheckedCreateWithoutDayItineraryImagesInput[]
+    connectOrCreate?: ImageCreateOrConnectWithoutDayItineraryImagesInput | ImageCreateOrConnectWithoutDayItineraryImagesInput[]
+    createMany?: ImageCreateManyDayItineraryImagesInputEnvelope
+    connect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+  }
+
+  export type ImageUncheckedCreateNestedManyWithoutDayItineraryImagesInput = {
+    create?: XOR<ImageCreateWithoutDayItineraryImagesInput, ImageUncheckedCreateWithoutDayItineraryImagesInput> | ImageCreateWithoutDayItineraryImagesInput[] | ImageUncheckedCreateWithoutDayItineraryImagesInput[]
+    connectOrCreate?: ImageCreateOrConnectWithoutDayItineraryImagesInput | ImageCreateOrConnectWithoutDayItineraryImagesInput[]
+    createMany?: ImageCreateManyDayItineraryImagesInputEnvelope
+    connect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type DayItineraryItemUpdatemealsInput = {
+    set?: $Enums.Meals[]
+    push?: $Enums.Meals | $Enums.Meals[]
+  }
+
+  export type TourUpdateOneRequiredWithoutItineraryNestedInput = {
+    create?: XOR<TourCreateWithoutItineraryInput, TourUncheckedCreateWithoutItineraryInput>
+    connectOrCreate?: TourCreateOrConnectWithoutItineraryInput
+    upsert?: TourUpsertWithoutItineraryInput
+    connect?: TourWhereUniqueInput
+    update?: XOR<XOR<TourUpdateToOneWithWhereWithoutItineraryInput, TourUpdateWithoutItineraryInput>, TourUncheckedUpdateWithoutItineraryInput>
+  }
+
+  export type ImageUpdateManyWithoutDayItineraryImagesNestedInput = {
+    create?: XOR<ImageCreateWithoutDayItineraryImagesInput, ImageUncheckedCreateWithoutDayItineraryImagesInput> | ImageCreateWithoutDayItineraryImagesInput[] | ImageUncheckedCreateWithoutDayItineraryImagesInput[]
+    connectOrCreate?: ImageCreateOrConnectWithoutDayItineraryImagesInput | ImageCreateOrConnectWithoutDayItineraryImagesInput[]
+    upsert?: ImageUpsertWithWhereUniqueWithoutDayItineraryImagesInput | ImageUpsertWithWhereUniqueWithoutDayItineraryImagesInput[]
+    createMany?: ImageCreateManyDayItineraryImagesInputEnvelope
+    set?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    disconnect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    delete?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    connect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    update?: ImageUpdateWithWhereUniqueWithoutDayItineraryImagesInput | ImageUpdateWithWhereUniqueWithoutDayItineraryImagesInput[]
+    updateMany?: ImageUpdateManyWithWhereWithoutDayItineraryImagesInput | ImageUpdateManyWithWhereWithoutDayItineraryImagesInput[]
+    deleteMany?: ImageScalarWhereInput | ImageScalarWhereInput[]
+  }
+
+  export type ImageUncheckedUpdateManyWithoutDayItineraryImagesNestedInput = {
+    create?: XOR<ImageCreateWithoutDayItineraryImagesInput, ImageUncheckedCreateWithoutDayItineraryImagesInput> | ImageCreateWithoutDayItineraryImagesInput[] | ImageUncheckedCreateWithoutDayItineraryImagesInput[]
+    connectOrCreate?: ImageCreateOrConnectWithoutDayItineraryImagesInput | ImageCreateOrConnectWithoutDayItineraryImagesInput[]
+    upsert?: ImageUpsertWithWhereUniqueWithoutDayItineraryImagesInput | ImageUpsertWithWhereUniqueWithoutDayItineraryImagesInput[]
+    createMany?: ImageCreateManyDayItineraryImagesInputEnvelope
+    set?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    disconnect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    delete?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    connect?: ImageWhereUniqueInput | ImageWhereUniqueInput[]
+    update?: ImageUpdateWithWhereUniqueWithoutDayItineraryImagesInput | ImageUpdateWithWhereUniqueWithoutDayItineraryImagesInput[]
+    updateMany?: ImageUpdateManyWithWhereWithoutDayItineraryImagesInput | ImageUpdateManyWithWhereWithoutDayItineraryImagesInput[]
+    deleteMany?: ImageScalarWhereInput | ImageScalarWhereInput[]
+  }
+
+  export type ImageCreatekeywordsInput = {
+    set: string[]
+  }
+
+  export type TourCreateNestedOneWithoutThumbnailInput = {
+    create?: XOR<TourCreateWithoutThumbnailInput, TourUncheckedCreateWithoutThumbnailInput>
+    connectOrCreate?: TourCreateOrConnectWithoutThumbnailInput
+    connect?: TourWhereUniqueInput
+  }
+
+  export type AttractionCreateNestedOneWithoutThumbnailInput = {
+    create?: XOR<AttractionCreateWithoutThumbnailInput, AttractionUncheckedCreateWithoutThumbnailInput>
+    connectOrCreate?: AttractionCreateOrConnectWithoutThumbnailInput
+    connect?: AttractionWhereUniqueInput
+  }
+
+  export type DestinationCreateNestedOneWithoutThumbnailInput = {
+    create?: XOR<DestinationCreateWithoutThumbnailInput, DestinationUncheckedCreateWithoutThumbnailInput>
+    connectOrCreate?: DestinationCreateOrConnectWithoutThumbnailInput
+    connect?: DestinationWhereUniqueInput
+  }
+
+  export type TourCreateNestedOneWithoutImagesInput = {
+    create?: XOR<TourCreateWithoutImagesInput, TourUncheckedCreateWithoutImagesInput>
+    connectOrCreate?: TourCreateOrConnectWithoutImagesInput
+    connect?: TourWhereUniqueInput
+  }
+
+  export type AttractionCreateNestedOneWithoutImagesInput = {
+    create?: XOR<AttractionCreateWithoutImagesInput, AttractionUncheckedCreateWithoutImagesInput>
+    connectOrCreate?: AttractionCreateOrConnectWithoutImagesInput
+    connect?: AttractionWhereUniqueInput
+  }
+
+  export type DayItineraryItemCreateNestedOneWithoutImagesInput = {
+    create?: XOR<DayItineraryItemCreateWithoutImagesInput, DayItineraryItemUncheckedCreateWithoutImagesInput>
+    connectOrCreate?: DayItineraryItemCreateOrConnectWithoutImagesInput
+    connect?: DayItineraryItemWhereUniqueInput
+  }
+
+  export type DestinationCreateNestedOneWithoutImagesInput = {
+    create?: XOR<DestinationCreateWithoutImagesInput, DestinationUncheckedCreateWithoutImagesInput>
+    connectOrCreate?: DestinationCreateOrConnectWithoutImagesInput
+    connect?: DestinationWhereUniqueInput
+  }
+
+  export type TourUncheckedCreateNestedOneWithoutThumbnailInput = {
+    create?: XOR<TourCreateWithoutThumbnailInput, TourUncheckedCreateWithoutThumbnailInput>
+    connectOrCreate?: TourCreateOrConnectWithoutThumbnailInput
+    connect?: TourWhereUniqueInput
+  }
+
+  export type AttractionUncheckedCreateNestedOneWithoutThumbnailInput = {
+    create?: XOR<AttractionCreateWithoutThumbnailInput, AttractionUncheckedCreateWithoutThumbnailInput>
+    connectOrCreate?: AttractionCreateOrConnectWithoutThumbnailInput
+    connect?: AttractionWhereUniqueInput
+  }
+
+  export type DestinationUncheckedCreateNestedOneWithoutThumbnailInput = {
+    create?: XOR<DestinationCreateWithoutThumbnailInput, DestinationUncheckedCreateWithoutThumbnailInput>
+    connectOrCreate?: DestinationCreateOrConnectWithoutThumbnailInput
+    connect?: DestinationWhereUniqueInput
+  }
+
+  export type ImageUpdatekeywordsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type TourUpdateOneWithoutThumbnailNestedInput = {
+    create?: XOR<TourCreateWithoutThumbnailInput, TourUncheckedCreateWithoutThumbnailInput>
+    connectOrCreate?: TourCreateOrConnectWithoutThumbnailInput
+    upsert?: TourUpsertWithoutThumbnailInput
+    disconnect?: TourWhereInput | boolean
+    delete?: TourWhereInput | boolean
+    connect?: TourWhereUniqueInput
+    update?: XOR<XOR<TourUpdateToOneWithWhereWithoutThumbnailInput, TourUpdateWithoutThumbnailInput>, TourUncheckedUpdateWithoutThumbnailInput>
+  }
+
+  export type AttractionUpdateOneWithoutThumbnailNestedInput = {
+    create?: XOR<AttractionCreateWithoutThumbnailInput, AttractionUncheckedCreateWithoutThumbnailInput>
+    connectOrCreate?: AttractionCreateOrConnectWithoutThumbnailInput
+    upsert?: AttractionUpsertWithoutThumbnailInput
+    disconnect?: AttractionWhereInput | boolean
+    delete?: AttractionWhereInput | boolean
+    connect?: AttractionWhereUniqueInput
+    update?: XOR<XOR<AttractionUpdateToOneWithWhereWithoutThumbnailInput, AttractionUpdateWithoutThumbnailInput>, AttractionUncheckedUpdateWithoutThumbnailInput>
+  }
+
+  export type DestinationUpdateOneWithoutThumbnailNestedInput = {
+    create?: XOR<DestinationCreateWithoutThumbnailInput, DestinationUncheckedCreateWithoutThumbnailInput>
+    connectOrCreate?: DestinationCreateOrConnectWithoutThumbnailInput
+    upsert?: DestinationUpsertWithoutThumbnailInput
+    disconnect?: DestinationWhereInput | boolean
+    delete?: DestinationWhereInput | boolean
+    connect?: DestinationWhereUniqueInput
+    update?: XOR<XOR<DestinationUpdateToOneWithWhereWithoutThumbnailInput, DestinationUpdateWithoutThumbnailInput>, DestinationUncheckedUpdateWithoutThumbnailInput>
+  }
+
+  export type TourUpdateOneWithoutImagesNestedInput = {
+    create?: XOR<TourCreateWithoutImagesInput, TourUncheckedCreateWithoutImagesInput>
+    connectOrCreate?: TourCreateOrConnectWithoutImagesInput
+    upsert?: TourUpsertWithoutImagesInput
+    disconnect?: TourWhereInput | boolean
+    delete?: TourWhereInput | boolean
+    connect?: TourWhereUniqueInput
+    update?: XOR<XOR<TourUpdateToOneWithWhereWithoutImagesInput, TourUpdateWithoutImagesInput>, TourUncheckedUpdateWithoutImagesInput>
+  }
+
+  export type AttractionUpdateOneWithoutImagesNestedInput = {
+    create?: XOR<AttractionCreateWithoutImagesInput, AttractionUncheckedCreateWithoutImagesInput>
+    connectOrCreate?: AttractionCreateOrConnectWithoutImagesInput
+    upsert?: AttractionUpsertWithoutImagesInput
+    disconnect?: AttractionWhereInput | boolean
+    delete?: AttractionWhereInput | boolean
+    connect?: AttractionWhereUniqueInput
+    update?: XOR<XOR<AttractionUpdateToOneWithWhereWithoutImagesInput, AttractionUpdateWithoutImagesInput>, AttractionUncheckedUpdateWithoutImagesInput>
+  }
+
+  export type DayItineraryItemUpdateOneWithoutImagesNestedInput = {
+    create?: XOR<DayItineraryItemCreateWithoutImagesInput, DayItineraryItemUncheckedCreateWithoutImagesInput>
+    connectOrCreate?: DayItineraryItemCreateOrConnectWithoutImagesInput
+    upsert?: DayItineraryItemUpsertWithoutImagesInput
+    disconnect?: DayItineraryItemWhereInput | boolean
+    delete?: DayItineraryItemWhereInput | boolean
+    connect?: DayItineraryItemWhereUniqueInput
+    update?: XOR<XOR<DayItineraryItemUpdateToOneWithWhereWithoutImagesInput, DayItineraryItemUpdateWithoutImagesInput>, DayItineraryItemUncheckedUpdateWithoutImagesInput>
+  }
+
+  export type DestinationUpdateOneWithoutImagesNestedInput = {
+    create?: XOR<DestinationCreateWithoutImagesInput, DestinationUncheckedCreateWithoutImagesInput>
+    connectOrCreate?: DestinationCreateOrConnectWithoutImagesInput
+    upsert?: DestinationUpsertWithoutImagesInput
+    disconnect?: DestinationWhereInput | boolean
+    delete?: DestinationWhereInput | boolean
+    connect?: DestinationWhereUniqueInput
+    update?: XOR<XOR<DestinationUpdateToOneWithWhereWithoutImagesInput, DestinationUpdateWithoutImagesInput>, DestinationUncheckedUpdateWithoutImagesInput>
+  }
+
+  export type TourUncheckedUpdateOneWithoutThumbnailNestedInput = {
+    create?: XOR<TourCreateWithoutThumbnailInput, TourUncheckedCreateWithoutThumbnailInput>
+    connectOrCreate?: TourCreateOrConnectWithoutThumbnailInput
+    upsert?: TourUpsertWithoutThumbnailInput
+    disconnect?: TourWhereInput | boolean
+    delete?: TourWhereInput | boolean
+    connect?: TourWhereUniqueInput
+    update?: XOR<XOR<TourUpdateToOneWithWhereWithoutThumbnailInput, TourUpdateWithoutThumbnailInput>, TourUncheckedUpdateWithoutThumbnailInput>
+  }
+
+  export type AttractionUncheckedUpdateOneWithoutThumbnailNestedInput = {
+    create?: XOR<AttractionCreateWithoutThumbnailInput, AttractionUncheckedCreateWithoutThumbnailInput>
+    connectOrCreate?: AttractionCreateOrConnectWithoutThumbnailInput
+    upsert?: AttractionUpsertWithoutThumbnailInput
+    disconnect?: AttractionWhereInput | boolean
+    delete?: AttractionWhereInput | boolean
+    connect?: AttractionWhereUniqueInput
+    update?: XOR<XOR<AttractionUpdateToOneWithWhereWithoutThumbnailInput, AttractionUpdateWithoutThumbnailInput>, AttractionUncheckedUpdateWithoutThumbnailInput>
+  }
+
+  export type DestinationUncheckedUpdateOneWithoutThumbnailNestedInput = {
+    create?: XOR<DestinationCreateWithoutThumbnailInput, DestinationUncheckedCreateWithoutThumbnailInput>
+    connectOrCreate?: DestinationCreateOrConnectWithoutThumbnailInput
+    upsert?: DestinationUpsertWithoutThumbnailInput
+    disconnect?: DestinationWhereInput | boolean
+    delete?: DestinationWhereInput | boolean
+    connect?: DestinationWhereUniqueInput
+    update?: XOR<XOR<DestinationUpdateToOneWithWhereWithoutThumbnailInput, DestinationUpdateWithoutThumbnailInput>, DestinationUncheckedUpdateWithoutThumbnailInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -9847,6 +24850,104 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedEnumTourTypeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.TourType | EnumTourTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.TourType[] | ListEnumTourTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.TourType[] | ListEnumTourTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumTourTypeNullableFilter<$PrismaModel> | $Enums.TourType | null
+  }
+
+  export type NestedDecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type NestedDecimalNullableFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type NestedEnumTourTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.TourType | EnumTourTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.TourType[] | ListEnumTourTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.TourType[] | ListEnumTourTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumTourTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.TourType | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumTourTypeNullableFilter<$PrismaModel>
+    _max?: NestedEnumTourTypeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
+  export type NestedDecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedDecimalNullableFilter<$PrismaModel>
+    _sum?: NestedDecimalNullableFilter<$PrismaModel>
+    _min?: NestedDecimalNullableFilter<$PrismaModel>
+    _max?: NestedDecimalNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
   }
 
   export type SessionCreateWithoutUserInput = {
@@ -10215,6 +25316,2356 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type CityCreateWithoutDestinationInput = {
+    id?: string
+    name: string
+    slug: string
+    tours?: TourCityCreateNestedManyWithoutCityInput
+  }
+
+  export type CityUncheckedCreateWithoutDestinationInput = {
+    id?: string
+    name: string
+    slug: string
+    tours?: TourCityUncheckedCreateNestedManyWithoutCityInput
+  }
+
+  export type CityCreateOrConnectWithoutDestinationInput = {
+    where: CityWhereUniqueInput
+    create: XOR<CityCreateWithoutDestinationInput, CityUncheckedCreateWithoutDestinationInput>
+  }
+
+  export type CityCreateManyDestinationInputEnvelope = {
+    data: CityCreateManyDestinationInput | CityCreateManyDestinationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TourDestinationCreateWithoutDestinationInput = {
+    id?: string
+    tour: TourCreateNestedOneWithoutDestinationsInput
+  }
+
+  export type TourDestinationUncheckedCreateWithoutDestinationInput = {
+    id?: string
+    tourId: string
+  }
+
+  export type TourDestinationCreateOrConnectWithoutDestinationInput = {
+    where: TourDestinationWhereUniqueInput
+    create: XOR<TourDestinationCreateWithoutDestinationInput, TourDestinationUncheckedCreateWithoutDestinationInput>
+  }
+
+  export type TourDestinationCreateManyDestinationInputEnvelope = {
+    data: TourDestinationCreateManyDestinationInput | TourDestinationCreateManyDestinationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ImageCreateWithoutDestinationThumbnailInput = {
+    id?: string
+    bucketName: string
+    fileName: string
+    altText?: string | null
+    keywords?: ImageCreatekeywordsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tourThumbnail?: TourCreateNestedOneWithoutThumbnailInput
+    attractionThumbnail?: AttractionCreateNestedOneWithoutThumbnailInput
+    tourImages?: TourCreateNestedOneWithoutImagesInput
+    attractionImages?: AttractionCreateNestedOneWithoutImagesInput
+    dayItineraryImages?: DayItineraryItemCreateNestedOneWithoutImagesInput
+    destinationImages?: DestinationCreateNestedOneWithoutImagesInput
+  }
+
+  export type ImageUncheckedCreateWithoutDestinationThumbnailInput = {
+    id?: string
+    bucketName: string
+    fileName: string
+    altText?: string | null
+    keywords?: ImageCreatekeywordsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tourId?: string | null
+    attractionId?: string | null
+    dayItineraryItemId?: string | null
+    destinationId?: string | null
+    tourThumbnail?: TourUncheckedCreateNestedOneWithoutThumbnailInput
+    attractionThumbnail?: AttractionUncheckedCreateNestedOneWithoutThumbnailInput
+  }
+
+  export type ImageCreateOrConnectWithoutDestinationThumbnailInput = {
+    where: ImageWhereUniqueInput
+    create: XOR<ImageCreateWithoutDestinationThumbnailInput, ImageUncheckedCreateWithoutDestinationThumbnailInput>
+  }
+
+  export type ImageCreateWithoutDestinationImagesInput = {
+    id?: string
+    bucketName: string
+    fileName: string
+    altText?: string | null
+    keywords?: ImageCreatekeywordsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tourThumbnail?: TourCreateNestedOneWithoutThumbnailInput
+    attractionThumbnail?: AttractionCreateNestedOneWithoutThumbnailInput
+    destinationThumbnail?: DestinationCreateNestedOneWithoutThumbnailInput
+    tourImages?: TourCreateNestedOneWithoutImagesInput
+    attractionImages?: AttractionCreateNestedOneWithoutImagesInput
+    dayItineraryImages?: DayItineraryItemCreateNestedOneWithoutImagesInput
+  }
+
+  export type ImageUncheckedCreateWithoutDestinationImagesInput = {
+    id?: string
+    bucketName: string
+    fileName: string
+    altText?: string | null
+    keywords?: ImageCreatekeywordsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tourId?: string | null
+    attractionId?: string | null
+    dayItineraryItemId?: string | null
+    tourThumbnail?: TourUncheckedCreateNestedOneWithoutThumbnailInput
+    attractionThumbnail?: AttractionUncheckedCreateNestedOneWithoutThumbnailInput
+    destinationThumbnail?: DestinationUncheckedCreateNestedOneWithoutThumbnailInput
+  }
+
+  export type ImageCreateOrConnectWithoutDestinationImagesInput = {
+    where: ImageWhereUniqueInput
+    create: XOR<ImageCreateWithoutDestinationImagesInput, ImageUncheckedCreateWithoutDestinationImagesInput>
+  }
+
+  export type ImageCreateManyDestinationImagesInputEnvelope = {
+    data: ImageCreateManyDestinationImagesInput | ImageCreateManyDestinationImagesInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FAQCreateWithoutDestinationInput = {
+    id?: string
+    question: string
+    answer: string
+    attraction?: AttractionCreateNestedOneWithoutFaqsInput
+    tour?: TourCreateNestedOneWithoutFaqsInput
+  }
+
+  export type FAQUncheckedCreateWithoutDestinationInput = {
+    id?: string
+    question: string
+    answer: string
+    attractionId?: string | null
+    tourId?: string | null
+  }
+
+  export type FAQCreateOrConnectWithoutDestinationInput = {
+    where: FAQWhereUniqueInput
+    create: XOR<FAQCreateWithoutDestinationInput, FAQUncheckedCreateWithoutDestinationInput>
+  }
+
+  export type FAQCreateManyDestinationInputEnvelope = {
+    data: FAQCreateManyDestinationInput | FAQCreateManyDestinationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CityUpsertWithWhereUniqueWithoutDestinationInput = {
+    where: CityWhereUniqueInput
+    update: XOR<CityUpdateWithoutDestinationInput, CityUncheckedUpdateWithoutDestinationInput>
+    create: XOR<CityCreateWithoutDestinationInput, CityUncheckedCreateWithoutDestinationInput>
+  }
+
+  export type CityUpdateWithWhereUniqueWithoutDestinationInput = {
+    where: CityWhereUniqueInput
+    data: XOR<CityUpdateWithoutDestinationInput, CityUncheckedUpdateWithoutDestinationInput>
+  }
+
+  export type CityUpdateManyWithWhereWithoutDestinationInput = {
+    where: CityScalarWhereInput
+    data: XOR<CityUpdateManyMutationInput, CityUncheckedUpdateManyWithoutDestinationInput>
+  }
+
+  export type CityScalarWhereInput = {
+    AND?: CityScalarWhereInput | CityScalarWhereInput[]
+    OR?: CityScalarWhereInput[]
+    NOT?: CityScalarWhereInput | CityScalarWhereInput[]
+    id?: StringFilter<"City"> | string
+    name?: StringFilter<"City"> | string
+    slug?: StringFilter<"City"> | string
+    destinationId?: StringNullableFilter<"City"> | string | null
+  }
+
+  export type TourDestinationUpsertWithWhereUniqueWithoutDestinationInput = {
+    where: TourDestinationWhereUniqueInput
+    update: XOR<TourDestinationUpdateWithoutDestinationInput, TourDestinationUncheckedUpdateWithoutDestinationInput>
+    create: XOR<TourDestinationCreateWithoutDestinationInput, TourDestinationUncheckedCreateWithoutDestinationInput>
+  }
+
+  export type TourDestinationUpdateWithWhereUniqueWithoutDestinationInput = {
+    where: TourDestinationWhereUniqueInput
+    data: XOR<TourDestinationUpdateWithoutDestinationInput, TourDestinationUncheckedUpdateWithoutDestinationInput>
+  }
+
+  export type TourDestinationUpdateManyWithWhereWithoutDestinationInput = {
+    where: TourDestinationScalarWhereInput
+    data: XOR<TourDestinationUpdateManyMutationInput, TourDestinationUncheckedUpdateManyWithoutDestinationInput>
+  }
+
+  export type TourDestinationScalarWhereInput = {
+    AND?: TourDestinationScalarWhereInput | TourDestinationScalarWhereInput[]
+    OR?: TourDestinationScalarWhereInput[]
+    NOT?: TourDestinationScalarWhereInput | TourDestinationScalarWhereInput[]
+    id?: StringFilter<"TourDestination"> | string
+    tourId?: StringFilter<"TourDestination"> | string
+    destinationId?: StringFilter<"TourDestination"> | string
+  }
+
+  export type ImageUpsertWithoutDestinationThumbnailInput = {
+    update: XOR<ImageUpdateWithoutDestinationThumbnailInput, ImageUncheckedUpdateWithoutDestinationThumbnailInput>
+    create: XOR<ImageCreateWithoutDestinationThumbnailInput, ImageUncheckedCreateWithoutDestinationThumbnailInput>
+    where?: ImageWhereInput
+  }
+
+  export type ImageUpdateToOneWithWhereWithoutDestinationThumbnailInput = {
+    where?: ImageWhereInput
+    data: XOR<ImageUpdateWithoutDestinationThumbnailInput, ImageUncheckedUpdateWithoutDestinationThumbnailInput>
+  }
+
+  export type ImageUpdateWithoutDestinationThumbnailInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tourThumbnail?: TourUpdateOneWithoutThumbnailNestedInput
+    attractionThumbnail?: AttractionUpdateOneWithoutThumbnailNestedInput
+    tourImages?: TourUpdateOneWithoutImagesNestedInput
+    attractionImages?: AttractionUpdateOneWithoutImagesNestedInput
+    dayItineraryImages?: DayItineraryItemUpdateOneWithoutImagesNestedInput
+    destinationImages?: DestinationUpdateOneWithoutImagesNestedInput
+  }
+
+  export type ImageUncheckedUpdateWithoutDestinationThumbnailInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tourId?: NullableStringFieldUpdateOperationsInput | string | null
+    attractionId?: NullableStringFieldUpdateOperationsInput | string | null
+    dayItineraryItemId?: NullableStringFieldUpdateOperationsInput | string | null
+    destinationId?: NullableStringFieldUpdateOperationsInput | string | null
+    tourThumbnail?: TourUncheckedUpdateOneWithoutThumbnailNestedInput
+    attractionThumbnail?: AttractionUncheckedUpdateOneWithoutThumbnailNestedInput
+  }
+
+  export type ImageUpsertWithWhereUniqueWithoutDestinationImagesInput = {
+    where: ImageWhereUniqueInput
+    update: XOR<ImageUpdateWithoutDestinationImagesInput, ImageUncheckedUpdateWithoutDestinationImagesInput>
+    create: XOR<ImageCreateWithoutDestinationImagesInput, ImageUncheckedCreateWithoutDestinationImagesInput>
+  }
+
+  export type ImageUpdateWithWhereUniqueWithoutDestinationImagesInput = {
+    where: ImageWhereUniqueInput
+    data: XOR<ImageUpdateWithoutDestinationImagesInput, ImageUncheckedUpdateWithoutDestinationImagesInput>
+  }
+
+  export type ImageUpdateManyWithWhereWithoutDestinationImagesInput = {
+    where: ImageScalarWhereInput
+    data: XOR<ImageUpdateManyMutationInput, ImageUncheckedUpdateManyWithoutDestinationImagesInput>
+  }
+
+  export type ImageScalarWhereInput = {
+    AND?: ImageScalarWhereInput | ImageScalarWhereInput[]
+    OR?: ImageScalarWhereInput[]
+    NOT?: ImageScalarWhereInput | ImageScalarWhereInput[]
+    id?: StringFilter<"Image"> | string
+    bucketName?: StringFilter<"Image"> | string
+    fileName?: StringFilter<"Image"> | string
+    altText?: StringNullableFilter<"Image"> | string | null
+    keywords?: StringNullableListFilter<"Image">
+    createdAt?: DateTimeFilter<"Image"> | Date | string
+    updatedAt?: DateTimeFilter<"Image"> | Date | string
+    tourId?: StringNullableFilter<"Image"> | string | null
+    attractionId?: StringNullableFilter<"Image"> | string | null
+    dayItineraryItemId?: StringNullableFilter<"Image"> | string | null
+    destinationId?: StringNullableFilter<"Image"> | string | null
+  }
+
+  export type FAQUpsertWithWhereUniqueWithoutDestinationInput = {
+    where: FAQWhereUniqueInput
+    update: XOR<FAQUpdateWithoutDestinationInput, FAQUncheckedUpdateWithoutDestinationInput>
+    create: XOR<FAQCreateWithoutDestinationInput, FAQUncheckedCreateWithoutDestinationInput>
+  }
+
+  export type FAQUpdateWithWhereUniqueWithoutDestinationInput = {
+    where: FAQWhereUniqueInput
+    data: XOR<FAQUpdateWithoutDestinationInput, FAQUncheckedUpdateWithoutDestinationInput>
+  }
+
+  export type FAQUpdateManyWithWhereWithoutDestinationInput = {
+    where: FAQScalarWhereInput
+    data: XOR<FAQUpdateManyMutationInput, FAQUncheckedUpdateManyWithoutDestinationInput>
+  }
+
+  export type FAQScalarWhereInput = {
+    AND?: FAQScalarWhereInput | FAQScalarWhereInput[]
+    OR?: FAQScalarWhereInput[]
+    NOT?: FAQScalarWhereInput | FAQScalarWhereInput[]
+    id?: StringFilter<"FAQ"> | string
+    question?: StringFilter<"FAQ"> | string
+    answer?: StringFilter<"FAQ"> | string
+    attractionId?: StringNullableFilter<"FAQ"> | string | null
+    tourId?: StringNullableFilter<"FAQ"> | string | null
+    destinationId?: StringNullableFilter<"FAQ"> | string | null
+  }
+
+  export type DestinationCreateWithoutCitiesInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    currency?: string | null
+    bestSeasonStart?: string | null
+    bestSeasonEnd?: string | null
+    languages?: DestinationCreatelanguagesInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tours?: TourDestinationCreateNestedManyWithoutDestinationInput
+    thumbnail?: ImageCreateNestedOneWithoutDestinationThumbnailInput
+    images?: ImageCreateNestedManyWithoutDestinationImagesInput
+    faqs?: FAQCreateNestedManyWithoutDestinationInput
+  }
+
+  export type DestinationUncheckedCreateWithoutCitiesInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    currency?: string | null
+    bestSeasonStart?: string | null
+    bestSeasonEnd?: string | null
+    languages?: DestinationCreatelanguagesInput | string[]
+    thumbnailId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tours?: TourDestinationUncheckedCreateNestedManyWithoutDestinationInput
+    images?: ImageUncheckedCreateNestedManyWithoutDestinationImagesInput
+    faqs?: FAQUncheckedCreateNestedManyWithoutDestinationInput
+  }
+
+  export type DestinationCreateOrConnectWithoutCitiesInput = {
+    where: DestinationWhereUniqueInput
+    create: XOR<DestinationCreateWithoutCitiesInput, DestinationUncheckedCreateWithoutCitiesInput>
+  }
+
+  export type TourCityCreateWithoutCityInput = {
+    id?: string
+    tour: TourCreateNestedOneWithoutCitiesInput
+  }
+
+  export type TourCityUncheckedCreateWithoutCityInput = {
+    id?: string
+    tourId: string
+  }
+
+  export type TourCityCreateOrConnectWithoutCityInput = {
+    where: TourCityWhereUniqueInput
+    create: XOR<TourCityCreateWithoutCityInput, TourCityUncheckedCreateWithoutCityInput>
+  }
+
+  export type TourCityCreateManyCityInputEnvelope = {
+    data: TourCityCreateManyCityInput | TourCityCreateManyCityInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DestinationUpsertWithoutCitiesInput = {
+    update: XOR<DestinationUpdateWithoutCitiesInput, DestinationUncheckedUpdateWithoutCitiesInput>
+    create: XOR<DestinationCreateWithoutCitiesInput, DestinationUncheckedCreateWithoutCitiesInput>
+    where?: DestinationWhereInput
+  }
+
+  export type DestinationUpdateToOneWithWhereWithoutCitiesInput = {
+    where?: DestinationWhereInput
+    data: XOR<DestinationUpdateWithoutCitiesInput, DestinationUncheckedUpdateWithoutCitiesInput>
+  }
+
+  export type DestinationUpdateWithoutCitiesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonStart?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonEnd?: NullableStringFieldUpdateOperationsInput | string | null
+    languages?: DestinationUpdatelanguagesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tours?: TourDestinationUpdateManyWithoutDestinationNestedInput
+    thumbnail?: ImageUpdateOneWithoutDestinationThumbnailNestedInput
+    images?: ImageUpdateManyWithoutDestinationImagesNestedInput
+    faqs?: FAQUpdateManyWithoutDestinationNestedInput
+  }
+
+  export type DestinationUncheckedUpdateWithoutCitiesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonStart?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonEnd?: NullableStringFieldUpdateOperationsInput | string | null
+    languages?: DestinationUpdatelanguagesInput | string[]
+    thumbnailId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tours?: TourDestinationUncheckedUpdateManyWithoutDestinationNestedInput
+    images?: ImageUncheckedUpdateManyWithoutDestinationImagesNestedInput
+    faqs?: FAQUncheckedUpdateManyWithoutDestinationNestedInput
+  }
+
+  export type TourCityUpsertWithWhereUniqueWithoutCityInput = {
+    where: TourCityWhereUniqueInput
+    update: XOR<TourCityUpdateWithoutCityInput, TourCityUncheckedUpdateWithoutCityInput>
+    create: XOR<TourCityCreateWithoutCityInput, TourCityUncheckedCreateWithoutCityInput>
+  }
+
+  export type TourCityUpdateWithWhereUniqueWithoutCityInput = {
+    where: TourCityWhereUniqueInput
+    data: XOR<TourCityUpdateWithoutCityInput, TourCityUncheckedUpdateWithoutCityInput>
+  }
+
+  export type TourCityUpdateManyWithWhereWithoutCityInput = {
+    where: TourCityScalarWhereInput
+    data: XOR<TourCityUpdateManyMutationInput, TourCityUncheckedUpdateManyWithoutCityInput>
+  }
+
+  export type TourCityScalarWhereInput = {
+    AND?: TourCityScalarWhereInput | TourCityScalarWhereInput[]
+    OR?: TourCityScalarWhereInput[]
+    NOT?: TourCityScalarWhereInput | TourCityScalarWhereInput[]
+    id?: StringFilter<"TourCity"> | string
+    tourId?: StringFilter<"TourCity"> | string
+    cityId?: StringFilter<"TourCity"> | string
+  }
+
+  export type TourCityCreateWithoutTourInput = {
+    id?: string
+    city: CityCreateNestedOneWithoutToursInput
+  }
+
+  export type TourCityUncheckedCreateWithoutTourInput = {
+    id?: string
+    cityId: string
+  }
+
+  export type TourCityCreateOrConnectWithoutTourInput = {
+    where: TourCityWhereUniqueInput
+    create: XOR<TourCityCreateWithoutTourInput, TourCityUncheckedCreateWithoutTourInput>
+  }
+
+  export type TourCityCreateManyTourInputEnvelope = {
+    data: TourCityCreateManyTourInput | TourCityCreateManyTourInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ImageCreateWithoutTourThumbnailInput = {
+    id?: string
+    bucketName: string
+    fileName: string
+    altText?: string | null
+    keywords?: ImageCreatekeywordsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    attractionThumbnail?: AttractionCreateNestedOneWithoutThumbnailInput
+    destinationThumbnail?: DestinationCreateNestedOneWithoutThumbnailInput
+    tourImages?: TourCreateNestedOneWithoutImagesInput
+    attractionImages?: AttractionCreateNestedOneWithoutImagesInput
+    dayItineraryImages?: DayItineraryItemCreateNestedOneWithoutImagesInput
+    destinationImages?: DestinationCreateNestedOneWithoutImagesInput
+  }
+
+  export type ImageUncheckedCreateWithoutTourThumbnailInput = {
+    id?: string
+    bucketName: string
+    fileName: string
+    altText?: string | null
+    keywords?: ImageCreatekeywordsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tourId?: string | null
+    attractionId?: string | null
+    dayItineraryItemId?: string | null
+    destinationId?: string | null
+    attractionThumbnail?: AttractionUncheckedCreateNestedOneWithoutThumbnailInput
+    destinationThumbnail?: DestinationUncheckedCreateNestedOneWithoutThumbnailInput
+  }
+
+  export type ImageCreateOrConnectWithoutTourThumbnailInput = {
+    where: ImageWhereUniqueInput
+    create: XOR<ImageCreateWithoutTourThumbnailInput, ImageUncheckedCreateWithoutTourThumbnailInput>
+  }
+
+  export type ImageCreateWithoutTourImagesInput = {
+    id?: string
+    bucketName: string
+    fileName: string
+    altText?: string | null
+    keywords?: ImageCreatekeywordsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tourThumbnail?: TourCreateNestedOneWithoutThumbnailInput
+    attractionThumbnail?: AttractionCreateNestedOneWithoutThumbnailInput
+    destinationThumbnail?: DestinationCreateNestedOneWithoutThumbnailInput
+    attractionImages?: AttractionCreateNestedOneWithoutImagesInput
+    dayItineraryImages?: DayItineraryItemCreateNestedOneWithoutImagesInput
+    destinationImages?: DestinationCreateNestedOneWithoutImagesInput
+  }
+
+  export type ImageUncheckedCreateWithoutTourImagesInput = {
+    id?: string
+    bucketName: string
+    fileName: string
+    altText?: string | null
+    keywords?: ImageCreatekeywordsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    attractionId?: string | null
+    dayItineraryItemId?: string | null
+    destinationId?: string | null
+    tourThumbnail?: TourUncheckedCreateNestedOneWithoutThumbnailInput
+    attractionThumbnail?: AttractionUncheckedCreateNestedOneWithoutThumbnailInput
+    destinationThumbnail?: DestinationUncheckedCreateNestedOneWithoutThumbnailInput
+  }
+
+  export type ImageCreateOrConnectWithoutTourImagesInput = {
+    where: ImageWhereUniqueInput
+    create: XOR<ImageCreateWithoutTourImagesInput, ImageUncheckedCreateWithoutTourImagesInput>
+  }
+
+  export type ImageCreateManyTourImagesInputEnvelope = {
+    data: ImageCreateManyTourImagesInput | ImageCreateManyTourImagesInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FAQCreateWithoutTourInput = {
+    id?: string
+    question: string
+    answer: string
+    attraction?: AttractionCreateNestedOneWithoutFaqsInput
+    destination?: DestinationCreateNestedOneWithoutFaqsInput
+  }
+
+  export type FAQUncheckedCreateWithoutTourInput = {
+    id?: string
+    question: string
+    answer: string
+    attractionId?: string | null
+    destinationId?: string | null
+  }
+
+  export type FAQCreateOrConnectWithoutTourInput = {
+    where: FAQWhereUniqueInput
+    create: XOR<FAQCreateWithoutTourInput, FAQUncheckedCreateWithoutTourInput>
+  }
+
+  export type FAQCreateManyTourInputEnvelope = {
+    data: FAQCreateManyTourInput | FAQCreateManyTourInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TourDestinationCreateWithoutTourInput = {
+    id?: string
+    destination: DestinationCreateNestedOneWithoutToursInput
+  }
+
+  export type TourDestinationUncheckedCreateWithoutTourInput = {
+    id?: string
+    destinationId: string
+  }
+
+  export type TourDestinationCreateOrConnectWithoutTourInput = {
+    where: TourDestinationWhereUniqueInput
+    create: XOR<TourDestinationCreateWithoutTourInput, TourDestinationUncheckedCreateWithoutTourInput>
+  }
+
+  export type TourDestinationCreateManyTourInputEnvelope = {
+    data: TourDestinationCreateManyTourInput | TourDestinationCreateManyTourInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DayItineraryItemCreateWithoutTourInput = {
+    id?: string
+    dayNumber: number
+    title: string
+    content?: string | null
+    meals?: DayItineraryItemCreatemealsInput | $Enums.Meals[]
+    duration?: number | null
+    images?: ImageCreateNestedManyWithoutDayItineraryImagesInput
+  }
+
+  export type DayItineraryItemUncheckedCreateWithoutTourInput = {
+    id?: string
+    dayNumber: number
+    title: string
+    content?: string | null
+    meals?: DayItineraryItemCreatemealsInput | $Enums.Meals[]
+    duration?: number | null
+    images?: ImageUncheckedCreateNestedManyWithoutDayItineraryImagesInput
+  }
+
+  export type DayItineraryItemCreateOrConnectWithoutTourInput = {
+    where: DayItineraryItemWhereUniqueInput
+    create: XOR<DayItineraryItemCreateWithoutTourInput, DayItineraryItemUncheckedCreateWithoutTourInput>
+  }
+
+  export type DayItineraryItemCreateManyTourInputEnvelope = {
+    data: DayItineraryItemCreateManyTourInput | DayItineraryItemCreateManyTourInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TourCityUpsertWithWhereUniqueWithoutTourInput = {
+    where: TourCityWhereUniqueInput
+    update: XOR<TourCityUpdateWithoutTourInput, TourCityUncheckedUpdateWithoutTourInput>
+    create: XOR<TourCityCreateWithoutTourInput, TourCityUncheckedCreateWithoutTourInput>
+  }
+
+  export type TourCityUpdateWithWhereUniqueWithoutTourInput = {
+    where: TourCityWhereUniqueInput
+    data: XOR<TourCityUpdateWithoutTourInput, TourCityUncheckedUpdateWithoutTourInput>
+  }
+
+  export type TourCityUpdateManyWithWhereWithoutTourInput = {
+    where: TourCityScalarWhereInput
+    data: XOR<TourCityUpdateManyMutationInput, TourCityUncheckedUpdateManyWithoutTourInput>
+  }
+
+  export type ImageUpsertWithoutTourThumbnailInput = {
+    update: XOR<ImageUpdateWithoutTourThumbnailInput, ImageUncheckedUpdateWithoutTourThumbnailInput>
+    create: XOR<ImageCreateWithoutTourThumbnailInput, ImageUncheckedCreateWithoutTourThumbnailInput>
+    where?: ImageWhereInput
+  }
+
+  export type ImageUpdateToOneWithWhereWithoutTourThumbnailInput = {
+    where?: ImageWhereInput
+    data: XOR<ImageUpdateWithoutTourThumbnailInput, ImageUncheckedUpdateWithoutTourThumbnailInput>
+  }
+
+  export type ImageUpdateWithoutTourThumbnailInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    attractionThumbnail?: AttractionUpdateOneWithoutThumbnailNestedInput
+    destinationThumbnail?: DestinationUpdateOneWithoutThumbnailNestedInput
+    tourImages?: TourUpdateOneWithoutImagesNestedInput
+    attractionImages?: AttractionUpdateOneWithoutImagesNestedInput
+    dayItineraryImages?: DayItineraryItemUpdateOneWithoutImagesNestedInput
+    destinationImages?: DestinationUpdateOneWithoutImagesNestedInput
+  }
+
+  export type ImageUncheckedUpdateWithoutTourThumbnailInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tourId?: NullableStringFieldUpdateOperationsInput | string | null
+    attractionId?: NullableStringFieldUpdateOperationsInput | string | null
+    dayItineraryItemId?: NullableStringFieldUpdateOperationsInput | string | null
+    destinationId?: NullableStringFieldUpdateOperationsInput | string | null
+    attractionThumbnail?: AttractionUncheckedUpdateOneWithoutThumbnailNestedInput
+    destinationThumbnail?: DestinationUncheckedUpdateOneWithoutThumbnailNestedInput
+  }
+
+  export type ImageUpsertWithWhereUniqueWithoutTourImagesInput = {
+    where: ImageWhereUniqueInput
+    update: XOR<ImageUpdateWithoutTourImagesInput, ImageUncheckedUpdateWithoutTourImagesInput>
+    create: XOR<ImageCreateWithoutTourImagesInput, ImageUncheckedCreateWithoutTourImagesInput>
+  }
+
+  export type ImageUpdateWithWhereUniqueWithoutTourImagesInput = {
+    where: ImageWhereUniqueInput
+    data: XOR<ImageUpdateWithoutTourImagesInput, ImageUncheckedUpdateWithoutTourImagesInput>
+  }
+
+  export type ImageUpdateManyWithWhereWithoutTourImagesInput = {
+    where: ImageScalarWhereInput
+    data: XOR<ImageUpdateManyMutationInput, ImageUncheckedUpdateManyWithoutTourImagesInput>
+  }
+
+  export type FAQUpsertWithWhereUniqueWithoutTourInput = {
+    where: FAQWhereUniqueInput
+    update: XOR<FAQUpdateWithoutTourInput, FAQUncheckedUpdateWithoutTourInput>
+    create: XOR<FAQCreateWithoutTourInput, FAQUncheckedCreateWithoutTourInput>
+  }
+
+  export type FAQUpdateWithWhereUniqueWithoutTourInput = {
+    where: FAQWhereUniqueInput
+    data: XOR<FAQUpdateWithoutTourInput, FAQUncheckedUpdateWithoutTourInput>
+  }
+
+  export type FAQUpdateManyWithWhereWithoutTourInput = {
+    where: FAQScalarWhereInput
+    data: XOR<FAQUpdateManyMutationInput, FAQUncheckedUpdateManyWithoutTourInput>
+  }
+
+  export type TourDestinationUpsertWithWhereUniqueWithoutTourInput = {
+    where: TourDestinationWhereUniqueInput
+    update: XOR<TourDestinationUpdateWithoutTourInput, TourDestinationUncheckedUpdateWithoutTourInput>
+    create: XOR<TourDestinationCreateWithoutTourInput, TourDestinationUncheckedCreateWithoutTourInput>
+  }
+
+  export type TourDestinationUpdateWithWhereUniqueWithoutTourInput = {
+    where: TourDestinationWhereUniqueInput
+    data: XOR<TourDestinationUpdateWithoutTourInput, TourDestinationUncheckedUpdateWithoutTourInput>
+  }
+
+  export type TourDestinationUpdateManyWithWhereWithoutTourInput = {
+    where: TourDestinationScalarWhereInput
+    data: XOR<TourDestinationUpdateManyMutationInput, TourDestinationUncheckedUpdateManyWithoutTourInput>
+  }
+
+  export type DayItineraryItemUpsertWithWhereUniqueWithoutTourInput = {
+    where: DayItineraryItemWhereUniqueInput
+    update: XOR<DayItineraryItemUpdateWithoutTourInput, DayItineraryItemUncheckedUpdateWithoutTourInput>
+    create: XOR<DayItineraryItemCreateWithoutTourInput, DayItineraryItemUncheckedCreateWithoutTourInput>
+  }
+
+  export type DayItineraryItemUpdateWithWhereUniqueWithoutTourInput = {
+    where: DayItineraryItemWhereUniqueInput
+    data: XOR<DayItineraryItemUpdateWithoutTourInput, DayItineraryItemUncheckedUpdateWithoutTourInput>
+  }
+
+  export type DayItineraryItemUpdateManyWithWhereWithoutTourInput = {
+    where: DayItineraryItemScalarWhereInput
+    data: XOR<DayItineraryItemUpdateManyMutationInput, DayItineraryItemUncheckedUpdateManyWithoutTourInput>
+  }
+
+  export type DayItineraryItemScalarWhereInput = {
+    AND?: DayItineraryItemScalarWhereInput | DayItineraryItemScalarWhereInput[]
+    OR?: DayItineraryItemScalarWhereInput[]
+    NOT?: DayItineraryItemScalarWhereInput | DayItineraryItemScalarWhereInput[]
+    id?: StringFilter<"DayItineraryItem"> | string
+    tourId?: StringFilter<"DayItineraryItem"> | string
+    dayNumber?: IntFilter<"DayItineraryItem"> | number
+    title?: StringFilter<"DayItineraryItem"> | string
+    content?: StringNullableFilter<"DayItineraryItem"> | string | null
+    meals?: EnumMealsNullableListFilter<"DayItineraryItem">
+    duration?: IntNullableFilter<"DayItineraryItem"> | number | null
+  }
+
+  export type TourCreateWithoutCitiesInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    duration?: number | null
+    tourType?: $Enums.TourType | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    currency?: string | null
+    highlights?: TourCreatehighlightsInput | string[]
+    inclusions?: TourCreateinclusionsInput | string[]
+    exclusions?: TourCreateexclusionsInput | string[]
+    terms?: TourCreatetermsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    thumbnail?: ImageCreateNestedOneWithoutTourThumbnailInput
+    images?: ImageCreateNestedManyWithoutTourImagesInput
+    faqs?: FAQCreateNestedManyWithoutTourInput
+    destinations?: TourDestinationCreateNestedManyWithoutTourInput
+    itinerary?: DayItineraryItemCreateNestedManyWithoutTourInput
+  }
+
+  export type TourUncheckedCreateWithoutCitiesInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    duration?: number | null
+    tourType?: $Enums.TourType | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    currency?: string | null
+    thumbnailId?: string | null
+    highlights?: TourCreatehighlightsInput | string[]
+    inclusions?: TourCreateinclusionsInput | string[]
+    exclusions?: TourCreateexclusionsInput | string[]
+    terms?: TourCreatetermsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    images?: ImageUncheckedCreateNestedManyWithoutTourImagesInput
+    faqs?: FAQUncheckedCreateNestedManyWithoutTourInput
+    destinations?: TourDestinationUncheckedCreateNestedManyWithoutTourInput
+    itinerary?: DayItineraryItemUncheckedCreateNestedManyWithoutTourInput
+  }
+
+  export type TourCreateOrConnectWithoutCitiesInput = {
+    where: TourWhereUniqueInput
+    create: XOR<TourCreateWithoutCitiesInput, TourUncheckedCreateWithoutCitiesInput>
+  }
+
+  export type CityCreateWithoutToursInput = {
+    id?: string
+    name: string
+    slug: string
+    destination?: DestinationCreateNestedOneWithoutCitiesInput
+  }
+
+  export type CityUncheckedCreateWithoutToursInput = {
+    id?: string
+    name: string
+    slug: string
+    destinationId?: string | null
+  }
+
+  export type CityCreateOrConnectWithoutToursInput = {
+    where: CityWhereUniqueInput
+    create: XOR<CityCreateWithoutToursInput, CityUncheckedCreateWithoutToursInput>
+  }
+
+  export type TourUpsertWithoutCitiesInput = {
+    update: XOR<TourUpdateWithoutCitiesInput, TourUncheckedUpdateWithoutCitiesInput>
+    create: XOR<TourCreateWithoutCitiesInput, TourUncheckedCreateWithoutCitiesInput>
+    where?: TourWhereInput
+  }
+
+  export type TourUpdateToOneWithWhereWithoutCitiesInput = {
+    where?: TourWhereInput
+    data: XOR<TourUpdateWithoutCitiesInput, TourUncheckedUpdateWithoutCitiesInput>
+  }
+
+  export type TourUpdateWithoutCitiesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    tourType?: NullableEnumTourTypeFieldUpdateOperationsInput | $Enums.TourType | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    highlights?: TourUpdatehighlightsInput | string[]
+    inclusions?: TourUpdateinclusionsInput | string[]
+    exclusions?: TourUpdateexclusionsInput | string[]
+    terms?: TourUpdatetermsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    thumbnail?: ImageUpdateOneWithoutTourThumbnailNestedInput
+    images?: ImageUpdateManyWithoutTourImagesNestedInput
+    faqs?: FAQUpdateManyWithoutTourNestedInput
+    destinations?: TourDestinationUpdateManyWithoutTourNestedInput
+    itinerary?: DayItineraryItemUpdateManyWithoutTourNestedInput
+  }
+
+  export type TourUncheckedUpdateWithoutCitiesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    tourType?: NullableEnumTourTypeFieldUpdateOperationsInput | $Enums.TourType | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailId?: NullableStringFieldUpdateOperationsInput | string | null
+    highlights?: TourUpdatehighlightsInput | string[]
+    inclusions?: TourUpdateinclusionsInput | string[]
+    exclusions?: TourUpdateexclusionsInput | string[]
+    terms?: TourUpdatetermsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    images?: ImageUncheckedUpdateManyWithoutTourImagesNestedInput
+    faqs?: FAQUncheckedUpdateManyWithoutTourNestedInput
+    destinations?: TourDestinationUncheckedUpdateManyWithoutTourNestedInput
+    itinerary?: DayItineraryItemUncheckedUpdateManyWithoutTourNestedInput
+  }
+
+  export type CityUpsertWithoutToursInput = {
+    update: XOR<CityUpdateWithoutToursInput, CityUncheckedUpdateWithoutToursInput>
+    create: XOR<CityCreateWithoutToursInput, CityUncheckedCreateWithoutToursInput>
+    where?: CityWhereInput
+  }
+
+  export type CityUpdateToOneWithWhereWithoutToursInput = {
+    where?: CityWhereInput
+    data: XOR<CityUpdateWithoutToursInput, CityUncheckedUpdateWithoutToursInput>
+  }
+
+  export type CityUpdateWithoutToursInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    destination?: DestinationUpdateOneWithoutCitiesNestedInput
+  }
+
+  export type CityUncheckedUpdateWithoutToursInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    destinationId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TourCreateWithoutDestinationsInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    duration?: number | null
+    tourType?: $Enums.TourType | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    currency?: string | null
+    highlights?: TourCreatehighlightsInput | string[]
+    inclusions?: TourCreateinclusionsInput | string[]
+    exclusions?: TourCreateexclusionsInput | string[]
+    terms?: TourCreatetermsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: TourCityCreateNestedManyWithoutTourInput
+    thumbnail?: ImageCreateNestedOneWithoutTourThumbnailInput
+    images?: ImageCreateNestedManyWithoutTourImagesInput
+    faqs?: FAQCreateNestedManyWithoutTourInput
+    itinerary?: DayItineraryItemCreateNestedManyWithoutTourInput
+  }
+
+  export type TourUncheckedCreateWithoutDestinationsInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    duration?: number | null
+    tourType?: $Enums.TourType | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    currency?: string | null
+    thumbnailId?: string | null
+    highlights?: TourCreatehighlightsInput | string[]
+    inclusions?: TourCreateinclusionsInput | string[]
+    exclusions?: TourCreateexclusionsInput | string[]
+    terms?: TourCreatetermsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: TourCityUncheckedCreateNestedManyWithoutTourInput
+    images?: ImageUncheckedCreateNestedManyWithoutTourImagesInput
+    faqs?: FAQUncheckedCreateNestedManyWithoutTourInput
+    itinerary?: DayItineraryItemUncheckedCreateNestedManyWithoutTourInput
+  }
+
+  export type TourCreateOrConnectWithoutDestinationsInput = {
+    where: TourWhereUniqueInput
+    create: XOR<TourCreateWithoutDestinationsInput, TourUncheckedCreateWithoutDestinationsInput>
+  }
+
+  export type DestinationCreateWithoutToursInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    currency?: string | null
+    bestSeasonStart?: string | null
+    bestSeasonEnd?: string | null
+    languages?: DestinationCreatelanguagesInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: CityCreateNestedManyWithoutDestinationInput
+    thumbnail?: ImageCreateNestedOneWithoutDestinationThumbnailInput
+    images?: ImageCreateNestedManyWithoutDestinationImagesInput
+    faqs?: FAQCreateNestedManyWithoutDestinationInput
+  }
+
+  export type DestinationUncheckedCreateWithoutToursInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    currency?: string | null
+    bestSeasonStart?: string | null
+    bestSeasonEnd?: string | null
+    languages?: DestinationCreatelanguagesInput | string[]
+    thumbnailId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: CityUncheckedCreateNestedManyWithoutDestinationInput
+    images?: ImageUncheckedCreateNestedManyWithoutDestinationImagesInput
+    faqs?: FAQUncheckedCreateNestedManyWithoutDestinationInput
+  }
+
+  export type DestinationCreateOrConnectWithoutToursInput = {
+    where: DestinationWhereUniqueInput
+    create: XOR<DestinationCreateWithoutToursInput, DestinationUncheckedCreateWithoutToursInput>
+  }
+
+  export type TourUpsertWithoutDestinationsInput = {
+    update: XOR<TourUpdateWithoutDestinationsInput, TourUncheckedUpdateWithoutDestinationsInput>
+    create: XOR<TourCreateWithoutDestinationsInput, TourUncheckedCreateWithoutDestinationsInput>
+    where?: TourWhereInput
+  }
+
+  export type TourUpdateToOneWithWhereWithoutDestinationsInput = {
+    where?: TourWhereInput
+    data: XOR<TourUpdateWithoutDestinationsInput, TourUncheckedUpdateWithoutDestinationsInput>
+  }
+
+  export type TourUpdateWithoutDestinationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    tourType?: NullableEnumTourTypeFieldUpdateOperationsInput | $Enums.TourType | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    highlights?: TourUpdatehighlightsInput | string[]
+    inclusions?: TourUpdateinclusionsInput | string[]
+    exclusions?: TourUpdateexclusionsInput | string[]
+    terms?: TourUpdatetermsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: TourCityUpdateManyWithoutTourNestedInput
+    thumbnail?: ImageUpdateOneWithoutTourThumbnailNestedInput
+    images?: ImageUpdateManyWithoutTourImagesNestedInput
+    faqs?: FAQUpdateManyWithoutTourNestedInput
+    itinerary?: DayItineraryItemUpdateManyWithoutTourNestedInput
+  }
+
+  export type TourUncheckedUpdateWithoutDestinationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    tourType?: NullableEnumTourTypeFieldUpdateOperationsInput | $Enums.TourType | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailId?: NullableStringFieldUpdateOperationsInput | string | null
+    highlights?: TourUpdatehighlightsInput | string[]
+    inclusions?: TourUpdateinclusionsInput | string[]
+    exclusions?: TourUpdateexclusionsInput | string[]
+    terms?: TourUpdatetermsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: TourCityUncheckedUpdateManyWithoutTourNestedInput
+    images?: ImageUncheckedUpdateManyWithoutTourImagesNestedInput
+    faqs?: FAQUncheckedUpdateManyWithoutTourNestedInput
+    itinerary?: DayItineraryItemUncheckedUpdateManyWithoutTourNestedInput
+  }
+
+  export type DestinationUpsertWithoutToursInput = {
+    update: XOR<DestinationUpdateWithoutToursInput, DestinationUncheckedUpdateWithoutToursInput>
+    create: XOR<DestinationCreateWithoutToursInput, DestinationUncheckedCreateWithoutToursInput>
+    where?: DestinationWhereInput
+  }
+
+  export type DestinationUpdateToOneWithWhereWithoutToursInput = {
+    where?: DestinationWhereInput
+    data: XOR<DestinationUpdateWithoutToursInput, DestinationUncheckedUpdateWithoutToursInput>
+  }
+
+  export type DestinationUpdateWithoutToursInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonStart?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonEnd?: NullableStringFieldUpdateOperationsInput | string | null
+    languages?: DestinationUpdatelanguagesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: CityUpdateManyWithoutDestinationNestedInput
+    thumbnail?: ImageUpdateOneWithoutDestinationThumbnailNestedInput
+    images?: ImageUpdateManyWithoutDestinationImagesNestedInput
+    faqs?: FAQUpdateManyWithoutDestinationNestedInput
+  }
+
+  export type DestinationUncheckedUpdateWithoutToursInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonStart?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonEnd?: NullableStringFieldUpdateOperationsInput | string | null
+    languages?: DestinationUpdatelanguagesInput | string[]
+    thumbnailId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: CityUncheckedUpdateManyWithoutDestinationNestedInput
+    images?: ImageUncheckedUpdateManyWithoutDestinationImagesNestedInput
+    faqs?: FAQUncheckedUpdateManyWithoutDestinationNestedInput
+  }
+
+  export type ImageCreateWithoutAttractionThumbnailInput = {
+    id?: string
+    bucketName: string
+    fileName: string
+    altText?: string | null
+    keywords?: ImageCreatekeywordsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tourThumbnail?: TourCreateNestedOneWithoutThumbnailInput
+    destinationThumbnail?: DestinationCreateNestedOneWithoutThumbnailInput
+    tourImages?: TourCreateNestedOneWithoutImagesInput
+    attractionImages?: AttractionCreateNestedOneWithoutImagesInput
+    dayItineraryImages?: DayItineraryItemCreateNestedOneWithoutImagesInput
+    destinationImages?: DestinationCreateNestedOneWithoutImagesInput
+  }
+
+  export type ImageUncheckedCreateWithoutAttractionThumbnailInput = {
+    id?: string
+    bucketName: string
+    fileName: string
+    altText?: string | null
+    keywords?: ImageCreatekeywordsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tourId?: string | null
+    attractionId?: string | null
+    dayItineraryItemId?: string | null
+    destinationId?: string | null
+    tourThumbnail?: TourUncheckedCreateNestedOneWithoutThumbnailInput
+    destinationThumbnail?: DestinationUncheckedCreateNestedOneWithoutThumbnailInput
+  }
+
+  export type ImageCreateOrConnectWithoutAttractionThumbnailInput = {
+    where: ImageWhereUniqueInput
+    create: XOR<ImageCreateWithoutAttractionThumbnailInput, ImageUncheckedCreateWithoutAttractionThumbnailInput>
+  }
+
+  export type ImageCreateWithoutAttractionImagesInput = {
+    id?: string
+    bucketName: string
+    fileName: string
+    altText?: string | null
+    keywords?: ImageCreatekeywordsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tourThumbnail?: TourCreateNestedOneWithoutThumbnailInput
+    attractionThumbnail?: AttractionCreateNestedOneWithoutThumbnailInput
+    destinationThumbnail?: DestinationCreateNestedOneWithoutThumbnailInput
+    tourImages?: TourCreateNestedOneWithoutImagesInput
+    dayItineraryImages?: DayItineraryItemCreateNestedOneWithoutImagesInput
+    destinationImages?: DestinationCreateNestedOneWithoutImagesInput
+  }
+
+  export type ImageUncheckedCreateWithoutAttractionImagesInput = {
+    id?: string
+    bucketName: string
+    fileName: string
+    altText?: string | null
+    keywords?: ImageCreatekeywordsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tourId?: string | null
+    dayItineraryItemId?: string | null
+    destinationId?: string | null
+    tourThumbnail?: TourUncheckedCreateNestedOneWithoutThumbnailInput
+    attractionThumbnail?: AttractionUncheckedCreateNestedOneWithoutThumbnailInput
+    destinationThumbnail?: DestinationUncheckedCreateNestedOneWithoutThumbnailInput
+  }
+
+  export type ImageCreateOrConnectWithoutAttractionImagesInput = {
+    where: ImageWhereUniqueInput
+    create: XOR<ImageCreateWithoutAttractionImagesInput, ImageUncheckedCreateWithoutAttractionImagesInput>
+  }
+
+  export type ImageCreateManyAttractionImagesInputEnvelope = {
+    data: ImageCreateManyAttractionImagesInput | ImageCreateManyAttractionImagesInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FAQCreateWithoutAttractionInput = {
+    id?: string
+    question: string
+    answer: string
+    tour?: TourCreateNestedOneWithoutFaqsInput
+    destination?: DestinationCreateNestedOneWithoutFaqsInput
+  }
+
+  export type FAQUncheckedCreateWithoutAttractionInput = {
+    id?: string
+    question: string
+    answer: string
+    tourId?: string | null
+    destinationId?: string | null
+  }
+
+  export type FAQCreateOrConnectWithoutAttractionInput = {
+    where: FAQWhereUniqueInput
+    create: XOR<FAQCreateWithoutAttractionInput, FAQUncheckedCreateWithoutAttractionInput>
+  }
+
+  export type FAQCreateManyAttractionInputEnvelope = {
+    data: FAQCreateManyAttractionInput | FAQCreateManyAttractionInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ImageUpsertWithoutAttractionThumbnailInput = {
+    update: XOR<ImageUpdateWithoutAttractionThumbnailInput, ImageUncheckedUpdateWithoutAttractionThumbnailInput>
+    create: XOR<ImageCreateWithoutAttractionThumbnailInput, ImageUncheckedCreateWithoutAttractionThumbnailInput>
+    where?: ImageWhereInput
+  }
+
+  export type ImageUpdateToOneWithWhereWithoutAttractionThumbnailInput = {
+    where?: ImageWhereInput
+    data: XOR<ImageUpdateWithoutAttractionThumbnailInput, ImageUncheckedUpdateWithoutAttractionThumbnailInput>
+  }
+
+  export type ImageUpdateWithoutAttractionThumbnailInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tourThumbnail?: TourUpdateOneWithoutThumbnailNestedInput
+    destinationThumbnail?: DestinationUpdateOneWithoutThumbnailNestedInput
+    tourImages?: TourUpdateOneWithoutImagesNestedInput
+    attractionImages?: AttractionUpdateOneWithoutImagesNestedInput
+    dayItineraryImages?: DayItineraryItemUpdateOneWithoutImagesNestedInput
+    destinationImages?: DestinationUpdateOneWithoutImagesNestedInput
+  }
+
+  export type ImageUncheckedUpdateWithoutAttractionThumbnailInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tourId?: NullableStringFieldUpdateOperationsInput | string | null
+    attractionId?: NullableStringFieldUpdateOperationsInput | string | null
+    dayItineraryItemId?: NullableStringFieldUpdateOperationsInput | string | null
+    destinationId?: NullableStringFieldUpdateOperationsInput | string | null
+    tourThumbnail?: TourUncheckedUpdateOneWithoutThumbnailNestedInput
+    destinationThumbnail?: DestinationUncheckedUpdateOneWithoutThumbnailNestedInput
+  }
+
+  export type ImageUpsertWithWhereUniqueWithoutAttractionImagesInput = {
+    where: ImageWhereUniqueInput
+    update: XOR<ImageUpdateWithoutAttractionImagesInput, ImageUncheckedUpdateWithoutAttractionImagesInput>
+    create: XOR<ImageCreateWithoutAttractionImagesInput, ImageUncheckedCreateWithoutAttractionImagesInput>
+  }
+
+  export type ImageUpdateWithWhereUniqueWithoutAttractionImagesInput = {
+    where: ImageWhereUniqueInput
+    data: XOR<ImageUpdateWithoutAttractionImagesInput, ImageUncheckedUpdateWithoutAttractionImagesInput>
+  }
+
+  export type ImageUpdateManyWithWhereWithoutAttractionImagesInput = {
+    where: ImageScalarWhereInput
+    data: XOR<ImageUpdateManyMutationInput, ImageUncheckedUpdateManyWithoutAttractionImagesInput>
+  }
+
+  export type FAQUpsertWithWhereUniqueWithoutAttractionInput = {
+    where: FAQWhereUniqueInput
+    update: XOR<FAQUpdateWithoutAttractionInput, FAQUncheckedUpdateWithoutAttractionInput>
+    create: XOR<FAQCreateWithoutAttractionInput, FAQUncheckedCreateWithoutAttractionInput>
+  }
+
+  export type FAQUpdateWithWhereUniqueWithoutAttractionInput = {
+    where: FAQWhereUniqueInput
+    data: XOR<FAQUpdateWithoutAttractionInput, FAQUncheckedUpdateWithoutAttractionInput>
+  }
+
+  export type FAQUpdateManyWithWhereWithoutAttractionInput = {
+    where: FAQScalarWhereInput
+    data: XOR<FAQUpdateManyMutationInput, FAQUncheckedUpdateManyWithoutAttractionInput>
+  }
+
+  export type AttractionCreateWithoutFaqsInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    duration?: number | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    inclusions?: AttractionCreateinclusionsInput | string[]
+    exclusions?: AttractionCreateexclusionsInput | string[]
+    terms?: AttractionCreatetermsInput | string[]
+    cityId: string
+    thumbnail?: ImageCreateNestedOneWithoutAttractionThumbnailInput
+    images?: ImageCreateNestedManyWithoutAttractionImagesInput
+  }
+
+  export type AttractionUncheckedCreateWithoutFaqsInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    duration?: number | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    thumbnailId?: string | null
+    inclusions?: AttractionCreateinclusionsInput | string[]
+    exclusions?: AttractionCreateexclusionsInput | string[]
+    terms?: AttractionCreatetermsInput | string[]
+    cityId: string
+    images?: ImageUncheckedCreateNestedManyWithoutAttractionImagesInput
+  }
+
+  export type AttractionCreateOrConnectWithoutFaqsInput = {
+    where: AttractionWhereUniqueInput
+    create: XOR<AttractionCreateWithoutFaqsInput, AttractionUncheckedCreateWithoutFaqsInput>
+  }
+
+  export type TourCreateWithoutFaqsInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    duration?: number | null
+    tourType?: $Enums.TourType | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    currency?: string | null
+    highlights?: TourCreatehighlightsInput | string[]
+    inclusions?: TourCreateinclusionsInput | string[]
+    exclusions?: TourCreateexclusionsInput | string[]
+    terms?: TourCreatetermsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: TourCityCreateNestedManyWithoutTourInput
+    thumbnail?: ImageCreateNestedOneWithoutTourThumbnailInput
+    images?: ImageCreateNestedManyWithoutTourImagesInput
+    destinations?: TourDestinationCreateNestedManyWithoutTourInput
+    itinerary?: DayItineraryItemCreateNestedManyWithoutTourInput
+  }
+
+  export type TourUncheckedCreateWithoutFaqsInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    duration?: number | null
+    tourType?: $Enums.TourType | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    currency?: string | null
+    thumbnailId?: string | null
+    highlights?: TourCreatehighlightsInput | string[]
+    inclusions?: TourCreateinclusionsInput | string[]
+    exclusions?: TourCreateexclusionsInput | string[]
+    terms?: TourCreatetermsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: TourCityUncheckedCreateNestedManyWithoutTourInput
+    images?: ImageUncheckedCreateNestedManyWithoutTourImagesInput
+    destinations?: TourDestinationUncheckedCreateNestedManyWithoutTourInput
+    itinerary?: DayItineraryItemUncheckedCreateNestedManyWithoutTourInput
+  }
+
+  export type TourCreateOrConnectWithoutFaqsInput = {
+    where: TourWhereUniqueInput
+    create: XOR<TourCreateWithoutFaqsInput, TourUncheckedCreateWithoutFaqsInput>
+  }
+
+  export type DestinationCreateWithoutFaqsInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    currency?: string | null
+    bestSeasonStart?: string | null
+    bestSeasonEnd?: string | null
+    languages?: DestinationCreatelanguagesInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: CityCreateNestedManyWithoutDestinationInput
+    tours?: TourDestinationCreateNestedManyWithoutDestinationInput
+    thumbnail?: ImageCreateNestedOneWithoutDestinationThumbnailInput
+    images?: ImageCreateNestedManyWithoutDestinationImagesInput
+  }
+
+  export type DestinationUncheckedCreateWithoutFaqsInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    currency?: string | null
+    bestSeasonStart?: string | null
+    bestSeasonEnd?: string | null
+    languages?: DestinationCreatelanguagesInput | string[]
+    thumbnailId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: CityUncheckedCreateNestedManyWithoutDestinationInput
+    tours?: TourDestinationUncheckedCreateNestedManyWithoutDestinationInput
+    images?: ImageUncheckedCreateNestedManyWithoutDestinationImagesInput
+  }
+
+  export type DestinationCreateOrConnectWithoutFaqsInput = {
+    where: DestinationWhereUniqueInput
+    create: XOR<DestinationCreateWithoutFaqsInput, DestinationUncheckedCreateWithoutFaqsInput>
+  }
+
+  export type AttractionUpsertWithoutFaqsInput = {
+    update: XOR<AttractionUpdateWithoutFaqsInput, AttractionUncheckedUpdateWithoutFaqsInput>
+    create: XOR<AttractionCreateWithoutFaqsInput, AttractionUncheckedCreateWithoutFaqsInput>
+    where?: AttractionWhereInput
+  }
+
+  export type AttractionUpdateToOneWithWhereWithoutFaqsInput = {
+    where?: AttractionWhereInput
+    data: XOR<AttractionUpdateWithoutFaqsInput, AttractionUncheckedUpdateWithoutFaqsInput>
+  }
+
+  export type AttractionUpdateWithoutFaqsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    inclusions?: AttractionUpdateinclusionsInput | string[]
+    exclusions?: AttractionUpdateexclusionsInput | string[]
+    terms?: AttractionUpdatetermsInput | string[]
+    cityId?: StringFieldUpdateOperationsInput | string
+    thumbnail?: ImageUpdateOneWithoutAttractionThumbnailNestedInput
+    images?: ImageUpdateManyWithoutAttractionImagesNestedInput
+  }
+
+  export type AttractionUncheckedUpdateWithoutFaqsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    thumbnailId?: NullableStringFieldUpdateOperationsInput | string | null
+    inclusions?: AttractionUpdateinclusionsInput | string[]
+    exclusions?: AttractionUpdateexclusionsInput | string[]
+    terms?: AttractionUpdatetermsInput | string[]
+    cityId?: StringFieldUpdateOperationsInput | string
+    images?: ImageUncheckedUpdateManyWithoutAttractionImagesNestedInput
+  }
+
+  export type TourUpsertWithoutFaqsInput = {
+    update: XOR<TourUpdateWithoutFaqsInput, TourUncheckedUpdateWithoutFaqsInput>
+    create: XOR<TourCreateWithoutFaqsInput, TourUncheckedCreateWithoutFaqsInput>
+    where?: TourWhereInput
+  }
+
+  export type TourUpdateToOneWithWhereWithoutFaqsInput = {
+    where?: TourWhereInput
+    data: XOR<TourUpdateWithoutFaqsInput, TourUncheckedUpdateWithoutFaqsInput>
+  }
+
+  export type TourUpdateWithoutFaqsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    tourType?: NullableEnumTourTypeFieldUpdateOperationsInput | $Enums.TourType | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    highlights?: TourUpdatehighlightsInput | string[]
+    inclusions?: TourUpdateinclusionsInput | string[]
+    exclusions?: TourUpdateexclusionsInput | string[]
+    terms?: TourUpdatetermsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: TourCityUpdateManyWithoutTourNestedInput
+    thumbnail?: ImageUpdateOneWithoutTourThumbnailNestedInput
+    images?: ImageUpdateManyWithoutTourImagesNestedInput
+    destinations?: TourDestinationUpdateManyWithoutTourNestedInput
+    itinerary?: DayItineraryItemUpdateManyWithoutTourNestedInput
+  }
+
+  export type TourUncheckedUpdateWithoutFaqsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    tourType?: NullableEnumTourTypeFieldUpdateOperationsInput | $Enums.TourType | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailId?: NullableStringFieldUpdateOperationsInput | string | null
+    highlights?: TourUpdatehighlightsInput | string[]
+    inclusions?: TourUpdateinclusionsInput | string[]
+    exclusions?: TourUpdateexclusionsInput | string[]
+    terms?: TourUpdatetermsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: TourCityUncheckedUpdateManyWithoutTourNestedInput
+    images?: ImageUncheckedUpdateManyWithoutTourImagesNestedInput
+    destinations?: TourDestinationUncheckedUpdateManyWithoutTourNestedInput
+    itinerary?: DayItineraryItemUncheckedUpdateManyWithoutTourNestedInput
+  }
+
+  export type DestinationUpsertWithoutFaqsInput = {
+    update: XOR<DestinationUpdateWithoutFaqsInput, DestinationUncheckedUpdateWithoutFaqsInput>
+    create: XOR<DestinationCreateWithoutFaqsInput, DestinationUncheckedCreateWithoutFaqsInput>
+    where?: DestinationWhereInput
+  }
+
+  export type DestinationUpdateToOneWithWhereWithoutFaqsInput = {
+    where?: DestinationWhereInput
+    data: XOR<DestinationUpdateWithoutFaqsInput, DestinationUncheckedUpdateWithoutFaqsInput>
+  }
+
+  export type DestinationUpdateWithoutFaqsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonStart?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonEnd?: NullableStringFieldUpdateOperationsInput | string | null
+    languages?: DestinationUpdatelanguagesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: CityUpdateManyWithoutDestinationNestedInput
+    tours?: TourDestinationUpdateManyWithoutDestinationNestedInput
+    thumbnail?: ImageUpdateOneWithoutDestinationThumbnailNestedInput
+    images?: ImageUpdateManyWithoutDestinationImagesNestedInput
+  }
+
+  export type DestinationUncheckedUpdateWithoutFaqsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonStart?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonEnd?: NullableStringFieldUpdateOperationsInput | string | null
+    languages?: DestinationUpdatelanguagesInput | string[]
+    thumbnailId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: CityUncheckedUpdateManyWithoutDestinationNestedInput
+    tours?: TourDestinationUncheckedUpdateManyWithoutDestinationNestedInput
+    images?: ImageUncheckedUpdateManyWithoutDestinationImagesNestedInput
+  }
+
+  export type TourCreateWithoutItineraryInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    duration?: number | null
+    tourType?: $Enums.TourType | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    currency?: string | null
+    highlights?: TourCreatehighlightsInput | string[]
+    inclusions?: TourCreateinclusionsInput | string[]
+    exclusions?: TourCreateexclusionsInput | string[]
+    terms?: TourCreatetermsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: TourCityCreateNestedManyWithoutTourInput
+    thumbnail?: ImageCreateNestedOneWithoutTourThumbnailInput
+    images?: ImageCreateNestedManyWithoutTourImagesInput
+    faqs?: FAQCreateNestedManyWithoutTourInput
+    destinations?: TourDestinationCreateNestedManyWithoutTourInput
+  }
+
+  export type TourUncheckedCreateWithoutItineraryInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    duration?: number | null
+    tourType?: $Enums.TourType | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    currency?: string | null
+    thumbnailId?: string | null
+    highlights?: TourCreatehighlightsInput | string[]
+    inclusions?: TourCreateinclusionsInput | string[]
+    exclusions?: TourCreateexclusionsInput | string[]
+    terms?: TourCreatetermsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: TourCityUncheckedCreateNestedManyWithoutTourInput
+    images?: ImageUncheckedCreateNestedManyWithoutTourImagesInput
+    faqs?: FAQUncheckedCreateNestedManyWithoutTourInput
+    destinations?: TourDestinationUncheckedCreateNestedManyWithoutTourInput
+  }
+
+  export type TourCreateOrConnectWithoutItineraryInput = {
+    where: TourWhereUniqueInput
+    create: XOR<TourCreateWithoutItineraryInput, TourUncheckedCreateWithoutItineraryInput>
+  }
+
+  export type ImageCreateWithoutDayItineraryImagesInput = {
+    id?: string
+    bucketName: string
+    fileName: string
+    altText?: string | null
+    keywords?: ImageCreatekeywordsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tourThumbnail?: TourCreateNestedOneWithoutThumbnailInput
+    attractionThumbnail?: AttractionCreateNestedOneWithoutThumbnailInput
+    destinationThumbnail?: DestinationCreateNestedOneWithoutThumbnailInput
+    tourImages?: TourCreateNestedOneWithoutImagesInput
+    attractionImages?: AttractionCreateNestedOneWithoutImagesInput
+    destinationImages?: DestinationCreateNestedOneWithoutImagesInput
+  }
+
+  export type ImageUncheckedCreateWithoutDayItineraryImagesInput = {
+    id?: string
+    bucketName: string
+    fileName: string
+    altText?: string | null
+    keywords?: ImageCreatekeywordsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tourId?: string | null
+    attractionId?: string | null
+    destinationId?: string | null
+    tourThumbnail?: TourUncheckedCreateNestedOneWithoutThumbnailInput
+    attractionThumbnail?: AttractionUncheckedCreateNestedOneWithoutThumbnailInput
+    destinationThumbnail?: DestinationUncheckedCreateNestedOneWithoutThumbnailInput
+  }
+
+  export type ImageCreateOrConnectWithoutDayItineraryImagesInput = {
+    where: ImageWhereUniqueInput
+    create: XOR<ImageCreateWithoutDayItineraryImagesInput, ImageUncheckedCreateWithoutDayItineraryImagesInput>
+  }
+
+  export type ImageCreateManyDayItineraryImagesInputEnvelope = {
+    data: ImageCreateManyDayItineraryImagesInput | ImageCreateManyDayItineraryImagesInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TourUpsertWithoutItineraryInput = {
+    update: XOR<TourUpdateWithoutItineraryInput, TourUncheckedUpdateWithoutItineraryInput>
+    create: XOR<TourCreateWithoutItineraryInput, TourUncheckedCreateWithoutItineraryInput>
+    where?: TourWhereInput
+  }
+
+  export type TourUpdateToOneWithWhereWithoutItineraryInput = {
+    where?: TourWhereInput
+    data: XOR<TourUpdateWithoutItineraryInput, TourUncheckedUpdateWithoutItineraryInput>
+  }
+
+  export type TourUpdateWithoutItineraryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    tourType?: NullableEnumTourTypeFieldUpdateOperationsInput | $Enums.TourType | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    highlights?: TourUpdatehighlightsInput | string[]
+    inclusions?: TourUpdateinclusionsInput | string[]
+    exclusions?: TourUpdateexclusionsInput | string[]
+    terms?: TourUpdatetermsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: TourCityUpdateManyWithoutTourNestedInput
+    thumbnail?: ImageUpdateOneWithoutTourThumbnailNestedInput
+    images?: ImageUpdateManyWithoutTourImagesNestedInput
+    faqs?: FAQUpdateManyWithoutTourNestedInput
+    destinations?: TourDestinationUpdateManyWithoutTourNestedInput
+  }
+
+  export type TourUncheckedUpdateWithoutItineraryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    tourType?: NullableEnumTourTypeFieldUpdateOperationsInput | $Enums.TourType | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailId?: NullableStringFieldUpdateOperationsInput | string | null
+    highlights?: TourUpdatehighlightsInput | string[]
+    inclusions?: TourUpdateinclusionsInput | string[]
+    exclusions?: TourUpdateexclusionsInput | string[]
+    terms?: TourUpdatetermsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: TourCityUncheckedUpdateManyWithoutTourNestedInput
+    images?: ImageUncheckedUpdateManyWithoutTourImagesNestedInput
+    faqs?: FAQUncheckedUpdateManyWithoutTourNestedInput
+    destinations?: TourDestinationUncheckedUpdateManyWithoutTourNestedInput
+  }
+
+  export type ImageUpsertWithWhereUniqueWithoutDayItineraryImagesInput = {
+    where: ImageWhereUniqueInput
+    update: XOR<ImageUpdateWithoutDayItineraryImagesInput, ImageUncheckedUpdateWithoutDayItineraryImagesInput>
+    create: XOR<ImageCreateWithoutDayItineraryImagesInput, ImageUncheckedCreateWithoutDayItineraryImagesInput>
+  }
+
+  export type ImageUpdateWithWhereUniqueWithoutDayItineraryImagesInput = {
+    where: ImageWhereUniqueInput
+    data: XOR<ImageUpdateWithoutDayItineraryImagesInput, ImageUncheckedUpdateWithoutDayItineraryImagesInput>
+  }
+
+  export type ImageUpdateManyWithWhereWithoutDayItineraryImagesInput = {
+    where: ImageScalarWhereInput
+    data: XOR<ImageUpdateManyMutationInput, ImageUncheckedUpdateManyWithoutDayItineraryImagesInput>
+  }
+
+  export type TourCreateWithoutThumbnailInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    duration?: number | null
+    tourType?: $Enums.TourType | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    currency?: string | null
+    highlights?: TourCreatehighlightsInput | string[]
+    inclusions?: TourCreateinclusionsInput | string[]
+    exclusions?: TourCreateexclusionsInput | string[]
+    terms?: TourCreatetermsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: TourCityCreateNestedManyWithoutTourInput
+    images?: ImageCreateNestedManyWithoutTourImagesInput
+    faqs?: FAQCreateNestedManyWithoutTourInput
+    destinations?: TourDestinationCreateNestedManyWithoutTourInput
+    itinerary?: DayItineraryItemCreateNestedManyWithoutTourInput
+  }
+
+  export type TourUncheckedCreateWithoutThumbnailInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    duration?: number | null
+    tourType?: $Enums.TourType | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    currency?: string | null
+    highlights?: TourCreatehighlightsInput | string[]
+    inclusions?: TourCreateinclusionsInput | string[]
+    exclusions?: TourCreateexclusionsInput | string[]
+    terms?: TourCreatetermsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: TourCityUncheckedCreateNestedManyWithoutTourInput
+    images?: ImageUncheckedCreateNestedManyWithoutTourImagesInput
+    faqs?: FAQUncheckedCreateNestedManyWithoutTourInput
+    destinations?: TourDestinationUncheckedCreateNestedManyWithoutTourInput
+    itinerary?: DayItineraryItemUncheckedCreateNestedManyWithoutTourInput
+  }
+
+  export type TourCreateOrConnectWithoutThumbnailInput = {
+    where: TourWhereUniqueInput
+    create: XOR<TourCreateWithoutThumbnailInput, TourUncheckedCreateWithoutThumbnailInput>
+  }
+
+  export type AttractionCreateWithoutThumbnailInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    duration?: number | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    inclusions?: AttractionCreateinclusionsInput | string[]
+    exclusions?: AttractionCreateexclusionsInput | string[]
+    terms?: AttractionCreatetermsInput | string[]
+    cityId: string
+    images?: ImageCreateNestedManyWithoutAttractionImagesInput
+    faqs?: FAQCreateNestedManyWithoutAttractionInput
+  }
+
+  export type AttractionUncheckedCreateWithoutThumbnailInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    duration?: number | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    inclusions?: AttractionCreateinclusionsInput | string[]
+    exclusions?: AttractionCreateexclusionsInput | string[]
+    terms?: AttractionCreatetermsInput | string[]
+    cityId: string
+    images?: ImageUncheckedCreateNestedManyWithoutAttractionImagesInput
+    faqs?: FAQUncheckedCreateNestedManyWithoutAttractionInput
+  }
+
+  export type AttractionCreateOrConnectWithoutThumbnailInput = {
+    where: AttractionWhereUniqueInput
+    create: XOR<AttractionCreateWithoutThumbnailInput, AttractionUncheckedCreateWithoutThumbnailInput>
+  }
+
+  export type DestinationCreateWithoutThumbnailInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    currency?: string | null
+    bestSeasonStart?: string | null
+    bestSeasonEnd?: string | null
+    languages?: DestinationCreatelanguagesInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: CityCreateNestedManyWithoutDestinationInput
+    tours?: TourDestinationCreateNestedManyWithoutDestinationInput
+    images?: ImageCreateNestedManyWithoutDestinationImagesInput
+    faqs?: FAQCreateNestedManyWithoutDestinationInput
+  }
+
+  export type DestinationUncheckedCreateWithoutThumbnailInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    currency?: string | null
+    bestSeasonStart?: string | null
+    bestSeasonEnd?: string | null
+    languages?: DestinationCreatelanguagesInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: CityUncheckedCreateNestedManyWithoutDestinationInput
+    tours?: TourDestinationUncheckedCreateNestedManyWithoutDestinationInput
+    images?: ImageUncheckedCreateNestedManyWithoutDestinationImagesInput
+    faqs?: FAQUncheckedCreateNestedManyWithoutDestinationInput
+  }
+
+  export type DestinationCreateOrConnectWithoutThumbnailInput = {
+    where: DestinationWhereUniqueInput
+    create: XOR<DestinationCreateWithoutThumbnailInput, DestinationUncheckedCreateWithoutThumbnailInput>
+  }
+
+  export type TourCreateWithoutImagesInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    duration?: number | null
+    tourType?: $Enums.TourType | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    currency?: string | null
+    highlights?: TourCreatehighlightsInput | string[]
+    inclusions?: TourCreateinclusionsInput | string[]
+    exclusions?: TourCreateexclusionsInput | string[]
+    terms?: TourCreatetermsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: TourCityCreateNestedManyWithoutTourInput
+    thumbnail?: ImageCreateNestedOneWithoutTourThumbnailInput
+    faqs?: FAQCreateNestedManyWithoutTourInput
+    destinations?: TourDestinationCreateNestedManyWithoutTourInput
+    itinerary?: DayItineraryItemCreateNestedManyWithoutTourInput
+  }
+
+  export type TourUncheckedCreateWithoutImagesInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    duration?: number | null
+    tourType?: $Enums.TourType | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    currency?: string | null
+    thumbnailId?: string | null
+    highlights?: TourCreatehighlightsInput | string[]
+    inclusions?: TourCreateinclusionsInput | string[]
+    exclusions?: TourCreateexclusionsInput | string[]
+    terms?: TourCreatetermsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: TourCityUncheckedCreateNestedManyWithoutTourInput
+    faqs?: FAQUncheckedCreateNestedManyWithoutTourInput
+    destinations?: TourDestinationUncheckedCreateNestedManyWithoutTourInput
+    itinerary?: DayItineraryItemUncheckedCreateNestedManyWithoutTourInput
+  }
+
+  export type TourCreateOrConnectWithoutImagesInput = {
+    where: TourWhereUniqueInput
+    create: XOR<TourCreateWithoutImagesInput, TourUncheckedCreateWithoutImagesInput>
+  }
+
+  export type AttractionCreateWithoutImagesInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    duration?: number | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    inclusions?: AttractionCreateinclusionsInput | string[]
+    exclusions?: AttractionCreateexclusionsInput | string[]
+    terms?: AttractionCreatetermsInput | string[]
+    cityId: string
+    thumbnail?: ImageCreateNestedOneWithoutAttractionThumbnailInput
+    faqs?: FAQCreateNestedManyWithoutAttractionInput
+  }
+
+  export type AttractionUncheckedCreateWithoutImagesInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    duration?: number | null
+    price: Decimal | DecimalJsLike | number | string
+    offerPrice?: Decimal | DecimalJsLike | number | string | null
+    thumbnailId?: string | null
+    inclusions?: AttractionCreateinclusionsInput | string[]
+    exclusions?: AttractionCreateexclusionsInput | string[]
+    terms?: AttractionCreatetermsInput | string[]
+    cityId: string
+    faqs?: FAQUncheckedCreateNestedManyWithoutAttractionInput
+  }
+
+  export type AttractionCreateOrConnectWithoutImagesInput = {
+    where: AttractionWhereUniqueInput
+    create: XOR<AttractionCreateWithoutImagesInput, AttractionUncheckedCreateWithoutImagesInput>
+  }
+
+  export type DayItineraryItemCreateWithoutImagesInput = {
+    id?: string
+    dayNumber: number
+    title: string
+    content?: string | null
+    meals?: DayItineraryItemCreatemealsInput | $Enums.Meals[]
+    duration?: number | null
+    tour: TourCreateNestedOneWithoutItineraryInput
+  }
+
+  export type DayItineraryItemUncheckedCreateWithoutImagesInput = {
+    id?: string
+    tourId: string
+    dayNumber: number
+    title: string
+    content?: string | null
+    meals?: DayItineraryItemCreatemealsInput | $Enums.Meals[]
+    duration?: number | null
+  }
+
+  export type DayItineraryItemCreateOrConnectWithoutImagesInput = {
+    where: DayItineraryItemWhereUniqueInput
+    create: XOR<DayItineraryItemCreateWithoutImagesInput, DayItineraryItemUncheckedCreateWithoutImagesInput>
+  }
+
+  export type DestinationCreateWithoutImagesInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    currency?: string | null
+    bestSeasonStart?: string | null
+    bestSeasonEnd?: string | null
+    languages?: DestinationCreatelanguagesInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: CityCreateNestedManyWithoutDestinationInput
+    tours?: TourDestinationCreateNestedManyWithoutDestinationInput
+    thumbnail?: ImageCreateNestedOneWithoutDestinationThumbnailInput
+    faqs?: FAQCreateNestedManyWithoutDestinationInput
+  }
+
+  export type DestinationUncheckedCreateWithoutImagesInput = {
+    id?: string
+    name: string
+    slug: string
+    content?: string | null
+    featured?: boolean
+    currency?: string | null
+    bestSeasonStart?: string | null
+    bestSeasonEnd?: string | null
+    languages?: DestinationCreatelanguagesInput | string[]
+    thumbnailId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cities?: CityUncheckedCreateNestedManyWithoutDestinationInput
+    tours?: TourDestinationUncheckedCreateNestedManyWithoutDestinationInput
+    faqs?: FAQUncheckedCreateNestedManyWithoutDestinationInput
+  }
+
+  export type DestinationCreateOrConnectWithoutImagesInput = {
+    where: DestinationWhereUniqueInput
+    create: XOR<DestinationCreateWithoutImagesInput, DestinationUncheckedCreateWithoutImagesInput>
+  }
+
+  export type TourUpsertWithoutThumbnailInput = {
+    update: XOR<TourUpdateWithoutThumbnailInput, TourUncheckedUpdateWithoutThumbnailInput>
+    create: XOR<TourCreateWithoutThumbnailInput, TourUncheckedCreateWithoutThumbnailInput>
+    where?: TourWhereInput
+  }
+
+  export type TourUpdateToOneWithWhereWithoutThumbnailInput = {
+    where?: TourWhereInput
+    data: XOR<TourUpdateWithoutThumbnailInput, TourUncheckedUpdateWithoutThumbnailInput>
+  }
+
+  export type TourUpdateWithoutThumbnailInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    tourType?: NullableEnumTourTypeFieldUpdateOperationsInput | $Enums.TourType | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    highlights?: TourUpdatehighlightsInput | string[]
+    inclusions?: TourUpdateinclusionsInput | string[]
+    exclusions?: TourUpdateexclusionsInput | string[]
+    terms?: TourUpdatetermsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: TourCityUpdateManyWithoutTourNestedInput
+    images?: ImageUpdateManyWithoutTourImagesNestedInput
+    faqs?: FAQUpdateManyWithoutTourNestedInput
+    destinations?: TourDestinationUpdateManyWithoutTourNestedInput
+    itinerary?: DayItineraryItemUpdateManyWithoutTourNestedInput
+  }
+
+  export type TourUncheckedUpdateWithoutThumbnailInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    tourType?: NullableEnumTourTypeFieldUpdateOperationsInput | $Enums.TourType | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    highlights?: TourUpdatehighlightsInput | string[]
+    inclusions?: TourUpdateinclusionsInput | string[]
+    exclusions?: TourUpdateexclusionsInput | string[]
+    terms?: TourUpdatetermsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: TourCityUncheckedUpdateManyWithoutTourNestedInput
+    images?: ImageUncheckedUpdateManyWithoutTourImagesNestedInput
+    faqs?: FAQUncheckedUpdateManyWithoutTourNestedInput
+    destinations?: TourDestinationUncheckedUpdateManyWithoutTourNestedInput
+    itinerary?: DayItineraryItemUncheckedUpdateManyWithoutTourNestedInput
+  }
+
+  export type AttractionUpsertWithoutThumbnailInput = {
+    update: XOR<AttractionUpdateWithoutThumbnailInput, AttractionUncheckedUpdateWithoutThumbnailInput>
+    create: XOR<AttractionCreateWithoutThumbnailInput, AttractionUncheckedCreateWithoutThumbnailInput>
+    where?: AttractionWhereInput
+  }
+
+  export type AttractionUpdateToOneWithWhereWithoutThumbnailInput = {
+    where?: AttractionWhereInput
+    data: XOR<AttractionUpdateWithoutThumbnailInput, AttractionUncheckedUpdateWithoutThumbnailInput>
+  }
+
+  export type AttractionUpdateWithoutThumbnailInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    inclusions?: AttractionUpdateinclusionsInput | string[]
+    exclusions?: AttractionUpdateexclusionsInput | string[]
+    terms?: AttractionUpdatetermsInput | string[]
+    cityId?: StringFieldUpdateOperationsInput | string
+    images?: ImageUpdateManyWithoutAttractionImagesNestedInput
+    faqs?: FAQUpdateManyWithoutAttractionNestedInput
+  }
+
+  export type AttractionUncheckedUpdateWithoutThumbnailInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    inclusions?: AttractionUpdateinclusionsInput | string[]
+    exclusions?: AttractionUpdateexclusionsInput | string[]
+    terms?: AttractionUpdatetermsInput | string[]
+    cityId?: StringFieldUpdateOperationsInput | string
+    images?: ImageUncheckedUpdateManyWithoutAttractionImagesNestedInput
+    faqs?: FAQUncheckedUpdateManyWithoutAttractionNestedInput
+  }
+
+  export type DestinationUpsertWithoutThumbnailInput = {
+    update: XOR<DestinationUpdateWithoutThumbnailInput, DestinationUncheckedUpdateWithoutThumbnailInput>
+    create: XOR<DestinationCreateWithoutThumbnailInput, DestinationUncheckedCreateWithoutThumbnailInput>
+    where?: DestinationWhereInput
+  }
+
+  export type DestinationUpdateToOneWithWhereWithoutThumbnailInput = {
+    where?: DestinationWhereInput
+    data: XOR<DestinationUpdateWithoutThumbnailInput, DestinationUncheckedUpdateWithoutThumbnailInput>
+  }
+
+  export type DestinationUpdateWithoutThumbnailInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonStart?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonEnd?: NullableStringFieldUpdateOperationsInput | string | null
+    languages?: DestinationUpdatelanguagesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: CityUpdateManyWithoutDestinationNestedInput
+    tours?: TourDestinationUpdateManyWithoutDestinationNestedInput
+    images?: ImageUpdateManyWithoutDestinationImagesNestedInput
+    faqs?: FAQUpdateManyWithoutDestinationNestedInput
+  }
+
+  export type DestinationUncheckedUpdateWithoutThumbnailInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonStart?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonEnd?: NullableStringFieldUpdateOperationsInput | string | null
+    languages?: DestinationUpdatelanguagesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: CityUncheckedUpdateManyWithoutDestinationNestedInput
+    tours?: TourDestinationUncheckedUpdateManyWithoutDestinationNestedInput
+    images?: ImageUncheckedUpdateManyWithoutDestinationImagesNestedInput
+    faqs?: FAQUncheckedUpdateManyWithoutDestinationNestedInput
+  }
+
+  export type TourUpsertWithoutImagesInput = {
+    update: XOR<TourUpdateWithoutImagesInput, TourUncheckedUpdateWithoutImagesInput>
+    create: XOR<TourCreateWithoutImagesInput, TourUncheckedCreateWithoutImagesInput>
+    where?: TourWhereInput
+  }
+
+  export type TourUpdateToOneWithWhereWithoutImagesInput = {
+    where?: TourWhereInput
+    data: XOR<TourUpdateWithoutImagesInput, TourUncheckedUpdateWithoutImagesInput>
+  }
+
+  export type TourUpdateWithoutImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    tourType?: NullableEnumTourTypeFieldUpdateOperationsInput | $Enums.TourType | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    highlights?: TourUpdatehighlightsInput | string[]
+    inclusions?: TourUpdateinclusionsInput | string[]
+    exclusions?: TourUpdateexclusionsInput | string[]
+    terms?: TourUpdatetermsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: TourCityUpdateManyWithoutTourNestedInput
+    thumbnail?: ImageUpdateOneWithoutTourThumbnailNestedInput
+    faqs?: FAQUpdateManyWithoutTourNestedInput
+    destinations?: TourDestinationUpdateManyWithoutTourNestedInput
+    itinerary?: DayItineraryItemUpdateManyWithoutTourNestedInput
+  }
+
+  export type TourUncheckedUpdateWithoutImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    tourType?: NullableEnumTourTypeFieldUpdateOperationsInput | $Enums.TourType | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailId?: NullableStringFieldUpdateOperationsInput | string | null
+    highlights?: TourUpdatehighlightsInput | string[]
+    inclusions?: TourUpdateinclusionsInput | string[]
+    exclusions?: TourUpdateexclusionsInput | string[]
+    terms?: TourUpdatetermsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: TourCityUncheckedUpdateManyWithoutTourNestedInput
+    faqs?: FAQUncheckedUpdateManyWithoutTourNestedInput
+    destinations?: TourDestinationUncheckedUpdateManyWithoutTourNestedInput
+    itinerary?: DayItineraryItemUncheckedUpdateManyWithoutTourNestedInput
+  }
+
+  export type AttractionUpsertWithoutImagesInput = {
+    update: XOR<AttractionUpdateWithoutImagesInput, AttractionUncheckedUpdateWithoutImagesInput>
+    create: XOR<AttractionCreateWithoutImagesInput, AttractionUncheckedCreateWithoutImagesInput>
+    where?: AttractionWhereInput
+  }
+
+  export type AttractionUpdateToOneWithWhereWithoutImagesInput = {
+    where?: AttractionWhereInput
+    data: XOR<AttractionUpdateWithoutImagesInput, AttractionUncheckedUpdateWithoutImagesInput>
+  }
+
+  export type AttractionUpdateWithoutImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    inclusions?: AttractionUpdateinclusionsInput | string[]
+    exclusions?: AttractionUpdateexclusionsInput | string[]
+    terms?: AttractionUpdatetermsInput | string[]
+    cityId?: StringFieldUpdateOperationsInput | string
+    thumbnail?: ImageUpdateOneWithoutAttractionThumbnailNestedInput
+    faqs?: FAQUpdateManyWithoutAttractionNestedInput
+  }
+
+  export type AttractionUncheckedUpdateWithoutImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    offerPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    thumbnailId?: NullableStringFieldUpdateOperationsInput | string | null
+    inclusions?: AttractionUpdateinclusionsInput | string[]
+    exclusions?: AttractionUpdateexclusionsInput | string[]
+    terms?: AttractionUpdatetermsInput | string[]
+    cityId?: StringFieldUpdateOperationsInput | string
+    faqs?: FAQUncheckedUpdateManyWithoutAttractionNestedInput
+  }
+
+  export type DayItineraryItemUpsertWithoutImagesInput = {
+    update: XOR<DayItineraryItemUpdateWithoutImagesInput, DayItineraryItemUncheckedUpdateWithoutImagesInput>
+    create: XOR<DayItineraryItemCreateWithoutImagesInput, DayItineraryItemUncheckedCreateWithoutImagesInput>
+    where?: DayItineraryItemWhereInput
+  }
+
+  export type DayItineraryItemUpdateToOneWithWhereWithoutImagesInput = {
+    where?: DayItineraryItemWhereInput
+    data: XOR<DayItineraryItemUpdateWithoutImagesInput, DayItineraryItemUncheckedUpdateWithoutImagesInput>
+  }
+
+  export type DayItineraryItemUpdateWithoutImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    dayNumber?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    meals?: DayItineraryItemUpdatemealsInput | $Enums.Meals[]
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    tour?: TourUpdateOneRequiredWithoutItineraryNestedInput
+  }
+
+  export type DayItineraryItemUncheckedUpdateWithoutImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tourId?: StringFieldUpdateOperationsInput | string
+    dayNumber?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    meals?: DayItineraryItemUpdatemealsInput | $Enums.Meals[]
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type DestinationUpsertWithoutImagesInput = {
+    update: XOR<DestinationUpdateWithoutImagesInput, DestinationUncheckedUpdateWithoutImagesInput>
+    create: XOR<DestinationCreateWithoutImagesInput, DestinationUncheckedCreateWithoutImagesInput>
+    where?: DestinationWhereInput
+  }
+
+  export type DestinationUpdateToOneWithWhereWithoutImagesInput = {
+    where?: DestinationWhereInput
+    data: XOR<DestinationUpdateWithoutImagesInput, DestinationUncheckedUpdateWithoutImagesInput>
+  }
+
+  export type DestinationUpdateWithoutImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonStart?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonEnd?: NullableStringFieldUpdateOperationsInput | string | null
+    languages?: DestinationUpdatelanguagesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: CityUpdateManyWithoutDestinationNestedInput
+    tours?: TourDestinationUpdateManyWithoutDestinationNestedInput
+    thumbnail?: ImageUpdateOneWithoutDestinationThumbnailNestedInput
+    faqs?: FAQUpdateManyWithoutDestinationNestedInput
+  }
+
+  export type DestinationUncheckedUpdateWithoutImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonStart?: NullableStringFieldUpdateOperationsInput | string | null
+    bestSeasonEnd?: NullableStringFieldUpdateOperationsInput | string | null
+    languages?: DestinationUpdatelanguagesInput | string[]
+    thumbnailId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cities?: CityUncheckedUpdateManyWithoutDestinationNestedInput
+    tours?: TourDestinationUncheckedUpdateManyWithoutDestinationNestedInput
+    faqs?: FAQUncheckedUpdateManyWithoutDestinationNestedInput
+  }
+
   export type SessionCreateManyUserInput = {
     id: string
     expiresAt: Date | string
@@ -10357,6 +27808,478 @@ export namespace Prisma {
     bucketName?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CityCreateManyDestinationInput = {
+    id?: string
+    name: string
+    slug: string
+  }
+
+  export type TourDestinationCreateManyDestinationInput = {
+    id?: string
+    tourId: string
+  }
+
+  export type ImageCreateManyDestinationImagesInput = {
+    id?: string
+    bucketName: string
+    fileName: string
+    altText?: string | null
+    keywords?: ImageCreatekeywordsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tourId?: string | null
+    attractionId?: string | null
+    dayItineraryItemId?: string | null
+  }
+
+  export type FAQCreateManyDestinationInput = {
+    id?: string
+    question: string
+    answer: string
+    attractionId?: string | null
+    tourId?: string | null
+  }
+
+  export type CityUpdateWithoutDestinationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    tours?: TourCityUpdateManyWithoutCityNestedInput
+  }
+
+  export type CityUncheckedUpdateWithoutDestinationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    tours?: TourCityUncheckedUpdateManyWithoutCityNestedInput
+  }
+
+  export type CityUncheckedUpdateManyWithoutDestinationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TourDestinationUpdateWithoutDestinationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tour?: TourUpdateOneRequiredWithoutDestinationsNestedInput
+  }
+
+  export type TourDestinationUncheckedUpdateWithoutDestinationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tourId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TourDestinationUncheckedUpdateManyWithoutDestinationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tourId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ImageUpdateWithoutDestinationImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tourThumbnail?: TourUpdateOneWithoutThumbnailNestedInput
+    attractionThumbnail?: AttractionUpdateOneWithoutThumbnailNestedInput
+    destinationThumbnail?: DestinationUpdateOneWithoutThumbnailNestedInput
+    tourImages?: TourUpdateOneWithoutImagesNestedInput
+    attractionImages?: AttractionUpdateOneWithoutImagesNestedInput
+    dayItineraryImages?: DayItineraryItemUpdateOneWithoutImagesNestedInput
+  }
+
+  export type ImageUncheckedUpdateWithoutDestinationImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tourId?: NullableStringFieldUpdateOperationsInput | string | null
+    attractionId?: NullableStringFieldUpdateOperationsInput | string | null
+    dayItineraryItemId?: NullableStringFieldUpdateOperationsInput | string | null
+    tourThumbnail?: TourUncheckedUpdateOneWithoutThumbnailNestedInput
+    attractionThumbnail?: AttractionUncheckedUpdateOneWithoutThumbnailNestedInput
+    destinationThumbnail?: DestinationUncheckedUpdateOneWithoutThumbnailNestedInput
+  }
+
+  export type ImageUncheckedUpdateManyWithoutDestinationImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tourId?: NullableStringFieldUpdateOperationsInput | string | null
+    attractionId?: NullableStringFieldUpdateOperationsInput | string | null
+    dayItineraryItemId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FAQUpdateWithoutDestinationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    answer?: StringFieldUpdateOperationsInput | string
+    attraction?: AttractionUpdateOneWithoutFaqsNestedInput
+    tour?: TourUpdateOneWithoutFaqsNestedInput
+  }
+
+  export type FAQUncheckedUpdateWithoutDestinationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    answer?: StringFieldUpdateOperationsInput | string
+    attractionId?: NullableStringFieldUpdateOperationsInput | string | null
+    tourId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FAQUncheckedUpdateManyWithoutDestinationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    answer?: StringFieldUpdateOperationsInput | string
+    attractionId?: NullableStringFieldUpdateOperationsInput | string | null
+    tourId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TourCityCreateManyCityInput = {
+    id?: string
+    tourId: string
+  }
+
+  export type TourCityUpdateWithoutCityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tour?: TourUpdateOneRequiredWithoutCitiesNestedInput
+  }
+
+  export type TourCityUncheckedUpdateWithoutCityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tourId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TourCityUncheckedUpdateManyWithoutCityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tourId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TourCityCreateManyTourInput = {
+    id?: string
+    cityId: string
+  }
+
+  export type ImageCreateManyTourImagesInput = {
+    id?: string
+    bucketName: string
+    fileName: string
+    altText?: string | null
+    keywords?: ImageCreatekeywordsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    attractionId?: string | null
+    dayItineraryItemId?: string | null
+    destinationId?: string | null
+  }
+
+  export type FAQCreateManyTourInput = {
+    id?: string
+    question: string
+    answer: string
+    attractionId?: string | null
+    destinationId?: string | null
+  }
+
+  export type TourDestinationCreateManyTourInput = {
+    id?: string
+    destinationId: string
+  }
+
+  export type DayItineraryItemCreateManyTourInput = {
+    id?: string
+    dayNumber: number
+    title: string
+    content?: string | null
+    meals?: DayItineraryItemCreatemealsInput | $Enums.Meals[]
+    duration?: number | null
+  }
+
+  export type TourCityUpdateWithoutTourInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    city?: CityUpdateOneRequiredWithoutToursNestedInput
+  }
+
+  export type TourCityUncheckedUpdateWithoutTourInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cityId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TourCityUncheckedUpdateManyWithoutTourInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    cityId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ImageUpdateWithoutTourImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tourThumbnail?: TourUpdateOneWithoutThumbnailNestedInput
+    attractionThumbnail?: AttractionUpdateOneWithoutThumbnailNestedInput
+    destinationThumbnail?: DestinationUpdateOneWithoutThumbnailNestedInput
+    attractionImages?: AttractionUpdateOneWithoutImagesNestedInput
+    dayItineraryImages?: DayItineraryItemUpdateOneWithoutImagesNestedInput
+    destinationImages?: DestinationUpdateOneWithoutImagesNestedInput
+  }
+
+  export type ImageUncheckedUpdateWithoutTourImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    attractionId?: NullableStringFieldUpdateOperationsInput | string | null
+    dayItineraryItemId?: NullableStringFieldUpdateOperationsInput | string | null
+    destinationId?: NullableStringFieldUpdateOperationsInput | string | null
+    tourThumbnail?: TourUncheckedUpdateOneWithoutThumbnailNestedInput
+    attractionThumbnail?: AttractionUncheckedUpdateOneWithoutThumbnailNestedInput
+    destinationThumbnail?: DestinationUncheckedUpdateOneWithoutThumbnailNestedInput
+  }
+
+  export type ImageUncheckedUpdateManyWithoutTourImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    attractionId?: NullableStringFieldUpdateOperationsInput | string | null
+    dayItineraryItemId?: NullableStringFieldUpdateOperationsInput | string | null
+    destinationId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FAQUpdateWithoutTourInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    answer?: StringFieldUpdateOperationsInput | string
+    attraction?: AttractionUpdateOneWithoutFaqsNestedInput
+    destination?: DestinationUpdateOneWithoutFaqsNestedInput
+  }
+
+  export type FAQUncheckedUpdateWithoutTourInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    answer?: StringFieldUpdateOperationsInput | string
+    attractionId?: NullableStringFieldUpdateOperationsInput | string | null
+    destinationId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FAQUncheckedUpdateManyWithoutTourInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    answer?: StringFieldUpdateOperationsInput | string
+    attractionId?: NullableStringFieldUpdateOperationsInput | string | null
+    destinationId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TourDestinationUpdateWithoutTourInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    destination?: DestinationUpdateOneRequiredWithoutToursNestedInput
+  }
+
+  export type TourDestinationUncheckedUpdateWithoutTourInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    destinationId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TourDestinationUncheckedUpdateManyWithoutTourInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    destinationId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DayItineraryItemUpdateWithoutTourInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    dayNumber?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    meals?: DayItineraryItemUpdatemealsInput | $Enums.Meals[]
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    images?: ImageUpdateManyWithoutDayItineraryImagesNestedInput
+  }
+
+  export type DayItineraryItemUncheckedUpdateWithoutTourInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    dayNumber?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    meals?: DayItineraryItemUpdatemealsInput | $Enums.Meals[]
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    images?: ImageUncheckedUpdateManyWithoutDayItineraryImagesNestedInput
+  }
+
+  export type DayItineraryItemUncheckedUpdateManyWithoutTourInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    dayNumber?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    meals?: DayItineraryItemUpdatemealsInput | $Enums.Meals[]
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type ImageCreateManyAttractionImagesInput = {
+    id?: string
+    bucketName: string
+    fileName: string
+    altText?: string | null
+    keywords?: ImageCreatekeywordsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tourId?: string | null
+    dayItineraryItemId?: string | null
+    destinationId?: string | null
+  }
+
+  export type FAQCreateManyAttractionInput = {
+    id?: string
+    question: string
+    answer: string
+    tourId?: string | null
+    destinationId?: string | null
+  }
+
+  export type ImageUpdateWithoutAttractionImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tourThumbnail?: TourUpdateOneWithoutThumbnailNestedInput
+    attractionThumbnail?: AttractionUpdateOneWithoutThumbnailNestedInput
+    destinationThumbnail?: DestinationUpdateOneWithoutThumbnailNestedInput
+    tourImages?: TourUpdateOneWithoutImagesNestedInput
+    dayItineraryImages?: DayItineraryItemUpdateOneWithoutImagesNestedInput
+    destinationImages?: DestinationUpdateOneWithoutImagesNestedInput
+  }
+
+  export type ImageUncheckedUpdateWithoutAttractionImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tourId?: NullableStringFieldUpdateOperationsInput | string | null
+    dayItineraryItemId?: NullableStringFieldUpdateOperationsInput | string | null
+    destinationId?: NullableStringFieldUpdateOperationsInput | string | null
+    tourThumbnail?: TourUncheckedUpdateOneWithoutThumbnailNestedInput
+    attractionThumbnail?: AttractionUncheckedUpdateOneWithoutThumbnailNestedInput
+    destinationThumbnail?: DestinationUncheckedUpdateOneWithoutThumbnailNestedInput
+  }
+
+  export type ImageUncheckedUpdateManyWithoutAttractionImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tourId?: NullableStringFieldUpdateOperationsInput | string | null
+    dayItineraryItemId?: NullableStringFieldUpdateOperationsInput | string | null
+    destinationId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FAQUpdateWithoutAttractionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    answer?: StringFieldUpdateOperationsInput | string
+    tour?: TourUpdateOneWithoutFaqsNestedInput
+    destination?: DestinationUpdateOneWithoutFaqsNestedInput
+  }
+
+  export type FAQUncheckedUpdateWithoutAttractionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    answer?: StringFieldUpdateOperationsInput | string
+    tourId?: NullableStringFieldUpdateOperationsInput | string | null
+    destinationId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FAQUncheckedUpdateManyWithoutAttractionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    answer?: StringFieldUpdateOperationsInput | string
+    tourId?: NullableStringFieldUpdateOperationsInput | string | null
+    destinationId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ImageCreateManyDayItineraryImagesInput = {
+    id?: string
+    bucketName: string
+    fileName: string
+    altText?: string | null
+    keywords?: ImageCreatekeywordsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tourId?: string | null
+    attractionId?: string | null
+    destinationId?: string | null
+  }
+
+  export type ImageUpdateWithoutDayItineraryImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tourThumbnail?: TourUpdateOneWithoutThumbnailNestedInput
+    attractionThumbnail?: AttractionUpdateOneWithoutThumbnailNestedInput
+    destinationThumbnail?: DestinationUpdateOneWithoutThumbnailNestedInput
+    tourImages?: TourUpdateOneWithoutImagesNestedInput
+    attractionImages?: AttractionUpdateOneWithoutImagesNestedInput
+    destinationImages?: DestinationUpdateOneWithoutImagesNestedInput
+  }
+
+  export type ImageUncheckedUpdateWithoutDayItineraryImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tourId?: NullableStringFieldUpdateOperationsInput | string | null
+    attractionId?: NullableStringFieldUpdateOperationsInput | string | null
+    destinationId?: NullableStringFieldUpdateOperationsInput | string | null
+    tourThumbnail?: TourUncheckedUpdateOneWithoutThumbnailNestedInput
+    attractionThumbnail?: AttractionUncheckedUpdateOneWithoutThumbnailNestedInput
+    destinationThumbnail?: DestinationUncheckedUpdateOneWithoutThumbnailNestedInput
+  }
+
+  export type ImageUncheckedUpdateManyWithoutDayItineraryImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    bucketName?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    altText?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: ImageUpdatekeywordsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tourId?: NullableStringFieldUpdateOperationsInput | string | null
+    attractionId?: NullableStringFieldUpdateOperationsInput | string | null
+    destinationId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 

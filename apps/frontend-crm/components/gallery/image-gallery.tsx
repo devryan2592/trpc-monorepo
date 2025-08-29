@@ -53,6 +53,9 @@ import {
 import { Plus, Trash, Loader2, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
 import { post, del, get } from "@/lib/fetch-wrapper";
+import { getImageUrl } from "@/actions/image-gallery-actions";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@workspace/ui/lib/utils";
 
 // Type definition for ImageGalleryFolder
 type ImageGalleryFolder = {
@@ -167,7 +170,7 @@ const ImageGallery: FC<ImageGalleryProps> = ({
     const baseFiles = files.length > 0 ? files : folderFiles;
     return baseFiles.map((file) => ({
       ...file,
-      url: urlCache.get(file.id) || file.url || null,
+      url: urlCache.get(file.id) || file.url || undefined,
       hasError: urlErrors.has(file.id),
     }));
   }, [files, folderFiles, urlCache, urlErrors]);
@@ -193,6 +196,10 @@ const ImageGallery: FC<ImageGalleryProps> = ({
   useEffect(() => {
     if (folders.length > 0 && !selectedFolder) {
       setSelectedFolder(folders[0]?.id || null);
+    } else if (folders.length === 0 && selectedFolder) {
+      // Clear selected folder if no folders exist
+      setSelectedFolder(null);
+      setFolderFiles([]);
     }
   }, [folders, selectedFolder]);
 
@@ -286,18 +293,30 @@ const ImageGallery: FC<ImageGalleryProps> = ({
 
               const urlPromises = batch.map(async (file) => {
                 try {
-                  const urlResponse = await get<{ url: string }>(
-                    `/image-gallery/files/${file.id}/url`
-                  );
+                  const urlResponse = await getImageUrl(file.id);
 
-                  if (urlResponse.data?.url) {
+                  console.log(`URL response for file ${file.id}:`, urlResponse);
+
+                  let url: string | undefined;
+
+                  if (urlResponse.status === "success" && urlResponse.data) {
+                    url = urlResponse.data.data.url;
+                  }
+
+                  if (url) {
                     return {
                       fileId: file.id,
-                      url: urlResponse.data.url,
+                      url: url,
                       error: null,
                     };
                   } else {
-                    throw new Error("No URL returned");
+                    console.error(
+                      `No URL found in response for file ${file.id}:`,
+                      urlResponse
+                    );
+                    throw new Error(
+                      `No URL returned. Response: ${JSON.stringify(urlResponse)}`
+                    );
                   }
                 } catch (error) {
                   console.error(
@@ -358,12 +377,6 @@ const ImageGallery: FC<ImageGalleryProps> = ({
     }
   }, [filesData, urlCache, urlErrors]);
 
-  // Debounced URL fetching to prevent excessive API calls
-  const [urlFetchQueue, setUrlFetchQueue] = useState<Set<string>>(new Set());
-  const [urlFetchTimeout, setUrlFetchTimeout] = useState<NodeJS.Timeout | null>(
-    null
-  );
-
   // Function to refresh URL for a specific file with debouncing
   const refreshFileUrl = useCallback(
     async (fileId: string) => {
@@ -401,7 +414,9 @@ const ImageGallery: FC<ImageGalleryProps> = ({
           // Update the file in the list
           setFolderFiles((prev) =>
             prev.map((file) =>
-              file.id === fileId ? { ...file, url: urlResponse.data.url } : file
+              file.id === fileId
+                ? { ...file, url: urlResponse.data?.url }
+                : file
             )
           );
 
@@ -425,8 +440,6 @@ const ImageGallery: FC<ImageGalleryProps> = ({
       setUrlErrors(new Set());
     }
   }, [selectedFolder]);
-
-  console.log("galleryFiles", galleryFiles);
 
   // Initialize selected files and update when initialSelectedFiles changes
   useEffect(() => {
@@ -468,19 +481,25 @@ const ImageGallery: FC<ImageGalleryProps> = ({
       return;
     }
 
+    const folderToDelete = selectedFolder;
+    const remainingFolders = folders.filter(
+      (folder) => folder.id !== folderToDelete
+    );
+
+    // Optimistically update the UI immediately
+    setSelectedFolder(
+      remainingFolders.length > 0 ? remainingFolders[0]?.id || null : null
+    );
+    setFolderFiles([]);
+
     try {
-      await deleteFolderMutation.mutateAsync(selectedFolder);
-      const remainingFolders = folders.filter(
-        (folder) => folder.id !== selectedFolder
-      );
-      setSelectedFolder(
-        remainingFolders.length > 0 ? remainingFolders[0]?.id || null : null
-      );
-      setFolderFiles([]);
-      toast.success("Folder deleted successfully");
+      await deleteFolderMutation.mutateAsync(folderToDelete);
+      console.log("Folder deleted successfully");
     } catch (error) {
       console.error("Error deleting folder:", error);
       toast.error("Failed to delete folder");
+      // Revert optimistic update on error
+      setSelectedFolder(folderToDelete);
     }
   };
 
@@ -603,6 +622,9 @@ const ImageGallery: FC<ImageGalleryProps> = ({
     return selectedFiles.some((f) => f.id === fileId);
   };
 
+  console.log("selectedFolder", selectedFolder);
+  console.log("folders", folders);
+
   return (
     <>
       <Dialog>
@@ -663,8 +685,11 @@ const ImageGallery: FC<ImageGalleryProps> = ({
                             <Plus className="h-4 w-4" />
                           </Button>
                         </PopoverTrigger>
-                        <PopoverContent className="w-80">
-                          <div className="grid gap-4">
+                        <PopoverContent
+                          className={cn(useIsMobile() ? "w-64" : "w-80")}
+                          align={useIsMobile() ? "end" : "start"}
+                        >
+                          <div className="space-y-2">
                             <div className="space-y-2">
                               <h4 className="font-medium leading-none">
                                 Create New Folder

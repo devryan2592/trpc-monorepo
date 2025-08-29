@@ -186,6 +186,108 @@ exports.Prisma.ImageGalleryFileScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.DestinationScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  content: 'content',
+  featured: 'featured',
+  currency: 'currency',
+  bestSeasonStart: 'bestSeasonStart',
+  bestSeasonEnd: 'bestSeasonEnd',
+  languages: 'languages',
+  thumbnailId: 'thumbnailId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CityScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  destinationId: 'destinationId'
+};
+
+exports.Prisma.TourScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  content: 'content',
+  featured: 'featured',
+  duration: 'duration',
+  tourType: 'tourType',
+  price: 'price',
+  offerPrice: 'offerPrice',
+  currency: 'currency',
+  thumbnailId: 'thumbnailId',
+  highlights: 'highlights',
+  inclusions: 'inclusions',
+  exclusions: 'exclusions',
+  terms: 'terms',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.TourCityScalarFieldEnum = {
+  id: 'id',
+  tourId: 'tourId',
+  cityId: 'cityId'
+};
+
+exports.Prisma.TourDestinationScalarFieldEnum = {
+  id: 'id',
+  tourId: 'tourId',
+  destinationId: 'destinationId'
+};
+
+exports.Prisma.AttractionScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  content: 'content',
+  duration: 'duration',
+  price: 'price',
+  offerPrice: 'offerPrice',
+  thumbnailId: 'thumbnailId',
+  inclusions: 'inclusions',
+  exclusions: 'exclusions',
+  terms: 'terms',
+  cityId: 'cityId'
+};
+
+exports.Prisma.FAQScalarFieldEnum = {
+  id: 'id',
+  question: 'question',
+  answer: 'answer',
+  attractionId: 'attractionId',
+  tourId: 'tourId',
+  destinationId: 'destinationId'
+};
+
+exports.Prisma.DayItineraryItemScalarFieldEnum = {
+  id: 'id',
+  tourId: 'tourId',
+  dayNumber: 'dayNumber',
+  title: 'title',
+  content: 'content',
+  meals: 'meals',
+  duration: 'duration'
+};
+
+exports.Prisma.ImageScalarFieldEnum = {
+  id: 'id',
+  bucketName: 'bucketName',
+  fileName: 'fileName',
+  altText: 'altText',
+  keywords: 'keywords',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  tourId: 'tourId',
+  attractionId: 'attractionId',
+  dayItineraryItemId: 'dayItineraryItemId',
+  destinationId: 'destinationId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -200,7 +302,18 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+exports.TourType = exports.$Enums.TourType = {
+  BUDGET: 'BUDGET',
+  STANDARD: 'STANDARD',
+  PREMIUM: 'PREMIUM',
+  LUXURY: 'LUXURY'
+};
 
+exports.Meals = exports.$Enums.Meals = {
+  BREAKFAST: 'BREAKFAST',
+  LUNCH: 'LUNCH',
+  DINNER: 'DINNER'
+};
 
 exports.Prisma.ModelName = {
   User: 'User',
@@ -208,7 +321,16 @@ exports.Prisma.ModelName = {
   Account: 'Account',
   Verification: 'Verification',
   ImageGalleryFolder: 'ImageGalleryFolder',
-  ImageGalleryFile: 'ImageGalleryFile'
+  ImageGalleryFile: 'ImageGalleryFile',
+  Destination: 'Destination',
+  City: 'City',
+  Tour: 'Tour',
+  TourCity: 'TourCity',
+  TourDestination: 'TourDestination',
+  Attraction: 'Attraction',
+  FAQ: 'FAQ',
+  DayItineraryItem: 'DayItineraryItem',
+  Image: 'Image'
 };
 
 /**
